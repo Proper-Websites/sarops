@@ -398,12 +398,29 @@ nav.primary .nav-donate::after{ display: none; }
 .hero-stack{
   position: relative;
   background-color: var(--navy);
-  background-image: url('hero.png');
-  background-size: cover;
-  background-position: 70% center;
-  background-attachment: fixed;
   border-bottom: 2px solid var(--signal);
 }
+/* Hero crossfade slideshow — same pure-CSS technique as the Gabriela Santiago
+   hero: stacked full-bleed slides, each fading in/out on a staggered delay.
+   Sits behind .hero-stack::after so the left-dark overlay reads on every slide. */
+.hero-slideshow{ position:absolute; inset:0; z-index:0; overflow:hidden; }
+.hero-slide{
+  position:absolute; inset:0;
+  background-size:cover; background-position:center;
+  opacity:0; animation:heroFade 24s infinite; will-change:opacity;
+}
+.hero-slide:nth-child(1){ animation-delay:0s; }
+.hero-slide:nth-child(2){ animation-delay:6s; }
+.hero-slide:nth-child(3){ animation-delay:12s; }
+.hero-slide:nth-child(4){ animation-delay:18s; }
+@keyframes heroFade{
+  0%{opacity:0;} 5%{opacity:1;} 25%{opacity:1;} 30%{opacity:0;} 100%{opacity:0;}
+}
+@media (prefers-reduced-motion: reduce){
+  .hero-slide{ animation:none; }
+  .hero-slide:first-child{ opacity:1; }
+}
+
 /* One continuous overlay across the WHOLE stack (hero + sponsors) so the
    dark treatment — especially the left-dark gradient behind the copy — runs
    unbroken down through the sponsors band. No seam between the two sections. */
@@ -424,11 +441,11 @@ nav.primary .nav-donate::after{ display: none; }
       rgba(15,25,36,0)    100%
     );
   pointer-events: none;
-  z-index: 0;
+  z-index: 1;
 }
 .hero{
   position: relative;
-  z-index: 1;
+  z-index: 2;
   color: var(--white);
   overflow: hidden;
   min-height: 80vh;
@@ -530,7 +547,7 @@ h1.hero-title .accent{
 /* ============ PARTNERS BAND ============ */
 .partners{
   position: relative;
-  z-index: 1;
+  z-index: 2;
   color: var(--white);
   margin-top: -28px;
   padding: 0 0 52px;
@@ -605,15 +622,16 @@ h1.hero-title .accent{
 .about{
   background: #1B2A3A;
   color: var(--white);
-  padding: 130px 0;
   position: relative;
   overflow: hidden;
 }
+/* topo map: mirrored to the RIGHT, behind the text */
 .about-diagram{
   position: absolute;
   top: 50%;
-  left: 0;
-  transform: translateY(-50%);
+  right: 0;
+  left: auto;
+  transform: translateY(-50%) scaleX(-1);
   height: 105%;
   width: auto;
   max-width: 45%;
@@ -623,20 +641,20 @@ h1.hero-title .accent{
   filter: invert(1) hue-rotate(180deg) saturate(1.4);
   z-index: 0;
 }
-.about .wrap{ position: relative; z-index: 1; }
-.about-grid{
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
-  gap: 88px;
-  align-items: stretch;
-}
+/* photo: full-bleed panel covering the left 35% of the section */
 .about-photo{
-  aspect-ratio: 4 / 5;
-  width: 100%;
-  position: relative;
-  z-index: 1;
+  position: absolute;
+  top: 0; left: 0; bottom: 0;
+  width: 35%;
+  z-index: 2;
 }
+/* text: occupies the right 65%, clearing the photo */
 .about-text{
+  position: relative;
+  z-index: 3;
+  width: 65%;
+  margin-left: 35%;
+  padding: 130px 64px 130px 76px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -1610,8 +1628,9 @@ footer.site-footer .wrap{
   .partners-grid{ grid-template-columns: 1fr 1fr; }
   .partner:nth-child(3){ border-left: none; padding-left: 0; }
   .partner:nth-child(1), .partner:nth-child(2){ border-bottom: 1px solid var(--line-dark); padding-bottom: 24px; margin-bottom: 24px; }
-  .about-grid{ grid-template-columns: 1fr; gap: 48px; }
-  .about-photo{ min-height: 480px; }
+  .about-photo{ position: relative; top: auto; left: auto; bottom: auto; width: auto; height: 480px; z-index: 1; }
+  .about-text{ width: auto; margin-left: 0; padding: 56px 44px; }
+  .about-diagram{ display: none; }
   .services-head, .op-head{ grid-template-columns: 1fr; gap: 32px; }
   .standard-head{ grid-template-columns: 1fr; gap: 16px; }
   .cert-list{ grid-template-columns: 1fr; column-gap: 0; }
@@ -1671,8 +1690,8 @@ footer.site-footer .wrap{
   .partner:nth-child(even){ border-left: 1px solid var(--line-dark); }
   .partner:nth-child(1), .partner:nth-child(2){ border-bottom: 1px solid var(--line-dark); padding-bottom: 22px; margin-bottom: 0; }
   .partner img{ max-height: 44px; }
-  .about{ padding: 80px 0; }
-  .about-photo{ min-height: 380px; }
+  .about-text{ padding: 48px 22px; }
+  .about-photo{ height: 380px; }
   .services{ padding: 80px 0; }
   .svc-row{ grid-template-columns: 1fr auto; gap: 12px; padding: 26px 0; }
   .svc-num, .svc-icon{ grid-column: 1; }
@@ -1772,6 +1791,12 @@ footer.site-footer .wrap{
 
 <!-- ============ HERO + SPONSORS (shared background) ============ -->
 <div class="hero-stack">
+  <div class="hero-slideshow" aria-hidden="true">
+    <div class="hero-slide" style="background-image:url('hero.png'); background-position:70% center;"></div>
+    <div class="hero-slide" style="background-image:url('Assets/training.jpg');"></div>
+    <div class="hero-slide" style="background-image:url('What-we-do-page-scaled.jpg');"></div>
+    <div class="hero-slide" style="background-image:url('Assets/Contact-us-Page-Top-image-scaled.jpg');"></div>
+  </div>
 <!-- ============ HERO ============ -->
 <section class="hero">
   <div class="wrap">
@@ -1825,30 +1850,26 @@ footer.site-footer .wrap{
 <!-- ============ TRAINED TO RESPOND (about) ============ -->
 <section class="about" id="about">
   <img class="about-diagram" src="diagram.png" alt="" aria-hidden="true" />
-  <div class="wrap">
-    <div class="about-grid">
-      <div class="about-photo ph" aria-hidden="true" style="background-image:url('What-we-do-page-scaled.jpg'); background-size:cover; background-position:center;">
-        <span class="ph-cnr-tr"></span>
-        <span class="ph-cnr-bl"></span>
-        <span class="ph-label">Operator · Full Frame</span>
-      </div>
-      <div class="about-text">
-        <div class="eyebrow on-dark">Our Mission</div>
-        <h2 class="h-display">Trained to <span class="accent">respond</span>, built to rescue</h2>
-        <p>
-          SAR OPS was built on a foundation of service, courage, and community. Our <strong>100% volunteer team</strong> is certified in technical rope rescue, swift water rescue, wilderness first response, EMS response, and urban SAR.
-        </p>
-        <p>
-          Every call we answer is a life that matters, and we respond with urgency, empathy, and elite training.
-        </p>
+  <div class="about-photo ph" aria-hidden="true" style="background-image:url('What-we-do-page-scaled.jpg'); background-size:cover; background-position:center;">
+    <span class="ph-cnr-tr"></span>
+    <span class="ph-cnr-bl"></span>
+    <span class="ph-label">Operator · Full Frame</span>
+  </div>
+  <div class="about-text">
+    <div class="eyebrow on-dark">Our Mission</div>
+    <h2 class="h-display">Trained to <span class="accent">respond</span>, built to rescue</h2>
+    <p>
+      SAR OPS was built on a foundation of service, courage, and community. Our <strong>100% volunteer team</strong> is certified in technical rope rescue, swift water rescue, wilderness first response, EMS response, and urban SAR.
+    </p>
+    <p>
+      Every call we answer is a life that matters, and we respond with urgency, empathy, and elite training.
+    </p>
 
-        <div class="about-pillars">
-          <div class="pillar"><span class="pillar-text">Rapid Deployment</span></div>
-          <div class="pillar"><span class="pillar-text">NFPA-Compliant Operations</span></div>
-          <div class="pillar"><span class="pillar-text">Volunteer-Powered Rescue</span></div>
-          <div class="pillar"><span class="pillar-text">Cutting-Edge Techniques</span></div>
-        </div>
-      </div>
+    <div class="about-pillars">
+      <div class="pillar"><span class="pillar-text">Rapid Deployment</span></div>
+      <div class="pillar"><span class="pillar-text">NFPA-Compliant Operations</span></div>
+      <div class="pillar"><span class="pillar-text">Volunteer-Powered Rescue</span></div>
+      <div class="pillar"><span class="pillar-text">Cutting-Edge Techniques</span></div>
     </div>
   </div>
 </section>
