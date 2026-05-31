@@ -345,7 +345,8 @@ nav.primary .nav-donate::after{ display: none; }
 .btn-solid:hover{ background: var(--steel-2); border-color: var(--steel-2); }
 .btn-ghost{
   color: var(--white);
-  border-color: var(--signal);
+  border-color: var(--signal-2);
+  border-width: 2px;
 }
 .btn-ghost:hover{
   border-color: var(--signal);
@@ -378,7 +379,8 @@ nav.primary .nav-donate::after{ display: none; }
 }
 .btn-ghost-steel{
   color: var(--white);
-  border-color: var(--signal);
+  border-color: var(--signal-2);
+  border-width: 2px;
 }
 .btn-ghost-steel:hover{
   border-color: var(--signal);
@@ -429,11 +431,11 @@ nav.primary .nav-donate::after{ display: none; }
   z-index: 1;
   color: var(--white);
   overflow: hidden;
-  min-height: 74vh;
+  min-height: 80vh;
 }
 .hero .wrap{
   position: relative; z-index: 1;
-  min-height: 74vh;
+  min-height: 80vh;
   display: flex;
   align-items: stretch;
 }
@@ -798,8 +800,8 @@ h1.hero-title .accent{
   transition: border-color .2s ease, color .2s ease, background .2s ease;
 }
 .svc-row:hover .svc-arrow{
-  background: var(--steel);
-  border-color: var(--steel);
+  background: var(--signal);
+  border-color: var(--signal);
   color: var(--white);
 }
 
@@ -1164,10 +1166,11 @@ h1.hero-title .accent{
 .amount-custom input::-webkit-inner-spin-button{ -webkit-appearance: none; margin: 0; }
 .amount-fund{
   font-family: var(--mono);
-  font-size: 0.72rem;
-  letter-spacing: 0.04em;
+  font-size: 1.05rem;
+  letter-spacing: 0.03em;
+  line-height: 1.5;
   color: var(--copy);
-  margin-top: 16px;
+  margin-top: 18px;
   min-height: 1em;
 }
 .amount-fund strong{ color: var(--white); font-weight: 600; }
@@ -1732,6 +1735,7 @@ footer.site-footer .wrap{
     </a>
 
     <nav class="primary" aria-label="Primary">
+      <a href="index.html">Home</a>
       <a href="about.html">About</a>
       <a href="what-we-do.html">What We Do</a>
       <a href="sponsors.html">Sponsors</a>
@@ -1757,6 +1761,7 @@ footer.site-footer .wrap{
       <line x1="19" y1="5" x2="5" y2="19"/>
     </svg>
   </button>
+  <a href="index.html">Home</a>
   <a href="about.html">About</a>
   <a href="what-we-do.html">What We Do</a>
   <a href="sponsors.html">Sponsors</a>
@@ -2005,20 +2010,21 @@ footer.site-footer .wrap{
         <div class="donate-amounts" id="donateAmounts">
           <div class="donate-amounts-label">Choose an amount</div>
           <div class="amount-chips" role="group" aria-label="Donation amount">
-            <button type="button" class="amount-chip" data-amt="50" data-fund="Field supplies and consumables">$50</button>
+            <button type="button" class="amount-chip" data-amt="5" data-fund="Trail markers and batteries">$5</button>
+            <button type="button" class="amount-chip" data-amt="10" data-fund="First-aid and medical supplies">$10</button>
+            <button type="button" class="amount-chip" data-amt="20" data-fund="Carabiners and rigging hardware">$20</button>
+            <button type="button" class="amount-chip selected" data-amt="50" data-fund="Field supplies and consumables">$50</button>
             <button type="button" class="amount-chip" data-amt="100" data-fund="Fuel and mission logistics">$100</button>
-            <button type="button" class="amount-chip selected" data-amt="250" data-fund="Rescue gear and safety equipment">$250</button>
-            <button type="button" class="amount-chip" data-amt="500" data-fund="Technical rope and hardware">$500</button>
             <button type="button" class="amount-chip" data-amt="custom" data-fund="Give any amount that fits">Custom</button>
           </div>
           <div class="amount-custom" id="amountCustom">
             <span class="cur">$</span>
             <input type="number" min="1" step="1" inputmode="numeric" placeholder="Enter amount" id="amountCustomInput" aria-label="Custom donation amount" />
           </div>
-          <div class="amount-fund" id="amountFund"><strong>$250</strong> &middot; Rescue gear and safety equipment &middot; Most common</div>
+          <div class="amount-fund" id="amountFund"><strong>$50</strong> &middot; Field supplies and consumables</div>
         </div>
         <div class="donate-actions">
-          <a href="#" class="btn btn-signal" id="donateNowBtn"><span class="btn-label">Donate $250</span> <span class="arrow">&rarr;</span></a>
+          <a href="#" class="btn btn-signal" id="donateNowBtn"><span class="btn-label">Donate $50</span> <span class="arrow">&rarr;</span></a>
           <a href="#" class="btn btn-ghost-steel">Become a Sponsor <span class="arrow">&rarr;</span></a>
         </div>
       </div>
@@ -2159,6 +2165,7 @@ footer.site-footer .wrap{
       <div class="footer-col">
         <h4>Site</h4>
         <ul>
+          <li><a href="index.html">Home</a></li>
           <li><a href="about.html">About</a></li>
           <li><a href="what-we-do.html">What We Do</a></li>
           <li><a href="sponsors.html">Sponsors</a></li>
@@ -2233,7 +2240,7 @@ footer.site-footer .wrap{
         syncCustom();
       } else {
         customBox.classList.remove('show');
-        const tail = amt === '250' ? chip.dataset.fund + ' &middot; Most common' : chip.dataset.fund;
+        const tail = chip.dataset.fund;
         setFund(fmt(amt), tail);
         setBtn('Donate ' + fmt(amt));
       }
