@@ -104,7 +104,7 @@ nav.primary .nav-donate::after{ display:none; }
 .caps{ background:var(--navy); }
 .cap-row{ display:grid; grid-template-columns:1fr 1fr; gap:72px; align-items:center; padding:96px 0; border-bottom:1px solid var(--line-dark); }
 .cap-row:last-child{ border-bottom:none; }
-.cap-media{ aspect-ratio:4/3; width:100%; background-size:cover; background-position:center; position:relative; border:1px solid var(--line-dark); }
+.cap-media{ aspect-ratio:4/3; width:100%; background-size:cover; background-position:center; background-attachment:fixed; position:relative; border:1px solid var(--line-dark); }
 .cap-row:nth-child(even) .cap-media{ order:2; }
 .cap-num{ font-family:var(--mono); font-size:0.8rem; letter-spacing:0.22em; color:var(--signal); display:inline-block; padding-bottom:18px; margin-bottom:22px; border-bottom:2px solid var(--steel-2); }
 .cap-kicker{ font-family:var(--mono); font-size:0.74rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--spark); margin-bottom:14px; }
@@ -158,7 +158,7 @@ footer.site-footer .wrap{ max-width:none; padding:0 48px; }
   .cap-intro .wrap{ grid-template-columns:1fr; gap:24px; }
   .cap-row{ grid-template-columns:1fr; gap:36px; padding:64px 0; }
   .cap-row:nth-child(even) .cap-media{ order:0; }
-  .cap-media{ aspect-ratio:16/10; }
+  .cap-media{ aspect-ratio:16/10; background-attachment:scroll; }
   .tl-step{ grid-template-columns:80px 1fr; gap:24px; row-gap:14px; }
   .tl-desc{ grid-column:2; }
   .footer-top{ grid-template-columns:1fr 1fr; gap:36px; }
