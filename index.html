@@ -1042,10 +1042,10 @@ h1.hero-title .accent{
   background-color: var(--steel);
   background-image:
     linear-gradient(90deg,
-      rgba(62, 95, 120, 0.88) 0%,
-      rgba(62, 95, 120, 0.68) 40%,
-      rgba(62, 95, 120, 0.52) 72%,
-      rgba(62, 95, 120, 0.44) 100%
+      rgba(62, 95, 120, 0.93) 0%,
+      rgba(62, 95, 120, 0.77) 40%,
+      rgba(62, 95, 120, 0.62) 72%,
+      rgba(62, 95, 120, 0.55) 100%
     ),
     url('Truck.jpg');
   background-size: cover, cover;
@@ -1182,16 +1182,6 @@ h1.hero-title .accent{
 .amount-custom input::placeholder{ color: rgba(255,255,255,0.5); font-weight: 500; }
 .amount-custom input::-webkit-outer-spin-button,
 .amount-custom input::-webkit-inner-spin-button{ -webkit-appearance: none; margin: 0; }
-.amount-fund{
-  font-family: var(--mono);
-  font-size: 1.05rem;
-  letter-spacing: 0.03em;
-  line-height: 1.5;
-  color: var(--copy);
-  margin-top: 18px;
-  min-height: 1em;
-}
-.amount-fund strong{ color: var(--white); font-weight: 600; }
 @media (max-width: 720px){
   .amount-chip{ font-size: 1.15rem; padding: 11px 16px; }
 }
@@ -1754,7 +1744,7 @@ footer.site-footer .wrap{
     </a>
 
     <nav class="primary" aria-label="Primary">
-      <a href="index.html">Home</a>
+      <a href="index.html" class="active" aria-current="page">Home</a>
       <a href="about.html">About</a>
       <a href="what-we-do.html">What We Do</a>
       <a href="sponsors.html">Sponsors</a>
@@ -1926,6 +1916,56 @@ footer.site-footer .wrap{
   </div>
 </section>
 
+<!-- ============ DONATE BAND ============ -->
+<section class="donate-band" id="donate">
+  <div class="wrap">
+    <div class="donate-grid">
+      <div class="donate-copy">
+        <div class="eyebrow on-steel">Support the Mission</div>
+        <h2 class="h-display">Fund every truck, rope, and <span class="accent">rescue</span></h2>
+        <p>
+          SAR OPS is a fully independent, 501(c)(3) volunteer Search and Rescue organization. <strong>We receive no government funding.</strong>
+          Every truck, radio, rope system, GPS beacon, and rescue tool we deploy into the field is funded entirely through donations.
+        </p>
+        <div class="donate-amounts" id="donateAmounts">
+          <div class="donate-amounts-label">Choose an amount</div>
+          <div class="amount-chips" role="group" aria-label="Donation amount">
+            <button type="button" class="amount-chip" data-amt="5" data-fund="Trail markers and batteries">$5</button>
+            <button type="button" class="amount-chip" data-amt="10" data-fund="First-aid and medical supplies">$10</button>
+            <button type="button" class="amount-chip" data-amt="20" data-fund="Carabiners and rigging hardware">$20</button>
+            <button type="button" class="amount-chip selected" data-amt="50" data-fund="Field supplies and consumables">$50</button>
+            <button type="button" class="amount-chip" data-amt="100" data-fund="Fuel and mission logistics">$100</button>
+            <button type="button" class="amount-chip" data-amt="custom" data-fund="Give any amount that fits">Custom</button>
+          </div>
+          <div class="amount-custom" id="amountCustom">
+            <span class="cur">$</span>
+            <input type="number" min="1" step="1" inputmode="numeric" placeholder="Enter amount" id="amountCustomInput" aria-label="Custom donation amount" />
+          </div>
+        </div>
+        <div class="donate-actions">
+          <a href="#" class="btn btn-signal" id="donateNowBtn"><span class="btn-label">Donate $50</span> <span class="arrow">&rarr;</span></a>
+          <a href="#" class="btn btn-ghost-steel">Become a Sponsor <span class="arrow">&rarr;</span></a>
+        </div>
+      </div>
+
+      <div class="donate-stat">
+        <div class="donate-stat-row">
+          <span class="donate-stat-num">100<span style="opacity:.7">%</span></span>
+          <span class="donate-stat-label">Donor Funded</span>
+        </div>
+        <div class="donate-stat-row">
+          <span class="donate-stat-num">Zero</span>
+          <span class="donate-stat-label">Government Funding</span>
+        </div>
+        <div class="donate-stat-row">
+          <span class="donate-stat-num">501(c)(3)</span>
+          <span class="donate-stat-label">Tax-Deductible Nonprofit</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ============ THE STANDARD ============ -->
 <section class="standard" id="standard">
   <div class="wrap">
@@ -2012,57 +2052,6 @@ footer.site-footer .wrap{
         <span class="op-step-num">04</span>
         <h3 class="op-step-name">Recover</h3>
         <p class="op-step-desc">Subject located, stabilized, and transferred to appropriate care or authority.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ DONATE BAND ============ -->
-<section class="donate-band" id="donate">
-  <div class="wrap">
-    <div class="donate-grid">
-      <div class="donate-copy">
-        <div class="eyebrow on-steel">Support the Mission</div>
-        <h2 class="h-display">Fund every truck, rope, and <span class="accent">rescue</span></h2>
-        <p>
-          SAR OPS is a fully independent, 501(c)(3) volunteer Search and Rescue organization. <strong>We receive no government funding.</strong>
-          Every truck, radio, rope system, GPS beacon, and rescue tool we deploy into the field is funded entirely through donations.
-        </p>
-        <div class="donate-amounts" id="donateAmounts">
-          <div class="donate-amounts-label">Choose an amount</div>
-          <div class="amount-chips" role="group" aria-label="Donation amount">
-            <button type="button" class="amount-chip" data-amt="5" data-fund="Trail markers and batteries">$5</button>
-            <button type="button" class="amount-chip" data-amt="10" data-fund="First-aid and medical supplies">$10</button>
-            <button type="button" class="amount-chip" data-amt="20" data-fund="Carabiners and rigging hardware">$20</button>
-            <button type="button" class="amount-chip selected" data-amt="50" data-fund="Field supplies and consumables">$50</button>
-            <button type="button" class="amount-chip" data-amt="100" data-fund="Fuel and mission logistics">$100</button>
-            <button type="button" class="amount-chip" data-amt="custom" data-fund="Give any amount that fits">Custom</button>
-          </div>
-          <div class="amount-custom" id="amountCustom">
-            <span class="cur">$</span>
-            <input type="number" min="1" step="1" inputmode="numeric" placeholder="Enter amount" id="amountCustomInput" aria-label="Custom donation amount" />
-          </div>
-          <div class="amount-fund" id="amountFund"><strong>$50</strong> &middot; Field supplies and consumables</div>
-        </div>
-        <div class="donate-actions">
-          <a href="#" class="btn btn-signal" id="donateNowBtn"><span class="btn-label">Donate $50</span> <span class="arrow">&rarr;</span></a>
-          <a href="#" class="btn btn-ghost-steel">Become a Sponsor <span class="arrow">&rarr;</span></a>
-        </div>
-      </div>
-
-      <div class="donate-stat">
-        <div class="donate-stat-row">
-          <span class="donate-stat-num">100<span style="opacity:.7">%</span></span>
-          <span class="donate-stat-label">Donor Funded</span>
-        </div>
-        <div class="donate-stat-row">
-          <span class="donate-stat-num">Zero</span>
-          <span class="donate-stat-label">Government Funding</span>
-        </div>
-        <div class="donate-stat-row">
-          <span class="donate-stat-num">501(c)(3)</span>
-          <span class="donate-stat-label">Tax-Deductible Nonprofit</span>
-        </div>
       </div>
     </div>
   </div>
@@ -2238,17 +2227,14 @@ footer.site-footer .wrap{
     const chips = amtWrap.querySelectorAll('.amount-chip');
     const customBox = document.getElementById('amountCustom');
     const customInput = document.getElementById('amountCustomInput');
-    const fund = document.getElementById('amountFund');
     const donateBtn = document.getElementById('donateNowBtn');
     const donateLabel = donateBtn ? donateBtn.querySelector('.btn-label') : null;
     const fmt = n => '$' + Number(n).toLocaleString('en-US');
     const setBtn = t => { if (donateLabel) donateLabel.textContent = t; };
-    const setFund = (label, text) => { fund.innerHTML = '<strong>' + label + '</strong> &middot; ' + text; };
 
     const syncCustom = () => {
       const v = parseInt(customInput.value, 10);
-      if (v > 0){ setFund(fmt(v), 'Give any amount that fits'); setBtn('Donate ' + fmt(v)); }
-      else { setFund('Custom', 'Give any amount that fits'); setBtn('Donate'); }
+      setBtn(v > 0 ? 'Donate ' + fmt(v) : 'Donate');
     };
 
     chips.forEach(chip => chip.addEventListener('click', () => {
@@ -2261,8 +2247,6 @@ footer.site-footer .wrap{
         syncCustom();
       } else {
         customBox.classList.remove('show');
-        const tail = chip.dataset.fund;
-        setFund(fmt(amt), tail);
         setBtn('Donate ' + fmt(amt));
       }
     }));
