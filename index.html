@@ -834,20 +834,20 @@ h1.hero-title .accent{
   background-color: var(--panel);
   background-image:
     linear-gradient(180deg,
-      rgba(62, 95, 120, 0.93) 0%,
-      rgba(62, 95, 120, 0.87) 40%,
-      rgba(62, 95, 120, 0.93) 100%),
-    url('Assets/about-hero.jpg');
+      rgba(15,25,36,0.97) 0%,
+      rgba(15,25,36,0.975) 50%,
+      rgba(15,25,36,0.985) 100%),
+    url('Cliffside.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   color: var(--white);
   padding: 0;
-  border-top: 1px solid var(--line-dark-2);
-  border-bottom: 1px solid var(--line-dark-2);
+  border-top: 3px solid var(--signal);
+  border-bottom: 3px solid var(--signal);
   overflow: hidden;
 }
-.standard .wrap{ padding-top: 88px; padding-bottom: 88px; }
+.standard .wrap{ padding-top: 52px; padding-bottom: 52px; }
 .standard-head{
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -1048,10 +1048,10 @@ h1.hero-title .accent{
   background-color: var(--steel);
   background-image:
     linear-gradient(90deg,
-      rgba(52, 80, 103, 0.96) 0%,
-      rgba(52, 80, 103, 0.88) 40%,
-      rgba(52, 80, 103, 0.78) 72%,
-      rgba(52, 80, 103, 0.72) 100%
+      rgba(52, 80, 103, 0.98) 0%,
+      rgba(52, 80, 103, 0.95) 38%,
+      rgba(52, 80, 103, 0.91) 70%,
+      rgba(52, 80, 103, 0.89) 100%
     ),
     url('Truck.jpg');
   background-size: cover, cover;
@@ -1059,7 +1059,7 @@ h1.hero-title .accent{
   background-repeat: no-repeat, no-repeat;
   background-attachment: scroll, fixed;
   color: var(--white);
-  padding: 88px 0;
+  padding: 100px 0;
   position: relative;
   overflow: hidden;
   border-top: 2px solid var(--signal);
@@ -1080,35 +1080,36 @@ h1.hero-title .accent{
   text-shadow: 0 1px 16px rgba(15,25,36,0.6);
 }
 .donate-copy .h-display{
-  font-size: clamp(2.4rem, 4.4vw, 3.8rem);
+  font-size: clamp(2.7rem, 5vw, 4.4rem);
   line-height: 0.96;
   margin-top: 14px;
 }
 .donate-copy .h-display .accent{
   display: inline-block;
-  border-bottom: 5px solid var(--signal);
-  padding-bottom: 6px;
+  border-bottom: 6px solid var(--signal);
+  padding-bottom: 7px;
 }
 .donate-copy p{
   color: var(--white);
-  font-size: 1.02rem;
-  margin: 22px 0 0;
-  max-width: 540px;
+  font-size: 1.13rem;
+  margin: 26px 0 0;
+  max-width: 580px;
 }
 .donate-copy p strong{ color: var(--white); font-weight: 700; }
 .donate-actions{
-  margin-top: 30px;
+  margin-top: 34px;
   display: flex;
-  gap: 14px;
+  gap: 16px;
   flex-wrap: wrap;
 }
+.donate-actions .btn{ padding: 22px 38px; font-size: 0.84rem; }
 .donate-stat{
   border-left: 1px solid rgba(255,255,255,0.25);
-  padding-left: 56px;
+  padding-left: 64px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 24px;
+  gap: 28px;
   text-shadow: 0 1px 16px rgba(15,25,36,0.6);
 }
 .donate-stat-row{
@@ -1118,7 +1119,7 @@ h1.hero-title .accent{
 }
 .donate-stat-num{
   font-family: var(--display);
-  font-size: 3.4rem;
+  font-size: 3.8rem;
   font-weight: 700;
   line-height: 1;
   color: var(--white);
@@ -1126,33 +1127,33 @@ h1.hero-title .accent{
 }
 .donate-stat-label{
   font-family: var(--mono);
-  font-size: 0.7rem;
+  font-size: 0.76rem;
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--copy);
 }
 
 /* ----- donate band: amount picker ----- */
-.donate-amounts{ margin-top: 28px; }
+.donate-amounts{ margin-top: 32px; }
 .donate-amounts-label{
   font-family: var(--mono);
-  font-size: 0.66rem;
+  font-size: 0.72rem;
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--copy);
-  margin-bottom: 14px;
+  margin-bottom: 16px;
 }
-.amount-chips{ display: flex; flex-wrap: wrap; gap: 10px; }
+.amount-chips{ display: flex; flex-wrap: wrap; gap: 12px; }
 .amount-chip{
   font-family: var(--display);
-  font-size: 1.35rem;
+  font-size: 1.55rem;
   font-weight: 700;
   letter-spacing: 0.02em;
   text-transform: uppercase;
   color: var(--white);
   background: rgba(255,255,255,0.06);
   border: 1px solid rgba(255,255,255,0.42);
-  padding: 12px 22px;
+  padding: 15px 26px;
   line-height: 1;
   transition: background .2s ease, border-color .2s ease, color .2s ease;
 }
@@ -1190,7 +1191,7 @@ h1.hero-title .accent{
 .amount-custom input::-webkit-outer-spin-button,
 .amount-custom input::-webkit-inner-spin-button{ -webkit-appearance: none; margin: 0; }
 @media (max-width: 720px){
-  .amount-chip{ font-size: 1.15rem; padding: 11px 16px; }
+  .amount-chip{ font-size: 1.3rem; padding: 13px 20px; }
 }
 
 /* ============ GIVE (tiered donation grid) ============ */
@@ -1713,7 +1714,7 @@ footer.site-footer .wrap{
   .operator .ph{ aspect-ratio: 4/5; }
   .donate-band{ padding: 80px 0; }
   .donate-stat{ flex-direction: column; gap: 28px; }
-  .donate-stat-num{ font-size: 2.4rem; }
+  .donate-stat-num{ font-size: 2.6rem; }
   .locations{ padding: 60px 0; }
   .loc-grid{ grid-template-columns: 1fr; gap: 36px; }
   .loc-card-name{ font-size: 1.4rem; }
@@ -1729,16 +1730,22 @@ footer.site-footer .wrap{
 }
 
 /* ===== EVENTS / CLASSES (homepage preview) ===== */
-.events-home{ background:var(--navy); color:var(--white); padding:120px 0; border-bottom:1px solid var(--line-dark); }
+.events-home{ background:var(--navy-3); color:var(--white); padding:120px 0; border-bottom:1px solid var(--line-dark); }
 .eh-head{ display:flex; align-items:flex-end; justify-content:space-between; gap:40px; flex-wrap:wrap; margin-bottom:10px; }
 .eh-head .h-display{ font-size:clamp(2.2rem,4.4vw,3.6rem); margin-top:16px; max-width:560px; color:var(--white); }
 .eh-head > p{ color:var(--copy); max-width:380px; font-size:1rem; }
 .eh-note{ display:inline-flex; align-items:center; gap:10px; font-family:var(--mono); font-size:0.64rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--spark); border:1px dashed rgba(232,179,57,0.5); padding:11px 15px; max-width:360px; line-height:1.5; margin:24px 0 0; }
 .eh-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:36px; align-items:stretch; }
-.eh-card{ display:flex; flex-direction:column; background:var(--navy-2); border:1px solid var(--line-dark); padding:34px 30px; text-decoration:none; color:inherit; position:relative; overflow:hidden; transition:border-color .25s ease, background .25s ease; }
+.eh-card{ display:flex; flex-direction:column; background:var(--navy-2); border:1px solid var(--line-dark); padding:0 30px 30px; text-decoration:none; color:inherit; position:relative; overflow:hidden; transition:border-color .25s ease, background .25s ease; }
 .eh-card::before{ content:""; position:absolute; left:0; right:0; top:0; height:3px; background:var(--signal); transform:scaleX(0); transform-origin:left; transition:transform .3s ease; }
 .eh-card:hover{ border-color:var(--steel-2); background:#1C2B3B; }
 .eh-card:hover::before{ transform:scaleX(1); }
+.eh-thumb{ position:relative; margin:0 -30px 26px; height:182px; overflow:hidden; border-bottom:2px solid var(--signal); }
+.eh-thumb-img{ position:absolute; inset:0; z-index:1; width:100%; height:100%; object-fit:cover; filter:grayscale(0.3) contrast(1.1) brightness(0.95); transition:transform .45s ease, filter .3s ease; }
+.eh-card:hover .eh-thumb-img{ transform:scale(1.045); filter:grayscale(0.1) contrast(1.1) brightness(1.02); }
+.eh-thumb::after{ content:""; position:absolute; inset:0; z-index:2; background:linear-gradient(180deg, rgba(15,25,36,0) 0%, rgba(15,25,36,0) 50%, rgba(15,25,36,0.45) 100%); }
+.eh-thumb .eh-date{ position:absolute; left:14px; bottom:14px; z-index:3; background:rgba(15,25,36,0.55); }
+.eh-thumb .eh-tag{ position:absolute; top:14px; right:14px; z-index:3; background:rgba(15,25,36,0.55); }
 .eh-card-top{ display:flex; align-items:flex-start; justify-content:space-between; gap:16px; margin-bottom:26px; }
 .eh-date{ display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; border:1px dashed rgba(232,179,57,0.45); padding:10px 14px; flex:none; }
 .eh-day{ font-family:var(--display); font-size:1.7rem; font-weight:700; color:var(--spark); line-height:0.9; }
@@ -1760,9 +1767,113 @@ footer.site-footer .wrap{
 }
 @media (max-width:720px){
   .events-home{ padding:72px 0; }
-  .eh-card{ padding:28px 24px; }
+  .eh-card{ padding:0 24px 24px; }
+  .eh-thumb{ margin:0 -24px 22px; }
   .eh-foot{ flex-direction:column; align-items:stretch; gap:12px; }
   .eh-foot .btn{ justify-content:center; }
+}
+
+/* ============ WHAT GUIDES US (six principles over photo) ============ */
+.train{
+  background-color: var(--navy-3);
+  background-image:
+    linear-gradient(180deg, rgba(15,25,36,0.58) 0%, rgba(15,25,36,0.46) 45%, rgba(15,25,36,0.66) 100%),
+    url('Cliffside.jpg');
+  background-size: cover, cover;
+  background-position: center 66%, center 66%;
+  background-repeat: no-repeat, no-repeat;
+  background-attachment: scroll, fixed;
+  color: var(--white);
+  padding: 120px 0;
+  position: relative;
+  overflow: hidden;
+  border-top: 2px solid var(--signal);
+  border-bottom: 1px solid var(--line-dark);
+}
+@media (max-width: 1024px){ .train{ background-attachment: scroll, scroll; } }
+.train .wrap{ position: relative; z-index: 2; }
+.train-head{
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 48px;
+  align-items: end;
+  margin-bottom: 48px;
+  padding-bottom: 28px;
+  border-bottom: 1px solid var(--line-dark);
+}
+.train-head .h-display{
+  font-size: clamp(2.2rem, 4.4vw, 3.6rem);
+  margin-top: 14px;
+  max-width: 620px;
+  text-shadow: 0 2px 22px rgba(0,0,0,0.5);
+}
+.train-head .h-display .accent{ color: var(--signal); }
+.train-head p{
+  color: var(--copy);
+  font-size: 1rem;
+  max-width: 400px;
+  justify-self: end;
+  text-shadow: 0 1px 14px rgba(0,0,0,0.6);
+}
+.train-grid{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  border-top: 1px solid var(--line-dark);
+}
+.train-item{
+  display: flex;
+  gap: 18px;
+  padding: 30px 30px 30px 0;
+  border-bottom: 1px solid var(--line-dark);
+  border-right: 1px solid var(--line-dark);
+}
+.train-item:nth-child(3n){ border-right: none; padding-right: 0; }
+.train-item:not(:nth-child(3n)){ padding-right: 30px; }
+.train-item:nth-child(n+4){ border-bottom: none; }
+.train-num{
+  font-family: var(--mono);
+  font-size: 0.74rem;
+  letter-spacing: 0.2em;
+  color: var(--signal);
+  font-weight: 500;
+  flex: none;
+  padding-top: 5px;
+}
+.train-name{
+  font-family: var(--display);
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: clamp(1.3rem, 2vw, 1.7rem);
+  letter-spacing: 0.02em;
+  color: var(--white);
+  line-height: 1;
+  margin-bottom: 12px;
+  text-shadow: 0 2px 16px rgba(0,0,0,0.55);
+}
+.train-desc{
+  color: var(--copy);
+  font-size: 0.96rem;
+  line-height: 1.55;
+  max-width: 300px;
+  text-shadow: 0 1px 12px rgba(0,0,0,0.6);
+}
+@media (max-width: 1080px){
+  .train-head{ grid-template-columns: 1fr; gap: 20px; }
+  .train-head p{ justify-self: start; }
+  .train-grid{ grid-template-columns: 1fr 1fr; }
+  .train-item{ padding: 26px 26px 26px 0 !important; }
+  .train-item:nth-child(3n){ border-right: 1px solid var(--line-dark); }
+  .train-item:nth-child(2n){ border-right: none; padding-right: 0 !important; }
+  .train-item:nth-child(2n+1){ padding-right: 26px !important; }
+  .train-item:nth-child(n+4){ border-bottom: 1px solid var(--line-dark); }
+  .train-item:nth-last-child(-n+2){ border-bottom: none; }
+}
+@media (max-width: 720px){
+  .train{ padding: 80px 0; }
+  .train-grid{ grid-template-columns: 1fr; }
+  .train-item{ padding: 24px 0 !important; border-right: none !important; border-bottom: 1px solid var(--line-dark) !important; }
+  .train-item:last-child{ border-bottom: none !important; }
 }
 
 </style>
@@ -1935,6 +2046,27 @@ footer.site-footer .wrap{
   </div>
 </section>
 
+<!-- ============ WHAT GUIDES US ============ -->
+<section class="train" id="principles">
+  <div class="wrap">
+    <div class="train-head">
+      <div>
+        <div class="eyebrow on-dark">What Guides Us</div>
+        <h2 class="h-display">Six principles, every <span class="accent">call</span></h2>
+      </div>
+      <p>The standards we hold ourselves to before, during, and after every operation we run.</p>
+    </div>
+    <div class="train-grid">
+      <div class="train-item"><span class="train-num">01</span><div><div class="train-name">Integrity</div><p class="train-desc">We do what is right on every call, whether or not anyone is watching.</p></div></div>
+      <div class="train-item"><span class="train-num">02</span><div><div class="train-name">Service</div><p class="train-desc">We answer because someone needs us, not for recognition.</p></div></div>
+      <div class="train-item"><span class="train-num">03</span><div><div class="train-name">Excellence</div><p class="train-desc">We train to meet or exceed national standards, and then keep training.</p></div></div>
+      <div class="train-item"><span class="train-num">04</span><div><div class="train-name">Teamwork</div><p class="train-desc">No operator works alone. Every rescue is a coordinated effort.</p></div></div>
+      <div class="train-item"><span class="train-num">05</span><div><div class="train-name">Resilience</div><p class="train-desc">Hard terrain, long hours, bad weather. We finish what we start.</p></div></div>
+      <div class="train-item"><span class="train-num">06</span><div><div class="train-name">Compassion</div><p class="train-desc">Every person we reach is treated with dignity and care.</p></div></div>
+    </div>
+  </div>
+</section>
+
 <!-- ============ DONATE BAND ============ -->
 <section class="donate-band" id="donate">
   <div class="wrap">
@@ -2001,7 +2133,8 @@ footer.site-footer .wrap{
     <div class="eh-grid">
 
       <a href="events.html" class="eh-card">
-        <div class="eh-card-top">
+        <div class="eh-thumb">
+          <img class="eh-thumb-img" src="Assets/Contact-us-Page-Top-image-scaled.jpg" alt="" loading="lazy" />
           <div class="eh-date"><span class="eh-day">[ 00 ]</span><span class="eh-mon">[ MON ]</span></div>
           <span class="eh-tag t-course">Public Course</span>
         </div>
@@ -2014,7 +2147,8 @@ footer.site-footer .wrap{
       </a>
 
       <a href="events.html" class="eh-card">
-        <div class="eh-card-top">
+        <div class="eh-thumb">
+          <img class="eh-thumb-img" src="Assets/20250621_100214-scaled.jpg" alt="" loading="lazy" />
           <div class="eh-date"><span class="eh-day">[ 00 ]</span><span class="eh-mon">[ MON ]</span></div>
           <span class="eh-tag t-community">Community Event</span>
         </div>
@@ -2027,7 +2161,8 @@ footer.site-footer .wrap{
       </a>
 
       <a href="events.html" class="eh-card">
-        <div class="eh-card-top">
+        <div class="eh-thumb">
+          <img class="eh-thumb-img" src="Assets/training.jpg" alt="" loading="lazy" />
           <div class="eh-date"><span class="eh-day">[ 00 ]</span><span class="eh-mon">[ MON ]</span></div>
           <span class="eh-tag t-course">Public Course</span>
         </div>

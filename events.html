@@ -112,26 +112,29 @@ nav.primary .nav-donate::after{ display:none; }
 .chip:hover{ border-color:var(--signal); color:var(--white); }
 .chip.is-active{ background:var(--signal); border-color:var(--signal); color:var(--white); }
 
-.sched-list{ border-top:1px solid var(--line-dark); margin-top:20px; }
-.ev{ display:grid; grid-template-columns:108px 1fr auto; gap:36px; align-items:center; padding:30px 14px 30px 0; border-bottom:1px solid var(--line-dark); transition:background .22s ease, padding-left .22s ease; position:relative; }
-.ev::before{ content:""; position:absolute; left:0; top:0; bottom:0; width:0; background:var(--signal); transition:width .25s ease; }
-.ev:hover{ background:rgba(255,255,255,0.03); padding-left:14px; }
-.ev:hover::before{ width:3px; }
-.ev-date{ display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; border:1px dashed rgba(232,179,57,0.45); padding:14px 6px; }
-.ev-day{ font-family:var(--display); font-size:2.2rem; font-weight:700; color:var(--spark); line-height:0.9; }
-.ev-mon{ font-family:var(--mono); font-size:0.62rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--copy); margin-top:6px; }
-.ev-body{ min-width:0; }
-.ev-tag{ display:inline-block; font-family:var(--mono); font-size:0.6rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--white); border:1px solid var(--line-dark); padding:5px 10px; margin-bottom:14px; }
-.ev-tag.t-course{ border-color:var(--steel-2); color:var(--steel-2); }
-.ev-tag.t-community{ border-color:var(--spark); color:var(--spark); }
-.ev-tag.t-fundraiser{ border-color:var(--signal-2); color:var(--signal-2); }
-.ev-title{ font-family:var(--display); font-size:clamp(1.5rem,2.4vw,2rem); font-weight:700; text-transform:uppercase; color:var(--white); line-height:1; margin-bottom:14px; }
-.ev-meta{ display:flex; flex-wrap:wrap; gap:8px 22px; font-family:var(--mono); font-size:0.7rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--copy); }
-.ev-meta span{ display:inline-flex; align-items:center; gap:8px; }
+.sched-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:24px; }
+.ev-card{ display:flex; flex-direction:column; background:var(--navy-2); border:1px solid var(--line-dark); text-decoration:none; color:inherit; overflow:hidden; position:relative; transition:border-color .25s ease, transform .25s ease, box-shadow .25s ease; }
+.ev-card:hover{ border-color:var(--signal); transform:translateY(-5px); }
+.ev-thumb{ position:relative; aspect-ratio:16/10; overflow:hidden; background:var(--steel-3); }
+.ev-thumb-img{ position:absolute; inset:0; background-size:cover; background-position:center; transition:transform .6s ease; }
+.ev-card:hover .ev-thumb-img{ transform:scale(1.06); }
+.ev-thumb::after{ content:""; position:absolute; inset:0; background:linear-gradient(180deg, rgba(15,25,36,0.45) 0%, rgba(15,25,36,0) 38%, rgba(15,25,36,0) 64%, rgba(15,25,36,0.55) 100%); pointer-events:none; }
+.ev-date-badge{ position:absolute; top:14px; left:14px; z-index:2; background:rgba(15,25,36,0.82); border:1px dashed rgba(232,179,57,0.55); padding:9px 12px 7px; text-align:center; line-height:1; }
+.ev-date-badge .d{ display:block; font-family:var(--display); font-size:1.5rem; font-weight:700; color:var(--spark); line-height:0.85; }
+.ev-date-badge .m{ display:block; font-family:var(--mono); font-size:0.52rem; letter-spacing:0.16em; text-transform:uppercase; color:var(--white); margin-top:4px; }
+.ev-cat{ position:absolute; top:16px; right:14px; z-index:2; font-family:var(--mono); font-size:0.55rem; letter-spacing:0.16em; text-transform:uppercase; padding:6px 9px; background:rgba(15,25,36,0.82); border:1px solid var(--line-dark); color:var(--white); }
+.ev-cat.t-course{ border-color:var(--steel-2); color:#cfe0ec; }
+.ev-cat.t-community{ border-color:var(--spark); color:var(--spark); }
+.ev-cat.t-fundraiser{ border-color:var(--signal-2); color:var(--signal-2); }
+.ev-body{ padding:24px 24px 0; display:flex; flex-direction:column; gap:14px; flex:1; }
+.ev-title{ font-family:var(--display); font-size:1.5rem; font-weight:700; text-transform:uppercase; color:var(--white); line-height:1; }
+.ev-meta{ display:flex; flex-direction:column; gap:8px; font-family:var(--mono); font-size:0.68rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--copy); }
+.ev-meta span{ display:inline-flex; align-items:center; gap:9px; }
 .ev-meta span::before{ content:""; width:5px; height:5px; background:var(--steel-2); flex:none; }
-.ev-action{ display:flex; flex-direction:column; align-items:flex-end; gap:14px; }
-.ev-price{ font-family:var(--display); font-size:1.5rem; font-weight:700; text-transform:uppercase; color:var(--white); letter-spacing:0.02em; white-space:nowrap; }
+.ev-foot{ margin-top:auto; display:flex; align-items:center; justify-content:space-between; gap:16px; padding:20px 24px; border-top:1px solid var(--line-dark); }
+.ev-price{ font-family:var(--display); font-size:1.6rem; font-weight:700; text-transform:uppercase; color:var(--white); letter-spacing:0.02em; white-space:nowrap; line-height:1; }
 .ev-price.free{ color:var(--spark); }
+.ev-price small{ display:block; font-family:var(--mono); font-size:0.52rem; letter-spacing:0.16em; color:var(--copy); font-weight:400; margin-top:5px; }
 
 /* HOST A CLASS */
 .host{ background:var(--panel); padding:110px 0; border-top:2px solid var(--signal); }
@@ -143,11 +146,12 @@ nav.primary .nav-donate::after{ display:none; }
 .host-list li .n{ font-family:var(--mono); font-size:0.72rem; letter-spacing:0.18em; color:var(--signal); font-weight:500; }
 
 /* CTA */
-.cta-band{ background-color:var(--navy-3); background-image:linear-gradient(90deg, rgba(15,25,36,0.86) 0%, rgba(15,25,36,0.55) 48%, rgba(15,25,36,0.3) 100%), url('Cliffside.jpg'); background-size:cover, cover; background-position:center, center; background-attachment:scroll, fixed; padding:120px 0; border-top:1px solid var(--line-dark); }
+.cta-band{ background-color:var(--navy-3); background-image:linear-gradient(180deg, rgba(15,25,36,0.74) 0%, rgba(15,25,36,0.6) 50%, rgba(15,25,36,0.76) 100%), url('Cliffside.jpg'); background-size:cover, cover; background-position:center, center; background-attachment:scroll, fixed; padding:120px 0; border-top:1px solid var(--line-dark); }
 @media (max-width:1024px){ .cta-band{ background-attachment:scroll, scroll; } }
-.cta-band .h-display{ font-size:clamp(2.2rem,4.6vw,3.8rem); max-width:720px; line-height:0.98; text-shadow:0 1px 18px rgba(0,0,0,0.5); }
-.cta-band p{ color:var(--copy); font-size:1.06rem; margin:24px 0 32px; max-width:540px; text-shadow:0 1px 16px rgba(0,0,0,0.5); }
-.cta-actions{ display:flex; gap:14px; flex-wrap:wrap; }
+.cta-band .wrap{ text-align:center; }
+.cta-band .h-display{ font-size:clamp(2.2rem,4.6vw,3.8rem); max-width:720px; margin:0 auto; line-height:0.98; text-shadow:0 1px 18px rgba(0,0,0,0.5); }
+.cta-band p{ color:var(--copy); font-size:1.06rem; margin:24px auto 32px; max-width:540px; text-shadow:0 1px 16px rgba(0,0,0,0.5); }
+.cta-actions{ display:flex; gap:14px; flex-wrap:wrap; justify-content:center; }
 
 /* FOOTER */
 footer.site-footer{ background:var(--navy-3); color:var(--copy); padding:64px 0 28px; border-top:1px solid var(--line-dark); position:relative; overflow:hidden; }
@@ -177,6 +181,7 @@ footer.site-footer .wrap{ max-width:none; padding:0 48px; }
   .host .wrap{ grid-template-columns:1fr; gap:40px; }
   .footer-top{ grid-template-columns:1fr 1fr; gap:36px; }
   .footer-brand{ grid-column:1 / -1; }
+  .sched-grid{ grid-template-columns:1fr 1fr; gap:20px; }
 }
 @media (max-width:720px){
   .wrap{ padding:0 22px; }
@@ -189,9 +194,7 @@ footer.site-footer .wrap{ max-width:none; padding:0 48px; }
   .page-hero h1{ font-size:clamp(2.8rem,12vw,4.4rem); }
   .cats{ padding:72px 0; }
   .sched{ padding:72px 0; }
-  .ev{ grid-template-columns:72px 1fr; gap:20px; row-gap:18px; padding:24px 0; }
-  .ev-day{ font-size:1.7rem; }
-  .ev-action{ grid-column:1 / -1; flex-direction:row; align-items:center; justify-content:space-between; width:100%; padding-top:4px; border-top:1px solid var(--line-dark); }
+  .sched-grid{ grid-template-columns:1fr; gap:20px; }
   .host{ padding:72px 0; }
   .cta-band{ padding:80px 0; background-position:62% center, 62% center; }
   .cta-actions{ flex-direction:row; }
@@ -262,6 +265,126 @@ footer.site-footer .wrap{ max-width:none; padding:0 48px; }
   </div>
 </section>
 
+<!-- SCHEDULE -->
+<section class="sched">
+  <div class="wrap">
+    <div class="sched-head">
+      <div>
+        <div class="eyebrow">Upcoming Schedule</div>
+        <h2 class="h-display">Classes &amp; events</h2>
+      </div>
+      <div class="sched-note">Sample schedule &middot; replace dates, prices &amp; registration links with live data before launch</div>
+    </div>
+
+    <div class="sched-filters" aria-hidden="true">
+      <span class="chip is-active">All</span>
+      <span class="chip">Public Courses</span>
+      <span class="chip">Community Events</span>
+      <span class="chip">Fundraisers</span>
+    </div>
+
+    <div class="sched-grid">
+
+      <a href="#" class="ev-card">
+        <div class="ev-thumb">
+          <div class="ev-thumb-img" style="background-image:url('Assets/training.jpg');"></div>
+          <div class="ev-date-badge"><span class="d">[00]</span><span class="m">[MON]</span></div>
+          <span class="ev-cat t-course">Public Course</span>
+        </div>
+        <div class="ev-body">
+          <h3 class="ev-title">Wilderness First Aid</h3>
+          <div class="ev-meta"><span>16-Hour Certification</span><span>[ Location ]</span><span>[ Time ]</span></div>
+        </div>
+        <div class="ev-foot">
+          <span class="ev-price">$[ ___ ]<small>Per Seat</small></span>
+          <span class="btn btn-signal btn-sm">Register <span class="arrow">&rarr;</span></span>
+        </div>
+      </a>
+
+      <a href="#" class="ev-card">
+        <div class="ev-thumb">
+          <div class="ev-thumb-img" style="background-image:url('Assets/about-hero.jpg');"></div>
+          <div class="ev-date-badge"><span class="d">[00]</span><span class="m">[MON]</span></div>
+          <span class="ev-cat t-course">Public Course</span>
+        </div>
+        <div class="ev-body">
+          <h3 class="ev-title">CPR &amp; Stop The Bleed</h3>
+          <div class="ev-meta"><span>Half-Day Workshop</span><span>[ Location ]</span><span>[ Time ]</span></div>
+        </div>
+        <div class="ev-foot">
+          <span class="ev-price">$[ ___ ]<small>Per Seat</small></span>
+          <span class="btn btn-signal btn-sm">Register <span class="arrow">&rarr;</span></span>
+        </div>
+      </a>
+
+      <a href="#" class="ev-card">
+        <div class="ev-thumb">
+          <div class="ev-thumb-img" style="background-image:url('HQ FRONT.png');"></div>
+          <div class="ev-date-badge"><span class="d">[00]</span><span class="m">[MON]</span></div>
+          <span class="ev-cat t-community">Community Event</span>
+        </div>
+        <div class="ev-body">
+          <h3 class="ev-title">Community Preparedness Day</h3>
+          <div class="ev-meta"><span>Open To All Ages</span><span>[ Location ]</span><span>[ Time ]</span></div>
+        </div>
+        <div class="ev-foot">
+          <span class="ev-price free">Free<small>Open To All</small></span>
+          <span class="btn btn-ghost btn-sm">RSVP <span class="arrow">&rarr;</span></span>
+        </div>
+      </a>
+
+      <a href="#" class="ev-card">
+        <div class="ev-thumb">
+          <div class="ev-thumb-img" style="background-image:url('What-we-do-page-scaled.jpg');"></div>
+          <div class="ev-date-badge"><span class="d">[00]</span><span class="m">[MON]</span></div>
+          <span class="ev-cat t-course">Public Course</span>
+        </div>
+        <div class="ev-body">
+          <h3 class="ev-title">Land Navigation &amp; Map Reading</h3>
+          <div class="ev-meta"><span>Field Skills Clinic</span><span>[ Location ]</span><span>[ Time ]</span></div>
+        </div>
+        <div class="ev-foot">
+          <span class="ev-price">$[ ___ ]<small>Per Seat</small></span>
+          <span class="btn btn-signal btn-sm">Register <span class="arrow">&rarr;</span></span>
+        </div>
+      </a>
+
+      <a href="#" class="ev-card">
+        <div class="ev-thumb">
+          <div class="ev-thumb-img" style="background-image:url('Cliffside.jpg');"></div>
+          <div class="ev-date-badge"><span class="d">[00]</span><span class="m">[MON]</span></div>
+          <span class="ev-cat t-course">Public Course</span>
+        </div>
+        <div class="ev-body">
+          <h3 class="ev-title">Intro To Technical Rope</h3>
+          <div class="ev-meta"><span>Hands-On &middot; Beginner</span><span>[ Location ]</span><span>[ Time ]</span></div>
+        </div>
+        <div class="ev-foot">
+          <span class="ev-price">$[ ___ ]<small>Per Seat</small></span>
+          <span class="btn btn-signal btn-sm">Register <span class="arrow">&rarr;</span></span>
+        </div>
+      </a>
+
+      <a href="#" class="ev-card">
+        <div class="ev-thumb">
+          <div class="ev-thumb-img" style="background-image:url('Truck.jpg');"></div>
+          <div class="ev-date-badge"><span class="d">[00]</span><span class="m">[MON]</span></div>
+          <span class="ev-cat t-fundraiser">Fundraiser</span>
+        </div>
+        <div class="ev-body">
+          <h3 class="ev-title">Annual Benefit &amp; Gear Drive</h3>
+          <div class="ev-meta"><span>Support The Mission</span><span>[ Location ]</span><span>[ Time ]</span></div>
+        </div>
+        <div class="ev-foot">
+          <span class="ev-price free">Free<small>Open To All</small></span>
+          <span class="btn btn-ghost btn-sm">RSVP <span class="arrow">&rarr;</span></span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
 <!-- CATEGORIES -->
 <section class="cats">
   <div class="wrap">
@@ -288,108 +411,6 @@ footer.site-footer .wrap{ max-width:none; padding:0 48px; }
         <h3 class="cat-name">Team Training</h3>
         <p class="cat-desc">Ongoing operator training and joint exercises with partner agencies that keep our team mission ready.</p>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- SCHEDULE -->
-<section class="sched">
-  <div class="wrap">
-    <div class="sched-head">
-      <div>
-        <div class="eyebrow">Upcoming Schedule</div>
-        <h2 class="h-display">Classes &amp; events</h2>
-      </div>
-      <div class="sched-note">Sample schedule &middot; replace dates, prices &amp; registration links with live data before launch</div>
-    </div>
-
-    <div class="sched-filters" aria-hidden="true">
-      <span class="chip is-active">All</span>
-      <span class="chip">Public Courses</span>
-      <span class="chip">Community Events</span>
-      <span class="chip">Fundraisers</span>
-    </div>
-
-    <div class="sched-list">
-
-      <a href="#" class="ev">
-        <div class="ev-date"><span class="ev-day">[ 00 ]</span><span class="ev-mon">[ MON ]</span></div>
-        <div class="ev-body">
-          <span class="ev-tag t-course">Public Course</span>
-          <h3 class="ev-title">Wilderness First Aid</h3>
-          <div class="ev-meta"><span>16-Hour Certification</span><span>[ Location ]</span><span>[ Time ]</span></div>
-        </div>
-        <div class="ev-action">
-          <span class="ev-price">$[ ___ ]</span>
-          <span class="btn btn-signal btn-sm">Register <span class="arrow">&rarr;</span></span>
-        </div>
-      </a>
-
-      <a href="#" class="ev">
-        <div class="ev-date"><span class="ev-day">[ 00 ]</span><span class="ev-mon">[ MON ]</span></div>
-        <div class="ev-body">
-          <span class="ev-tag t-course">Public Course</span>
-          <h3 class="ev-title">CPR &amp; Stop The Bleed</h3>
-          <div class="ev-meta"><span>Half-Day Workshop</span><span>[ Location ]</span><span>[ Time ]</span></div>
-        </div>
-        <div class="ev-action">
-          <span class="ev-price">$[ ___ ]</span>
-          <span class="btn btn-signal btn-sm">Register <span class="arrow">&rarr;</span></span>
-        </div>
-      </a>
-
-      <a href="#" class="ev">
-        <div class="ev-date"><span class="ev-day">[ 00 ]</span><span class="ev-mon">[ MON ]</span></div>
-        <div class="ev-body">
-          <span class="ev-tag t-community">Community Event</span>
-          <h3 class="ev-title">Community Preparedness Day</h3>
-          <div class="ev-meta"><span>Open To All Ages</span><span>[ Location ]</span><span>[ Time ]</span></div>
-        </div>
-        <div class="ev-action">
-          <span class="ev-price free">Free</span>
-          <span class="btn btn-ghost btn-sm">RSVP <span class="arrow">&rarr;</span></span>
-        </div>
-      </a>
-
-      <a href="#" class="ev">
-        <div class="ev-date"><span class="ev-day">[ 00 ]</span><span class="ev-mon">[ MON ]</span></div>
-        <div class="ev-body">
-          <span class="ev-tag t-course">Public Course</span>
-          <h3 class="ev-title">Land Navigation &amp; Map Reading</h3>
-          <div class="ev-meta"><span>Field Skills Clinic</span><span>[ Location ]</span><span>[ Time ]</span></div>
-        </div>
-        <div class="ev-action">
-          <span class="ev-price">$[ ___ ]</span>
-          <span class="btn btn-signal btn-sm">Register <span class="arrow">&rarr;</span></span>
-        </div>
-      </a>
-
-      <a href="#" class="ev">
-        <div class="ev-date"><span class="ev-day">[ 00 ]</span><span class="ev-mon">[ MON ]</span></div>
-        <div class="ev-body">
-          <span class="ev-tag t-course">Public Course</span>
-          <h3 class="ev-title">Intro To Technical Rope</h3>
-          <div class="ev-meta"><span>Hands-On &middot; Beginner</span><span>[ Location ]</span><span>[ Time ]</span></div>
-        </div>
-        <div class="ev-action">
-          <span class="ev-price">$[ ___ ]</span>
-          <span class="btn btn-signal btn-sm">Register <span class="arrow">&rarr;</span></span>
-        </div>
-      </a>
-
-      <a href="#" class="ev">
-        <div class="ev-date"><span class="ev-day">[ 00 ]</span><span class="ev-mon">[ MON ]</span></div>
-        <div class="ev-body">
-          <span class="ev-tag t-fundraiser">Fundraiser</span>
-          <h3 class="ev-title">Annual Benefit &amp; Gear Drive</h3>
-          <div class="ev-meta"><span>Support The Mission</span><span>[ Location ]</span><span>[ Time ]</span></div>
-        </div>
-        <div class="ev-action">
-          <span class="ev-price free">Free</span>
-          <span class="btn btn-ghost btn-sm">RSVP <span class="arrow">&rarr;</span></span>
-        </div>
-      </a>
-
     </div>
   </div>
 </section>
