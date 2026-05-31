@@ -53,7 +53,7 @@ nav.primary{ display:flex; align-items:center; gap:30px; }
 nav.primary a{ font-family:var(--body); font-size:0.78rem; letter-spacing:0.16em; text-transform:uppercase; font-weight:500; color:var(--white); transition:color .2s ease; position:relative; padding:6px 0; }
 nav.primary a:not(.nav-donate)::after{ content:""; position:absolute; left:0; right:0; bottom:0; height:2px; background:var(--signal); transform:scaleX(0); transform-origin:left; transition:transform .25s ease; }
 nav.primary a:not(.nav-donate):hover::after, nav.primary a.active:not(.nav-donate)::after{ transform:scaleX(1); }
-nav.primary .nav-donate{ border:1px solid var(--signal); padding:11px 22px; color:var(--white); transition:background .2s ease, border-color .2s ease, color .2s ease; }
+nav.primary .nav-donate{ border:2px solid var(--signal-2); padding:11px 22px; color:var(--white); transition:background .2s ease, border-color .2s ease, color .2s ease; }
 nav.primary .nav-donate:hover, nav.primary .nav-donate.active{ background:var(--signal); border-color:var(--signal); color:var(--white); }
 nav.primary .nav-donate::after{ display:none; }
 .menu-btn{ display:none; width:48px; height:48px; align-items:center; justify-content:center; color:var(--white); }
