@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>SAR OPS — Relentless in Rescue</title>
+<title>SAR OPS · Relentless in Rescue</title>
 <meta name="description" content="SAR OPS is a 501(c)(3) volunteer wilderness search and rescue team specializing in technical rope rescue, swift water, and wilderness operations." />
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -610,7 +610,7 @@ h1.hero-title .accent{
 .about-diagram{
   position: absolute;
   top: 50%;
-  left: 14%;
+  left: 0;
   transform: translateY(-50%);
   height: 105%;
   width: auto;
@@ -783,7 +783,8 @@ h1.hero-title .accent{
   color: var(--white);
 }
 .svc-desc{
-  color: var(--copy);
+  color: var(--white);
+  font-weight: 400;
   font-size: 0.98rem;
   line-height: 1.55;
   max-width: 540px;
@@ -804,7 +805,16 @@ h1.hero-title .accent{
 
 /* ============ THE STANDARD (certs list — steel-blue panel) ============ */
 .standard{
-  background: var(--panel);
+  background-color: var(--panel);
+  background-image:
+    linear-gradient(180deg,
+      rgba(15,25,36,0.72) 0%,
+      rgba(30,45,62,0.56) 36%,
+      rgba(30,45,62,0.60) 100%),
+    url('Cliffside.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   color: var(--white);
   padding: 0;
   border-top: 1px solid var(--line-dark-2);
@@ -1698,7 +1708,7 @@ footer.site-footer .wrap{
           In <span class="accent">Rescue</span>
         </h1>
         <p class="hero-lede">
-          We are a non-profit volunteer wilderness search and rescue team specializing in high and low-angle rescues, rope rescues, and mountain/vertical terrain operations &mdash; ready when others need us most.
+          We are a non-profit volunteer wilderness search and rescue team specializing in high and low-angle rescues, rope rescues, and mountain/vertical terrain operations. Ready when others need us most.
         </p>
         <div class="hero-ctas">
           <a href="#" class="btn btn-signal">What We Do <span class="arrow">&rarr;</span></a>
@@ -1749,12 +1759,12 @@ footer.site-footer .wrap{
       </div>
       <div class="about-text">
         <div class="eyebrow on-dark">Our Mission</div>
-        <h2 class="h-display">Trained to <span class="accent">respond</span>. Built to rescue.</h2>
+        <h2 class="h-display">Trained to <span class="accent">respond</span>, built to rescue</h2>
         <p>
           SAR OPS was built on a foundation of service, courage, and community. Our <strong>100% volunteer team</strong> is certified in technical rope rescue, swift water rescue, wilderness first response, EMS response, and urban SAR.
         </p>
         <p>
-          Every call we answer is a life that matters &mdash; and we respond with urgency, empathy, and elite training.
+          Every call we answer is a life that matters, and we respond with urgency, empathy, and elite training.
         </p>
 
         <div class="about-pillars">
@@ -1775,14 +1785,14 @@ footer.site-footer .wrap{
     <div class="services-body">
       <div class="services-head">
         <div class="eyebrow on-dark">What We Do</div>
-        <h2 class="h-display">Built for Every Terrain.</h2>
+        <h2 class="h-display">Built for Every Terrain</h2>
       </div>
 
       <div class="svc-list">
       <a href="#" class="svc-row">
         <div class="svc-icon"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"><circle cx="13" cy="13" r="8"/><line x1="19" y1="19" x2="27" y2="27"/><line x1="13" y1="9" x2="13" y2="11"/><line x1="13" y1="15" x2="13" y2="17"/><line x1="9" y1="13" x2="11" y2="13"/><line x1="15" y1="13" x2="17" y2="13"/></svg></div>
         <div class="svc-name">Ground Search &amp; Rescue</div>
-        <div class="svc-desc">Coordinated ground operations for missing persons in urban and rural environments &mdash; lost hikers, elderly with dementia, missing children.</div>
+        <div class="svc-desc">Coordinated ground operations for missing persons in urban and rural environments: lost hikers, elderly with dementia, missing children.</div>
         <div class="svc-arrow">&rarr;</div>
       </a>
       <a href="#" class="svc-row">
@@ -1800,13 +1810,13 @@ footer.site-footer .wrap{
       <a href="#" class="svc-row">
         <div class="svc-icon"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"><path d="M 3 11 C 7 7, 11 15, 15 11 S 23 7, 29 11"/><path d="M 3 18 C 7 14, 11 22, 15 18 S 23 14, 29 18"/><path d="M 3 25 C 7 21, 11 29, 15 25 S 23 21, 29 25"/></svg></div>
         <div class="svc-name">Swift Water Rescue</div>
-        <div class="svc-desc">Specialized response in moving water &mdash; flood events, river incidents, and water-adjacent terrain &mdash; by certified swift water technicians.</div>
+        <div class="svc-desc">Specialized response in moving water (flood events, river incidents, and water-adjacent terrain) by certified swift water technicians.</div>
         <div class="svc-arrow">&rarr;</div>
       </a>
       <a href="#" class="svc-row">
         <div class="svc-icon"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="miter" stroke-linecap="square"><path d="M 16 3 L 27 7 L 27 17 C 27 22, 22 26, 16 29 C 10 26, 5 22, 5 17 L 5 7 Z"/><polyline points="10,16 14,20 22,12"/></svg></div>
         <div class="svc-name">Training &amp; Certification</div>
-        <div class="svc-desc">Internal and community-based training that meets or exceeds national standards &mdash; because preparedness saves lives.</div>
+        <div class="svc-desc">Internal and community-based training that meets or exceeds national standards, because preparedness saves lives.</div>
         <div class="svc-arrow">&rarr;</div>
       </a>
       <a href="#" class="svc-row">
@@ -1826,7 +1836,7 @@ footer.site-footer .wrap{
     <div class="standard-head">
       <div>
         <div class="eyebrow on-dark">Credentials</div>
-        <h2 class="h-display">The standard others train for.</h2>
+        <h2 class="h-display">The standard others train for</h2>
       </div>
     </div>
 
@@ -1881,7 +1891,7 @@ footer.site-footer .wrap{
     <div class="operate-head">
       <div>
         <div class="eyebrow on-dark">How We Operate</div>
-        <h2 class="h-display">Every call answered the same way.</h2>
+        <h2 class="h-display">Every call answered the same way</h2>
       </div>
       <p>Trained protocols, coordinated command, rapid deployment, and a relentless focus on bringing the subject home safely.</p>
     </div>
@@ -1917,7 +1927,7 @@ footer.site-footer .wrap{
     <div class="op-head">
       <div>
         <div class="eyebrow on-dark">Operators</div>
-        <h2 class="h-display">The team you can rely on.</h2>
+        <h2 class="h-display">The team you can rely on</h2>
       </div>
       <p>A standing roster of trained, certified volunteers across field operations, technical rope, wilderness response, and medical leadership.</p>
     </div>
@@ -1972,7 +1982,7 @@ footer.site-footer .wrap{
     <div class="donate-grid">
       <div class="donate-copy">
         <div class="eyebrow on-steel">Support the Mission</div>
-        <h2 class="h-display">Fund every truck, rope, and <span class="accent">rescue.</span></h2>
+        <h2 class="h-display">Fund every truck, rope, and <span class="accent">rescue</span></h2>
         <p>
           SAR OPS is a fully independent, 501(c)(3) volunteer Search and Rescue organization. <strong>We receive no government funding.</strong>
           Every truck, radio, rope system, GPS beacon, and rescue tool we deploy into the field is funded entirely through donations.
@@ -2007,7 +2017,7 @@ footer.site-footer .wrap{
     <div class="loc-grid">
       <div>
         <div class="eyebrow on-dark">Operational Footprint</div>
-        <h3 class="loc-h">Two states. One standing team. Always ready.</h3>
+        <h3 class="loc-h">Two states, one standing team, always ready</h3>
       </div>
       <div class="loc-card">
         <svg class="loc-card-map" viewBox="-2 -2 104 204" aria-hidden="true">
@@ -2038,9 +2048,9 @@ footer.site-footer .wrap{
     <div class="contact-grid">
       <div class="contact-text">
         <div class="eyebrow on-dark">Get In Touch</div>
-        <h2 class="h-display">Need our team — or want to join it?</h2>
+        <h2 class="h-display">Need our team, or want to join it?</h2>
         <p>
-          Whether you&rsquo;re an agency requesting assistance, a community partner exploring training, or a prospective volunteer looking to serve &mdash; reach out below.
+          Whether you&rsquo;re an agency requesting assistance, a community partner exploring training, or a prospective volunteer looking to serve, reach out below.
         </p>
 
         <div class="contact-info">
@@ -2059,7 +2069,7 @@ footer.site-footer .wrap{
         </div>
       </div>
 
-      <form class="contact-form" onsubmit="event.preventDefault(); alert('Thank you — your message has been received. (Mockup only — no submission.)'); this.reset();">
+      <form class="contact-form" onsubmit="event.preventDefault(); alert('Thank you, your message has been received. (Mockup only, no submission.)'); this.reset();">
         <div class="form-row">
           <div>
             <label for="cf-first">First Name</label>

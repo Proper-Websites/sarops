@@ -1,0 +1,399 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Contact &middot; SAR OPS</title>
+<meta name="description" content="Reach SAR OPS. Agencies requesting assistance, community partners, prospective volunteers, and sponsors can get in touch with our team." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --navy:#1E2D3D; --navy-2:#162232; --navy-3:#0F1924;
+  --steel:#3E5F78; --steel-2:#557690; --steel-3:#2F4A5E;
+  --white:#FFFFFF; --line-dark:rgba(255,255,255,0.14); --line-dark-2:rgba(255,255,255,0.08);
+  --ink:#1E2D3D; --wrap:1440px;
+  --display:"Barlow Condensed", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+  --body:"Inter", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+  --mono:"JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --signal:#C73A2B; --signal-2:#DA483A; --spark:#E8B339;
+  --copy:#FFFFFF; --copy-dark:#1E2D3D; --panel:#2F4A5E;
+}
+*{ box-sizing:border-box; margin:0; padding:0; }
+html{ scroll-behavior:smooth; }
+body{ font-family:var(--body); font-size:16px; line-height:1.6; color:var(--white); background:var(--navy); -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility; }
+img{ max-width:100%; display:block; }
+a{ color:inherit; text-decoration:none; }
+button{ font:inherit; cursor:pointer; border:none; background:none; color:inherit; }
+.wrap{ width:100%; max-width:var(--wrap); margin:0 auto; padding:0 44px; }
+.eyebrow{ font-family:var(--mono); font-size:0.72rem; letter-spacing:0.18em; text-transform:uppercase; font-weight:500; color:var(--white); display:inline-flex; align-items:center; gap:12px; }
+.eyebrow::before{ content:""; width:26px; height:2px; background:var(--signal); }
+.eyebrow.plain::before{ display:none; }
+.h-display{ font-family:var(--display); font-weight:700; text-transform:uppercase; line-height:0.94; letter-spacing:-0.005em; }
+
+/* TACTICAL BAR */
+.tactical-bar{ position:relative; background:var(--steel-2); border-bottom:1px solid rgba(0,0,0,0.22); z-index:55; color:var(--white); }
+.tac-inner{ display:flex; align-items:center; justify-content:center; gap:22px; min-height:38px; padding:10px 0 8px; position:relative; }
+.tac-group{ position:relative; display:inline-flex; align-items:center; gap:22px; padding:6px 22px; }
+.tac-tag{ font-family:var(--mono); font-size:0.7rem; letter-spacing:0.24em; text-transform:uppercase; color:var(--white); font-weight:600; display:inline-flex; align-items:center; gap:10px; white-space:nowrap; }
+.tac-primary{ font-weight:700; letter-spacing:0.3em; }
+.tac-dot{ width:7px; height:7px; background:var(--signal); border-radius:50%; box-shadow:0 0 0 3px rgba(199,58,43,0.28); flex:none; }
+.tac-divider{ font-family:var(--mono); font-size:0.85rem; color:rgba(255,255,255,0.8); font-weight:700; line-height:1; }
+
+/* HEADER */
+.site-header{ position:absolute; top:56px; left:0; right:0; z-index:50; background:transparent; color:var(--white); }
+.header-inner{ display:flex; align-items:center; justify-content:space-between; height:82px; }
+.brand{ display:flex; align-items:center; gap:16px; }
+.brand-mark{ width:74px; height:74px; display:flex; align-items:center; justify-content:center; flex:none; }
+.brand-mark img{ width:100%; height:100%; object-fit:contain; display:block; }
+nav.primary{ display:flex; align-items:center; gap:30px; }
+nav.primary a{ font-family:var(--body); font-size:0.78rem; letter-spacing:0.16em; text-transform:uppercase; font-weight:500; color:var(--white); transition:color .2s ease; position:relative; padding:6px 0; }
+nav.primary a:not(.nav-donate)::after{ content:""; position:absolute; left:0; right:0; bottom:0; height:2px; background:var(--signal); transform:scaleX(0); transform-origin:left; transition:transform .25s ease; }
+nav.primary a:not(.nav-donate):hover::after, nav.primary a.active:not(.nav-donate)::after{ transform:scaleX(1); }
+nav.primary .nav-donate{ border:1px solid var(--signal); padding:11px 22px; color:var(--white); transition:background .2s ease, border-color .2s ease, color .2s ease; }
+nav.primary .nav-donate:hover{ background:var(--signal); border-color:var(--signal); color:var(--white); }
+nav.primary .nav-donate::after{ display:none; }
+.menu-btn{ display:none; width:48px; height:48px; align-items:center; justify-content:center; color:var(--white); }
+.menu-btn svg{ width:28px; height:28px; }
+.mobile-nav{ display:none; position:fixed; inset:0; background:var(--navy); z-index:60; padding:96px 32px 40px; flex-direction:column; gap:4px; }
+.mobile-nav.open{ display:flex; }
+.mobile-nav a{ font-family:var(--display); font-size:2.2rem; font-weight:600; letter-spacing:0.03em; text-transform:uppercase; color:var(--white); padding:14px 0; border-bottom:1px solid var(--line-dark); }
+.mobile-close{ position:absolute; top:20px; right:24px; width:48px; height:48px; color:var(--white); display:flex; align-items:center; justify-content:center; }
+.mobile-close svg{ width:28px; height:28px; }
+
+/* BUTTONS */
+.btn{ display:inline-flex; align-items:center; gap:14px; padding:18px 28px; font-family:var(--body); font-size:0.76rem; letter-spacing:0.22em; text-transform:uppercase; font-weight:600; border:1px solid currentColor; transition:background .22s ease, color .22s ease, border-color .22s ease, gap .22s ease; }
+.btn:hover{ gap:22px; }
+.btn .arrow{ display:inline-block; font-size:1rem; line-height:1; }
+.btn-signal{ background:var(--signal); color:var(--white); border-color:var(--signal); }
+.btn-signal:hover{ background:var(--signal-2); border-color:var(--signal-2); }
+.btn-ghost{ color:var(--white); border-color:var(--signal); }
+.btn-ghost:hover{ border-color:var(--signal); background:var(--signal); color:var(--white); }
+.btn-dark{ background:var(--navy); color:var(--white); border-color:var(--navy); }
+.btn-dark:hover{ background:var(--steel); border-color:var(--steel); }
+
+/* PAGE HERO */
+.page-hero{ position:relative; background-color:var(--navy); background-image:url('Assets/Contact-us-Page-Top-image-scaled.jpg'); background-size:cover; background-position:center 35%; background-attachment:fixed; border-bottom:2px solid var(--signal); min-height:54vh; display:flex; }
+.page-hero::after{ content:""; position:absolute; inset:0; background:
+  linear-gradient(180deg, rgba(15,25,36,0.62) 0px, rgba(15,25,36,0) 280px),
+  linear-gradient(0deg, rgba(15,25,36,0.95) 0%, rgba(15,25,36,0.66) 44%, rgba(15,25,36,0.3) 76%, rgba(15,25,36,0.16) 100%);
+  pointer-events:none; z-index:0; }
+.page-hero .wrap{ position:relative; z-index:1; display:flex; flex-direction:column; justify-content:flex-end; padding-top:200px; padding-bottom:54px; width:100%; }
+.page-hero h1{ font-family:var(--display); font-weight:700; text-transform:uppercase; line-height:0.9; letter-spacing:-0.005em; font-size:clamp(2.9rem, 7.4vw, 6.2rem); margin:22px 0 0; max-width:15ch; text-shadow:0 2px 24px rgba(0,0,0,0.4); }
+.page-hero h1 .accent{ display:inline-block; border-bottom:5px solid var(--signal); padding-bottom:6px; }
+.page-hero-lede{ font-size:1.08rem; line-height:1.65; color:var(--copy); max-width:600px; margin-top:26px; text-shadow:0 1px 16px rgba(0,0,0,0.5); }
+
+/* CONTACT MAIN */
+.contact{ background:var(--navy); padding:120px 0; position:relative; }
+.contact-grid{ display:grid; grid-template-columns:1fr 1.2fr; gap:80px; align-items:start; }
+.contact-text .h-display{ font-size:clamp(2.2rem,4vw,3.2rem); margin:20px 0 24px; max-width:460px; color:var(--white); }
+.contact-text p{ color:var(--copy); font-size:1.04rem; margin-bottom:26px; max-width:460px; }
+.contact-info{ display:flex; flex-direction:column; border-top:1px solid var(--line-dark); }
+.contact-info .row{ display:flex; justify-content:space-between; align-items:baseline; gap:24px; padding:18px 0; border-bottom:1px solid var(--line-dark); }
+.contact-info .label{ font-family:var(--mono); font-size:0.66rem; letter-spacing:0.22em; text-transform:uppercase; color:var(--copy); font-weight:500; }
+.contact-info .value{ font-family:var(--display); font-size:1.1rem; text-transform:uppercase; font-weight:600; color:var(--white); letter-spacing:0.02em; text-align:right; }
+.emergency{ margin-top:34px; display:flex; gap:16px; align-items:flex-start; border:1px solid var(--signal); border-left-width:4px; padding:20px 22px; }
+.emergency .x{ font-family:var(--display); font-size:1.6rem; font-weight:700; color:var(--signal-2); line-height:1; flex:none; }
+.emergency p{ font-size:0.92rem; color:var(--copy); margin:0; max-width:none; line-height:1.55; }
+.emergency strong{ color:var(--white); }
+
+form.contact-form{ background:var(--steel-3); padding:48px; border-top:4px solid var(--steel-2); }
+form.contact-form .form-row{ display:grid; grid-template-columns:1fr 1fr; gap:22px; margin-bottom:22px; }
+form.contact-form label{ display:block; font-family:var(--mono); font-size:0.66rem; letter-spacing:0.22em; text-transform:uppercase; color:var(--copy); font-weight:500; margin-bottom:10px; }
+form.contact-form input, form.contact-form select, form.contact-form textarea{ width:100%; font:inherit; background:var(--navy-3); border:1px solid rgba(255,255,255,0.18); padding:14px 16px; color:var(--white); outline:none; transition:border-color .2s ease; }
+form.contact-form input::placeholder, form.contact-form textarea::placeholder{ color:rgba(255,255,255,0.55); }
+form.contact-form input:focus, form.contact-form select:focus, form.contact-form textarea:focus{ border-color:var(--signal); }
+form.contact-form select option{ background:var(--navy-3); color:var(--white); }
+form.contact-form .full{ grid-column:1 / -1; }
+form.contact-form textarea{ min-height:150px; resize:vertical; }
+form.contact-form .submit-row{ display:flex; justify-content:space-between; align-items:center; gap:18px; margin-top:12px; flex-wrap:wrap; }
+form.contact-form .form-note{ font-family:var(--mono); font-size:0.72rem; color:var(--copy); max-width:280px; line-height:1.5; text-transform:uppercase; letter-spacing:0.05em; }
+
+/* BASES */
+.bases{ background:var(--navy-2); padding:110px 0; border-top:1px solid var(--line-dark); border-bottom:2px solid var(--signal); }
+.bases-head{ display:flex; align-items:flex-end; justify-content:space-between; gap:32px; flex-wrap:wrap; margin-bottom:48px; }
+.bases-head .h-display{ font-size:clamp(2.2rem,4vw,3.2rem); margin-top:14px; max-width:520px; }
+.bases-head p{ color:var(--copy); max-width:340px; font-size:1rem; }
+.bases-grid{ display:grid; grid-template-columns:1fr 1fr; gap:0; border-top:1px solid var(--line-dark); }
+.base{ display:grid; grid-template-columns:auto 1fr; gap:36px; align-items:center; padding:44px 48px 44px 0; border-bottom:1px solid var(--line-dark); }
+.base:nth-child(odd){ border-right:1px solid var(--line-dark); padding-right:56px; }
+.base:nth-child(even){ padding-left:56px; }
+.base-map{ height:150px; width:auto; overflow:visible; flex:none; }
+.base-map path{ fill:rgba(85,118,144,0.12); stroke:var(--steel-2); stroke-width:2.25; stroke-linejoin:round; stroke-linecap:round; transition:stroke .25s ease, fill .25s ease; vector-effect:non-scaling-stroke; }
+.base-map circle{ fill:var(--signal); stroke:var(--navy-2); stroke-width:2.5; vector-effect:non-scaling-stroke; }
+.base:hover .base-map path{ stroke:var(--signal); fill:rgba(199,58,43,0.14); }
+.base-meta{ font-family:var(--mono); font-size:0.66rem; letter-spacing:0.22em; text-transform:uppercase; color:var(--copy); margin-bottom:10px; }
+.base-name{ font-family:var(--display); font-size:clamp(1.6rem,2.4vw,2.1rem); font-weight:700; text-transform:uppercase; color:var(--white); line-height:1; }
+.base-region{ font-family:var(--mono); font-size:0.8rem; letter-spacing:0.16em; color:var(--copy); text-transform:uppercase; margin-top:12px; }
+
+/* JOIN CTA */
+.join{ background:#000; padding:96px 0; }
+.join .wrap{ display:flex; align-items:center; justify-content:space-between; gap:40px; flex-wrap:wrap; }
+.join .h-display{ font-size:clamp(2rem,3.6vw,3rem); max-width:600px; }
+.join .h-display .accent{ color:var(--signal-2); }
+
+/* FOOTER */
+footer.site-footer{ background:var(--navy-3); color:var(--copy); padding:64px 0 28px; border-top:1px solid var(--line-dark); position:relative; overflow:hidden; }
+footer.site-footer .wrap{ max-width:none; padding:0 48px; }
+.footer-top{ display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:56px; margin-bottom:24px; padding-bottom:240px; border-bottom:1px solid var(--line-dark); align-items:start; }
+.footer-brand .brand{ position:absolute; top:32px; left:48px; width:380px; display:block; pointer-events:none; }
+.footer-brand .brand-mark{ width:100%; height:380px; display:block; }
+.footer-brand .footer-mark img{ object-fit:cover; object-position:18% 38%; width:100%; height:100%; mix-blend-mode:screen; }
+.footer-col h4{ font-family:var(--mono); font-size:0.68rem; letter-spacing:0.22em; text-transform:uppercase; font-weight:500; color:var(--copy); margin-bottom:22px; }
+.footer-col ul{ list-style:none; display:flex; flex-direction:column; gap:12px; }
+.footer-col ul a{ font-family:var(--display); font-size:1.05rem; font-weight:500; text-transform:uppercase; letter-spacing:0.03em; color:var(--white); transition:color .2s ease; }
+.footer-col ul a:hover{ color:var(--signal-2); }
+.footer-col .info-line{ font-size:0.94rem; color:var(--copy); line-height:1.7; }
+.footer-col .info-line strong{ font-family:var(--display); text-transform:uppercase; letter-spacing:0.02em; color:var(--white); font-weight:600; }
+.footer-bottom{ display:flex; justify-content:space-between; align-items:center; gap:18px; flex-wrap:wrap; font-family:var(--mono); font-size:0.72rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--copy); }
+.footer-bottom a{ color:var(--white); }
+.footer-bottom a:hover{ color:var(--signal-2); }
+
+/* RESPONSIVE */
+@media (max-width:1080px){
+  .page-hero{ background-attachment:scroll; }
+  .contact-grid{ grid-template-columns:1fr; gap:48px; }
+  .bases-grid{ grid-template-columns:1fr; }
+  .base, .base:nth-child(odd), .base:nth-child(even){ padding:32px 0; border-right:none; }
+  .base:last-child{ border-bottom:none; }
+  .footer-top{ grid-template-columns:1fr 1fr; gap:36px; }
+  .footer-brand{ grid-column:1 / -1; }
+}
+@media (max-width:720px){
+  .wrap{ padding:0 22px; }
+  nav.primary{ display:none; }
+  .menu-btn{ display:flex; }
+  .tac-group{ gap:12px; padding:5px 14px; }
+  .tac-tag{ font-size:0.6rem; letter-spacing:0.18em; }
+  .page-hero{ background-position:55% center; }
+  .page-hero .wrap{ padding-top:150px; padding-bottom:40px; }
+  .page-hero h1{ font-size:clamp(2.8rem,12vw,4.4rem); }
+  .contact{ padding:72px 0; }
+  form.contact-form{ padding:28px; }
+  form.contact-form .form-row{ grid-template-columns:1fr; }
+  .bases{ padding:72px 0; }
+  .base{ grid-template-columns:1fr; gap:20px; }
+  .join{ padding:64px 0; }
+  .join .wrap{ flex-direction:column; align-items:flex-start; }
+  .footer-top{ grid-template-columns:1fr; gap:36px; text-align:center; padding-bottom:48px; }
+  .footer-col ul{ align-items:center; }
+  .footer-bottom{ justify-content:center; text-align:center; }
+}
+</style>
+</head>
+<body>
+
+<!-- TACTICAL BAR -->
+<div class="tactical-bar">
+  <div class="wrap tac-inner">
+    <div class="tac-group">
+      <span class="tac-tag tac-primary"><span class="tac-dot"></span>SAR OPS</span>
+      <span class="tac-divider">//</span>
+      <span class="tac-tag">Search &amp; Rescue &middot; Ground Unit</span>
+    </div>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a href="index.html" class="brand" aria-label="SAR OPS home">
+      <span class="brand-mark" aria-hidden="true"><img src="Logo.png" alt="" /></span>
+    </a>
+    <nav class="primary" aria-label="Primary">
+      <a href="about.html">About</a>
+      <a href="what-we-do.html">What We Do</a>
+      <a href="sponsors.html">Sponsors</a>
+      <a href="events.html">Events/Classes</a>
+      <a href="contact.html" class="active" aria-current="page">Contact</a>
+      <a href="donate.html" class="nav-donate">Donate</a>
+    </nav>
+    <button class="menu-btn" id="menuBtn" aria-label="Open menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="21" y2="17"/></svg>
+    </button>
+  </div>
+</header>
+
+<div class="mobile-nav" id="mobileNav" aria-hidden="true">
+  <button class="mobile-close" id="mobileClose" aria-label="Close menu">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><line x1="5" y1="5" x2="19" y2="19"/><line x1="19" y1="5" x2="5" y2="19"/></svg>
+  </button>
+  <a href="about.html">About</a>
+  <a href="what-we-do.html">What We Do</a>
+  <a href="sponsors.html">Sponsors</a>
+  <a href="events.html">Events/Classes</a>
+  <a href="contact.html">Contact</a>
+  <a href="donate.html">Donate</a>
+</div>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="wrap">
+    <div class="eyebrow">Get In Touch</div>
+    <h1>Message <span class="accent">us</span></h1>
+    <p class="page-hero-lede">Whether you are an agency requesting assistance, a community partner exploring training, a prospective volunteer, or a sponsor, reach out and our team will respond.</p>
+  </div>
+</section>
+
+<!-- CONTACT MAIN -->
+<section class="contact">
+  <div class="wrap">
+    <div class="contact-grid">
+      <div class="contact-text">
+        <div class="eyebrow">Reach Command</div>
+        <h2 class="h-display">We answer every message</h2>
+        <p>Tell us who you are and how we can help. For agency requests, include the nature of the incident and your contact on scene.</p>
+
+        <div class="contact-info">
+          <div class="row"><span class="label">Email</span><span class="value">Commander@SAROPS.org</span></div>
+          <div class="row"><span class="label">Bases</span><span class="value">California &middot; Arizona</span></div>
+          <div class="row"><span class="label">Status</span><span class="value">24/7 &middot; Mission Ready</span></div>
+        </div>
+
+        <div class="emergency">
+          <span class="x" aria-hidden="true">!</span>
+          <p><strong>For active emergencies, dial 911 first.</strong> SAR OPS deploys at the request of public safety agencies. This form is not monitored for live emergencies.</p>
+        </div>
+      </div>
+
+      <form class="contact-form" onsubmit="event.preventDefault(); alert('Thank you. Your message has been received. (Mockup only, no submission.)'); this.reset();">
+        <div class="form-row">
+          <div>
+            <label for="cf-first">First Name</label>
+            <input id="cf-first" type="text" name="first" required />
+          </div>
+          <div>
+            <label for="cf-last">Last Name</label>
+            <input id="cf-last" type="text" name="last" required />
+          </div>
+        </div>
+        <div class="form-row">
+          <div>
+            <label for="cf-email">Email</label>
+            <input id="cf-email" type="email" name="email" required />
+          </div>
+          <div>
+            <label for="cf-reason">Reason for Contact</label>
+            <select id="cf-reason" name="reason">
+              <option>General Inquiry</option>
+              <option>Agency Request</option>
+              <option>Volunteer Interest</option>
+              <option>Sponsorship</option>
+              <option>Training &amp; Classes</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="full">
+            <label for="cf-msg">Message</label>
+            <textarea id="cf-msg" name="message" required></textarea>
+          </div>
+        </div>
+        <div class="submit-row">
+          <p class="form-note">We typically respond within a few business days for non-emergency inquiries.</p>
+          <button type="submit" class="btn btn-dark">Send Message <span class="arrow">&rarr;</span></button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- BASES -->
+<section class="bases">
+  <div class="wrap">
+    <div class="bases-head">
+      <div>
+        <div class="eyebrow">Operational Footprint</div>
+        <h2 class="h-display">Two states. One standing team</h2>
+      </div>
+      <p>SAR OPS maintains bases across California and Arizona, ready to deploy across the regions we serve.</p>
+    </div>
+    <div class="bases-grid">
+      <div class="base">
+        <svg class="base-map" viewBox="-2 -2 104 204" aria-hidden="true">
+          <path d="M 5 5 L 38 5 L 38 60 L 95 145 L 95 188 L 62 195 L 50 175 L 40 165 L 28 155 L 15 130 L 10 90 L 5 55 Z"/>
+          <circle cx="51" cy="156" r="6.5"/>
+        </svg>
+        <div>
+          <div class="base-meta">Base 01 &middot; West Range</div>
+          <div class="base-name">Conejo Valley</div>
+          <div class="base-region">California &middot; 91307</div>
+        </div>
+      </div>
+      <div class="base">
+        <svg class="base-map" viewBox="-2 -2 104 114" aria-hidden="true">
+          <path d="M 0 0 L 100 0 L 100 105 L 15 105 L 3 90 L 0 50 L 4 20 Z"/>
+          <circle cx="3" cy="36" r="6.5"/>
+        </svg>
+        <div>
+          <div class="base-meta">Base 02 &middot; East Range</div>
+          <div class="base-name">Bullhead City</div>
+          <div class="base-region">Arizona &middot; 86422</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- JOIN CTA -->
+<section class="join">
+  <div class="wrap">
+    <h2 class="h-display">Want to serve? <span class="accent">Join the team</span></h2>
+    <a href="about.html" class="btn btn-ghost">Why We Serve <span class="arrow">&rarr;</span></a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="index.html" class="brand">
+          <span class="brand-mark footer-mark" aria-hidden="true"><img src="HQ FRONT.png" alt="" /></span>
+        </a>
+      </div>
+      <div class="footer-col">
+        <h4>Site</h4>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="what-we-do.html">What We Do</a></li>
+          <li><a href="sponsors.html">Sponsors</a></li>
+          <li><a href="events.html">Events/Classes</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="donate.html">Donate</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <div class="info-line"><strong>Commander@SAROPS.org</strong></div>
+        <div class="info-line" style="margin-top:16px;">Conejo Valley, CA 91307</div>
+        <div class="info-line">Bullhead City, AZ 86422</div>
+      </div>
+      <div class="footer-col">
+        <h4>Status</h4>
+        <div class="info-line"><strong>501(c)(3) Nonprofit</strong></div>
+        <div class="info-line">100% Volunteer Powered</div>
+        <div class="info-line">Operational 24 / 7 &middot; 365</div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>&copy; 2026 SAR OPS &middot; All rights reserved.</div>
+      <div>Website by <a href="#">Proper Websites</a></div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const menuBtn = document.getElementById('menuBtn');
+  const mobileNav = document.getElementById('mobileNav');
+  const mobileClose = document.getElementById('mobileClose');
+  if (menuBtn && mobileNav){ menuBtn.addEventListener('click', () => mobileNav.classList.add('open')); }
+  if (mobileClose && mobileNav){ mobileClose.addEventListener('click', () => mobileNav.classList.remove('open')); }
+  if (mobileNav){ mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileNav.classList.remove('open'))); }
+</script>
+
+</body>
+</html>

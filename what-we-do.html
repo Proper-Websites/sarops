@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>About &middot; SAR OPS</title>
-<meta name="description" content="SAR OPS is a 100% volunteer, 501(c)(3) wilderness search and rescue team built on decades of combined experience in rope rescue and technical operations." />
+<title>What We Do &middot; SAR OPS</title>
+<meta name="description" content="Ground search, technical rope rescue, wilderness SAR, swift water, training, and agency support from SAR OPS, a volunteer search and rescue team." />
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,8 +15,7 @@
   --navy:#1E2D3D; --navy-2:#162232; --navy-3:#0F1924;
   --steel:#3E5F78; --steel-2:#557690; --steel-3:#2F4A5E;
   --white:#FFFFFF; --line-dark:rgba(255,255,255,0.14); --line-dark-2:rgba(255,255,255,0.08);
-  --ink:#1E2D3D;
-  --wrap:1440px;
+  --ink:#1E2D3D; --wrap:1440px;
   --display:"Barlow Condensed", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
   --body:"Inter", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
   --mono:"JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
@@ -30,13 +29,18 @@ img{ max-width:100%; display:block; }
 a{ color:inherit; text-decoration:none; }
 button{ font:inherit; cursor:pointer; border:none; background:none; color:inherit; }
 .wrap{ width:100%; max-width:var(--wrap); margin:0 auto; padding:0 44px; }
-
 .eyebrow{ font-family:var(--mono); font-size:0.72rem; letter-spacing:0.18em; text-transform:uppercase; font-weight:500; color:var(--white); display:inline-flex; align-items:center; gap:12px; }
 .eyebrow::before{ content:""; width:26px; height:2px; background:var(--signal); }
 .eyebrow.plain::before{ display:none; }
 .h-display{ font-family:var(--display); font-weight:700; text-transform:uppercase; line-height:0.94; letter-spacing:-0.005em; }
 
-/* ===== TACTICAL BAR ===== */
+.ph{ background:var(--steel-3); position:relative; overflow:hidden; }
+.ph::before,.ph::after{ content:""; position:absolute; width:22px; height:22px; border:1px solid rgba(255,255,255,0.28); }
+.ph::before{ top:14px; left:14px; border-right:none; border-bottom:none; }
+.ph::after{ bottom:14px; right:14px; border-left:none; border-top:none; }
+.ph-label{ position:absolute; bottom:18px; left:46px; font-family:var(--mono); font-size:0.6rem; letter-spacing:0.22em; color:var(--copy); text-transform:uppercase; }
+
+/* TACTICAL BAR */
 .tactical-bar{ position:relative; background:var(--steel-2); border-bottom:1px solid rgba(0,0,0,0.22); z-index:55; color:var(--white); }
 .tac-inner{ display:flex; align-items:center; justify-content:center; gap:22px; min-height:38px; padding:10px 0 8px; position:relative; }
 .tac-group{ position:relative; display:inline-flex; align-items:center; gap:22px; padding:6px 22px; }
@@ -45,7 +49,7 @@ button{ font:inherit; cursor:pointer; border:none; background:none; color:inheri
 .tac-dot{ width:7px; height:7px; background:var(--signal); border-radius:50%; box-shadow:0 0 0 3px rgba(199,58,43,0.28); flex:none; }
 .tac-divider{ font-family:var(--mono); font-size:0.85rem; color:rgba(255,255,255,0.8); font-weight:700; line-height:1; }
 
-/* ===== HEADER ===== */
+/* HEADER */
 .site-header{ position:absolute; top:56px; left:0; right:0; z-index:50; background:transparent; color:var(--white); }
 .header-inner{ display:flex; align-items:center; justify-content:space-between; height:82px; }
 .brand{ display:flex; align-items:center; gap:16px; }
@@ -66,7 +70,7 @@ nav.primary .nav-donate::after{ display:none; }
 .mobile-close{ position:absolute; top:20px; right:24px; width:48px; height:48px; color:var(--white); display:flex; align-items:center; justify-content:center; }
 .mobile-close svg{ width:28px; height:28px; }
 
-/* ===== BUTTONS ===== */
+/* BUTTONS */
 .btn{ display:inline-flex; align-items:center; gap:14px; padding:18px 28px; font-family:var(--body); font-size:0.76rem; letter-spacing:0.22em; text-transform:uppercase; font-weight:600; border:1px solid currentColor; transition:background .22s ease, color .22s ease, border-color .22s ease, gap .22s ease; }
 .btn:hover{ gap:22px; }
 .btn .arrow{ display:inline-block; font-size:1rem; line-height:1; }
@@ -74,11 +78,9 @@ nav.primary .nav-donate::after{ display:none; }
 .btn-signal:hover{ background:var(--signal-2); border-color:var(--signal-2); }
 .btn-ghost{ color:var(--white); border-color:var(--signal); }
 .btn-ghost:hover{ border-color:var(--signal); background:var(--signal); color:var(--white); }
-.btn-solid{ background:var(--steel); color:var(--white); border-color:var(--steel); }
-.btn-solid:hover{ background:var(--steel-2); border-color:var(--steel-2); }
 
-/* ===== PAGE HERO ===== */
-.page-hero{ position:relative; background-color:var(--navy); background-image:url('Assets/about-hero.jpg'); background-size:cover; background-position:center 30%; background-attachment:fixed; border-bottom:2px solid var(--signal); min-height:62vh; display:flex; }
+/* PAGE HERO */
+.page-hero{ position:relative; background-color:var(--navy); background-image:url('Cliffside.jpg'); background-size:cover; background-position:center 40%; background-attachment:fixed; border-bottom:2px solid var(--signal); min-height:62vh; display:flex; }
 .page-hero::after{ content:""; position:absolute; inset:0; background:
   linear-gradient(180deg, rgba(15,25,36,0.6) 0px, rgba(15,25,36,0) 280px),
   linear-gradient(0deg, rgba(15,25,36,0.94) 0%, rgba(15,25,36,0.6) 40%, rgba(15,25,36,0.22) 72%, rgba(15,25,36,0.12) 100%);
@@ -91,66 +93,52 @@ nav.primary .nav-donate::after{ display:none; }
 .page-hero-meta .pm{ display:inline-flex; align-items:center; gap:10px; }
 .page-hero-meta .pm-dot{ width:8px; height:8px; background:var(--signal); border-radius:50%; }
 
-/* ===== MISSION STATEMENT ===== */
-.mission{ background:var(--navy-2); padding:120px 0; border-bottom:1px solid var(--line-dark); }
-.mission .wrap{ display:grid; grid-template-columns:0.55fr 2fr; gap:64px; align-items:start; }
-.mission-label{ font-family:var(--mono); font-size:0.7rem; letter-spacing:0.22em; text-transform:uppercase; color:var(--copy); padding-top:18px; border-top:2px solid var(--signal); display:inline-block; }
-.mission-statement{ font-family:var(--display); font-weight:600; text-transform:uppercase; line-height:1.02; letter-spacing:-0.005em; font-size:clamp(1.9rem, 3.8vw, 3.2rem); color:var(--white); }
-.mission-statement .muted{ color:var(--steel-2); }
-.mission-sub{ margin-top:30px; font-family:var(--body); font-size:1.06rem; line-height:1.7; color:var(--copy); max-width:640px; text-transform:none; font-weight:400; letter-spacing:0; }
+/* INTRO STRIP */
+.cap-intro{ background:var(--navy-2); padding:72px 0; border-bottom:1px solid var(--line-dark); }
+.cap-intro .wrap{ display:grid; grid-template-columns:0.5fr 2fr; gap:56px; align-items:center; }
+.cap-intro-label{ font-family:var(--mono); font-size:0.7rem; letter-spacing:0.22em; text-transform:uppercase; color:var(--copy); padding-top:16px; border-top:2px solid var(--signal); display:inline-block; }
+.cap-intro p{ font-family:var(--display); font-weight:600; text-transform:uppercase; font-size:clamp(1.5rem,2.8vw,2.4rem); line-height:1.08; color:var(--white); letter-spacing:-0.005em; }
+.cap-intro p .muted{ color:var(--steel-2); }
 
-/* ===== OUR STORY ===== */
-.story{ background:var(--navy); padding:130px 0; }
-.story-grid{ display:grid; grid-template-columns:1.25fr 1fr; gap:80px; align-items:center; }
-.story-text .h-display{ font-size:clamp(2.2rem, 4vw, 3.2rem); margin:20px 0 28px; max-width:520px; color:var(--white); }
-.story-text p{ color:var(--copy); font-size:1.04rem; margin-bottom:18px; max-width:560px; }
-.story-text p strong{ color:var(--white); font-weight:600; }
-.story-photo{ position:relative; aspect-ratio:4/5; background:url('HQ FRONT.png') center/cover no-repeat, var(--steel-3); border:1px solid var(--line-dark); }
-.story-photo .tag{ position:absolute; bottom:0; left:0; background:var(--signal); color:var(--white); font-family:var(--mono); font-size:0.64rem; letter-spacing:0.2em; text-transform:uppercase; padding:8px 16px; font-weight:600; }
-.story-stats{ margin-top:40px; display:grid; grid-template-columns:repeat(4,1fr); gap:0; border-top:1px solid var(--line-dark); }
-.story-stat{ padding:24px 24px 0 0; border-right:1px solid var(--line-dark); }
-.story-stat:last-child{ border-right:none; }
-.story-stat-num{ font-family:var(--display); font-size:clamp(1.8rem,2.6vw,2.4rem); font-weight:700; color:var(--white); line-height:1; }
-.story-stat-label{ font-family:var(--mono); font-size:0.66rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--copy); margin-top:10px; }
+/* CAPABILITY ROWS */
+.caps{ background:var(--navy); }
+.cap-row{ display:grid; grid-template-columns:1fr 1fr; gap:72px; align-items:center; padding:96px 0; border-bottom:1px solid var(--line-dark); }
+.cap-row:last-child{ border-bottom:none; }
+.cap-media{ aspect-ratio:4/3; width:100%; background-size:cover; background-position:center; position:relative; border:1px solid var(--line-dark); }
+.cap-row:nth-child(even) .cap-media{ order:2; }
+.cap-num{ font-family:var(--mono); font-size:0.8rem; letter-spacing:0.22em; color:var(--signal); display:inline-block; padding-bottom:18px; margin-bottom:22px; border-bottom:2px solid var(--steel-2); }
+.cap-kicker{ font-family:var(--mono); font-size:0.74rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--spark); margin-bottom:14px; }
+.cap-name{ font-family:var(--display); font-weight:700; text-transform:uppercase; line-height:0.96; font-size:clamp(2rem,3.6vw,3.2rem); color:var(--white); margin-bottom:20px; }
+.cap-desc{ color:var(--copy); font-size:1.04rem; line-height:1.65; max-width:520px; margin-bottom:26px; }
+.cap-points{ list-style:none; display:flex; flex-direction:column; gap:0; max-width:520px; border-top:1px solid var(--line-dark); }
+.cap-points li{ display:flex; align-items:center; gap:14px; padding:14px 0; border-bottom:1px solid var(--line-dark); font-family:var(--mono); font-size:0.74rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--copy); }
+.cap-points li::before{ content:""; width:7px; height:7px; background:var(--signal); flex:none; }
 
-/* ===== VALUES INDEX ===== */
-.values{ background:#000; padding:120px 0; border-top:1px solid var(--line-dark); border-bottom:1px solid var(--line-dark); }
-.values-head{ display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:end; margin-bottom:8px; padding-bottom:32px; border-bottom:1px solid var(--line-dark); }
-.values-head .h-display{ font-size:clamp(2.2rem, 4.2vw, 3.4rem); margin-top:16px; max-width:480px; }
-.values-head p{ color:var(--copy); font-size:1rem; max-width:400px; justify-self:end; }
-.values-grid{ display:grid; grid-template-columns:1fr 1fr; }
-.value{ display:grid; grid-template-columns:auto 1fr; gap:28px; align-items:start; padding:34px 36px 34px 0; border-bottom:1px solid var(--line-dark); }
-.value:nth-child(odd){ border-right:1px solid var(--line-dark); padding-right:48px; }
-.value:nth-child(even){ padding-left:48px; }
-.value:nth-last-child(-n+2){ border-bottom:none; }
-.value-num{ font-family:var(--mono); font-size:0.74rem; letter-spacing:0.18em; color:var(--signal); padding-top:8px; }
-.value-name{ font-family:var(--display); font-size:clamp(1.7rem,2.4vw,2.1rem); font-weight:700; text-transform:uppercase; color:var(--white); line-height:1; }
-.value-desc{ color:var(--copy); font-size:0.97rem; line-height:1.55; margin-top:12px; max-width:360px; }
+/* OPERATE TIMELINE */
+.operate{ background:var(--panel); padding:120px 0; border-top:2px solid var(--signal); }
+.operate-head{ display:flex; align-items:flex-end; justify-content:space-between; gap:36px; flex-wrap:wrap; margin-bottom:8px; padding-bottom:36px; border-bottom:1px solid var(--line-dark); }
+.operate-head .h-display{ font-size:clamp(2.2rem,4.2vw,3.4rem); margin-top:14px; max-width:520px; }
+.operate-head p{ color:var(--copy); max-width:360px; font-size:1rem; }
+.timeline{ display:flex; flex-direction:column; }
+.tl-step{ display:grid; grid-template-columns:120px 1fr 2fr; gap:40px; align-items:center; padding:40px 0; border-bottom:1px solid var(--line-dark); transition:padding .25s ease; }
+.tl-step:last-child{ border-bottom:none; }
+.tl-step:hover{ padding-left:14px; }
+.tl-num{ font-family:var(--display); font-size:clamp(2.6rem,4vw,3.8rem); font-weight:700; color:var(--steel-2); line-height:1; }
+.tl-step:hover .tl-num{ color:var(--signal); }
+.tl-name{ font-family:var(--display); font-size:clamp(1.5rem,2.4vw,2rem); font-weight:700; text-transform:uppercase; color:var(--white); line-height:1; }
+.tl-desc{ color:var(--copy); font-size:1rem; line-height:1.6; max-width:480px; }
 
-/* ===== STANDARDS TICKER ===== */
-.std{ background:var(--panel); padding:88px 0; }
-.std-head{ display:flex; align-items:flex-end; justify-content:space-between; gap:32px; flex-wrap:wrap; margin-bottom:44px; }
-.std-head .h-display{ font-size:clamp(2rem,3.6vw,3rem); margin-top:14px; max-width:520px; }
-.std-head p{ color:var(--copy); max-width:340px; font-size:0.98rem; }
-.std-row{ display:flex; flex-wrap:wrap; gap:0; border-top:1px solid var(--line-dark); border-left:1px solid var(--line-dark); }
-.std-chip{ flex:1 1 25%; min-width:160px; padding:28px 26px; border-right:1px solid var(--line-dark); border-bottom:1px solid var(--line-dark); display:flex; flex-direction:column; gap:8px; }
-.std-chip .abbr{ font-family:var(--display); font-size:1.5rem; font-weight:700; letter-spacing:0.02em; text-transform:uppercase; color:var(--white); }
-.std-chip .full{ font-family:var(--mono); font-size:0.66rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--copy); line-height:1.5; }
-
-/* ===== CTA BAND ===== */
-.cta-band{ background-color:var(--navy-3); background-image:linear-gradient(90deg, rgba(15,25,36,0.82) 0%, rgba(15,25,36,0.55) 45%, rgba(15,25,36,0.3) 100%), url('Cliffside.jpg'); background-size:cover, cover; background-position:center, center; background-attachment:scroll, fixed; padding:120px 0; border-top:2px solid var(--signal); position:relative; }
+/* CTA */
+.cta-band{ background-color:var(--navy-3); background-image:linear-gradient(90deg, rgba(15,25,36,0.85) 0%, rgba(15,25,36,0.55) 48%, rgba(15,25,36,0.3) 100%), url('Truck.jpg'); background-size:cover, cover; background-position:center, center; background-attachment:scroll, fixed; padding:120px 0; border-top:1px solid var(--line-dark); }
 @media (max-width:1024px){ .cta-band{ background-attachment:scroll, scroll; } }
-.cta-band .h-display{ font-size:clamp(2.2rem,4.6vw,3.8rem); max-width:760px; line-height:0.98; text-shadow:0 1px 18px rgba(0,0,0,0.5); }
+.cta-band .h-display{ font-size:clamp(2.2rem,4.6vw,3.8rem); max-width:720px; line-height:0.98; text-shadow:0 1px 18px rgba(0,0,0,0.5); }
 .cta-band p{ color:var(--copy); font-size:1.06rem; margin:24px 0 32px; max-width:520px; text-shadow:0 1px 16px rgba(0,0,0,0.5); }
 .cta-actions{ display:flex; gap:14px; flex-wrap:wrap; }
 
-/* ===== FOOTER ===== */
+/* FOOTER */
 footer.site-footer{ background:var(--navy-3); color:var(--copy); padding:64px 0 28px; border-top:1px solid var(--line-dark); position:relative; overflow:hidden; }
 footer.site-footer .wrap{ max-width:none; padding:0 48px; }
-.footer-statement{ font-family:var(--display); font-weight:700; text-transform:uppercase; font-size:clamp(2.4rem,6vw,4.8rem); letter-spacing:-0.005em; line-height:0.95; margin-bottom:56px; color:var(--white); }
-.footer-statement .accent{ color:var(--copy); }
 .footer-top{ display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:56px; margin-bottom:24px; padding-bottom:240px; border-bottom:1px solid var(--line-dark); align-items:start; }
-.footer-brand{ min-height:1px; }
 .footer-brand .brand{ position:absolute; top:32px; left:48px; width:380px; display:block; pointer-events:none; }
 .footer-brand .brand-mark{ width:100%; height:380px; display:block; }
 .footer-brand .footer-mark img{ object-fit:cover; object-position:18% 38%; width:100%; height:100%; mix-blend-mode:screen; }
@@ -164,14 +152,15 @@ footer.site-footer .wrap{ max-width:none; padding:0 48px; }
 .footer-bottom a{ color:var(--white); }
 .footer-bottom a:hover{ color:var(--signal-2); }
 
-/* ===== RESPONSIVE ===== */
+/* RESPONSIVE */
 @media (max-width:1080px){
   .page-hero{ background-attachment:scroll; }
-  .mission .wrap{ grid-template-columns:1fr; gap:28px; }
-  .story-grid{ grid-template-columns:1fr; gap:48px; }
-  .story-photo{ aspect-ratio:16/10; max-height:460px; }
-  .values-head{ grid-template-columns:1fr; gap:20px; }
-  .values-head p{ justify-self:start; }
+  .cap-intro .wrap{ grid-template-columns:1fr; gap:24px; }
+  .cap-row{ grid-template-columns:1fr; gap:36px; padding:64px 0; }
+  .cap-row:nth-child(even) .cap-media{ order:0; }
+  .cap-media{ aspect-ratio:16/10; }
+  .tl-step{ grid-template-columns:80px 1fr; gap:24px; row-gap:14px; }
+  .tl-desc{ grid-column:2; }
   .footer-top{ grid-template-columns:1fr 1fr; gap:36px; }
   .footer-brand{ grid-column:1 / -1; }
 }
@@ -184,26 +173,17 @@ footer.site-footer .wrap{ max-width:none; padding:0 48px; }
   .page-hero{ background-position:60% center; }
   .page-hero .wrap{ padding-top:150px; padding-bottom:44px; }
   .page-hero h1{ font-size:clamp(2.8rem,12vw,4.4rem); }
-  .mission{ padding:72px 0; }
-  .story{ padding:72px 0; }
-  .story-stats{ grid-template-columns:1fr 1fr; gap:0; }
-  .story-stat{ padding:22px 18px 22px 0; border-bottom:1px solid var(--line-dark); }
-  .story-stat:nth-child(2){ border-right:none; }
-  .story-stat:nth-last-child(-n+2){ border-bottom:none; }
-  .values{ padding:72px 0; }
-  .values-grid{ grid-template-columns:1fr; }
-  .value, .value:nth-child(odd), .value:nth-child(even){ padding:28px 0; border-right:none; }
-  .value:nth-last-child(2){ border-bottom:1px solid var(--line-dark); }
-  .std{ padding:64px 0; }
-  .std-chip{ flex:1 1 50%; min-width:140px; }
-  .cta-band{ padding:80px 0; background-position:65% center, 65% center; }
+  .cap-intro{ padding:56px 0; }
+  .caps .cap-row{ padding:56px 0; }
+  .operate{ padding:72px 0; }
+  .tl-step{ grid-template-columns:60px 1fr; gap:18px; padding:28px 0; }
+  .tl-num{ font-size:2.4rem; }
+  .cta-band{ padding:80px 0; background-position:62% center, 62% center; }
   .cta-actions{ flex-direction:row; }
   .cta-actions .btn{ flex:1 1 0; min-width:0; justify-content:center; padding:16px 12px; letter-spacing:0.1em; }
   .footer-top{ grid-template-columns:1fr; gap:36px; text-align:center; padding-bottom:48px; }
-  .footer-brand{ align-items:center; }
   .footer-col ul{ align-items:center; }
   .footer-bottom{ justify-content:center; text-align:center; }
-  .footer-statement{ text-align:center; }
 }
 </style>
 </head>
@@ -227,8 +207,8 @@ footer.site-footer .wrap{ max-width:none; padding:0 48px; }
       <span class="brand-mark" aria-hidden="true"><img src="Logo.png" alt="" /></span>
     </a>
     <nav class="primary" aria-label="Primary">
-      <a href="about.html" class="active" aria-current="page">About</a>
-      <a href="what-we-do.html">What We Do</a>
+      <a href="about.html">About</a>
+      <a href="what-we-do.html" class="active" aria-current="page">What We Do</a>
       <a href="sponsors.html">Sponsors</a>
       <a href="events.html">Events/Classes</a>
       <a href="contact.html">Contact</a>
@@ -255,124 +235,152 @@ footer.site-footer .wrap{ max-width:none; padding:0 48px; }
 <!-- PAGE HERO -->
 <section class="page-hero">
   <div class="wrap">
-    <div class="eyebrow">Who We Are</div>
-    <h1>No one gets <span class="accent">left behind</span></h1>
-    <p class="page-hero-lede">A non-profit, 100% volunteer wilderness search and rescue team specializing in high and low-angle rescue, technical rope, and mountain terrain operations. Built on the belief that no person should ever be left behind.</p>
+    <div class="eyebrow">What We Do</div>
+    <h1>Built for every <span class="accent">terrain</span></h1>
+    <p class="page-hero-lede">From vertical cliff faces to flooded rivers and deep backcountry, our operators are trained and certified to respond wherever the call comes from.</p>
     <div class="page-hero-meta">
-      <span class="pm"><span class="pm-dot"></span>100% Volunteer</span>
-      <span class="pm"><span class="pm-dot"></span>501(c)(3) Nonprofit</span>
-      <span class="pm"><span class="pm-dot"></span>California &amp; Arizona</span>
+      <span class="pm"><span class="pm-dot"></span>Ground &middot; Rope &middot; Water &middot; Wilderness</span>
+      <span class="pm"><span class="pm-dot"></span>NFPA-Compliant Operations</span>
     </div>
   </div>
 </section>
 
-<!-- MISSION -->
-<section class="mission">
+<!-- INTRO -->
+<section class="cap-intro">
   <div class="wrap">
-    <span class="mission-label">Our Mission</span>
-    <div>
-      <h2 class="mission-statement">To provide expert, relentless search and rescue services with a focus on <span class="muted">professionalism, safety, and compassion</span></h2>
-      <p class="mission-sub">We serve with the belief that no one should ever feel lost, forgotten, or without hope. Our work is not driven by publicity. It is driven by a commitment to being there when it counts, for the missing, and for the communities that depend on us.</p>
-    </div>
+    <span class="cap-intro-label">Capabilities</span>
+    <p>When someone goes missing, the terrain does not wait. <span class="muted">Neither do we.</span></p>
   </div>
 </section>
 
-<!-- OUR STORY -->
-<section class="story">
+<!-- CAPABILITIES -->
+<section class="caps">
   <div class="wrap">
-    <div class="story-grid">
-      <div class="story-text">
-        <div class="eyebrow">Our Story</div>
-        <h2 class="h-display">Decades of experience, one standing team</h2>
-        <p>SAR OPS was built on decades of combined experience in emergency response, rope rescue, and wilderness search operations. Though recently rebranded as SAR OPS, our foundation was laid through years of regional response work.</p>
-        <p>Our team has completed <strong>dozens of rescue missions</strong> and logged <strong>hundreds of training hours</strong>, all while maintaining close working relationships with local and state emergency agencies. We operate across urban, wilderness, and swift water environments, ready to deploy wherever the call comes from.</p>
-        <p>We know what is at stake when someone goes missing. That is why we train relentlessly, so that when the page comes through, we are already prepared.</p>
-      </div>
-      <div class="story-photo">
-        <span class="tag">SAR OPS HQ</span>
+
+    <div class="cap-row">
+      <div class="cap-media" style="background-image:url('Assets/about-hero.jpg');"></div>
+      <div class="cap-body">
+        <span class="cap-num">01</span>
+        <div class="cap-kicker">Every second counts. Every life matters.</div>
+        <h2 class="cap-name">Ground Search &amp; Rescue</h2>
+        <p class="cap-desc">Coordinated ground operations for missing persons in urban and rural settings, including lost hikers, elderly individuals with dementia, and missing children. We grid, track, and clear terrain methodically until the subject is found.</p>
+        <ul class="cap-points">
+          <li>Hasty teams &amp; methodical grid search</li>
+          <li>Urban and rural environments</li>
+          <li>Tracking &amp; sign cutting</li>
+        </ul>
       </div>
     </div>
 
-    <div class="story-stats">
-      <div class="story-stat">
-        <div class="story-stat-num">100%</div>
-        <div class="story-stat-label">Volunteer Powered</div>
-      </div>
-      <div class="story-stat">
-        <div class="story-stat-num">Zero</div>
-        <div class="story-stat-label">Government Funding</div>
-      </div>
-      <div class="story-stat">
-        <div class="story-stat-num">2</div>
-        <div class="story-stat-label">State Footprint</div>
-      </div>
-      <div class="story-stat">
-        <div class="story-stat-num">24/7</div>
-        <div class="story-stat-label">Mission Ready</div>
+    <div class="cap-row">
+      <div class="cap-media" style="background-image:url('Cliffside.jpg');"></div>
+      <div class="cap-body">
+        <span class="cap-num">02</span>
+        <div class="cap-kicker">Vertical rescue. Precision-driven. Life-saving.</div>
+        <h2 class="cap-name">Technical Rope Rescue</h2>
+        <p class="cap-desc">Certified technical rope access for rescues involving cliffs, ravines, bridges, and other vertical environments where traditional methods will not work. Every system is rigged, checked, and backed up before a single operator goes over the edge.</p>
+        <ul class="cap-points">
+          <li>High and low-angle rescue</li>
+          <li>NFPA 1006 / 1670 compliant systems</li>
+          <li>Litter rigging &amp; subject packaging</li>
+        </ul>
       </div>
     </div>
+
+    <div class="cap-row">
+      <div class="cap-media" style="background-image:url('What-we-do-page-scaled.jpg');"></div>
+      <div class="cap-body">
+        <span class="cap-num">03</span>
+        <div class="cap-kicker">Rugged terrain. Remote locations. Relentless determination.</div>
+        <h2 class="cap-name">Wilderness Search &amp; Rescue</h2>
+        <p class="cap-desc">Advanced survival, tracking, and terrain navigation for locating individuals lost in forests, deserts, mountains, and challenging backcountry. Self-sufficient teams that can operate for extended periods, far from the trailhead.</p>
+        <ul class="cap-points">
+          <li>Backcountry navigation</li>
+          <li>Extended self-sufficient operations</li>
+          <li>Wilderness first response &amp; EMS</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="cap-row">
+      <div class="cap-media ph"><span class="ph-label">Swift Water &middot; Photo</span></div>
+      <div class="cap-body">
+        <span class="cap-num">04</span>
+        <div class="cap-kicker">Moving water. No hesitation.</div>
+        <h2 class="cap-name">Swift Water Rescue</h2>
+        <p class="cap-desc">Specialized response in moving water, including flood events, river incidents, and water-adjacent terrain, carried out by certified swift water technicians using throw bags, rope systems, and shore-based recovery.</p>
+        <ul class="cap-points">
+          <li>Flood &amp; river response</li>
+          <li>Shore-based &amp; in-water techniques</li>
+          <li>Certified swift water technicians</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="cap-row">
+      <div class="cap-media" style="background-image:url('Assets/training.jpg');"></div>
+      <div class="cap-body">
+        <span class="cap-num">05</span>
+        <div class="cap-kicker">Preparedness saves lives. Train with us.</div>
+        <h2 class="cap-name">Training &amp; Certification</h2>
+        <p class="cap-desc">Internal and community-based training that meets or exceeds national standards. We treat continuous preparation as foundational to rescue effectiveness, and we share that training with the public and partner agencies.</p>
+        <ul class="cap-points">
+          <li>Public &amp; agency courses</li>
+          <li>Meets or exceeds national standards</li>
+          <li>See the <a href="events.html" style="color:var(--spark);">events &amp; classes</a> schedule</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="cap-row">
+      <div class="cap-media ph"><span class="ph-label">Community &middot; Photo</span></div>
+      <div class="cap-body">
+        <span class="cap-num">06</span>
+        <div class="cap-kicker">Stronger together.</div>
+        <h2 class="cap-name">Community &amp; Agency Support</h2>
+        <p class="cap-desc">Partnerships with communities, schools, and agencies that strengthen emergency preparedness through events and simulations, raising regional awareness and readiness long before an emergency ever happens.</p>
+        <ul class="cap-points">
+          <li>Community outreach &amp; education</li>
+          <li>Joint exercises with partner agencies</li>
+          <li>Preparedness simulations</li>
+        </ul>
+      </div>
+    </div>
+
   </div>
 </section>
 
-<!-- VALUES -->
-<section class="values">
+<!-- OPERATE -->
+<section class="operate">
   <div class="wrap">
-    <div class="values-head">
+    <div class="operate-head">
       <div>
-        <div class="eyebrow">What Guides Us</div>
-        <h2 class="h-display">Six principles. Every call</h2>
+        <div class="eyebrow">How We Operate</div>
+        <h2 class="h-display">Every call answered the same way</h2>
       </div>
-      <p>These are the standards we hold ourselves to before, during, and after every operation we run.</p>
+      <p>Trained protocols, coordinated command, rapid deployment, and a relentless focus on bringing the subject home safely.</p>
     </div>
-
-    <div class="values-grid">
-      <div class="value">
-        <span class="value-num">01</span>
-        <div><div class="value-name">Integrity</div><p class="value-desc">We do what is right on every call, whether or not anyone is watching.</p></div>
+    <div class="timeline">
+      <div class="tl-step">
+        <span class="tl-num">01</span>
+        <h3 class="tl-name">Activate</h3>
+        <p class="tl-desc">Agency request received. Operators paged and command established within minutes.</p>
       </div>
-      <div class="value">
-        <span class="value-num">02</span>
-        <div><div class="value-name">Service</div><p class="value-desc">We answer because someone needs us, not for recognition.</p></div>
+      <div class="tl-step">
+        <span class="tl-num">02</span>
+        <h3 class="tl-name">Assess</h3>
+        <p class="tl-desc">Terrain, subject profile, and resource requirements analyzed before deployment.</p>
       </div>
-      <div class="value">
-        <span class="value-num">03</span>
-        <div><div class="value-name">Excellence</div><p class="value-desc">We train to meet or exceed national standards, and then keep training.</p></div>
+      <div class="tl-step">
+        <span class="tl-num">03</span>
+        <h3 class="tl-name">Deploy</h3>
+        <p class="tl-desc">Ground, rope, water, or wilderness team mobilized with full equipment loadout.</p>
       </div>
-      <div class="value">
-        <span class="value-num">04</span>
-        <div><div class="value-name">Teamwork</div><p class="value-desc">No operator works alone. Every rescue is a coordinated effort.</p></div>
+      <div class="tl-step">
+        <span class="tl-num">04</span>
+        <h3 class="tl-name">Recover</h3>
+        <p class="tl-desc">Subject located, stabilized, and transferred to appropriate care or authority.</p>
       </div>
-      <div class="value">
-        <span class="value-num">05</span>
-        <div><div class="value-name">Resilience</div><p class="value-desc">Hard terrain, long hours, bad weather. We finish what we start.</p></div>
-      </div>
-      <div class="value">
-        <span class="value-num">06</span>
-        <div><div class="value-name">Compassion</div><p class="value-desc">Every person we reach is treated with dignity and care.</p></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- STANDARDS -->
-<section class="std">
-  <div class="wrap">
-    <div class="std-head">
-      <div>
-        <div class="eyebrow">The Standard We Hold</div>
-        <h2 class="h-display">Certified, compliant, ready</h2>
-      </div>
-      <p>Our operators train and certify to recognized national search and rescue standards.</p>
-    </div>
-    <div class="std-row">
-      <div class="std-chip"><span class="abbr">NASAR</span><span class="full">National Association for Search &amp; Rescue</span></div>
-      <div class="std-chip"><span class="abbr">NFPA</span><span class="full">Compliant Operations &middot; 1006 / 1670</span></div>
-      <div class="std-chip"><span class="abbr">FEMA</span><span class="full">Federal Emergency Management Agency</span></div>
-      <div class="std-chip"><span class="abbr">DHS</span><span class="full">U.S. Department of Homeland Security</span></div>
-      <div class="std-chip"><span class="abbr">RRO/RRT</span><span class="full">Rope Rescue Operations &amp; Technician</span></div>
-      <div class="std-chip"><span class="abbr">SARTECH</span><span class="full">Search &amp; Rescue Technician &middot; NASAR</span></div>
-      <div class="std-chip"><span class="abbr">WFR</span><span class="full">Wilderness First Responder</span></div>
-      <div class="std-chip"><span class="abbr">SWR</span><span class="full">Swift Water Rescue Technician</span></div>
     </div>
   </div>
 </section>
@@ -380,12 +388,12 @@ footer.site-footer .wrap{ max-width:none; padding:0 48px; }
 <!-- CTA -->
 <section class="cta-band">
   <div class="wrap">
-    <div class="eyebrow">Join the Mission</div>
-    <h2 class="h-display">Relentless in training. Relentless in response. Relentless in rescue</h2>
-    <p>Whether you want to serve as a volunteer, partner as an agency, or fund the gear that goes into the field, there is a place for you on this team.</p>
+    <div class="eyebrow">Request The Team</div>
+    <h2 class="h-display">Need our capabilities in the field?</h2>
+    <p>SAR OPS deploys at the request of public agencies. Reach out to coordinate response, mutual aid, or joint training with our team.</p>
     <div class="cta-actions">
-      <a href="contact.html" class="btn btn-signal">Join The Team <span class="arrow">&rarr;</span></a>
-      <a href="donate.html" class="btn btn-ghost">Donate <span class="arrow">&rarr;</span></a>
+      <a href="contact.html" class="btn btn-signal">Contact Command <span class="arrow">&rarr;</span></a>
+      <a href="events.html" class="btn btn-ghost">Train With Us <span class="arrow">&rarr;</span></a>
     </div>
   </div>
 </section>
