@@ -111,12 +111,12 @@ nav.primary .nav-donate::after{ display:none; }
 .lo-name{ font-family:var(--display); font-size:1.5rem; font-weight:700; text-transform:uppercase; color:var(--white); line-height:1; }
 
 /* TIERS */
-.give{ background:#000; padding:120px 0; border-top:1px solid var(--line-dark); border-bottom:1px solid var(--line-dark); }
+.give{ background:var(--navy-3); padding:120px 0; border-top:1px solid var(--line-dark); border-bottom:1px solid var(--line-dark); }
 .give-head{ display:flex; align-items:flex-end; justify-content:space-between; gap:32px; flex-wrap:wrap; margin-bottom:8px; padding-bottom:32px; border-bottom:1px solid var(--line-dark); }
 .give-head .h-display{ font-size:clamp(2.2rem,4vw,3.2rem); margin-top:14px; max-width:520px; }
 .give-head .note{ font-family:var(--mono); font-size:0.66rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--spark); max-width:260px; line-height:1.6; }
-.give-tiers{ display:grid; grid-template-columns:repeat(5,1fr); border-top:1px solid var(--line-dark); }
-.give-tier{ display:flex; flex-direction:column; justify-content:space-between; gap:28px; padding:36px 24px; border-bottom:1px solid var(--line-dark); border-right:1px solid var(--line-dark); min-height:230px; text-decoration:none; color:inherit; transition:background .25s ease, padding-top .25s ease; position:relative; }
+.give-tiers{ display:grid; grid-template-columns:repeat(6,1fr); border-top:1px solid var(--line-dark); }
+.give-tier{ display:flex; flex-direction:column; justify-content:center; align-items:center; gap:28px; padding:36px 20px; border-bottom:1px solid var(--line-dark); border-right:1px solid var(--line-dark); min-height:150px; text-decoration:none; color:inherit; transition:background .25s ease, padding-top .25s ease; position:relative; }
 .give-tier:first-child{ border-left:1px solid var(--line-dark); }
 .give-tier:hover{ background:var(--navy-2); padding-top:30px; }
 .give-tier-amt{ font-family:var(--display); font-size:clamp(2.2rem,3.2vw,2.8rem); font-weight:700; color:var(--white); line-height:0.94; }
@@ -173,7 +173,7 @@ footer.site-footer .wrap{ max-width:none; padding:0 48px; }
   .loadout-head p{ justify-self:start; }
   .loadout-grid{ grid-template-columns:1fr 1fr; }
   .give-tiers{ grid-template-columns:1fr 1fr 1fr; }
-  .give-tier:nth-child(3){ border-right:none; }
+  .give-tier:nth-child(3n){ border-right:none; }
   .other-grid{ grid-template-columns:1fr 1fr; }
   .ow, .ow:not(:first-child){ padding-left:28px; padding-right:28px; }
   .ow:nth-child(2){ border-right:none; }
@@ -333,25 +333,23 @@ footer.site-footer .wrap{ max-width:none; padding:0 48px; }
     </div>
     <div class="give-tiers">
       <a href="#" class="give-tier">
-        <span class="give-tier-amt">$50</span>
-        <span class="give-tier-label">Field supplies &amp; consumables</span>
+        <span class="give-tier-amt">$5</span>
       </a>
       <a href="#" class="give-tier">
-        <span class="give-tier-amt">$100</span>
-        <span class="give-tier-label">Fuel &amp; mission logistics</span>
+        <span class="give-tier-amt">$10</span>
+      </a>
+      <a href="#" class="give-tier">
+        <span class="give-tier-amt">$20</span>
       </a>
       <a href="#" class="give-tier give-tier-feat">
         <span class="give-tier-flag">Most Common</span>
-        <span class="give-tier-amt">$250</span>
-        <span class="give-tier-label">Rescue gear &amp; safety equipment</span>
+        <span class="give-tier-amt">$50</span>
       </a>
       <a href="#" class="give-tier">
-        <span class="give-tier-amt">$500</span>
-        <span class="give-tier-label">Technical rope &amp; hardware</span>
+        <span class="give-tier-amt">$100</span>
       </a>
       <a href="#" class="give-tier">
         <span class="give-tier-amt">Custom</span>
-        <span class="give-tier-label">Give any amount that fits</span>
       </a>
     </div>
     <div class="give-foot">
