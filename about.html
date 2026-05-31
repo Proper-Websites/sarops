@@ -1,0 +1,443 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>About — SAR OPS</title>
+<meta name="description" content="SAR OPS is a 100% volunteer, 501(c)(3) wilderness search and rescue team built on decades of combined experience in rope rescue and technical operations." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --navy:#1E2D3D; --navy-2:#162232; --navy-3:#0F1924;
+  --steel:#3E5F78; --steel-2:#557690; --steel-3:#2F4A5E;
+  --white:#FFFFFF; --line-dark:rgba(255,255,255,0.14); --line-dark-2:rgba(255,255,255,0.08);
+  --ink:#1E2D3D;
+  --wrap:1440px;
+  --display:"Barlow Condensed", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+  --body:"Inter", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+  --mono:"JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --signal:#C73A2B; --signal-2:#DA483A; --spark:#E8B339;
+  --copy:#FFFFFF; --copy-dark:#1E2D3D; --panel:#2F4A5E;
+}
+*{ box-sizing:border-box; margin:0; padding:0; }
+html{ scroll-behavior:smooth; }
+body{ font-family:var(--body); font-size:16px; line-height:1.6; color:var(--white); background:var(--navy); -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility; }
+img{ max-width:100%; display:block; }
+a{ color:inherit; text-decoration:none; }
+button{ font:inherit; cursor:pointer; border:none; background:none; color:inherit; }
+.wrap{ width:100%; max-width:var(--wrap); margin:0 auto; padding:0 44px; }
+
+.eyebrow{ font-family:var(--mono); font-size:0.72rem; letter-spacing:0.18em; text-transform:uppercase; font-weight:500; color:var(--white); display:inline-flex; align-items:center; gap:12px; }
+.eyebrow::before{ content:""; width:26px; height:2px; background:var(--signal); }
+.eyebrow.plain::before{ display:none; }
+.h-display{ font-family:var(--display); font-weight:700; text-transform:uppercase; line-height:0.94; letter-spacing:-0.005em; }
+
+/* ===== TACTICAL BAR ===== */
+.tactical-bar{ position:relative; background:var(--steel-2); border-bottom:1px solid rgba(0,0,0,0.22); z-index:55; color:var(--white); }
+.tac-inner{ display:flex; align-items:center; justify-content:center; gap:22px; min-height:38px; padding:10px 0 8px; position:relative; }
+.tac-group{ position:relative; display:inline-flex; align-items:center; gap:22px; padding:6px 22px; }
+.tac-tag{ font-family:var(--mono); font-size:0.7rem; letter-spacing:0.24em; text-transform:uppercase; color:var(--white); font-weight:600; display:inline-flex; align-items:center; gap:10px; white-space:nowrap; }
+.tac-primary{ font-weight:700; letter-spacing:0.3em; }
+.tac-dot{ width:7px; height:7px; background:var(--signal); border-radius:50%; box-shadow:0 0 0 3px rgba(199,58,43,0.28); flex:none; }
+.tac-divider{ font-family:var(--mono); font-size:0.85rem; color:rgba(255,255,255,0.8); font-weight:700; line-height:1; }
+
+/* ===== HEADER ===== */
+.site-header{ position:absolute; top:56px; left:0; right:0; z-index:50; background:transparent; color:var(--white); }
+.header-inner{ display:flex; align-items:center; justify-content:space-between; height:82px; }
+.brand{ display:flex; align-items:center; gap:16px; }
+.brand-mark{ width:74px; height:74px; display:flex; align-items:center; justify-content:center; flex:none; }
+.brand-mark img{ width:100%; height:100%; object-fit:contain; display:block; }
+nav.primary{ display:flex; align-items:center; gap:30px; }
+nav.primary a{ font-family:var(--body); font-size:0.78rem; letter-spacing:0.16em; text-transform:uppercase; font-weight:500; color:var(--white); transition:color .2s ease; position:relative; padding:6px 0; }
+nav.primary a:not(.nav-donate)::after{ content:""; position:absolute; left:0; right:0; bottom:0; height:2px; background:var(--signal); transform:scaleX(0); transform-origin:left; transition:transform .25s ease; }
+nav.primary a:not(.nav-donate):hover::after, nav.primary a.active:not(.nav-donate)::after{ transform:scaleX(1); }
+nav.primary .nav-donate{ border:1px solid var(--signal); padding:11px 22px; color:var(--white); transition:background .2s ease, border-color .2s ease, color .2s ease; }
+nav.primary .nav-donate:hover{ background:var(--signal); border-color:var(--signal); color:var(--white); }
+nav.primary .nav-donate::after{ display:none; }
+.menu-btn{ display:none; width:48px; height:48px; align-items:center; justify-content:center; color:var(--white); }
+.menu-btn svg{ width:28px; height:28px; }
+.mobile-nav{ display:none; position:fixed; inset:0; background:var(--navy); z-index:60; padding:96px 32px 40px; flex-direction:column; gap:4px; }
+.mobile-nav.open{ display:flex; }
+.mobile-nav a{ font-family:var(--display); font-size:2.2rem; font-weight:600; letter-spacing:0.03em; text-transform:uppercase; color:var(--white); padding:14px 0; border-bottom:1px solid var(--line-dark); }
+.mobile-close{ position:absolute; top:20px; right:24px; width:48px; height:48px; color:var(--white); display:flex; align-items:center; justify-content:center; }
+.mobile-close svg{ width:28px; height:28px; }
+
+/* ===== BUTTONS ===== */
+.btn{ display:inline-flex; align-items:center; gap:14px; padding:18px 28px; font-family:var(--body); font-size:0.76rem; letter-spacing:0.22em; text-transform:uppercase; font-weight:600; border:1px solid currentColor; transition:background .22s ease, color .22s ease, border-color .22s ease, gap .22s ease; }
+.btn:hover{ gap:22px; }
+.btn .arrow{ display:inline-block; font-size:1rem; line-height:1; }
+.btn-signal{ background:var(--signal); color:var(--white); border-color:var(--signal); }
+.btn-signal:hover{ background:var(--signal-2); border-color:var(--signal-2); }
+.btn-ghost{ color:var(--white); border-color:var(--signal); }
+.btn-ghost:hover{ border-color:var(--signal); background:var(--signal); color:var(--white); }
+.btn-solid{ background:var(--steel); color:var(--white); border-color:var(--steel); }
+.btn-solid:hover{ background:var(--steel-2); border-color:var(--steel-2); }
+
+/* ===== PAGE HERO ===== */
+.page-hero{ position:relative; background-color:var(--navy); background-image:url('Assets/about-hero.jpg'); background-size:cover; background-position:center 30%; background-attachment:fixed; border-bottom:2px solid var(--signal); min-height:62vh; display:flex; }
+.page-hero::after{ content:""; position:absolute; inset:0; background:
+  linear-gradient(180deg, rgba(15,25,36,0.6) 0px, rgba(15,25,36,0) 280px),
+  linear-gradient(0deg, rgba(15,25,36,0.94) 0%, rgba(15,25,36,0.6) 40%, rgba(15,25,36,0.22) 72%, rgba(15,25,36,0.12) 100%);
+  pointer-events:none; z-index:0; }
+.page-hero .wrap{ position:relative; z-index:1; display:flex; flex-direction:column; justify-content:flex-end; padding-top:210px; padding-bottom:60px; width:100%; }
+.page-hero h1{ font-family:var(--display); font-weight:700; text-transform:uppercase; line-height:0.9; letter-spacing:-0.005em; font-size:clamp(2.9rem, 7.4vw, 6.2rem); margin:22px 0 0; max-width:15ch; text-shadow:0 2px 24px rgba(0,0,0,0.4); }
+.page-hero h1 .accent{ display:inline-block; border-bottom:5px solid var(--signal); padding-bottom:6px; }
+.page-hero-lede{ font-size:1.08rem; line-height:1.65; color:var(--copy); max-width:600px; margin-top:26px; text-shadow:0 1px 16px rgba(0,0,0,0.5); }
+.page-hero-meta{ display:flex; gap:30px; flex-wrap:wrap; margin-top:34px; padding-top:24px; border-top:1px solid var(--line-dark); font-family:var(--mono); font-size:0.72rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--white); }
+.page-hero-meta .pm{ display:inline-flex; align-items:center; gap:10px; }
+.page-hero-meta .pm-dot{ width:8px; height:8px; background:var(--signal); border-radius:50%; }
+
+/* ===== MISSION STATEMENT ===== */
+.mission{ background:var(--navy-2); padding:120px 0; border-bottom:1px solid var(--line-dark); }
+.mission .wrap{ display:grid; grid-template-columns:0.55fr 2fr; gap:64px; align-items:start; }
+.mission-label{ font-family:var(--mono); font-size:0.7rem; letter-spacing:0.22em; text-transform:uppercase; color:var(--copy); padding-top:18px; border-top:2px solid var(--signal); display:inline-block; }
+.mission-statement{ font-family:var(--display); font-weight:600; text-transform:uppercase; line-height:1.02; letter-spacing:-0.005em; font-size:clamp(1.9rem, 3.8vw, 3.2rem); color:var(--white); }
+.mission-statement .muted{ color:var(--steel-2); }
+.mission-sub{ margin-top:30px; font-family:var(--body); font-size:1.06rem; line-height:1.7; color:var(--copy); max-width:640px; text-transform:none; font-weight:400; letter-spacing:0; }
+
+/* ===== OUR STORY ===== */
+.story{ background:var(--navy); padding:130px 0; }
+.story-grid{ display:grid; grid-template-columns:1.25fr 1fr; gap:80px; align-items:center; }
+.story-text .h-display{ font-size:clamp(2.2rem, 4vw, 3.2rem); margin:20px 0 28px; max-width:520px; color:var(--white); }
+.story-text p{ color:var(--copy); font-size:1.04rem; margin-bottom:18px; max-width:560px; }
+.story-text p strong{ color:var(--white); font-weight:600; }
+.story-photo{ position:relative; aspect-ratio:4/5; background:url('HQ FRONT.png') center/cover no-repeat, var(--steel-3); border:1px solid var(--line-dark); }
+.story-photo .tag{ position:absolute; bottom:0; left:0; background:var(--signal); color:var(--white); font-family:var(--mono); font-size:0.64rem; letter-spacing:0.2em; text-transform:uppercase; padding:8px 16px; font-weight:600; }
+.story-stats{ margin-top:40px; display:grid; grid-template-columns:repeat(4,1fr); gap:0; border-top:1px solid var(--line-dark); }
+.story-stat{ padding:24px 24px 0 0; border-right:1px solid var(--line-dark); }
+.story-stat:last-child{ border-right:none; }
+.story-stat-num{ font-family:var(--display); font-size:clamp(1.8rem,2.6vw,2.4rem); font-weight:700; color:var(--white); line-height:1; }
+.story-stat-label{ font-family:var(--mono); font-size:0.66rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--copy); margin-top:10px; }
+
+/* ===== VALUES INDEX ===== */
+.values{ background:#000; padding:120px 0; border-top:1px solid var(--line-dark); border-bottom:1px solid var(--line-dark); }
+.values-head{ display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:end; margin-bottom:8px; padding-bottom:32px; border-bottom:1px solid var(--line-dark); }
+.values-head .h-display{ font-size:clamp(2.2rem, 4.2vw, 3.4rem); margin-top:16px; max-width:480px; }
+.values-head p{ color:var(--copy); font-size:1rem; max-width:400px; justify-self:end; }
+.values-grid{ display:grid; grid-template-columns:1fr 1fr; }
+.value{ display:grid; grid-template-columns:auto 1fr; gap:28px; align-items:start; padding:34px 36px 34px 0; border-bottom:1px solid var(--line-dark); }
+.value:nth-child(odd){ border-right:1px solid var(--line-dark); padding-right:48px; }
+.value:nth-child(even){ padding-left:48px; }
+.value:nth-last-child(-n+2){ border-bottom:none; }
+.value-num{ font-family:var(--mono); font-size:0.74rem; letter-spacing:0.18em; color:var(--signal); padding-top:8px; }
+.value-name{ font-family:var(--display); font-size:clamp(1.7rem,2.4vw,2.1rem); font-weight:700; text-transform:uppercase; color:var(--white); line-height:1; }
+.value-desc{ color:var(--copy); font-size:0.97rem; line-height:1.55; margin-top:12px; max-width:360px; }
+
+/* ===== STANDARDS TICKER ===== */
+.std{ background:var(--panel); padding:88px 0; }
+.std-head{ display:flex; align-items:flex-end; justify-content:space-between; gap:32px; flex-wrap:wrap; margin-bottom:44px; }
+.std-head .h-display{ font-size:clamp(2rem,3.6vw,3rem); margin-top:14px; max-width:520px; }
+.std-head p{ color:var(--copy); max-width:340px; font-size:0.98rem; }
+.std-row{ display:flex; flex-wrap:wrap; gap:0; border-top:1px solid var(--line-dark); border-left:1px solid var(--line-dark); }
+.std-chip{ flex:1 1 25%; min-width:160px; padding:28px 26px; border-right:1px solid var(--line-dark); border-bottom:1px solid var(--line-dark); display:flex; flex-direction:column; gap:8px; }
+.std-chip .abbr{ font-family:var(--display); font-size:1.5rem; font-weight:700; letter-spacing:0.02em; text-transform:uppercase; color:var(--white); }
+.std-chip .full{ font-family:var(--mono); font-size:0.66rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--copy); line-height:1.5; }
+
+/* ===== CTA BAND ===== */
+.cta-band{ background-color:var(--navy-3); background-image:linear-gradient(90deg, rgba(15,25,36,0.82) 0%, rgba(15,25,36,0.55) 45%, rgba(15,25,36,0.3) 100%), url('Cliffside.jpg'); background-size:cover, cover; background-position:center, center; background-attachment:scroll, fixed; padding:120px 0; border-top:2px solid var(--signal); position:relative; }
+@media (max-width:1024px){ .cta-band{ background-attachment:scroll, scroll; } }
+.cta-band .h-display{ font-size:clamp(2.2rem,4.6vw,3.8rem); max-width:760px; line-height:0.98; text-shadow:0 1px 18px rgba(0,0,0,0.5); }
+.cta-band p{ color:var(--copy); font-size:1.06rem; margin:24px 0 32px; max-width:520px; text-shadow:0 1px 16px rgba(0,0,0,0.5); }
+.cta-actions{ display:flex; gap:14px; flex-wrap:wrap; }
+
+/* ===== FOOTER ===== */
+footer.site-footer{ background:var(--navy-3); color:var(--copy); padding:64px 0 28px; border-top:1px solid var(--line-dark); position:relative; overflow:hidden; }
+footer.site-footer .wrap{ max-width:none; padding:0 48px; }
+.footer-statement{ font-family:var(--display); font-weight:700; text-transform:uppercase; font-size:clamp(2.4rem,6vw,4.8rem); letter-spacing:-0.005em; line-height:0.95; margin-bottom:56px; color:var(--white); }
+.footer-statement .accent{ color:var(--copy); }
+.footer-top{ display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:56px; margin-bottom:24px; padding-bottom:240px; border-bottom:1px solid var(--line-dark); align-items:start; }
+.footer-brand{ min-height:1px; }
+.footer-brand .brand{ position:absolute; top:32px; left:48px; width:380px; display:block; pointer-events:none; }
+.footer-brand .brand-mark{ width:100%; height:380px; display:block; }
+.footer-brand .footer-mark img{ object-fit:cover; object-position:18% 38%; width:100%; height:100%; mix-blend-mode:screen; }
+.footer-col h4{ font-family:var(--mono); font-size:0.68rem; letter-spacing:0.22em; text-transform:uppercase; font-weight:500; color:var(--copy); margin-bottom:22px; }
+.footer-col ul{ list-style:none; display:flex; flex-direction:column; gap:12px; }
+.footer-col ul a{ font-family:var(--display); font-size:1.05rem; font-weight:500; text-transform:uppercase; letter-spacing:0.03em; color:var(--white); transition:color .2s ease; }
+.footer-col ul a:hover{ color:var(--signal-2); }
+.footer-col .info-line{ font-size:0.94rem; color:var(--copy); line-height:1.7; }
+.footer-col .info-line strong{ font-family:var(--display); text-transform:uppercase; letter-spacing:0.02em; color:var(--white); font-weight:600; }
+.footer-bottom{ display:flex; justify-content:space-between; align-items:center; gap:18px; flex-wrap:wrap; font-family:var(--mono); font-size:0.72rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--copy); }
+.footer-bottom a{ color:var(--white); }
+.footer-bottom a:hover{ color:var(--signal-2); }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width:1080px){
+  .page-hero{ background-attachment:scroll; }
+  .mission .wrap{ grid-template-columns:1fr; gap:28px; }
+  .story-grid{ grid-template-columns:1fr; gap:48px; }
+  .story-photo{ aspect-ratio:16/10; max-height:460px; }
+  .values-head{ grid-template-columns:1fr; gap:20px; }
+  .values-head p{ justify-self:start; }
+  .footer-top{ grid-template-columns:1fr 1fr; gap:36px; }
+  .footer-brand{ grid-column:1 / -1; }
+}
+@media (max-width:720px){
+  .wrap{ padding:0 22px; }
+  nav.primary{ display:none; }
+  .menu-btn{ display:flex; }
+  .tac-group{ gap:12px; padding:5px 14px; }
+  .tac-tag{ font-size:0.6rem; letter-spacing:0.18em; }
+  .page-hero{ background-position:60% center; }
+  .page-hero .wrap{ padding-top:150px; padding-bottom:44px; }
+  .page-hero h1{ font-size:clamp(2.8rem,12vw,4.4rem); }
+  .mission{ padding:72px 0; }
+  .story{ padding:72px 0; }
+  .story-stats{ grid-template-columns:1fr 1fr; gap:0; }
+  .story-stat{ padding:22px 18px 22px 0; border-bottom:1px solid var(--line-dark); }
+  .story-stat:nth-child(2){ border-right:none; }
+  .story-stat:nth-last-child(-n+2){ border-bottom:none; }
+  .values{ padding:72px 0; }
+  .values-grid{ grid-template-columns:1fr; }
+  .value, .value:nth-child(odd), .value:nth-child(even){ padding:28px 0; border-right:none; }
+  .value:nth-last-child(2){ border-bottom:1px solid var(--line-dark); }
+  .std{ padding:64px 0; }
+  .std-chip{ flex:1 1 50%; min-width:140px; }
+  .cta-band{ padding:80px 0; background-position:65% center, 65% center; }
+  .cta-actions{ flex-direction:row; }
+  .cta-actions .btn{ flex:1 1 0; min-width:0; justify-content:center; padding:16px 12px; letter-spacing:0.1em; }
+  .footer-top{ grid-template-columns:1fr; gap:36px; text-align:center; padding-bottom:48px; }
+  .footer-brand{ align-items:center; }
+  .footer-col ul{ align-items:center; }
+  .footer-bottom{ justify-content:center; text-align:center; }
+  .footer-statement{ text-align:center; }
+}
+</style>
+</head>
+<body>
+
+<!-- TACTICAL BAR -->
+<div class="tactical-bar">
+  <div class="wrap tac-inner">
+    <div class="tac-group">
+      <span class="tac-tag tac-primary"><span class="tac-dot"></span>SAR OPS</span>
+      <span class="tac-divider">//</span>
+      <span class="tac-tag">Search &amp; Rescue &middot; Ground Unit</span>
+    </div>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a href="index.html" class="brand" aria-label="SAR OPS home">
+      <span class="brand-mark" aria-hidden="true"><img src="Logo.png" alt="" /></span>
+    </a>
+    <nav class="primary" aria-label="Primary">
+      <a href="about.html" class="active" aria-current="page">About</a>
+      <a href="what-we-do.html">What We Do</a>
+      <a href="sponsors.html">Sponsors</a>
+      <a href="events.html">Events/Classes</a>
+      <a href="contact.html">Contact</a>
+      <a href="donate.html" class="nav-donate">Donate</a>
+    </nav>
+    <button class="menu-btn" id="menuBtn" aria-label="Open menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="21" y2="17"/></svg>
+    </button>
+  </div>
+</header>
+
+<div class="mobile-nav" id="mobileNav" aria-hidden="true">
+  <button class="mobile-close" id="mobileClose" aria-label="Close menu">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><line x1="5" y1="5" x2="19" y2="19"/><line x1="19" y1="5" x2="5" y2="19"/></svg>
+  </button>
+  <a href="about.html">About</a>
+  <a href="what-we-do.html">What We Do</a>
+  <a href="sponsors.html">Sponsors</a>
+  <a href="events.html">Events/Classes</a>
+  <a href="contact.html">Contact</a>
+  <a href="donate.html">Donate</a>
+</div>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="wrap">
+    <div class="eyebrow">Who We Are</div>
+    <h1>No one gets <span class="accent">left behind</span></h1>
+    <p class="page-hero-lede">A non-profit, 100% volunteer wilderness search and rescue team specializing in high and low-angle rescue, technical rope, and mountain terrain operations. Built on the belief that no person should ever be left behind.</p>
+    <div class="page-hero-meta">
+      <span class="pm"><span class="pm-dot"></span>100% Volunteer</span>
+      <span class="pm"><span class="pm-dot"></span>501(c)(3) Nonprofit</span>
+      <span class="pm"><span class="pm-dot"></span>California &amp; Arizona</span>
+    </div>
+  </div>
+</section>
+
+<!-- MISSION -->
+<section class="mission">
+  <div class="wrap">
+    <span class="mission-label">Our Mission</span>
+    <div>
+      <h2 class="mission-statement">To provide expert, relentless search and rescue services with a focus on <span class="muted">professionalism, safety, and compassion</span></h2>
+      <p class="mission-sub">We serve with the belief that no one should ever feel lost, forgotten, or without hope. Our work is not driven by publicity. It is driven by a commitment to being there when it counts, for the missing, and for the communities that depend on us.</p>
+    </div>
+  </div>
+</section>
+
+<!-- OUR STORY -->
+<section class="story">
+  <div class="wrap">
+    <div class="story-grid">
+      <div class="story-text">
+        <div class="eyebrow">Our Story</div>
+        <h2 class="h-display">Decades of experience, one standing team</h2>
+        <p>SAR OPS was built on decades of combined experience in emergency response, rope rescue, and wilderness search operations. Though recently rebranded as SAR OPS, our foundation was laid through years of regional response work.</p>
+        <p>Our team has completed <strong>dozens of rescue missions</strong> and logged <strong>hundreds of training hours</strong>, all while maintaining close working relationships with local and state emergency agencies. We operate across urban, wilderness, and swift water environments, ready to deploy wherever the call comes from.</p>
+        <p>We know what is at stake when someone goes missing. That is why we train relentlessly, so that when the page comes through, we are already prepared.</p>
+      </div>
+      <div class="story-photo">
+        <span class="tag">SAR OPS HQ</span>
+      </div>
+    </div>
+
+    <div class="story-stats">
+      <div class="story-stat">
+        <div class="story-stat-num">100%</div>
+        <div class="story-stat-label">Volunteer Powered</div>
+      </div>
+      <div class="story-stat">
+        <div class="story-stat-num">Zero</div>
+        <div class="story-stat-label">Government Funding</div>
+      </div>
+      <div class="story-stat">
+        <div class="story-stat-num">2</div>
+        <div class="story-stat-label">State Footprint</div>
+      </div>
+      <div class="story-stat">
+        <div class="story-stat-num">24/7</div>
+        <div class="story-stat-label">Mission Ready</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VALUES -->
+<section class="values">
+  <div class="wrap">
+    <div class="values-head">
+      <div>
+        <div class="eyebrow">What Guides Us</div>
+        <h2 class="h-display">Six principles. Every call.</h2>
+      </div>
+      <p>These are the standards we hold ourselves to before, during, and after every operation we run.</p>
+    </div>
+
+    <div class="values-grid">
+      <div class="value">
+        <span class="value-num">01</span>
+        <div><div class="value-name">Integrity</div><p class="value-desc">We do what is right on every call, whether or not anyone is watching.</p></div>
+      </div>
+      <div class="value">
+        <span class="value-num">02</span>
+        <div><div class="value-name">Service</div><p class="value-desc">We answer because someone needs us, not for recognition.</p></div>
+      </div>
+      <div class="value">
+        <span class="value-num">03</span>
+        <div><div class="value-name">Excellence</div><p class="value-desc">We train to meet or exceed national standards, and then keep training.</p></div>
+      </div>
+      <div class="value">
+        <span class="value-num">04</span>
+        <div><div class="value-name">Teamwork</div><p class="value-desc">No operator works alone. Every rescue is a coordinated effort.</p></div>
+      </div>
+      <div class="value">
+        <span class="value-num">05</span>
+        <div><div class="value-name">Resilience</div><p class="value-desc">Hard terrain, long hours, bad weather. We finish what we start.</p></div>
+      </div>
+      <div class="value">
+        <span class="value-num">06</span>
+        <div><div class="value-name">Compassion</div><p class="value-desc">Every person we reach is treated with dignity and care.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STANDARDS -->
+<section class="std">
+  <div class="wrap">
+    <div class="std-head">
+      <div>
+        <div class="eyebrow">The Standard We Hold</div>
+        <h2 class="h-display">Certified, compliant, ready</h2>
+      </div>
+      <p>Our operators train and certify to recognized national search and rescue standards.</p>
+    </div>
+    <div class="std-row">
+      <div class="std-chip"><span class="abbr">NASAR</span><span class="full">National Association for Search &amp; Rescue</span></div>
+      <div class="std-chip"><span class="abbr">NFPA</span><span class="full">Compliant Operations &middot; 1006 / 1670</span></div>
+      <div class="std-chip"><span class="abbr">FEMA</span><span class="full">Federal Emergency Management Agency</span></div>
+      <div class="std-chip"><span class="abbr">DHS</span><span class="full">U.S. Department of Homeland Security</span></div>
+      <div class="std-chip"><span class="abbr">RRO/RRT</span><span class="full">Rope Rescue Operations &amp; Technician</span></div>
+      <div class="std-chip"><span class="abbr">SARTECH</span><span class="full">Search &amp; Rescue Technician &middot; NASAR</span></div>
+      <div class="std-chip"><span class="abbr">WFR</span><span class="full">Wilderness First Responder</span></div>
+      <div class="std-chip"><span class="abbr">SWR</span><span class="full">Swift Water Rescue Technician</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-band">
+  <div class="wrap">
+    <div class="eyebrow">Join the Mission</div>
+    <h2 class="h-display">Relentless in training. Relentless in response. Relentless in rescue.</h2>
+    <p>Whether you want to serve as a volunteer, partner as an agency, or fund the gear that goes into the field, there is a place for you on this team.</p>
+    <div class="cta-actions">
+      <a href="contact.html" class="btn btn-signal">Join The Team <span class="arrow">&rarr;</span></a>
+      <a href="donate.html" class="btn btn-ghost">Donate <span class="arrow">&rarr;</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="index.html" class="brand">
+          <span class="brand-mark footer-mark" aria-hidden="true"><img src="HQ FRONT.png" alt="" /></span>
+        </a>
+      </div>
+      <div class="footer-col">
+        <h4>Site</h4>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="what-we-do.html">What We Do</a></li>
+          <li><a href="sponsors.html">Sponsors</a></li>
+          <li><a href="events.html">Events/Classes</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="donate.html">Donate</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <div class="info-line"><strong>Commander@SAROPS.org</strong></div>
+        <div class="info-line" style="margin-top:16px;">Conejo Valley, CA 91307</div>
+        <div class="info-line">Bullhead City, AZ 86422</div>
+      </div>
+      <div class="footer-col">
+        <h4>Status</h4>
+        <div class="info-line"><strong>501(c)(3) Nonprofit</strong></div>
+        <div class="info-line">100% Volunteer Powered</div>
+        <div class="info-line">Operational 24 / 7 &middot; 365</div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>&copy; 2026 SAR OPS &middot; All rights reserved.</div>
+      <div>Website by <a href="#">Proper Websites</a></div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const menuBtn = document.getElementById('menuBtn');
+  const mobileNav = document.getElementById('mobileNav');
+  const mobileClose = document.getElementById('mobileClose');
+  if (menuBtn && mobileNav){ menuBtn.addEventListener('click', () => mobileNav.classList.add('open')); }
+  if (mobileClose && mobileNav){ mobileClose.addEventListener('click', () => mobileNav.classList.remove('open')); }
+  if (mobileNav){ mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileNav.classList.remove('open'))); }
+</script>
+
+</body>
+</html>

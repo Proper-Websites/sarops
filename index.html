@@ -1,0 +1,2170 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>SAR OPS — Relentless in Rescue</title>
+<meta name="description" content="SAR OPS is a 501(c)(3) volunteer wilderness search and rescue team specializing in technical rope rescue, swift water, and wilderness operations." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --navy:#1E2D3D;
+  --navy-2:#162232;
+  --navy-3:#0F1924;
+  --steel:#3E5F78;
+  --steel-2:#557690;
+  --steel-3:#2F4A5E;
+  --white:#FFFFFF;
+  --bone:#F4F4F2;
+  --bone-2:#EEEEEA;
+  --line:#E2E5E8;
+  --line-2:#D6DADE;
+  --line-dark:rgba(255,255,255,0.14);
+  --line-dark-2:rgba(255,255,255,0.08);
+  --gray:#6B7480;
+  --gray-2:#9AA3AC;
+  --ink:#1E2D3D;
+
+  --wrap: 1440px;
+  --display: "Barlow Condensed", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+  --body: "Inter", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+
+  --signal:   #C73A2B;
+  --signal-2: #DA483A;
+  --spark:    #E8B339;
+  --spark-2:  #F4C758;
+
+  --gray-light: #DDE2E7;
+  --gray-mid:   #B8C2CC;
+
+  /* Client direction: no muted/grayed secondary text. All copy reads clean white
+     on dark sections and strong dark on light sections — everything legible. */
+  --copy:      #FFFFFF;
+  --copy-dark: #1E2D3D;
+
+  /* Section panels: client wants the old gray bands as on-theme steel-blue, not gray. */
+  --panel: #2F4A5E;
+}
+
+*{ box-sizing:border-box; margin:0; padding:0; }
+html{ scroll-behavior:smooth; }
+body{
+  font-family: var(--body);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--white);
+  background: var(--navy);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+img{ max-width:100%; display:block; }
+a{ color:inherit; text-decoration:none; }
+button{ font:inherit; cursor:pointer; border:none; background:none; color:inherit; }
+
+.wrap{
+  width:100%;
+  max-width: var(--wrap);
+  margin: 0 auto;
+  padding: 0 44px;
+}
+
+.eyebrow{
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: var(--navy);
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+.eyebrow::before{
+  content:"";
+  width: 26px; height: 2px;
+  background: var(--signal);
+  opacity: 1;
+}
+.eyebrow.on-dark{ color: var(--white); }
+.eyebrow.on-steel{ color: var(--white); }
+.eyebrow.plain::before{ display:none; }
+
+.h-display{
+  font-family: var(--display);
+  font-weight: 700;
+  text-transform: uppercase;
+  line-height: 0.94;
+  letter-spacing: -0.005em;
+}
+
+/* ============ PHOTO PLACEHOLDER ============ */
+.ph{
+  background: var(--steel-3);
+  position: relative;
+  overflow: hidden;
+}
+.ph::before, .ph::after{
+  content:"";
+  position: absolute;
+  width: 22px; height: 22px;
+  border: 1px solid rgba(255,255,255,0.28);
+}
+.ph::before{
+  top: 14px; left: 14px;
+  border-right: none; border-bottom: none;
+}
+.ph::after{
+  bottom: 14px; right: 14px;
+  border-left: none; border-top: none;
+}
+.ph .ph-cnr-tr{
+  position: absolute;
+  top: 14px; right: 14px;
+  width: 22px; height: 22px;
+  border: 1px solid rgba(255,255,255,0.28);
+  border-left: none; border-bottom: none;
+}
+.ph .ph-cnr-bl{
+  position: absolute;
+  bottom: 14px; left: 14px;
+  width: 22px; height: 22px;
+  border: 1px solid rgba(255,255,255,0.28);
+  border-right: none; border-top: none;
+}
+.ph-label{
+  position: absolute;
+  bottom: 22px; left: 50px;
+  font-family: var(--mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.22em;
+  color: var(--copy);
+  text-transform: uppercase;
+}
+.ph-name{
+  position: absolute;
+  top: 22px; right: 50px;
+  font-family: var(--mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.22em;
+  color: var(--copy);
+  text-transform: uppercase;
+}
+
+/* ============ TACTICAL BAR ============ */
+.tactical-bar{
+  position: relative;
+  background: var(--steel-2);
+  border-bottom: 1px solid rgba(0,0,0,0.22);
+  z-index: 55;
+  color: var(--white);
+}
+.tac-group{
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 22px;
+  padding: 6px 22px;
+}
+.tac-group > .tac-cnr{
+  position: absolute;
+  width: 10px; height: 10px;
+  border: 1px solid rgba(255,255,255,0.75);
+  pointer-events: none;
+}
+.tac-cnr-tl{ top: 0; left: 0; border-right: none; border-bottom: none; }
+.tac-cnr-tr{ top: 0; right: 0; border-left: none; border-bottom: none; }
+.tac-cnr-bl{ bottom: 0; left: 0; border-right: none; border-top: none; }
+.tac-cnr-br{ bottom: 0; right: 0; border-left: none; border-top: none; }
+.tac-inner{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 22px;
+  min-height: 38px;
+  padding: 10px 0 8px;
+  position: relative;
+}
+.tac-tag{
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--white);
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  white-space: nowrap;
+}
+.tac-primary{ font-weight: 700; letter-spacing: 0.3em; }
+.tac-dot{
+  width: 7px; height: 7px;
+  background: var(--signal);
+  border-radius: 50%;
+  box-shadow: 0 0 0 3px rgba(199,58,43,0.28);
+  flex: none;
+}
+.tac-divider{
+  font-family: var(--mono);
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.8);
+  font-weight: 700;
+  line-height: 1;
+}
+
+/* ============ HEADER ============ */
+.site-header{
+  position: absolute; top:56px; left:0; right:0; z-index:50;
+  background: transparent;
+  color: var(--white);
+}
+.header-inner{
+  display:flex; align-items:center; justify-content:space-between;
+  height:82px;
+}
+.brand{ display:flex; align-items:center; gap:16px; }
+.brand-mark{
+  width:74px; height:74px;
+  display:flex; align-items:center; justify-content:center;
+  flex: none;
+}
+.brand-mark img{ width: 100%; height: 100%; object-fit: contain; display: block; }
+.brand-text{ display:flex; flex-direction:column; line-height:1; gap: 4px; }
+.brand-name{
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 1.5rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--white);
+}
+.brand-tag{
+  font-family: var(--mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.22em;
+  font-weight: 500;
+  color: var(--copy);
+  text-transform: uppercase;
+}
+
+nav.primary{ display:flex; align-items:center; gap:32px; }
+nav.primary a{
+  font-family: var(--body);
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: var(--white);
+  transition: color .2s ease;
+  position: relative;
+  padding: 6px 0;
+}
+nav.primary a:not(.nav-donate)::after{
+  content:"";
+  position:absolute; left:0; right:0; bottom:0;
+  height: 2px;
+  background: var(--signal);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .25s ease;
+}
+nav.primary a:not(.nav-donate):hover::after{ transform: scaleX(1); }
+nav.primary .nav-donate{
+  border:1px solid var(--signal);
+  padding: 11px 22px;
+  color: var(--white);
+  transition: background .2s ease, border-color .2s ease, color .2s ease;
+}
+nav.primary .nav-donate:hover{
+  background: var(--signal);
+  border-color: var(--signal);
+  color: var(--white);
+}
+nav.primary .nav-donate::after{ display: none; }
+
+.menu-btn{
+  display:none;
+  width:48px; height:48px;
+  align-items:center; justify-content:center;
+  color: var(--white);
+}
+.menu-btn svg{ width:28px; height:28px; }
+
+.mobile-nav{
+  display:none;
+  position: fixed; inset:0;
+  background: var(--navy);
+  z-index: 60;
+  padding: 96px 32px 40px;
+  flex-direction: column;
+  gap: 4px;
+}
+.mobile-nav.open{ display:flex; }
+.mobile-nav a{
+  font-family: var(--display);
+  font-size: 2.2rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--white);
+  padding: 14px 0;
+  border-bottom: 1px solid var(--line-dark);
+}
+.mobile-close{
+  position:absolute; top: 20px; right: 24px;
+  width:48px; height:48px;
+  color: var(--white);
+  display:flex; align-items:center; justify-content:center;
+}
+.mobile-close svg{ width:28px; height:28px; }
+
+/* ============ BUTTONS ============ */
+.btn{
+  display: inline-flex; align-items:center; gap: 14px;
+  padding: 18px 28px;
+  font-family: var(--body);
+  font-size: 0.76rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-weight: 600;
+  border: 1px solid currentColor;
+  transition: background .22s ease, color .22s ease, border-color .22s ease, gap .22s ease;
+}
+.btn:hover{ gap: 22px; }
+.btn .arrow{ display:inline-block; font-size: 1rem; line-height: 1; }
+.btn-solid{
+  background: var(--steel);
+  color: var(--white);
+  border-color: var(--steel);
+}
+.btn-solid:hover{ background: var(--steel-2); border-color: var(--steel-2); }
+.btn-ghost{
+  color: var(--white);
+  border-color: var(--signal);
+}
+.btn-ghost:hover{
+  border-color: var(--signal);
+  background: var(--signal);
+  color: var(--white);
+}
+.btn-dark{
+  background: var(--navy);
+  color: var(--white);
+  border-color: var(--navy);
+}
+.btn-dark:hover{ background: var(--steel); border-color: var(--steel); }
+.btn-outline-dark{
+  color: var(--navy);
+  border-color: var(--navy);
+}
+.btn-outline-dark:hover{
+  background: var(--navy);
+  color: var(--white);
+}
+.btn-on-steel{
+  background: var(--white);
+  color: var(--navy);
+  border-color: var(--white);
+}
+.btn-on-steel:hover{
+  background: var(--navy);
+  color: var(--white);
+  border-color: var(--navy);
+}
+.btn-ghost-steel{
+  color: var(--white);
+  border-color: var(--signal);
+}
+.btn-ghost-steel:hover{
+  border-color: var(--signal);
+  background: var(--signal);
+  color: var(--white);
+}
+.btn-signal{
+  background: var(--signal);
+  color: var(--white);
+  border-color: var(--signal);
+}
+.btn-signal:hover{ background: var(--signal-2); border-color: var(--signal-2); }
+
+/* ============ HERO ============ */
+.hero-stack{
+  position: relative;
+  background-color: var(--navy);
+  background-image: url('hero.png');
+  background-size: cover;
+  background-position: 70% center;
+  background-attachment: fixed;
+  border-bottom: 2px solid var(--signal);
+}
+/* One continuous overlay across the WHOLE stack (hero + sponsors) so the
+   dark treatment — especially the left-dark gradient behind the copy — runs
+   unbroken down through the sponsors band. No seam between the two sections. */
+.hero-stack::after{
+  content:"";
+  position: absolute; inset: 0;
+  background:
+    /* top: darken only the header strip so the menu reads */
+    linear-gradient(180deg, rgba(15,25,36,0.5) 0px, rgba(15,25,36,0) 240px),
+    /* left: dark behind the headline, fully CLEAR by ~62% so the right
+       half of the photo has no overlay at all */
+    linear-gradient(95deg,
+      rgba(15,25,36,0.92) 0%,
+      rgba(15,25,36,0.78) 26%,
+      rgba(15,25,36,0.45) 44%,
+      rgba(15,25,36,0.15) 55%,
+      rgba(15,25,36,0)    62%,
+      rgba(15,25,36,0)    100%
+    );
+  pointer-events: none;
+  z-index: 0;
+}
+.hero{
+  position: relative;
+  z-index: 1;
+  color: var(--white);
+  overflow: hidden;
+  min-height: 74vh;
+}
+.hero .wrap{
+  position: relative; z-index: 1;
+  min-height: 74vh;
+  display: flex;
+  align-items: stretch;
+}
+.hero-text{
+  width: 100%;
+  max-width: 760px;
+  padding: 150px 0 56px;
+  display: flex;
+  flex-direction: column;
+}
+.hero-text-inner{
+  display:flex; flex-direction:column; gap: 32px;
+  max-width: 760px;
+  margin: auto 0;
+  transform: translateY(-4%);
+}
+.hero .eyebrow{ color: var(--white); font-size: 0.74rem; }
+h1.hero-title{
+  font-family: var(--display);
+  font-weight: 700;
+  text-transform: uppercase;
+  line-height: 0.9;
+  letter-spacing: -0.005em;
+  font-size: clamp(3.4rem, 9vw, 7.6rem);
+  text-shadow: 0 2px 24px rgba(0,0,0,0.35);
+}
+h1.hero-title .accent{
+  display: inline-block;
+}
+.hero-lede{
+  font-size: 1.08rem;
+  line-height: 1.65;
+  color: var(--copy);
+  max-width: 560px;
+  text-shadow: 0 1px 16px rgba(0,0,0,0.45);
+}
+.hero-ctas{ display:flex; gap: 14px; flex-wrap: wrap; }
+
+.hero-foot{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-top: 22px;
+  border-top: 1px solid var(--line-dark);
+  gap: 28px;
+  width: 100%;
+}
+.hero-status{
+  display: inline-flex;
+  align-items: center; gap: 12px;
+  font-family: var(--mono);
+  font-size: 0.82rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--white);
+  font-weight: 600;
+  white-space: nowrap;
+  flex: 0 0 auto;
+}
+.hero-certs{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  flex: 1 1 auto;
+  min-width: 0;
+  flex-wrap: wrap;
+}
+.hero-certs img{
+  height: 44px;
+  width: auto;
+  opacity: 0.95;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+.hero-certs img:hover{
+  opacity: 1;
+  transform: translateY(-1px);
+}
+.hv-dot{
+  width: 11px; height: 11px;
+  background: var(--signal);
+  border-radius: 50%;
+  box-shadow: 0 0 0 5px rgba(199, 58, 43, 0.22);
+  animation: pulse 2.4s ease-in-out infinite;
+  flex: none;
+}
+@keyframes pulse{
+  0%, 100%{ box-shadow: 0 0 0 5px rgba(199, 58, 43, 0.22); }
+  50%{ box-shadow: 0 0 0 11px rgba(199, 58, 43, 0.06); }
+}
+
+/* ============ PARTNERS BAND ============ */
+.partners{
+  position: relative;
+  z-index: 1;
+  color: var(--white);
+  margin-top: -28px;
+  padding: 0 0 52px;
+}
+/* Sponsors band darkening: ONE full-width vertical fade. Transparent at the
+   very top so it blends seamlessly into the clear hero photo above (no hard
+   line), ramping to a solid floor at the bottom across the WHOLE width.
+   The left already reads heavier because the hero-stack's left-dark layer
+   runs continuously down through this band — no separate left layer needed
+   (that's what was causing the visible seam). */
+.partners::before{
+  content:"";
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg,
+    rgba(15,25,36,0)    0%,
+    rgba(15,25,36,0.26) 14%,
+    rgba(15,25,36,0.52) 32%,
+    rgba(15,25,36,0.76) 50%,
+    rgba(15,25,36,0.92) 66%,
+    rgba(15,25,36,1)    82%,
+    rgba(15,25,36,1)    100%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+.partners .wrap{ position: relative; z-index: 1; }
+.partners-head{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  border-top: 1px solid var(--line-dark);
+  padding-top: 22px;
+  margin-bottom: 32px;
+  text-shadow: 0 1px 10px rgba(0,0,0,0.65), 0 0 2px rgba(0,0,0,0.5);
+}
+.partners-meta{
+  font-family: var(--mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--copy);
+}
+.partners-grid{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  align-items: center;
+}
+.partner{
+  padding: 18px 36px;
+  border-left: 1px solid var(--line-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 96px;
+}
+.partner:first-child{ border-left: none; padding-left: 0; }
+.partner img{
+  max-height: 60px;
+  width: auto;
+  max-width: 100%;
+  opacity: 0.95;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+.partner img:hover{
+  opacity: 1;
+  transform: translateY(-1px);
+}
+
+/* ============ TRAINED TO RESPOND (about — dark blue) ============ */
+.about{
+  background: #1B2A3A;
+  color: var(--white);
+  padding: 130px 0;
+  position: relative;
+  overflow: hidden;
+}
+.about-diagram{
+  position: absolute;
+  top: 50%;
+  left: 14%;
+  transform: translateY(-50%);
+  height: 105%;
+  width: auto;
+  max-width: 45%;
+  pointer-events: none;
+  mix-blend-mode: screen;
+  opacity: 0.5;
+  filter: invert(1) hue-rotate(180deg) saturate(1.4);
+  z-index: 0;
+}
+.about .wrap{ position: relative; z-index: 1; }
+.about-grid{
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
+  gap: 88px;
+  align-items: stretch;
+}
+.about-photo{
+  aspect-ratio: 4 / 5;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+.about-text{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.about-text .h-display{
+  font-size: clamp(2.6rem, 5vw, 4.2rem);
+  margin: 22px 0 32px;
+  max-width: 580px;
+  color: var(--white);
+}
+.about-text .h-display .accent{
+  display: inline-block;
+  position: relative;
+  padding-bottom: 8px;
+}
+.about-text .h-display .accent::after{
+  content:"";
+  position:absolute;
+  left:0; right:0; bottom: 0;
+  height: 4px;
+  background: var(--signal);
+}
+.about-text p{
+  color: var(--copy);
+  font-size: 1.04rem;
+  margin-bottom: 18px;
+  max-width: 540px;
+}
+.about-text p strong{ color: var(--white); font-weight: 600; }
+.about-pillars{
+  margin-top: 36px;
+  display: flex; flex-direction: column;
+  border-top: 1px solid var(--line-dark);
+  max-width: 420px;
+}
+.pillar{
+  display: flex;
+  align-items: center;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--line-dark);
+}
+.pillar-num{
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  color: var(--copy);
+  font-weight: 500;
+}
+.pillar-text{
+  font-family: var(--display);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-size: 1.2rem;
+  color: var(--white);
+}
+
+/* ============ WHAT WE DO (typographic 6-row bar list) ============ */
+.services{
+  background: var(--navy-3);
+  color: var(--white);
+  padding: 96px 0;
+  position: relative;
+  overflow: hidden;
+}
+.services .wrap{
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 0.75fr) minmax(0, 2fr);
+  gap: 24px;
+  align-items: stretch;
+}
+.services-logo{
+  background: url('TRANSPARENT BACK.png') left center / contain no-repeat;
+  width: 100%;
+  min-height: 100%;
+  align-self: stretch;
+  margin-left: -44px;
+  /* Sharpen + brighten the restored original so it pops on the navy band */
+  filter: brightness(1.08) contrast(1.06) saturate(1.18);
+}
+.services-body{ min-width: 0; display: flex; flex-direction: column; justify-content: center; }
+.services-head{
+  margin-bottom: 36px;
+  padding-bottom: 28px;
+  border-bottom: 1px solid var(--line-dark);
+}
+.services-head .h-display{
+  font-size: clamp(2.2rem, 4vw, 3.4rem);
+  margin-top: 16px;
+  max-width: 680px;
+}
+.svc-list{ display:flex; flex-direction:column; }
+.svc-row{
+  display: grid;
+  grid-template-columns: 72px 1.7fr 2fr auto;
+  gap: 28px;
+  align-items: center;
+  padding: 24px 20px;
+  border-bottom: 1px solid var(--line-dark);
+  transition: background .25s ease;
+  position: relative;
+  text-decoration: none;
+  color: inherit;
+}
+.svc-row:last-child{ border-bottom: none; }
+.svc-row::before{
+  content:"";
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 0;
+  background: var(--signal);
+  transition: width .3s ease;
+}
+.svc-row:hover{ background: rgba(255,255,255,0.035); }
+.svc-row:hover::before{ width: 3px; }
+.svc-num{
+  font-family: var(--mono);
+  font-size: 0.74rem;
+  letter-spacing: 0.22em;
+  color: var(--signal);
+  font-weight: 500;
+}
+.svc-icon{
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255,255,255,0.35);
+  color: var(--copy);
+  transition: color .25s ease, border-color .25s ease, background .25s ease;
+}
+.svc-icon svg{ width: 28px; height: 28px; }
+.svc-row:hover .svc-icon{
+  color: var(--signal);
+  border-color: var(--signal);
+}
+.svc-name{
+  font-family: var(--display);
+  font-size: clamp(1.7rem, 2.8vw, 2.3rem);
+  font-weight: 700;
+  text-transform: uppercase;
+  line-height: 1;
+  color: var(--white);
+}
+.svc-desc{
+  color: var(--copy);
+  font-size: 0.98rem;
+  line-height: 1.55;
+  max-width: 540px;
+}
+.svc-arrow{
+  width: 48px; height: 48px;
+  display: flex; align-items: center; justify-content: center;
+  border: 1px solid rgba(255,255,255,0.4);
+  color: var(--white);
+  font-size: 1.05rem;
+  transition: border-color .2s ease, color .2s ease, background .2s ease;
+}
+.svc-row:hover .svc-arrow{
+  background: var(--steel);
+  border-color: var(--steel);
+  color: var(--white);
+}
+
+/* ============ THE STANDARD (certs list — steel-blue panel) ============ */
+.standard{
+  background: var(--panel);
+  color: var(--white);
+  padding: 0;
+  border-top: 1px solid var(--line-dark-2);
+  border-bottom: 1px solid var(--line-dark-2);
+  overflow: hidden;
+}
+.standard .wrap{ padding-top: 88px; padding-bottom: 88px; }
+.standard-head{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  align-items: end;
+  margin-bottom: 40px;
+  padding-bottom: 28px;
+  border-bottom: 1px solid var(--line-dark);
+}
+.standard-head .h-display{
+  font-size: clamp(2.4rem, 4.5vw, 3.6rem);
+  margin-top: 16px;
+  max-width: 540px;
+  color: var(--white);
+}
+.cert-list{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 56px;
+  row-gap: 0;
+}
+.cert-row{
+  display: grid;
+  grid-template-columns: 56px 1.3fr 2fr;
+  gap: 24px;
+  padding: 22px 0;
+  border-bottom: 1px solid var(--line-dark-2);
+  align-items: center;
+}
+.cert-row:first-child, .cert-row:nth-child(2){
+  border-top: 1px solid var(--line-dark-2);
+}
+.cert-row:nth-last-child(-n+2){
+  border-bottom: 1px solid var(--line-dark-2);
+}
+.cert-row-num{
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.22em;
+  color: var(--signal);
+}
+.cert-row-icon{
+  width: 44px; height: 44px;
+  display: flex; align-items: center; justify-content: center;
+  border: 1px solid rgba(255,255,255,0.35);
+  color: var(--copy);
+  transition: color .25s ease, border-color .25s ease;
+}
+.cert-row-icon svg{ width: 22px; height: 22px; }
+.cert-row:hover .cert-row-icon{
+  color: var(--signal);
+  border-color: var(--signal);
+}
+.cert-row-abbr{
+  font-family: var(--display);
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--white);
+}
+.cert-row-name{
+  font-size: 0.96rem;
+  color: var(--copy);
+  line-height: 1.45;
+}
+
+/* ============ HOW WE OPERATE (4-col band — dark) ============ */
+.operate{
+  background: var(--navy-2);
+  color: var(--white);
+  padding: 120px 0;
+  border-top: 1px solid var(--line-dark);
+  border-bottom: 2px solid var(--signal);
+}
+.operate-head{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: end;
+  margin-bottom: 56px;
+  padding-bottom: 28px;
+  border-bottom: 1px solid var(--line-dark);
+}
+.operate-head .h-display{
+  font-size: clamp(2.2rem, 4.2vw, 3.4rem);
+  margin-top: 18px;
+  max-width: 540px;
+  color: var(--white);
+}
+.operate-head p{
+  color: var(--copy);
+  font-size: 1rem;
+  max-width: 400px;
+  justify-self: end;
+}
+.operate-grid{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  border-top: 1px solid var(--line-dark);
+}
+.op-step{
+  padding: 36px 28px 0 0;
+  border-right: 1px solid var(--line-dark);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  min-height: 240px;
+}
+.op-step:not(:first-child){ padding-left: 28px; }
+.op-step:last-child{ border-right: none; padding-right: 0; }
+.op-step-num{
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.22em;
+  color: var(--copy);
+  font-weight: 500;
+  padding-bottom: 18px;
+  border-bottom: 2px solid var(--steel-2);
+  width: 56px;
+}
+.op-step-name{
+  font-family: var(--display);
+  font-size: clamp(1.4rem, 2vw, 1.7rem);
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--white);
+  line-height: 1.05;
+}
+.op-step-desc{
+  color: var(--copy);
+  font-size: 0.95rem;
+  line-height: 1.55;
+  max-width: 280px;
+}
+
+/* ============ OPERATORS (4 portrait blocks) ============ */
+.operators{
+  background: var(--navy);
+  color: var(--white);
+  padding: 130px 0;
+}
+.op-head{
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 64px;
+  align-items: end;
+  margin-bottom: 56px;
+  padding-bottom: 32px;
+  border-bottom: 1px solid var(--line-dark);
+}
+.op-head .h-display{
+  font-size: clamp(2.6rem, 5vw, 4.2rem);
+  margin-top: 18px;
+  max-width: 640px;
+}
+.op-head p{
+  font-size: 1rem;
+  color: var(--copy);
+  max-width: 380px;
+}
+.operator-grid{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+.operator{
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.operator .ph{ aspect-ratio: 3 / 4; }
+.operator .ph .ph-label{ bottom: 14px; left: 42px; font-size: 0.6rem; }
+.operator .ph .ph-name{ top: 14px; right: 42px; font-size: 0.6rem; }
+.operator-role{
+  display: flex; justify-content: space-between; align-items: baseline;
+  padding-top: 14px;
+  border-top: 1px solid var(--line-dark);
+}
+.operator-role .role-name{
+  font-family: var(--display);
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 1.05rem;
+  color: var(--white);
+  letter-spacing: 0.03em;
+}
+.operator-role .role-num{
+  font-family: var(--mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.22em;
+  color: var(--copy);
+}
+
+/* ============ DONATE CTA BAND (steel-blue accent moment) ============ */
+.donate-band{
+  background-color: var(--steel);
+  background-image:
+    linear-gradient(90deg,
+      rgba(62, 95, 120, 0.88) 0%,
+      rgba(62, 95, 120, 0.68) 40%,
+      rgba(62, 95, 120, 0.52) 72%,
+      rgba(62, 95, 120, 0.44) 100%
+    ),
+    url('Truck.jpg');
+  background-size: cover, cover;
+  background-position: center, center;
+  background-repeat: no-repeat, no-repeat;
+  background-attachment: scroll, fixed;
+  color: var(--white);
+  padding: 88px 0;
+  position: relative;
+  overflow: hidden;
+}
+@media (max-width: 1024px){
+  .donate-band{ background-attachment: scroll, scroll; }
+}
+.donate-grid{
+  display: grid;
+  grid-template-columns: 2.2fr 1fr;
+  gap: 64px;
+  align-items: stretch;
+}
+.donate-copy{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-shadow: 0 1px 16px rgba(15,25,36,0.6);
+}
+.donate-copy .h-display{
+  font-size: clamp(2.4rem, 4.4vw, 3.8rem);
+  line-height: 0.96;
+  margin-top: 14px;
+}
+.donate-copy .h-display .accent{
+  display: inline-block;
+  border-bottom: 5px solid var(--signal);
+  padding-bottom: 6px;
+}
+.donate-copy p{
+  color: var(--white);
+  font-size: 1.02rem;
+  margin: 22px 0 0;
+  max-width: 540px;
+}
+.donate-copy p strong{ color: var(--white); font-weight: 700; }
+.donate-actions{
+  margin-top: 30px;
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+.donate-stat{
+  border-left: 1px solid rgba(255,255,255,0.25);
+  padding-left: 56px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 24px;
+  text-shadow: 0 1px 16px rgba(15,25,36,0.6);
+}
+.donate-stat-row{
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.donate-stat-num{
+  font-family: var(--display);
+  font-size: 3.4rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--white);
+  text-transform: uppercase;
+}
+.donate-stat-label{
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--copy);
+}
+
+/* ============ GIVE (tiered donation grid) ============ */
+.give{
+  background: var(--navy);
+  color: var(--white);
+  padding: 130px 0;
+  border-bottom: 1px solid var(--line-dark);
+}
+.give-head{
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 64px;
+  align-items: end;
+  margin-bottom: 56px;
+  padding-bottom: 36px;
+  border-bottom: 1px solid var(--line-dark);
+}
+.give-head .h-display{
+  font-size: clamp(2.6rem, 5vw, 4.2rem);
+  margin-top: 18px;
+  max-width: 720px;
+}
+.give-head p{
+  color: var(--copy);
+  font-size: 1rem;
+  max-width: 380px;
+}
+.give-tiers{
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0;
+  border-top: 1px solid var(--line-dark);
+}
+.give-tier{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 32px;
+  padding: 36px 28px;
+  border-bottom: 1px solid var(--line-dark);
+  border-right: 1px solid var(--line-dark);
+  min-height: 220px;
+  text-decoration: none;
+  color: inherit;
+  transition: background .25s ease, padding .25s ease;
+  position: relative;
+}
+.give-tier:first-child{ border-left: 1px solid var(--line-dark); }
+.give-tier:hover{
+  background: var(--navy-2);
+  padding-top: 30px;
+}
+.give-tier-meta{
+  font-family: var(--mono);
+  font-size: 0.64rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--copy);
+}
+.give-tier-amt{
+  font-family: var(--display);
+  font-size: clamp(2.4rem, 3.4vw, 3rem);
+  font-weight: 700;
+  color: var(--white);
+  line-height: 0.94;
+  letter-spacing: 0.01em;
+}
+.give-tier-label{
+  font-family: var(--mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--copy);
+  line-height: 1.5;
+}
+.give-tier-feat{
+  background: var(--navy-2);
+}
+.give-tier-feat .give-tier-meta{ color: var(--signal); }
+.give-tier-flag{
+  position: absolute;
+  top: 0; left: 0;
+  background: var(--signal);
+  color: var(--white);
+  font-family: var(--mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  padding: 5px 12px;
+  font-weight: 600;
+}
+.give-foot{
+  margin-top: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.give-foot-note{
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--copy);
+}
+.give-foot-note strong{ color: var(--white); font-weight: 600; }
+
+/* ============ LOCATIONS (simple split strip) ============ */
+.locations{
+  background: var(--navy-2);
+  color: var(--white);
+  padding: 56px 0;
+}
+.loc-grid{
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr;
+  gap: 64px;
+  align-items: start;
+}
+.loc-h{
+  font-family: var(--display);
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--white);
+  line-height: 1;
+  max-width: 380px;
+  margin-top: 12px;
+}
+.loc-card{
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding-left: 32px;
+  border-left: 1px solid var(--line-dark);
+}
+.loc-card-meta{
+  font-family: var(--mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--copy);
+  margin-bottom: 8px;
+}
+.loc-card-name{
+  font-family: var(--display);
+  font-size: 1.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--white);
+  line-height: 1;
+}
+.loc-card-region{
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
+  color: var(--copy);
+  text-transform: uppercase;
+  margin-top: 8px;
+}
+.loc-card-map{
+  display: block;
+  height: 140px;
+  width: auto;
+  margin-bottom: 22px;
+  overflow: visible;
+}
+.loc-card-map path{
+  fill: rgba(85, 118, 144, 0.12);
+  stroke: var(--steel-2);
+  stroke-width: 2.25;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+  transition: stroke 0.25s ease, fill 0.25s ease;
+  vector-effect: non-scaling-stroke;
+}
+.loc-card-map circle{
+  fill: var(--signal);
+  stroke: var(--navy-2);
+  stroke-width: 2.5;
+  vector-effect: non-scaling-stroke;
+}
+.loc-card:hover .loc-card-map path{
+  stroke: var(--signal);
+  fill: rgba(199, 58, 43, 0.14);
+}
+
+/* ============ CONTACT (dark) ============ */
+.contact{
+  background: var(--navy);
+  color: var(--white);
+  padding: 130px 0;
+  border-bottom: 2px solid var(--signal);
+  position: relative;
+  overflow: hidden;
+}
+.contact-diagram{
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%) scaleX(-1);
+  height: 105%;
+  width: auto;
+  max-width: 45%;
+  pointer-events: none;
+  opacity: 0.65;
+  z-index: 0;
+  filter: invert(1) hue-rotate(180deg) saturate(1.4);
+  mix-blend-mode: screen;
+}
+.contact .wrap{ position: relative; z-index: 1; }
+.contact-grid{
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 88px;
+  align-items: start;
+}
+.contact-text .h-display{
+  font-size: clamp(2.4rem, 4.4vw, 3.6rem);
+  margin: 20px 0 28px;
+  max-width: 480px;
+  color: var(--white);
+}
+.contact-text p{
+  color: var(--copy);
+  font-size: 1.02rem;
+  margin-bottom: 24px;
+  max-width: 480px;
+}
+.contact-info{
+  margin-top: 40px;
+  display:flex; flex-direction:column;
+  border-top: 1px solid var(--line-dark);
+}
+.contact-info .row{
+  display:flex; justify-content:space-between; align-items:baseline;
+  gap: 24px;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--line-dark);
+}
+.contact-info .row:last-child{ border-bottom: none; }
+.contact-info .label{
+  font-family: var(--mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--copy);
+  font-weight: 500;
+}
+.contact-info .value{
+  font-family: var(--display);
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--white);
+  letter-spacing: 0.02em;
+}
+
+form.contact-form{
+  background: var(--steel-3);
+  padding: 48px;
+  border-top: 4px solid var(--steel-2);
+}
+form.contact-form .form-row{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+  margin-bottom: 22px;
+}
+form.contact-form label{
+  display:block;
+  font-family: var(--mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--copy);
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+form.contact-form input,
+form.contact-form select,
+form.contact-form textarea{
+  width:100%;
+  font: inherit;
+  background: var(--navy-3);
+  border: 1px solid rgba(255,255,255,0.18);
+  padding: 14px 16px;
+  color: var(--white);
+  outline: none;
+  transition: border-color .2s ease;
+}
+form.contact-form input::placeholder,
+form.contact-form textarea::placeholder{
+  color: rgba(255,255,255,0.55);
+}
+form.contact-form input:focus,
+form.contact-form select:focus,
+form.contact-form textarea:focus{
+  border-color: var(--signal);
+}
+form.contact-form select option{
+  background: var(--navy-3);
+  color: var(--white);
+}
+form.contact-form .full{ grid-column: 1 / -1; }
+form.contact-form textarea{ min-height: 140px; resize: vertical; }
+form.contact-form .submit-row{
+  display:flex; justify-content:space-between; align-items:center;
+  gap: 18px; margin-top: 12px;
+  flex-wrap: wrap;
+}
+form.contact-form .form-note{
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  color: var(--copy);
+  max-width: 280px;
+  line-height: 1.5;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* ============ FOOTER ============ */
+footer.site-footer{
+  background: var(--navy-3);
+  color: var(--copy);
+  padding: 64px 0 28px;
+  border-top: 1px solid var(--line-dark);
+  position: relative;
+  overflow: hidden;
+}
+footer.site-footer .wrap{
+  max-width: none;
+  padding: 0 48px;
+}
+.footer-statement{
+  font-family: var(--display);
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: clamp(2.4rem, 6vw, 4.8rem);
+  letter-spacing: -0.005em;
+  line-height: 0.95;
+  margin-bottom: 56px;
+  color: var(--white);
+}
+.footer-statement .accent{ color: var(--copy); }
+.footer-top{
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 56px;
+  margin-bottom: 24px;
+  padding-bottom: 240px;
+  border-bottom: 1px solid var(--line-dark);
+  align-items: start;
+}
+.footer-brand{
+  min-height: 1px;
+}
+.footer-brand .brand{
+  position: absolute;
+  top: 32px;
+  left: 48px;
+  width: 380px;
+  display: block;
+  pointer-events: none;
+}
+.footer-brand .brand-mark{ width: 100%; height: 380px; aspect-ratio: auto; display: block; }
+.footer-brand .footer-mark img{ object-fit: cover; object-position: 18% 38%; width: 100%; height: 100%; mix-blend-mode: screen; }
+.footer-brand .brand-text{ display: flex; flex-direction: column; gap: 6px; }
+.footer-brand .brand-name{ color: var(--white); font-size: 1.85rem; }
+.footer-brand .brand-tag{ font-size: 0.66rem; }
+.footer-brand p{
+  font-size: 0.94rem;
+  color: var(--copy);
+  line-height: 1.65;
+}
+.footer-col h4{
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: var(--copy);
+  margin-bottom: 22px;
+}
+.footer-col ul{ list-style:none; display:flex; flex-direction:column; gap: 12px; }
+.footer-col ul a{
+  font-family: var(--display);
+  font-size: 1.05rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: var(--white);
+  transition: color .2s ease;
+}
+.footer-col ul a:hover{ color: var(--signal-2); }
+.footer-col .info-line{
+  font-size: 0.94rem;
+  color: var(--copy);
+  line-height: 1.7;
+}
+.footer-col .info-line strong{
+  font-family: var(--display);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  color: var(--white);
+  font-weight: 600;
+}
+.footer-bottom{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 18px;
+  flex-wrap: wrap;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--copy);
+}
+.footer-bottom a{ color: var(--white); }
+.footer-bottom a:hover{ color: var(--signal-2); }
+
+/* ============ RESPONSIVE ============ */
+@media (max-width: 1080px){
+  .hero{ min-height: 86vh; }
+  .hero-stack{ background-position: 65% center; background-attachment: scroll; }
+  .hero .wrap{ min-height: 86vh; }
+  .services .wrap{ padding-right: calc(26% + 22px); }
+  .hero-text{ padding: 130px 0 56px; }
+  .partners-grid{ grid-template-columns: 1fr 1fr; }
+  .partner:nth-child(3){ border-left: none; padding-left: 0; }
+  .partner:nth-child(1), .partner:nth-child(2){ border-bottom: 1px solid var(--line-dark); padding-bottom: 24px; margin-bottom: 24px; }
+  .about-grid{ grid-template-columns: 1fr; gap: 48px; }
+  .about-photo{ min-height: 480px; }
+  .services-head, .op-head{ grid-template-columns: 1fr; gap: 32px; }
+  .standard-head{ grid-template-columns: 1fr; gap: 16px; }
+  .cert-list{ grid-template-columns: 1fr; column-gap: 0; }
+  .cert-row:nth-child(2){ border-top: none; }
+  .cert-row:nth-last-child(2){ border-bottom: none; }
+  .svc-row{ grid-template-columns: 64px 1fr auto; gap: 20px; }
+  .svc-desc{ grid-column: 2 / 4; }
+  .operate-head{ grid-template-columns: 1fr; gap: 24px; }
+  .operate-head p{ justify-self: start; }
+  .operate-grid{ grid-template-columns: 1fr 1fr; }
+  .op-step{ border-right: none; padding: 28px 0 28px 0 !important; border-bottom: 1px solid var(--line); min-height: 0; }
+  .op-step:nth-child(odd){ padding-right: 24px !important; border-right: 1px solid var(--line); }
+  .op-step:nth-child(even){ padding-left: 24px !important; }
+  .op-step:nth-last-child(-n+2){ border-bottom: none; }
+  .operator-grid{ grid-template-columns: 1fr 1fr; gap: 24px; }
+  .operator .ph{ aspect-ratio: 4/5; }
+  .donate-grid{ grid-template-columns: 1fr; gap: 56px; }
+  .donate-stat{ border-left: none; padding-left: 0; border-top: 1px solid rgba(255,255,255,0.3); padding-top: 36px; flex-direction: row; gap: 56px; flex-wrap: wrap; }
+  .loc-grid{ grid-template-columns: 1fr 1fr; gap: 40px; }
+  .loc-card{ border-left: none; padding-left: 0; border-top: 1px solid var(--line-dark); padding-top: 24px; }
+  .loc-card-map{ height: 140px; margin-bottom: 24px; }
+  .contact-grid{ grid-template-columns: 1fr; gap: 56px; }
+  .footer-top{ grid-template-columns: 1fr 1fr; gap: 36px; }
+  .footer-brand{ grid-column: 1 / -1; }
+}
+@media (max-width: 720px){
+  .wrap{ padding: 0 22px; }
+  nav.primary{ display:none; }
+  .menu-btn{ display:flex; }
+  .hero{ min-height: 86vh; }
+  .hero-stack{ background-position: 60% center; }
+  .hero .wrap{ min-height: 86vh; }
+  .tac-inner{ gap: 12px; padding: 8px 0 10px; }
+  .tac-tag{ font-size: 0.6rem; letter-spacing: 0.18em; }
+  .tac-divider{ font-size: 0.72rem; }
+  .tac-group{ gap: 12px; padding: 5px 14px; }
+  .services::after{ display: none; }
+  .services .wrap{ padding-right: 22px; }
+  .hero-stack::after{
+    background:
+      linear-gradient(180deg, rgba(15,25,36,0.6) 0px, rgba(15,25,36,0) 200px),
+      linear-gradient(180deg, rgba(15,25,36,0.5) 0%, rgba(15,25,36,0.5) 70%, rgba(15,25,36,0.58) 100%);
+  }
+  .hero-text{ padding: 120px 0 48px; gap: 40px; }
+  h1.hero-title{ font-size: clamp(3.6rem, 15vw, 5.8rem); }
+  .hero-foot{ flex-direction: column; align-items: flex-start; gap: 18px; padding-top: 22px; }
+  .hero-certs{ gap: 14px; justify-content: space-between; width: 100%; }
+  .hero-certs img{ height: 32px; }
+  .hero-ctas, .donate-actions{ flex-direction: row; }
+  .hero-ctas .btn, .donate-actions .btn{ flex: 1 1 0; min-width: 0; justify-content:center; padding: 16px 12px; letter-spacing: 0.1em; }
+  .partners{ padding: 32px 0 36px; }
+  .partners-head{ padding-top: 20px; margin-bottom: 22px; }
+  .partners-meta{ display: none; }
+  .partners-grid{ grid-template-columns: 1fr 1fr; gap: 0; }
+  .partner{ padding: 22px 14px; min-height: 78px; }
+  .partner:nth-child(odd){ border-left: none; padding-left: 4px; }
+  .partner:nth-child(even){ border-left: 1px solid var(--line-dark); }
+  .partner:nth-child(1), .partner:nth-child(2){ border-bottom: 1px solid var(--line-dark); padding-bottom: 22px; margin-bottom: 0; }
+  .partner img{ max-height: 44px; }
+  .about{ padding: 80px 0; }
+  .about-photo{ min-height: 380px; }
+  .services{ padding: 80px 0; }
+  .svc-row{ grid-template-columns: 1fr auto; gap: 12px; padding: 26px 0; }
+  .svc-num, .svc-icon{ grid-column: 1; }
+  .svc-icon{ width: 44px; height: 44px; }
+  .svc-icon svg{ width: 22px; height: 22px; }
+  .svc-arrow{ grid-column: 2; }
+  .svc-name{ grid-column: 1 / -1; }
+  .svc-desc{ grid-column: 1 / -1; }
+  .svc-row:hover{ padding-left: 0; }
+  .svc-row::before{ display:none; }
+  .standard .wrap{ padding-top: 56px; padding-bottom: 56px; }
+  .cert-row{ grid-template-columns: 48px 1fr; gap: 16px; }
+  .cert-row-name{ grid-column: 2; padding-top: 4px; }
+  .operate{ padding: 72px 0; }
+  .operate-grid{ grid-template-columns: 1fr; }
+  .op-step{ border-right: none !important; padding: 24px 0 !important; }
+  .op-step:not(:last-child){ border-bottom: 1px solid var(--line); }
+  .op-step:last-child{ border-bottom: none; }
+  .operators{ padding: 80px 0; }
+  .operator-grid{ grid-template-columns: 1fr; gap: 24px; }
+  .operator .ph{ aspect-ratio: 4/5; }
+  .donate-band{ padding: 80px 0; }
+  .donate-stat{ flex-direction: column; gap: 28px; }
+  .donate-stat-num{ font-size: 2.4rem; }
+  .locations{ padding: 60px 0; }
+  .loc-grid{ grid-template-columns: 1fr; gap: 36px; }
+  .loc-card-name{ font-size: 1.4rem; }
+  .loc-card-map{ height: 120px; margin-bottom: 22px; }
+  .contact{ padding: 80px 0; }
+  form.contact-form{ padding: 28px; }
+  form.contact-form .form-row{ grid-template-columns: 1fr; }
+  .footer-top{ grid-template-columns: 1fr; gap: 36px; text-align: center; padding-bottom: 48px; margin-bottom: 48px; }
+  .footer-brand{ align-items: center; }
+  .footer-col ul{ align-items: center; }
+  .footer-bottom{ justify-content: center; text-align: center; }
+  .footer-statement{ font-size: clamp(2rem, 12vw, 3.4rem); text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- ============ TACTICAL BAR ============ -->
+<div class="tactical-bar" aria-hidden="false">
+  <div class="wrap tac-inner">
+    <div class="tac-group">
+      <span class="tac-tag tac-primary"><span class="tac-dot"></span>SAR OPS</span>
+      <span class="tac-divider">//</span>
+      <span class="tac-tag">Search &amp; Rescue &middot; Ground Unit</span>
+    </div>
+  </div>
+</div>
+
+<!-- ============ HEADER ============ -->
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a href="#" class="brand" aria-label="SAR OPS home">
+      <span class="brand-mark" aria-hidden="true">
+        <img src="Logo.png" alt="" />
+      </span>
+    </a>
+
+    <nav class="primary" aria-label="Primary">
+      <a href="about.html">About</a>
+      <a href="what-we-do.html">What We Do</a>
+      <a href="sponsors.html">Sponsors</a>
+      <a href="events.html">Events/Classes</a>
+      <a href="contact.html">Contact</a>
+      <a href="donate.html" class="nav-donate">Donate</a>
+    </nav>
+
+    <button class="menu-btn" id="menuBtn" aria-label="Open menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+        <line x1="3" y1="7" x2="21" y2="7"/>
+        <line x1="3" y1="12" x2="21" y2="12"/>
+        <line x1="3" y1="17" x2="21" y2="17"/>
+      </svg>
+    </button>
+  </div>
+</header>
+
+<div class="mobile-nav" id="mobileNav" aria-hidden="true">
+  <button class="mobile-close" id="mobileClose" aria-label="Close menu">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+      <line x1="5" y1="5" x2="19" y2="19"/>
+      <line x1="19" y1="5" x2="5" y2="19"/>
+    </svg>
+  </button>
+  <a href="about.html">About</a>
+  <a href="what-we-do.html">What We Do</a>
+  <a href="sponsors.html">Sponsors</a>
+  <a href="events.html">Events/Classes</a>
+  <a href="contact.html">Contact</a>
+  <a href="donate.html">Donate</a>
+</div>
+
+<!-- ============ HERO + SPONSORS (shared background) ============ -->
+<div class="hero-stack">
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-text">
+      <div class="hero-text-inner">
+        <div class="eyebrow on-dark">Wilderness Search &amp; Rescue · 501(c)(3) Volunteer Unit</div>
+        <h1 class="hero-title">
+          Relentless<br/>
+          In <span class="accent">Rescue</span>
+        </h1>
+        <p class="hero-lede">
+          We are a non-profit volunteer wilderness search and rescue team specializing in high and low-angle rescues, rope rescues, and mountain/vertical terrain operations &mdash; ready when others need us most.
+        </p>
+        <div class="hero-ctas">
+          <a href="#" class="btn btn-signal">What We Do <span class="arrow">&rarr;</span></a>
+          <a href="#" class="btn btn-ghost">Donate <span class="arrow">&rarr;</span></a>
+        </div>
+      </div>
+
+      <div class="hero-foot">
+        <span class="hero-status"><span class="hv-dot"></span>Mission Ready · 24/7</span>
+        <div class="hero-certs">
+          <img src="Certificates/NASAR.png" alt="NASAR Certified" title="NASAR Certified" loading="lazy" />
+          <img src="Certificates/NFPA.png" alt="NFPA Compliant" title="NFPA Compliant" loading="lazy" />
+          <img src="Certificates/Rope Rescue.png" alt="Rope Rescue Technician" title="Rope Rescue Technician" loading="lazy" />
+          <img src="Certificates/Seal_of_the_Federal_Emergency_Management_Agency.svg.png" alt="FEMA Affiliated" title="FEMA Affiliated" loading="lazy" />
+          <img src="Certificates/Seal_of_the_U.S._Department_of_Homeland_Security.svg.png" alt="DHS Affiliated" title="DHS Affiliated" loading="lazy" />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PARTNERS ============ -->
+<section class="partners">
+  <div class="wrap">
+    <div class="partners-head">
+      <span class="eyebrow on-dark plain">Sponsors</span>
+    </div>
+    <div class="partners-grid">
+      <div class="partner"><img src="Sponsors/Motorola.png" alt="Motorola" loading="lazy" /></div>
+      <div class="partner"><img src="Sponsors/Petzl.png" alt="Petzl" loading="lazy" /></div>
+      <div class="partner"><img src="Sponsors/Rock Exotica.png" alt="Rock Exotica" loading="lazy" /></div>
+      <div class="partner"><img src="Sponsors/Wrap Shop.png" alt="Wrap Shop" loading="lazy" /></div>
+    </div>
+  </div>
+</section>
+</div>
+<!-- /hero-stack -->
+
+<!-- ============ TRAINED TO RESPOND (about) ============ -->
+<section class="about" id="about">
+  <img class="about-diagram" src="diagram.png" alt="" aria-hidden="true" />
+  <div class="wrap">
+    <div class="about-grid">
+      <div class="about-photo ph" aria-hidden="true" style="background-image:url('What-we-do-page-scaled.jpg'); background-size:cover; background-position:center;">
+        <span class="ph-cnr-tr"></span>
+        <span class="ph-cnr-bl"></span>
+        <span class="ph-label">Operator · Full Frame</span>
+      </div>
+      <div class="about-text">
+        <div class="eyebrow on-dark">Our Mission</div>
+        <h2 class="h-display">Trained to <span class="accent">respond</span>. Built to rescue.</h2>
+        <p>
+          SAR OPS was built on a foundation of service, courage, and community. Our <strong>100% volunteer team</strong> is certified in technical rope rescue, swift water rescue, wilderness first response, EMS response, and urban SAR.
+        </p>
+        <p>
+          Every call we answer is a life that matters &mdash; and we respond with urgency, empathy, and elite training.
+        </p>
+
+        <div class="about-pillars">
+          <div class="pillar"><span class="pillar-text">Rapid Deployment</span></div>
+          <div class="pillar"><span class="pillar-text">NFPA-Compliant Operations</span></div>
+          <div class="pillar"><span class="pillar-text">Volunteer-Powered Rescue</span></div>
+          <div class="pillar"><span class="pillar-text">Cutting-Edge Techniques</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHAT WE DO ============ -->
+<section class="services" id="services">
+  <div class="wrap">
+    <div class="services-logo" aria-hidden="true"></div>
+    <div class="services-body">
+      <div class="services-head">
+        <div class="eyebrow on-dark">What We Do</div>
+        <h2 class="h-display">Built for Every Terrain.</h2>
+      </div>
+
+      <div class="svc-list">
+      <a href="#" class="svc-row">
+        <div class="svc-icon"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"><circle cx="13" cy="13" r="8"/><line x1="19" y1="19" x2="27" y2="27"/><line x1="13" y1="9" x2="13" y2="11"/><line x1="13" y1="15" x2="13" y2="17"/><line x1="9" y1="13" x2="11" y2="13"/><line x1="15" y1="13" x2="17" y2="13"/></svg></div>
+        <div class="svc-name">Ground Search &amp; Rescue</div>
+        <div class="svc-desc">Coordinated ground operations for missing persons in urban and rural environments &mdash; lost hikers, elderly with dementia, missing children.</div>
+        <div class="svc-arrow">&rarr;</div>
+      </a>
+      <a href="#" class="svc-row">
+        <div class="svc-icon"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"><path d="M 11 5 L 11 23 A 5 5 0 0 0 21 23 L 21 13"/><line x1="21" y1="5" x2="21" y2="11"/><line x1="18" y1="13" x2="24" y2="13"/><circle cx="11" cy="5" r="1.5"/></svg></div>
+        <div class="svc-name">Technical Rope Rescue</div>
+        <div class="svc-desc">Vertical, precision-driven rescue from cliffs, ravines, bridges, and other technical environments where traditional methods will not work.</div>
+        <div class="svc-arrow">&rarr;</div>
+      </a>
+      <a href="#" class="svc-row">
+        <div class="svc-icon"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="miter" stroke-linecap="square"><path d="M 3 26 L 11 13 L 16 20 L 21 11 L 29 26 Z"/><path d="M 9 17 L 11 13 L 13 16" fill="currentColor" fill-opacity="0.3"/></svg></div>
+        <div class="svc-name">Wilderness Search &amp; Rescue</div>
+        <div class="svc-desc">Advanced survival, tracking, and terrain navigation for individuals lost in forests, deserts, mountains, and remote backcountry.</div>
+        <div class="svc-arrow">&rarr;</div>
+      </a>
+      <a href="#" class="svc-row">
+        <div class="svc-icon"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"><path d="M 3 11 C 7 7, 11 15, 15 11 S 23 7, 29 11"/><path d="M 3 18 C 7 14, 11 22, 15 18 S 23 14, 29 18"/><path d="M 3 25 C 7 21, 11 29, 15 25 S 23 21, 29 25"/></svg></div>
+        <div class="svc-name">Swift Water Rescue</div>
+        <div class="svc-desc">Specialized response in moving water &mdash; flood events, river incidents, and water-adjacent terrain &mdash; by certified swift water technicians.</div>
+        <div class="svc-arrow">&rarr;</div>
+      </a>
+      <a href="#" class="svc-row">
+        <div class="svc-icon"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="miter" stroke-linecap="square"><path d="M 16 3 L 27 7 L 27 17 C 27 22, 22 26, 16 29 C 10 26, 5 22, 5 17 L 5 7 Z"/><polyline points="10,16 14,20 22,12"/></svg></div>
+        <div class="svc-name">Training &amp; Certification</div>
+        <div class="svc-desc">Internal and community-based training that meets or exceeds national standards &mdash; because preparedness saves lives.</div>
+        <div class="svc-arrow">&rarr;</div>
+      </a>
+      <a href="#" class="svc-row">
+        <div class="svc-icon"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"><circle cx="11" cy="11" r="4"/><circle cx="21" cy="11" r="4"/><path d="M 3 27 C 3 21, 7 18, 11 18 C 14 18, 16 19.5, 16 22 C 16 19.5, 18 18, 21 18 C 25 18, 29 21, 29 27"/></svg></div>
+        <div class="svc-name">Community &amp; Agency Support</div>
+        <div class="svc-desc">Partnerships with communities, schools, and agencies to strengthen emergency preparedness across the region we serve.</div>
+        <div class="svc-arrow">&rarr;</div>
+      </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ THE STANDARD ============ -->
+<section class="standard" id="standard">
+  <div class="wrap">
+    <div class="standard-head">
+      <div>
+        <div class="eyebrow on-dark">Credentials</div>
+        <h2 class="h-display">The standard others train for.</h2>
+      </div>
+    </div>
+
+    <div class="cert-list">
+          <div class="cert-row">
+            <span class="cert-row-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"><path d="M 12 2 L 21 6 L 21 13 C 21 17, 17 20, 12 22 C 7 20, 3 17, 3 13 L 3 6 Z"/><circle cx="12" cy="12" r="3"/><line x1="12" y1="8" x2="12" y2="9"/><line x1="12" y1="15" x2="12" y2="16"/></svg></span>
+            <span class="cert-row-abbr">NASAR</span>
+            <span class="cert-row-name">National Association for Search &amp; Rescue</span>
+          </div>
+          <div class="cert-row">
+            <span class="cert-row-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="miter" stroke-linecap="square"><path d="M 12 2 C 14 7, 18 8, 17 13 C 19 12, 20 14, 20 16 C 20 20, 16.5 22, 12 22 C 7.5 22, 4 20, 4 16 C 4 13, 6 11, 8 11 C 6 7, 8 4, 12 2 Z"/></svg></span>
+            <span class="cert-row-abbr">NFPA</span>
+            <span class="cert-row-name">Compliant Operations · Standards 1006 / 1670</span>
+          </div>
+          <div class="cert-row">
+            <span class="cert-row-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"><circle cx="12" cy="12" r="9"/><path d="M 12 3 L 13.7 8.5 L 19.5 8.5 L 14.9 11.9 L 16.6 17.4 L 12 14 L 7.4 17.4 L 9.1 11.9 L 4.5 8.5 L 10.3 8.5 Z"/></svg></span>
+            <span class="cert-row-abbr">FEMA</span>
+            <span class="cert-row-name">Federal Emergency Management Agency</span>
+          </div>
+          <div class="cert-row">
+            <span class="cert-row-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"><path d="M 12 2 L 20 5 L 20 13 C 20 18, 16 21, 12 22 C 8 21, 4 18, 4 13 L 4 5 Z"/><path d="M 12 8 L 13 11 L 16 11 L 13.5 13 L 14.5 16 L 12 14 L 9.5 16 L 10.5 13 L 8 11 L 11 11 Z"/></svg></span>
+            <span class="cert-row-abbr">DHS</span>
+            <span class="cert-row-name">U.S. Department of Homeland Security</span>
+          </div>
+          <div class="cert-row">
+            <span class="cert-row-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"><path d="M 8 3 L 8 17 A 4 4 0 0 0 16 17 L 16 10"/><line x1="16" y1="3" x2="16" y2="8"/><line x1="14" y1="10" x2="18" y2="10"/><circle cx="8" cy="3" r="1.2"/></svg></span>
+            <span class="cert-row-abbr">RRO/RRT</span>
+            <span class="cert-row-name">Rope Rescue Operations &amp; Technician</span>
+          </div>
+          <div class="cert-row">
+            <span class="cert-row-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5" fill="currentColor"/><line x1="12" y1="1" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="23"/><line x1="1" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="23" y2="12"/></svg></span>
+            <span class="cert-row-abbr">SARTECH</span>
+            <span class="cert-row-name">Search &amp; Rescue Technician · NASAR</span>
+          </div>
+          <div class="cert-row">
+            <span class="cert-row-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"><rect x="3" y="3" width="18" height="18"/><line x1="12" y1="7" x2="12" y2="17"/><line x1="7" y1="12" x2="17" y2="12"/></svg></span>
+            <span class="cert-row-abbr">WFR</span>
+            <span class="cert-row-name">Wilderness First Responder</span>
+          </div>
+          <div class="cert-row">
+            <span class="cert-row-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"><path d="M 2 8 C 5 5, 8 11, 12 8 S 19 5, 22 8"/><path d="M 2 14 C 5 11, 8 17, 12 14 S 19 11, 22 14"/><path d="M 2 20 C 5 17, 8 23, 12 20 S 19 17, 22 20"/></svg></span>
+            <span class="cert-row-abbr">SWR</span>
+            <span class="cert-row-name">Swift Water Rescue Technician</span>
+          </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HOW WE OPERATE ============ -->
+<section class="operate">
+  <div class="wrap">
+    <div class="operate-head">
+      <div>
+        <div class="eyebrow on-dark">How We Operate</div>
+        <h2 class="h-display">Every call answered the same way.</h2>
+      </div>
+      <p>Trained protocols, coordinated command, rapid deployment, and a relentless focus on bringing the subject home safely.</p>
+    </div>
+
+    <div class="operate-grid">
+      <div class="op-step">
+        <span class="op-step-num">01</span>
+        <h3 class="op-step-name">Activate</h3>
+        <p class="op-step-desc">Agency request received. Operators paged and command established within minutes.</p>
+      </div>
+      <div class="op-step">
+        <span class="op-step-num">02</span>
+        <h3 class="op-step-name">Assess</h3>
+        <p class="op-step-desc">Terrain, victim profile, and resource requirements analyzed before deployment.</p>
+      </div>
+      <div class="op-step">
+        <span class="op-step-num">03</span>
+        <h3 class="op-step-name">Deploy</h3>
+        <p class="op-step-desc">Ground, rope, water, or wilderness team mobilized with full equipment loadout.</p>
+      </div>
+      <div class="op-step">
+        <span class="op-step-num">04</span>
+        <h3 class="op-step-name">Recover</h3>
+        <p class="op-step-desc">Subject located, stabilized, and transferred to appropriate care or authority.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ OPERATORS ============ -->
+<section class="operators">
+  <div class="wrap">
+    <div class="op-head">
+      <div>
+        <div class="eyebrow on-dark">Operators</div>
+        <h2 class="h-display">The team you can rely on.</h2>
+      </div>
+      <p>A standing roster of trained, certified volunteers across field operations, technical rope, wilderness response, and medical leadership.</p>
+    </div>
+
+    <div class="operator-grid">
+      <div class="operator">
+        <div class="ph" style="background-image:url('Team/Sheldon.jpeg'); background-size:cover; background-position:center;">
+          <span class="ph-cnr-tr"></span>
+          <span class="ph-cnr-bl"></span>
+        </div>
+        <div class="operator-role">
+          <div class="role-stack">
+            <span class="role-name">Lorem Ipsum</span>
+            <span class="role-spec">Dolor sit amet</span>
+          </div>
+          <span class="role-num">01</span>
+        </div>
+      </div>
+      <div class="operator">
+        <div class="ph" style="background-image:url('Team/Oz.jpeg'); background-size:cover; background-position:center;">
+          <span class="ph-cnr-tr"></span>
+          <span class="ph-cnr-bl"></span>
+        </div>
+        <div class="operator-role">
+          <div class="role-stack">
+            <span class="role-name">Consectetur Adipiscing</span>
+            <span class="role-spec">Elit sed do eiusmod</span>
+          </div>
+          <span class="role-num">02</span>
+        </div>
+      </div>
+      <div class="operator">
+        <div class="ph" style="background-image:url('Team/Unknown.jpeg'); background-size:cover; background-position:center;">
+          <span class="ph-cnr-tr"></span>
+          <span class="ph-cnr-bl"></span>
+        </div>
+        <div class="operator-role">
+          <div class="role-stack">
+            <span class="role-name">Tempor Incididunt</span>
+            <span class="role-spec">Ut labore et dolore</span>
+          </div>
+          <span class="role-num">03</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DONATE BAND ============ -->
+<section class="donate-band" id="donate">
+  <div class="wrap">
+    <div class="donate-grid">
+      <div class="donate-copy">
+        <div class="eyebrow on-steel">Support the Mission</div>
+        <h2 class="h-display">Fund every truck, rope, and <span class="accent">rescue.</span></h2>
+        <p>
+          SAR OPS is a fully independent, 501(c)(3) volunteer Search and Rescue organization. <strong>We receive no government funding.</strong>
+          Every truck, radio, rope system, GPS beacon, and rescue tool we deploy into the field is funded entirely through donations.
+        </p>
+        <div class="donate-actions">
+          <a href="#" class="btn btn-signal">Donate Now <span class="arrow">&rarr;</span></a>
+          <a href="#" class="btn btn-ghost-steel">Become a Sponsor <span class="arrow">&rarr;</span></a>
+        </div>
+      </div>
+
+      <div class="donate-stat">
+        <div class="donate-stat-row">
+          <span class="donate-stat-num">100<span style="opacity:.7">%</span></span>
+          <span class="donate-stat-label">Donor Funded</span>
+        </div>
+        <div class="donate-stat-row">
+          <span class="donate-stat-num">Zero</span>
+          <span class="donate-stat-label">Government Funding</span>
+        </div>
+        <div class="donate-stat-row">
+          <span class="donate-stat-num">501(c)(3)</span>
+          <span class="donate-stat-label">Tax-Deductible Nonprofit</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ LOCATIONS ============ -->
+<section class="locations">
+  <div class="wrap">
+    <div class="loc-grid">
+      <div>
+        <div class="eyebrow on-dark">Operational Footprint</div>
+        <h3 class="loc-h">Two states. One standing team. Always ready.</h3>
+      </div>
+      <div class="loc-card">
+        <svg class="loc-card-map" viewBox="-2 -2 104 204" aria-hidden="true">
+          <path d="M 5 5 L 38 5 L 38 60 L 95 145 L 95 188 L 62 195 L 50 175 L 40 165 L 28 155 L 15 130 L 10 90 L 5 55 Z"/>
+          <circle cx="51" cy="156" r="6.5"/>
+        </svg>
+        <span class="loc-card-meta">Base 01 · West Range</span>
+        <span class="loc-card-name">Conejo Valley</span>
+        <span class="loc-card-region">California · 91307</span>
+      </div>
+      <div class="loc-card">
+        <svg class="loc-card-map" viewBox="-2 -2 104 114" aria-hidden="true">
+          <path d="M 0 0 L 100 0 L 100 105 L 15 105 L 3 90 L 0 50 L 4 20 Z"/>
+          <circle cx="3" cy="36" r="6.5"/>
+        </svg>
+        <span class="loc-card-meta">Base 02 · East Range</span>
+        <span class="loc-card-name">Bullhead City</span>
+        <span class="loc-card-region">Arizona · 86422</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section class="contact" id="contact">
+  <img class="contact-diagram" src="diagram.png" alt="" aria-hidden="true" />
+  <div class="wrap">
+    <div class="contact-grid">
+      <div class="contact-text">
+        <div class="eyebrow on-dark">Get In Touch</div>
+        <h2 class="h-display">Need our team — or want to join it?</h2>
+        <p>
+          Whether you&rsquo;re an agency requesting assistance, a community partner exploring training, or a prospective volunteer looking to serve &mdash; reach out below.
+        </p>
+
+        <div class="contact-info">
+          <div class="row">
+            <span class="label">Email</span>
+            <span class="value">Commander@SAROPS.org</span>
+          </div>
+          <div class="row">
+            <span class="label">Bases</span>
+            <span class="value">California · Arizona</span>
+          </div>
+          <div class="row">
+            <span class="label">Status</span>
+            <span class="value">24/7 · Mission Ready</span>
+          </div>
+        </div>
+      </div>
+
+      <form class="contact-form" onsubmit="event.preventDefault(); alert('Thank you — your message has been received. (Mockup only — no submission.)'); this.reset();">
+        <div class="form-row">
+          <div>
+            <label for="cf-first">First Name</label>
+            <input id="cf-first" type="text" name="first" required />
+          </div>
+          <div>
+            <label for="cf-last">Last Name</label>
+            <input id="cf-last" type="text" name="last" required />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div>
+            <label for="cf-email">Email</label>
+            <input id="cf-email" type="email" name="email" required />
+          </div>
+          <div>
+            <label for="cf-reason">Reason for Contact</label>
+            <select id="cf-reason" name="reason">
+              <option>General Inquiry</option>
+              <option>Agency Request</option>
+              <option>Volunteer Interest</option>
+              <option>Sponsorship</option>
+              <option>Training</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="full">
+            <label for="cf-msg">Message</label>
+            <textarea id="cf-msg" name="message" required></textarea>
+          </div>
+        </div>
+
+        <div class="submit-row">
+          <p class="form-note">For active emergencies, dial 911 first. SAR OPS deploys at the request of public agencies.</p>
+          <button type="submit" class="btn btn-dark">Send Message <span class="arrow">&rarr;</span></button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="#" class="brand">
+          <span class="brand-mark footer-mark" aria-hidden="true">
+            <img src="HQ FRONT.png" alt="" />
+          </span>
+        </a>
+      </div>
+
+      <div class="footer-col">
+        <h4>Site</h4>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="what-we-do.html">What We Do</a></li>
+          <li><a href="sponsors.html">Sponsors</a></li>
+          <li><a href="events.html">Events/Classes</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="donate.html">Donate</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <div class="info-line"><strong>Commander@SAROPS.org</strong></div>
+        <div class="info-line" style="margin-top:16px;">Conejo Valley, CA 91307</div>
+        <div class="info-line">Bullhead City, AZ 86422</div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Status</h4>
+        <div class="info-line"><strong>501(c)(3) Nonprofit</strong></div>
+        <div class="info-line">100% Volunteer Powered</div>
+        <div class="info-line">Operational 24 / 7 · 365</div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div>&copy; 2026 SAR OPS · All rights reserved.</div>
+      <div>Website by <a href="#">Proper Websites</a></div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const menuBtn = document.getElementById('menuBtn');
+  const mobileNav = document.getElementById('mobileNav');
+  const mobileClose = document.getElementById('mobileClose');
+  if (menuBtn && mobileNav){
+    menuBtn.addEventListener('click', () => mobileNav.classList.add('open'));
+  }
+  if (mobileClose && mobileNav){
+    mobileClose.addEventListener('click', () => mobileNav.classList.remove('open'));
+  }
+  if (mobileNav){
+    mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileNav.classList.remove('open')));
+  }
+
+</script>
+
+</body>
+</html>
