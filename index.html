@@ -645,16 +645,16 @@ h1.hero-title .accent{
 .about-photo{
   position: absolute;
   top: 0; left: 0; bottom: 0;
-  width: 35%;
+  width: 40%;
   z-index: 2;
 }
-/* text: occupies the right 65%, clearing the photo */
+/* text: occupies the right 60%, clearing the photo */
 .about-text{
   position: relative;
   z-index: 3;
-  width: 65%;
-  margin-left: 35%;
-  padding: 130px 64px 130px 76px;
+  width: 60%;
+  margin-left: 40%;
+  padding: 92px 72px 92px 84px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -662,7 +662,7 @@ h1.hero-title .accent{
 .about-text .h-display{
   font-size: clamp(2.6rem, 5vw, 4.2rem);
   margin: 22px 0 32px;
-  max-width: 580px;
+  max-width: 640px;
   color: var(--white);
 }
 .about-text .h-display .accent{
@@ -681,19 +681,21 @@ h1.hero-title .accent{
   color: var(--copy);
   font-size: 1.04rem;
   margin-bottom: 18px;
-  max-width: 540px;
+  max-width: 600px;
 }
 .about-text p strong{ color: var(--white); font-weight: 600; }
 .about-pillars{
-  margin-top: 36px;
-  display: flex; flex-direction: column;
+  margin-top: 44px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 56px;
   border-top: 1px solid var(--line-dark);
-  max-width: 420px;
+  max-width: 720px;
 }
 .pillar{
   display: flex;
   align-items: center;
-  padding: 18px 0;
+  padding: 20px 0;
   border-bottom: 1px solid var(--line-dark);
 }
 .pillar-num{
@@ -804,7 +806,7 @@ h1.hero-title .accent{
 }
 .svc-desc{
   color: var(--white);
-  font-weight: 400;
+  font-weight: 600;
   font-size: 0.98rem;
   line-height: 1.55;
   max-width: 540px;
@@ -828,10 +830,10 @@ h1.hero-title .accent{
   background-color: var(--panel);
   background-image:
     linear-gradient(180deg,
-      rgba(15,25,36,0.72) 0%,
-      rgba(30,45,62,0.56) 36%,
-      rgba(30,45,62,0.60) 100%),
-    url('Cliffside.jpg');
+      rgba(15,25,36,0.88) 0%,
+      rgba(15,25,36,0.76) 38%,
+      rgba(15,25,36,0.82) 100%),
+    url('Assets/about-hero.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -1042,10 +1044,10 @@ h1.hero-title .accent{
   background-color: var(--steel);
   background-image:
     linear-gradient(90deg,
-      rgba(62, 95, 120, 0.93) 0%,
-      rgba(62, 95, 120, 0.77) 40%,
-      rgba(62, 95, 120, 0.62) 72%,
-      rgba(62, 95, 120, 0.55) 100%
+      rgba(62, 95, 120, 0.96) 0%,
+      rgba(62, 95, 120, 0.88) 40%,
+      rgba(62, 95, 120, 0.78) 72%,
+      rgba(62, 95, 120, 0.72) 100%
     ),
     url('Truck.jpg');
   background-size: cover, cover;
@@ -1682,6 +1684,7 @@ footer.site-footer .wrap{
   .partner img{ max-height: 44px; }
   .about-text{ padding: 48px 22px; }
   .about-photo{ height: 380px; }
+  .about-pillars{ grid-template-columns: 1fr; column-gap: 0; max-width: 420px; }
   .services{ padding: 80px 0; }
   .svc-row{ grid-template-columns: 1fr auto; gap: 12px; padding: 26px 0; }
   .svc-num, .svc-icon{ grid-column: 1; }
@@ -1719,6 +1722,44 @@ footer.site-footer .wrap{
   .footer-bottom{ justify-content: center; text-align: center; }
   .footer-statement{ font-size: clamp(2rem, 12vw, 3.4rem); text-align: center; }
 }
+
+/* ===== EVENTS / CLASSES (homepage preview) ===== */
+.events-home{ background:var(--navy); color:var(--white); padding:120px 0; border-bottom:1px solid var(--line-dark); }
+.eh-head{ display:flex; align-items:flex-end; justify-content:space-between; gap:40px; flex-wrap:wrap; margin-bottom:10px; }
+.eh-head .h-display{ font-size:clamp(2.2rem,4.4vw,3.6rem); margin-top:16px; max-width:560px; color:var(--white); }
+.eh-head > p{ color:var(--copy); max-width:380px; font-size:1rem; }
+.eh-note{ display:inline-flex; align-items:center; gap:10px; font-family:var(--mono); font-size:0.64rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--spark); border:1px dashed rgba(232,179,57,0.5); padding:11px 15px; max-width:360px; line-height:1.5; margin:24px 0 0; }
+.eh-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:36px; align-items:stretch; }
+.eh-card{ display:flex; flex-direction:column; background:var(--navy-2); border:1px solid var(--line-dark); padding:34px 30px; text-decoration:none; color:inherit; position:relative; overflow:hidden; transition:border-color .25s ease, background .25s ease; }
+.eh-card::before{ content:""; position:absolute; left:0; right:0; top:0; height:3px; background:var(--signal); transform:scaleX(0); transform-origin:left; transition:transform .3s ease; }
+.eh-card:hover{ border-color:var(--steel-2); background:#1C2B3B; }
+.eh-card:hover::before{ transform:scaleX(1); }
+.eh-card-top{ display:flex; align-items:flex-start; justify-content:space-between; gap:16px; margin-bottom:26px; }
+.eh-date{ display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; border:1px dashed rgba(232,179,57,0.45); padding:10px 14px; flex:none; }
+.eh-day{ font-family:var(--display); font-size:1.7rem; font-weight:700; color:var(--spark); line-height:0.9; }
+.eh-mon{ font-family:var(--mono); font-size:0.56rem; letter-spacing:0.16em; text-transform:uppercase; color:var(--copy); margin-top:5px; }
+.eh-tag{ display:inline-block; font-family:var(--mono); font-size:0.6rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--white); border:1px solid var(--line-dark); padding:6px 11px; }
+.eh-tag.t-course{ border-color:var(--steel-2); color:var(--steel-2); }
+.eh-tag.t-community{ border-color:var(--spark); color:var(--spark); }
+.eh-title{ font-family:var(--display); font-size:clamp(1.55rem,2vw,1.9rem); font-weight:700; text-transform:uppercase; color:var(--white); line-height:1.02; margin-bottom:18px; }
+.eh-meta{ display:flex; flex-direction:column; gap:10px; font-family:var(--mono); font-size:0.68rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--copy); }
+.eh-meta span{ display:inline-flex; align-items:center; gap:10px; }
+.eh-meta span::before{ content:""; width:5px; height:5px; background:var(--steel-2); flex:none; }
+.eh-card-foot{ margin-top:auto; padding-top:26px; display:flex; align-items:center; justify-content:space-between; gap:16px; border-top:1px solid var(--line-dark); }
+.eh-price{ font-family:var(--display); font-size:1.6rem; font-weight:700; text-transform:uppercase; color:var(--white); letter-spacing:0.02em; white-space:nowrap; }
+.eh-price.free{ color:var(--spark); }
+.eh-btn-sm{ padding:12px 18px; font-size:0.66rem; letter-spacing:0.14em; }
+.eh-foot{ display:flex; align-items:center; justify-content:space-between; gap:20px; flex-wrap:wrap; margin-top:40px; }
+@media (max-width:980px){
+  .eh-grid{ grid-template-columns:1fr; gap:16px; }
+}
+@media (max-width:720px){
+  .events-home{ padding:72px 0; }
+  .eh-card{ padding:28px 24px; }
+  .eh-foot{ flex-direction:column; align-items:stretch; gap:12px; }
+  .eh-foot .btn{ justify-content:center; }
+}
+
 </style>
 </head>
 <body>
@@ -1840,7 +1881,7 @@ footer.site-footer .wrap{
 <!-- ============ TRAINED TO RESPOND (about) ============ -->
 <section class="about" id="about">
   <img class="about-diagram" src="diagram.png" alt="" aria-hidden="true" />
-  <div class="about-photo ph" aria-hidden="true" style="background-image:url('What-we-do-page-scaled.jpg'); background-size:cover; background-position:center;">
+  <div class="about-photo ph" aria-hidden="true" style="background-image:url('What-we-do-page-scaled.jpg'); background-size:cover; background-position:center top;">
     <span class="ph-cnr-tr"></span>
     <span class="ph-cnr-bl"></span>
     <span class="ph-label">Operator · Full Frame</span>
@@ -2053,6 +2094,69 @@ footer.site-footer .wrap{
         <h3 class="op-step-name">Recover</h3>
         <p class="op-step-desc">Subject located, stabilized, and transferred to appropriate care or authority.</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ EVENTS / CLASSES ============ -->
+<section class="events-home" id="events">
+  <div class="wrap">
+    <div class="eh-head">
+      <div>
+        <div class="eyebrow on-dark">Events &amp; Classes</div>
+        <h2 class="h-display">Train with us</h2>
+      </div>
+      <p>Public courses, community preparedness days, and hands-on technical training, taught by certified operators. Preparedness saves lives.</p>
+    </div>
+
+    <div class="eh-note">Sample schedule &middot; replace dates, prices &amp; registration with live data before launch</div>
+
+    <div class="eh-grid">
+
+      <a href="events.html" class="eh-card">
+        <div class="eh-card-top">
+          <div class="eh-date"><span class="eh-day">[ 00 ]</span><span class="eh-mon">[ MON ]</span></div>
+          <span class="eh-tag t-course">Public Course</span>
+        </div>
+        <h3 class="eh-title">Wilderness First Aid</h3>
+        <div class="eh-meta"><span>16-Hour Certification</span><span>[ Location ]</span><span>[ Time ]</span></div>
+        <div class="eh-card-foot">
+          <span class="eh-price">$[ ___ ]</span>
+          <span class="btn btn-signal eh-btn-sm">Register <span class="arrow">&rarr;</span></span>
+        </div>
+      </a>
+
+      <a href="events.html" class="eh-card">
+        <div class="eh-card-top">
+          <div class="eh-date"><span class="eh-day">[ 00 ]</span><span class="eh-mon">[ MON ]</span></div>
+          <span class="eh-tag t-community">Community Event</span>
+        </div>
+        <h3 class="eh-title">Community Preparedness Day</h3>
+        <div class="eh-meta"><span>Open To All Ages</span><span>[ Location ]</span><span>[ Time ]</span></div>
+        <div class="eh-card-foot">
+          <span class="eh-price free">Free</span>
+          <span class="btn btn-ghost eh-btn-sm">RSVP <span class="arrow">&rarr;</span></span>
+        </div>
+      </a>
+
+      <a href="events.html" class="eh-card">
+        <div class="eh-card-top">
+          <div class="eh-date"><span class="eh-day">[ 00 ]</span><span class="eh-mon">[ MON ]</span></div>
+          <span class="eh-tag t-course">Public Course</span>
+        </div>
+        <h3 class="eh-title">Intro To Technical Rope</h3>
+        <div class="eh-meta"><span>Hands-On &middot; Beginner</span><span>[ Location ]</span><span>[ Time ]</span></div>
+        <div class="eh-card-foot">
+          <span class="eh-price">$[ ___ ]</span>
+          <span class="btn btn-signal eh-btn-sm">Register <span class="arrow">&rarr;</span></span>
+        </div>
+      </a>
+
+    </div>
+
+    <div class="eh-foot">
+      <a href="events.html" class="btn btn-ghost">View All Classes <span class="arrow">&rarr;</span></a>
+      <a href="contact.html" class="btn btn-signal">Request A Class <span class="arrow">&rarr;</span></a>
     </div>
   </div>
 </section>
