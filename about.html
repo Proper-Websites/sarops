@@ -137,6 +137,29 @@ nav.primary .nav-donate::after{ display:none; }
 .std-chip .abbr{ font-family:var(--display); font-size:1.5rem; font-weight:700; letter-spacing:0.02em; text-transform:uppercase; color:var(--white); }
 .std-chip .full{ font-family:var(--mono); font-size:0.66rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--copy); line-height:1.5; }
 
+/* ===== PHOTO PLACEHOLDER ===== */
+.ph{ background:var(--steel-3); position:relative; overflow:hidden; }
+.ph::before,.ph::after{ content:""; position:absolute; width:22px; height:22px; border:1px solid rgba(255,255,255,0.28); }
+.ph::before{ top:14px; left:14px; border-right:none; border-bottom:none; }
+.ph::after{ bottom:14px; right:14px; border-left:none; border-top:none; }
+.ph .ph-cnr-tr{ position:absolute; top:14px; right:14px; width:22px; height:22px; border:1px solid rgba(255,255,255,0.28); border-left:none; border-bottom:none; }
+.ph .ph-cnr-bl{ position:absolute; bottom:14px; left:14px; width:22px; height:22px; border:1px solid rgba(255,255,255,0.28); border-right:none; border-top:none; }
+
+/* ===== OPERATORS ===== */
+.operators{ background:var(--navy); color:var(--white); padding:130px 0; border-top:1px solid var(--line-dark); }
+.op-head{ display:grid; grid-template-columns:1.4fr 1fr; gap:64px; align-items:end; margin-bottom:56px; padding-bottom:32px; border-bottom:1px solid var(--line-dark); }
+.op-head .h-display{ font-size:clamp(2.6rem,5vw,4.2rem); margin-top:18px; max-width:640px; }
+.op-head p{ font-size:1rem; color:var(--copy); max-width:380px; }
+.operator-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:32px; }
+.operator{ display:flex; flex-direction:column; gap:18px; }
+.operator .ph{ aspect-ratio:3/4; }
+.operator-role{ display:flex; justify-content:space-between; align-items:baseline; padding-top:14px; border-top:1px solid var(--line-dark); }
+.operator-role .role-name{ font-family:var(--display); font-weight:700; text-transform:uppercase; font-size:1.05rem; color:var(--white); letter-spacing:0.03em; }
+.operator-role .role-spec{ color:var(--copy); font-weight:400; font-size:0.95rem; }
+.operator-role .role-num{ font-family:var(--mono); font-size:0.66rem; letter-spacing:0.22em; color:var(--copy); }
+@media (max-width:1080px){ .operator-grid{ grid-template-columns:1fr 1fr; gap:24px; } .operator .ph{ aspect-ratio:4/5; } }
+@media (max-width:720px){ .operators{ padding:80px 0; } .operator-grid{ grid-template-columns:1fr; gap:24px; } .operator .ph{ aspect-ratio:4/5; } }
+
 /* ===== CTA BAND ===== */
 .cta-band{ background-color:var(--navy-3); background-image:linear-gradient(90deg, rgba(15,25,36,0.82) 0%, rgba(15,25,36,0.55) 45%, rgba(15,25,36,0.3) 100%), url('Cliffside.jpg'); background-size:cover, cover; background-position:center, center; background-attachment:scroll, fixed; padding:120px 0; border-top:2px solid var(--signal); position:relative; }
 @media (max-width:1024px){ .cta-band{ background-attachment:scroll, scroll; } }
@@ -373,6 +396,61 @@ footer.site-footer .wrap{ max-width:none; padding:0 48px; }
       <div class="std-chip"><span class="abbr">SARTECH</span><span class="full">Search &amp; Rescue Technician &middot; NASAR</span></div>
       <div class="std-chip"><span class="abbr">WFR</span><span class="full">Wilderness First Responder</span></div>
       <div class="std-chip"><span class="abbr">SWR</span><span class="full">Swift Water Rescue Technician</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- OPERATORS -->
+<section class="operators">
+  <div class="wrap">
+    <div class="op-head">
+      <div>
+        <div class="eyebrow">Operators</div>
+        <h2 class="h-display">The team you can rely on</h2>
+      </div>
+      <p>A standing roster of trained, certified volunteers across field operations, technical rope, wilderness response, and medical leadership.</p>
+    </div>
+
+    <div class="operator-grid">
+      <div class="operator">
+        <div class="ph" style="background-image:url('Team/Sheldon.jpeg'); background-size:cover; background-position:center;">
+          <span class="ph-cnr-tr"></span>
+          <span class="ph-cnr-bl"></span>
+        </div>
+        <div class="operator-role">
+          <div class="role-stack">
+            <span class="role-name">Lorem Ipsum</span>
+            <span class="role-spec">Dolor sit amet</span>
+          </div>
+          <span class="role-num">01</span>
+        </div>
+      </div>
+      <div class="operator">
+        <div class="ph" style="background-image:url('Team/Oz.jpeg'); background-size:cover; background-position:center;">
+          <span class="ph-cnr-tr"></span>
+          <span class="ph-cnr-bl"></span>
+        </div>
+        <div class="operator-role">
+          <div class="role-stack">
+            <span class="role-name">Consectetur Adipiscing</span>
+            <span class="role-spec">Elit sed do eiusmod</span>
+          </div>
+          <span class="role-num">02</span>
+        </div>
+      </div>
+      <div class="operator">
+        <div class="ph" style="background-image:url('Team/Unknown.jpeg'); background-size:cover; background-position:center;">
+          <span class="ph-cnr-tr"></span>
+          <span class="ph-cnr-bl"></span>
+        </div>
+        <div class="operator-role">
+          <div class="role-stack">
+            <span class="role-name">Tempor Incididunt</span>
+            <span class="role-spec">Ut labore et dolore</span>
+          </div>
+          <span class="role-num">03</span>
+        </div>
+      </div>
     </div>
   </div>
 </section>

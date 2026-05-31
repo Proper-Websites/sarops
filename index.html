@@ -1105,6 +1105,76 @@ h1.hero-title .accent{
   color: var(--copy);
 }
 
+/* ----- donate band: amount picker ----- */
+.donate-amounts{ margin-top: 28px; }
+.donate-amounts-label{
+  font-family: var(--mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--copy);
+  margin-bottom: 14px;
+}
+.amount-chips{ display: flex; flex-wrap: wrap; gap: 10px; }
+.amount-chip{
+  font-family: var(--display);
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--white);
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.42);
+  padding: 12px 22px;
+  line-height: 1;
+  transition: background .2s ease, border-color .2s ease, color .2s ease;
+}
+.amount-chip:hover{ border-color: var(--white); background: rgba(255,255,255,0.14); }
+.amount-chip.selected{ background: var(--signal); border-color: var(--signal); color: var(--white); }
+.amount-custom{
+  display: none;
+  align-items: center;
+  margin-top: 12px;
+  max-width: 240px;
+  border: 1px solid rgba(255,255,255,0.42);
+  background: rgba(15,25,36,0.35);
+}
+.amount-custom.show{ display: flex; }
+.amount-custom .cur{
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: var(--white);
+  padding-left: 16px;
+}
+.amount-custom input{
+  flex: 1;
+  width: 100%;
+  font-family: var(--display);
+  font-size: 1.2rem;
+  font-weight: 700;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--white);
+  padding: 12px 14px;
+}
+.amount-custom input::placeholder{ color: rgba(255,255,255,0.5); font-weight: 500; }
+.amount-custom input::-webkit-outer-spin-button,
+.amount-custom input::-webkit-inner-spin-button{ -webkit-appearance: none; margin: 0; }
+.amount-fund{
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  color: var(--copy);
+  margin-top: 16px;
+  min-height: 1em;
+}
+.amount-fund strong{ color: var(--white); font-weight: 600; }
+@media (max-width: 720px){
+  .amount-chip{ font-size: 1.15rem; padding: 11px 16px; }
+}
+
 /* ============ GIVE (tiered donation grid) ============ */
 .give{
   background: var(--navy);
@@ -1921,61 +1991,6 @@ footer.site-footer .wrap{
   </div>
 </section>
 
-<!-- ============ OPERATORS ============ -->
-<section class="operators">
-  <div class="wrap">
-    <div class="op-head">
-      <div>
-        <div class="eyebrow on-dark">Operators</div>
-        <h2 class="h-display">The team you can rely on</h2>
-      </div>
-      <p>A standing roster of trained, certified volunteers across field operations, technical rope, wilderness response, and medical leadership.</p>
-    </div>
-
-    <div class="operator-grid">
-      <div class="operator">
-        <div class="ph" style="background-image:url('Team/Sheldon.jpeg'); background-size:cover; background-position:center;">
-          <span class="ph-cnr-tr"></span>
-          <span class="ph-cnr-bl"></span>
-        </div>
-        <div class="operator-role">
-          <div class="role-stack">
-            <span class="role-name">Lorem Ipsum</span>
-            <span class="role-spec">Dolor sit amet</span>
-          </div>
-          <span class="role-num">01</span>
-        </div>
-      </div>
-      <div class="operator">
-        <div class="ph" style="background-image:url('Team/Oz.jpeg'); background-size:cover; background-position:center;">
-          <span class="ph-cnr-tr"></span>
-          <span class="ph-cnr-bl"></span>
-        </div>
-        <div class="operator-role">
-          <div class="role-stack">
-            <span class="role-name">Consectetur Adipiscing</span>
-            <span class="role-spec">Elit sed do eiusmod</span>
-          </div>
-          <span class="role-num">02</span>
-        </div>
-      </div>
-      <div class="operator">
-        <div class="ph" style="background-image:url('Team/Unknown.jpeg'); background-size:cover; background-position:center;">
-          <span class="ph-cnr-tr"></span>
-          <span class="ph-cnr-bl"></span>
-        </div>
-        <div class="operator-role">
-          <div class="role-stack">
-            <span class="role-name">Tempor Incididunt</span>
-            <span class="role-spec">Ut labore et dolore</span>
-          </div>
-          <span class="role-num">03</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- ============ DONATE BAND ============ -->
 <section class="donate-band" id="donate">
   <div class="wrap">
@@ -1987,8 +2002,23 @@ footer.site-footer .wrap{
           SAR OPS is a fully independent, 501(c)(3) volunteer Search and Rescue organization. <strong>We receive no government funding.</strong>
           Every truck, radio, rope system, GPS beacon, and rescue tool we deploy into the field is funded entirely through donations.
         </p>
+        <div class="donate-amounts" id="donateAmounts">
+          <div class="donate-amounts-label">Choose an amount</div>
+          <div class="amount-chips" role="group" aria-label="Donation amount">
+            <button type="button" class="amount-chip" data-amt="50" data-fund="Field supplies and consumables">$50</button>
+            <button type="button" class="amount-chip" data-amt="100" data-fund="Fuel and mission logistics">$100</button>
+            <button type="button" class="amount-chip selected" data-amt="250" data-fund="Rescue gear and safety equipment">$250</button>
+            <button type="button" class="amount-chip" data-amt="500" data-fund="Technical rope and hardware">$500</button>
+            <button type="button" class="amount-chip" data-amt="custom" data-fund="Give any amount that fits">Custom</button>
+          </div>
+          <div class="amount-custom" id="amountCustom">
+            <span class="cur">$</span>
+            <input type="number" min="1" step="1" inputmode="numeric" placeholder="Enter amount" id="amountCustomInput" aria-label="Custom donation amount" />
+          </div>
+          <div class="amount-fund" id="amountFund"><strong>$250</strong> &middot; Rescue gear and safety equipment &middot; Most common</div>
+        </div>
         <div class="donate-actions">
-          <a href="#" class="btn btn-signal">Donate Now <span class="arrow">&rarr;</span></a>
+          <a href="#" class="btn btn-signal" id="donateNowBtn"><span class="btn-label">Donate $250</span> <span class="arrow">&rarr;</span></a>
           <a href="#" class="btn btn-ghost-steel">Become a Sponsor <span class="arrow">&rarr;</span></a>
         </div>
       </div>
@@ -2172,6 +2202,43 @@ footer.site-footer .wrap{
   }
   if (mobileNav){
     mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileNav.classList.remove('open')));
+  }
+
+  // donate band: amount picker
+  const amtWrap = document.getElementById('donateAmounts');
+  if (amtWrap){
+    const chips = amtWrap.querySelectorAll('.amount-chip');
+    const customBox = document.getElementById('amountCustom');
+    const customInput = document.getElementById('amountCustomInput');
+    const fund = document.getElementById('amountFund');
+    const donateBtn = document.getElementById('donateNowBtn');
+    const donateLabel = donateBtn ? donateBtn.querySelector('.btn-label') : null;
+    const fmt = n => '$' + Number(n).toLocaleString('en-US');
+    const setBtn = t => { if (donateLabel) donateLabel.textContent = t; };
+    const setFund = (label, text) => { fund.innerHTML = '<strong>' + label + '</strong> &middot; ' + text; };
+
+    const syncCustom = () => {
+      const v = parseInt(customInput.value, 10);
+      if (v > 0){ setFund(fmt(v), 'Give any amount that fits'); setBtn('Donate ' + fmt(v)); }
+      else { setFund('Custom', 'Give any amount that fits'); setBtn('Donate'); }
+    };
+
+    chips.forEach(chip => chip.addEventListener('click', () => {
+      chips.forEach(c => c.classList.remove('selected'));
+      chip.classList.add('selected');
+      const amt = chip.dataset.amt;
+      if (amt === 'custom'){
+        customBox.classList.add('show');
+        customInput.focus();
+        syncCustom();
+      } else {
+        customBox.classList.remove('show');
+        const tail = amt === '250' ? chip.dataset.fund + ' &middot; Most common' : chip.dataset.fund;
+        setFund(fmt(amt), tail);
+        setBtn('Donate ' + fmt(amt));
+      }
+    }));
+    if (customInput) customInput.addEventListener('input', syncCustom);
   }
 
 </script>
