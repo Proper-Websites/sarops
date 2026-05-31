@@ -407,6 +407,7 @@ nav.primary .nav-donate::after{ display: none; }
 .hero-slide{
   position:absolute; inset:0;
   background-size:cover; background-position:center;
+  background-attachment:fixed;
   opacity:0; animation:heroFade 24s infinite; will-change:opacity;
 }
 .hero-slide:nth-child(1){ animation-delay:0s; }
@@ -420,6 +421,8 @@ nav.primary .nav-donate::after{ display: none; }
   .hero-slide{ animation:none; }
   .hero-slide:first-child{ opacity:1; }
 }
+/* iOS/touch render fixed backgrounds in jumps — fall back to scroll */
+@media (max-width:1024px){ .hero-slide{ background-attachment:scroll; } }
 
 /* One continuous overlay across the WHOLE stack (hero + sponsors) so the
    dark treatment — especially the left-dark gradient behind the copy — runs
@@ -430,14 +433,15 @@ nav.primary .nav-donate::after{ display: none; }
   background:
     /* top: darken only the header strip so the menu reads */
     linear-gradient(180deg, rgba(15,25,36,0.5) 0px, rgba(15,25,36,0) 240px),
-    /* left: dark behind the headline, fully CLEAR by ~62% so the right
-       half of the photo has no overlay at all */
+    /* left: dark behind the headline, fading to CLEAR by ~76% so the right
+       edge of the photo still reads through */
     linear-gradient(95deg,
-      rgba(15,25,36,0.92) 0%,
-      rgba(15,25,36,0.78) 26%,
-      rgba(15,25,36,0.45) 44%,
-      rgba(15,25,36,0.15) 55%,
-      rgba(15,25,36,0)    62%,
+      rgba(15,25,36,0.96) 0%,
+      rgba(15,25,36,0.88) 28%,
+      rgba(15,25,36,0.66) 46%,
+      rgba(15,25,36,0.36) 58%,
+      rgba(15,25,36,0.12) 68%,
+      rgba(15,25,36,0)    76%,
       rgba(15,25,36,0)    100%
     );
   pointer-events: none;
@@ -632,9 +636,9 @@ h1.hero-title .accent{
   right: 0;
   left: auto;
   transform: translateY(-50%) scaleX(-1);
-  height: 105%;
+  height: 150%;
   width: auto;
-  max-width: 45%;
+  max-width: 72%;
   pointer-events: none;
   mix-blend-mode: screen;
   opacity: 0.5;
@@ -1044,10 +1048,10 @@ h1.hero-title .accent{
   background-color: var(--steel);
   background-image:
     linear-gradient(90deg,
-      rgba(62, 95, 120, 0.96) 0%,
-      rgba(62, 95, 120, 0.88) 40%,
-      rgba(62, 95, 120, 0.78) 72%,
-      rgba(62, 95, 120, 0.72) 100%
+      rgba(52, 80, 103, 0.96) 0%,
+      rgba(52, 80, 103, 0.88) 40%,
+      rgba(52, 80, 103, 0.78) 72%,
+      rgba(52, 80, 103, 0.72) 100%
     ),
     url('Truck.jpg');
   background-size: cover, cover;
@@ -1058,6 +1062,7 @@ h1.hero-title .accent{
   padding: 88px 0;
   position: relative;
   overflow: hidden;
+  border-top: 2px solid var(--signal);
 }
 @media (max-width: 1024px){
   .donate-band{ background-attachment: scroll, scroll; }
@@ -2070,6 +2075,36 @@ footer.site-footer .wrap{
   </div>
 </section>
 
+<!-- ============ LOCATIONS ============ -->
+<section class="locations">
+  <div class="wrap">
+    <div class="loc-grid">
+      <div>
+        <div class="eyebrow on-dark">Operational Footprint</div>
+        <h3 class="loc-h">Two states, one standing team, always ready</h3>
+      </div>
+      <div class="loc-card">
+        <svg class="loc-card-map" viewBox="-2 -2 104 204" aria-hidden="true">
+          <path d="M 5 5 L 38 5 L 38 60 L 95 145 L 95 188 L 62 195 L 50 175 L 40 165 L 28 155 L 15 130 L 10 90 L 5 55 Z"/>
+          <circle cx="51" cy="156" r="6.5"/>
+        </svg>
+        <span class="loc-card-meta">Base 01 · West Range</span>
+        <span class="loc-card-name">Conejo Valley</span>
+        <span class="loc-card-region">California · 91307</span>
+      </div>
+      <div class="loc-card">
+        <svg class="loc-card-map" viewBox="-2 -2 104 114" aria-hidden="true">
+          <path d="M 0 0 L 100 0 L 100 105 L 15 105 L 3 90 L 0 50 L 4 20 Z"/>
+          <circle cx="3" cy="36" r="6.5"/>
+        </svg>
+        <span class="loc-card-meta">Base 02 · East Range</span>
+        <span class="loc-card-name">Bullhead City</span>
+        <span class="loc-card-region">Arizona · 86422</span>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ============ THE STANDARD ============ -->
 <section class="standard" id="standard">
   <div class="wrap">
@@ -2121,36 +2156,6 @@ footer.site-footer .wrap{
             <span class="cert-row-abbr">SWR</span>
             <span class="cert-row-name">Swift Water Rescue Technician</span>
           </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ LOCATIONS ============ -->
-<section class="locations">
-  <div class="wrap">
-    <div class="loc-grid">
-      <div>
-        <div class="eyebrow on-dark">Operational Footprint</div>
-        <h3 class="loc-h">Two states, one standing team, always ready</h3>
-      </div>
-      <div class="loc-card">
-        <svg class="loc-card-map" viewBox="-2 -2 104 204" aria-hidden="true">
-          <path d="M 5 5 L 38 5 L 38 60 L 95 145 L 95 188 L 62 195 L 50 175 L 40 165 L 28 155 L 15 130 L 10 90 L 5 55 Z"/>
-          <circle cx="51" cy="156" r="6.5"/>
-        </svg>
-        <span class="loc-card-meta">Base 01 · West Range</span>
-        <span class="loc-card-name">Conejo Valley</span>
-        <span class="loc-card-region">California · 91307</span>
-      </div>
-      <div class="loc-card">
-        <svg class="loc-card-map" viewBox="-2 -2 104 114" aria-hidden="true">
-          <path d="M 0 0 L 100 0 L 100 105 L 15 105 L 3 90 L 0 50 L 4 20 Z"/>
-          <circle cx="3" cy="36" r="6.5"/>
-        </svg>
-        <span class="loc-card-meta">Base 02 · East Range</span>
-        <span class="loc-card-name">Bullhead City</span>
-        <span class="loc-card-region">Arizona · 86422</span>
-      </div>
     </div>
   </div>
 </section>
