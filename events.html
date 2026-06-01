@@ -76,6 +76,7 @@ nav.primary .nav-donate::after{ display:none; }
 
 /* PAGE HERO */
 .page-hero{ position:relative; background-color:var(--navy); background-image:url('Assets/training.jpg'); background-size:cover; background-position:center; background-attachment:fixed; border-top:2px solid var(--signal); border-bottom:2px solid var(--signal); min-height:60vh; display:flex; }
+.page-hero-video{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:0; }
 .page-hero::after{ content:""; position:absolute; inset:0; background:
   linear-gradient(180deg, rgba(15,25,36,0.6) 0px, rgba(15,25,36,0) 280px),
   linear-gradient(0deg, rgba(15,25,36,0.95) 0%, rgba(15,25,36,0.66) 42%, rgba(15,25,36,0.3) 74%, rgba(15,25,36,0.16) 100%);
@@ -146,7 +147,7 @@ nav.primary .nav-donate::after{ display:none; }
 .host-list li .n{ font-family:var(--mono); font-size:0.72rem; letter-spacing:0.18em; color:var(--signal); font-weight:500; }
 
 /* CTA */
-.cta-band{ background-color:var(--navy-3); background-image:linear-gradient(180deg, rgba(15,25,36,0.74) 0%, rgba(15,25,36,0.6) 50%, rgba(15,25,36,0.76) 100%), url('Cliffside.jpg'); background-size:cover, cover; background-position:center, center; background-attachment:scroll, fixed; padding:120px 0; border-top:1px solid var(--line-dark); }
+.cta-band{ background-color:var(--navy-3); background-image:linear-gradient(180deg, rgba(15,25,36,0.74) 0%, rgba(15,25,36,0.6) 50%, rgba(15,25,36,0.76) 100%), url('Cliffside%20Instructions.jpeg'); background-size:cover, cover; background-position:center, center; background-attachment:scroll, fixed; padding:120px 0; border-top:1px solid var(--line-dark); }
 @media (max-width:1024px){ .cta-band{ background-attachment:scroll, scroll; } }
 .cta-band .wrap{ text-align:center; }
 .cta-band .h-display{ font-size:clamp(2.2rem,4.6vw,3.8rem); max-width:720px; margin:0 auto; line-height:0.98; text-shadow:0 1px 18px rgba(0,0,0,0.5); }
@@ -254,6 +255,9 @@ footer.site-footer .wrap{ max-width:none; padding:0 48px; }
 
 <!-- PAGE HERO -->
 <section class="page-hero">
+  <video class="page-hero-video" autoplay muted loop playsinline poster="Assets/training.jpg" aria-hidden="true">
+    <source src="Training.mp4" type="video/mp4" />
+  </video>
   <div class="wrap">
     <div class="eyebrow">Events &amp; Classes</div>
     <h1>Preparedness saves <span class="accent">lives</span></h1>
