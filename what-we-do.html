@@ -261,7 +261,7 @@ footer.site-footer .wrap{ max-width:none; padding:0 48px; }
   <div class="wrap">
 
     <div class="cap-row">
-      <div class="cap-media cap-px"><div class="cap-px-img" style="background-image:url('Hero/Hero 3.jpeg');"></div></div>
+      <div class="cap-media" style="background-image:url('Hero/Hero 3.jpeg'); background-size:150%; background-position:right center;"></div>
       <div class="cap-body">
         <span class="cap-num">01</span>
         <div class="cap-kicker">Every second counts. Every life matters.</div>
@@ -321,7 +321,7 @@ footer.site-footer .wrap{ max-width:none; padding:0 48px; }
     </div>
 
     <div class="cap-row">
-      <div class="cap-media" style="background-image:url('Rope Course.png');"></div>
+      <div class="cap-media" style="background-image:url('Training & Certifications.jpg'); background-size:150%; background-position:right center;"></div>
       <div class="cap-body">
         <span class="cap-num">05</span>
         <div class="cap-kicker">Preparedness saves lives. Train with us.</div>
@@ -336,7 +336,7 @@ footer.site-footer .wrap{ max-width:none; padding:0 48px; }
     </div>
 
     <div class="cap-row">
-      <div class="cap-media ph"><span class="ph-label">Community &middot; Photo</span></div>
+      <div class="cap-media" style="background-image:url('Community and Agency Support.jpeg');"></div>
       <div class="cap-body">
         <span class="cap-num">06</span>
         <div class="cap-kicker">Stronger together.</div>
@@ -414,28 +414,6 @@ footer.site-footer .wrap{ max-width:none; padding:0 48px; }
   if (menuBtn && mobileNav){ menuBtn.addEventListener('click', () => mobileNav.classList.add('open')); }
   if (mobileClose && mobileNav){ mobileClose.addEventListener('click', () => mobileNav.classList.remove('open')); }
   if (mobileNav){ mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileNav.classList.remove('open'))); }
-
-  /* Per-box parallax: keeps the image centered in its container while drifting on scroll */
-  const pxImgs = document.querySelectorAll('.cap-px-img');
-  if (pxImgs.length){
-    let ticking = false;
-    const updatePx = () => {
-      const vh = window.innerHeight;
-      pxImgs.forEach(img => {
-        const box = img.parentElement.getBoundingClientRect();
-        const center = box.top + box.height / 2;
-        const progress = (center - vh / 2) / (vh / 2 + box.height / 2); // ~ -1..1
-        const max = box.height * 0.22; // matches the 22% top/bottom overflow
-        // scale() zooms in slightly so it reads as a stronger "window" parallax
-        img.style.transform = `translateY(${(Math.max(-1, Math.min(1, progress)) * max).toFixed(1)}px) scale(1.12)`;
-      });
-      ticking = false;
-    };
-    const onScroll = () => { if (!ticking){ ticking = true; requestAnimationFrame(updatePx); } };
-    window.addEventListener('scroll', onScroll, { passive: true });
-    window.addEventListener('resize', onScroll);
-    updatePx();
-  }
 </script>
 
 </body>
