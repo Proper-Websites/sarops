@@ -105,8 +105,6 @@ nav.primary .nav-donate::after{ display:none; }
 .cap-row{ display:grid; grid-template-columns:1fr 1fr; gap:72px; align-items:center; padding:96px 0; border-bottom:1px solid var(--line-dark); }
 .cap-row:last-child{ border-bottom:none; }
 .cap-media{ aspect-ratio:4/3; width:100%; background-size:cover; background-position:center; background-attachment:fixed; position:relative; border:1px solid var(--line-dark); }
-.cap-px{ overflow:hidden; background-attachment:scroll; }
-.cap-px-img{ position:absolute; left:0; right:0; top:-30%; height:160%; background-size:cover; background-position:center; will-change:transform; }
 .cap-row:nth-child(even) .cap-media{ order:2; }
 .cap-num{ font-family:var(--mono); font-size:0.8rem; letter-spacing:0.22em; color:var(--signal); display:inline-block; padding-bottom:18px; margin-bottom:22px; border-bottom:2px solid var(--steel-2); }
 .cap-kicker{ font-family:var(--mono); font-size:0.74rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--spark); margin-bottom:14px; }
@@ -131,7 +129,7 @@ nav.primary .nav-donate::after{ display:none; }
 .tl-desc{ color:var(--copy); font-size:1rem; line-height:1.6; max-width:480px; }
 
 /* CTA */
-.cta-band{ background-color:var(--navy-3); background-image:linear-gradient(90deg, rgba(15,25,36,0.85) 0%, rgba(15,25,36,0.55) 48%, rgba(15,25,36,0.3) 100%), url('Truck.jpg'); background-size:cover, cover; background-position:center, center; background-attachment:scroll, fixed; padding:120px 0; border-top:1px solid var(--line-dark); }
+.cta-band{ background-color:var(--navy-3); background-image:linear-gradient(90deg, rgba(15,25,36,0.85) 0%, rgba(15,25,36,0.55) 48%, rgba(15,25,36,0.3) 100%), url('Banner Cliff Image.png'); background-size:cover, cover; background-position:center, center; background-attachment:scroll, fixed; padding:120px 0; border-top:1px solid var(--line-dark); }
 @media (max-width:1024px){ .cta-band{ background-attachment:scroll, scroll; } }
 .cta-band .wrap{ text-align:center; }
 .cta-band .h-display{ font-size:clamp(2.2rem,4.6vw,3.8rem); max-width:720px; margin:0 auto; line-height:0.98; text-shadow:0 1px 18px rgba(0,0,0,0.5); }
@@ -278,7 +276,7 @@ footer.site-footer .wrap{ max-width:none; padding:0 48px; }
     </div>
 
     <div class="cap-row">
-      <div class="cap-media cap-px"><div class="cap-px-img" style="background-image:url('Cliff Rescue Photo.jpg');"></div></div>
+      <div class="cap-media" style="background-image:url('Cliff Rescue Photo.jpg');"></div>
       <div class="cap-body">
         <span class="cap-num">02</span>
         <div class="cap-kicker">Vertical rescue. Precision-driven. Life-saving.</div>
@@ -308,7 +306,7 @@ footer.site-footer .wrap{ max-width:none; padding:0 48px; }
     </div>
 
     <div class="cap-row">
-      <div class="cap-media ph"><span class="ph-label">Swift Water &middot; Photo</span></div>
+      <div class="cap-media" style="background-image:url('Swift Water Rescue.jpg');"></div>
       <div class="cap-body">
         <span class="cap-num">04</span>
         <div class="cap-kicker">Moving water. No hesitation.</div>
@@ -323,7 +321,7 @@ footer.site-footer .wrap{ max-width:none; padding:0 48px; }
     </div>
 
     <div class="cap-row">
-      <div class="cap-media cap-px"><div class="cap-px-img" style="background-image:url('Rope Course.png');"></div></div>
+      <div class="cap-media" style="background-image:url('Rope Course.png');"></div>
       <div class="cap-body">
         <span class="cap-num">05</span>
         <div class="cap-kicker">Preparedness saves lives. Train with us.</div>
@@ -416,28 +414,6 @@ footer.site-footer .wrap{ max-width:none; padding:0 48px; }
   if (menuBtn && mobileNav){ menuBtn.addEventListener('click', () => mobileNav.classList.add('open')); }
   if (mobileClose && mobileNav){ mobileClose.addEventListener('click', () => mobileNav.classList.remove('open')); }
   if (mobileNav){ mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileNav.classList.remove('open'))); }
-
-  /* Per-box parallax: keeps the image centered in its container while drifting on scroll */
-  const pxImgs = document.querySelectorAll('.cap-px-img');
-  if (pxImgs.length){
-    let ticking = false;
-    const updatePx = () => {
-      const vh = window.innerHeight;
-      pxImgs.forEach(img => {
-        const box = img.parentElement.getBoundingClientRect();
-        const center = box.top + box.height / 2;
-        const progress = (center - vh / 2) / (vh / 2 + box.height / 2); // ~ -1..1
-        const max = box.height * 0.30; // matches the 30% top/bottom overflow
-        // +progress so the image drifts the same direction as the site's fixed-parallax boxes
-        img.style.transform = `translateY(${(Math.max(-1, Math.min(1, progress)) * max).toFixed(1)}px)`;
-      });
-      ticking = false;
-    };
-    const onScroll = () => { if (!ticking){ ticking = true; requestAnimationFrame(updatePx); } };
-    window.addEventListener('scroll', onScroll, { passive: true });
-    window.addEventListener('resize', onScroll);
-    updatePx();
-  }
 </script>
 
 </body>
