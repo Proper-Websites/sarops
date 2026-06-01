@@ -76,7 +76,7 @@ nav.primary .nav-donate::after{ display:none; }
 .btn-sm{ padding:12px 18px; font-size:0.68rem; letter-spacing:0.16em; }
 
 /* PAGE HERO */
-.page-hero{ position:relative; background-color:var(--navy); background-image:url('Hero/Hero 1.jpeg'); background-size:cover; background-position:center 30%; background-attachment:fixed; border-top:2px solid var(--signal); border-bottom:2px solid var(--signal); min-height:60vh; display:flex; overflow:hidden; }
+.page-hero{ position:relative; background-color:var(--navy); background-image:url('assets/hero/hero-1.jpeg'); background-size:cover; background-position:center 30%; background-attachment:fixed; border-top:2px solid var(--signal); border-bottom:2px solid var(--signal); min-height:60vh; display:flex; overflow:hidden; }
 .page-hero-video{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:0; }
 .page-hero::after{ content:""; position:absolute; inset:0; background:
   linear-gradient(180deg, rgba(15,25,36,0.6) 0px, rgba(15,25,36,0) 280px),
@@ -104,7 +104,7 @@ nav.primary .nav-donate::after{ display:none; }
 .prod-card{ display:flex; flex-direction:column; background:var(--navy-2); border:1px solid var(--line-dark); text-decoration:none; color:inherit; overflow:hidden; position:relative; transition:border-color .25s ease, transform .25s ease, box-shadow .25s ease; }
 .prod-card:hover{ border-color:var(--signal); transform:translateY(-5px); }
 .prod-thumb{ position:relative; aspect-ratio:1/1; overflow:hidden; background:var(--steel-3); }
-.prod-thumb::before{ content:""; position:absolute; inset:0; background:center/38% no-repeat url('Logo.png'); opacity:0.26; }
+.prod-thumb::before{ content:""; position:absolute; inset:0; background:center/38% no-repeat url('assets/logos/logo.png'); opacity:0.26; }
 .prod-thumb::after{ content:""; position:absolute; inset:0; background:linear-gradient(180deg, rgba(15,25,36,0.35) 0%, rgba(15,25,36,0) 40%, rgba(15,25,36,0) 62%, rgba(15,25,36,0.5) 100%); pointer-events:none; }
 .prod-img{ position:absolute; inset:0; background-size:cover; background-position:center; transition:transform .6s ease; }
 .prod-card:hover .prod-img{ transform:scale(1.06); }
@@ -132,7 +132,7 @@ nav.primary .nav-donate::after{ display:none; }
 .proceeds-list li .n{ font-family:var(--mono); font-size:0.72rem; letter-spacing:0.18em; color:var(--signal); font-weight:500; }
 
 /* CTA */
-.cta-band{ background-color:var(--navy-3); background-image:linear-gradient(180deg, rgba(15,25,36,0.74) 0%, rgba(15,25,36,0.6) 50%, rgba(15,25,36,0.76) 100%), url('Cliffside%20Instructions.jpeg'); background-size:cover, cover; background-position:center, center; background-attachment:scroll, fixed; padding:120px 0; border-top:1px solid var(--line-dark); }
+.cta-band{ background-color:var(--navy-3); background-image:linear-gradient(180deg, rgba(15,25,36,0.74) 0%, rgba(15,25,36,0.6) 50%, rgba(15,25,36,0.76) 100%), url('assets/images/cliffside-instructions.jpeg'); background-size:cover, cover; background-position:center, center; background-attachment:scroll, fixed; padding:120px 0; border-top:1px solid var(--line-dark); }
 @media (max-width:1024px){ .cta-band{ background-attachment:scroll, scroll; } }
 .cta-band .wrap{ text-align:center; }
 .cta-band .h-display{ font-size:clamp(2.2rem,4.6vw,3.8rem); max-width:720px; margin:0 auto; line-height:0.98; text-shadow:0 1px 18px rgba(0,0,0,0.5); }
@@ -202,7 +202,7 @@ footer.site-footer .wrap{ max-width:none; padding:0 48px; }
 <header class="site-header">
   <div class="wrap header-inner">
     <a href="index.html" class="brand" aria-label="SAR OPS home">
-      <span class="brand-mark" aria-hidden="true"><img src="Logo.png" alt="" /></span>
+      <span class="brand-mark" aria-hidden="true"><img src="assets/logos/logo.png" alt="" /></span>
     </a>
     <nav class="primary" aria-label="Primary">
       <a href="what-we-do.html">What We Do</a>
@@ -234,8 +234,8 @@ footer.site-footer .wrap{ max-width:none; padding:0 48px; }
 
 <!-- PAGE HERO -->
 <section class="page-hero">
-  <video class="page-hero-video" id="heroVideo" autoplay muted loop playsinline poster="Hero/Hero 1.jpeg" aria-hidden="true">
-    <source src="Contact Hero.mp4" type="video/mp4" />
+  <video class="page-hero-video" id="heroVideo" autoplay muted loop playsinline poster="assets/hero/hero-1.jpeg" aria-hidden="true">
+    <source src="assets/video/contact-hero.mp4" type="video/mp4" />
   </video>
   <div class="wrap">
     <div class="eyebrow">Official Gear</div>
@@ -424,7 +424,7 @@ footer.site-footer .wrap{ max-width:none; padding:0 48px; }
     <div class="footer-top">
       <div class="footer-brand">
         <a href="index.html" class="brand">
-          <span class="brand-mark footer-mark" aria-hidden="true"><img src="HQ FRONT.png" alt="" /></span>
+          <span class="brand-mark footer-mark" aria-hidden="true"><img src="assets/images/hq-front.png" alt="" /></span>
         </a>
       </div>
       <div class="footer-col">
