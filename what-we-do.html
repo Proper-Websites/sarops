@@ -107,7 +107,7 @@ nav.primary .nav-donate::after{ display:none; }
 .cap-media{ aspect-ratio:4/3; width:100%; background-size:cover; background-position:center; background-attachment:fixed; position:relative; border:1px solid var(--line-dark); }
 /* Per-box parallax: image is centered/contained in its own box, then drifts on scroll */
 .cap-px{ overflow:hidden; background-attachment:scroll; }
-.cap-px-img{ position:absolute; left:0; right:0; top:-15%; height:130%; background-size:cover; background-position:center; will-change:transform; }
+.cap-px-img{ position:absolute; left:0; right:0; top:-22%; height:144%; background-size:cover; background-position:center; will-change:transform; }
 .cap-row:nth-child(even) .cap-media{ order:2; }
 .cap-num{ font-family:var(--mono); font-size:0.8rem; letter-spacing:0.22em; color:var(--signal); display:inline-block; padding-bottom:18px; margin-bottom:22px; border-bottom:2px solid var(--steel-2); }
 .cap-kicker{ font-family:var(--mono); font-size:0.74rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--spark); margin-bottom:14px; }
@@ -428,8 +428,9 @@ footer.site-footer .wrap{ max-width:none; padding:0 48px; }
         const box = img.parentElement.getBoundingClientRect();
         const center = box.top + box.height / 2;
         const progress = (center - vh / 2) / (vh / 2 + box.height / 2); // ~ -1..1
-        const max = box.height * 0.15; // matches the 15% top/bottom overflow
-        img.style.transform = `translateY(${(Math.max(-1, Math.min(1, progress)) * max).toFixed(1)}px)`;
+        const max = box.height * 0.22; // matches the 22% top/bottom overflow
+        // scale() zooms in slightly so it reads as a stronger "window" parallax
+        img.style.transform = `translateY(${(Math.max(-1, Math.min(1, progress)) * max).toFixed(1)}px) scale(1.12)`;
       });
       ticking = false;
     };
