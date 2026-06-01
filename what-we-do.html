@@ -106,7 +106,7 @@ nav.primary .nav-donate::after{ display:none; }
 .cap-row:last-child{ border-bottom:none; }
 .cap-media{ aspect-ratio:4/3; width:100%; background-size:cover; background-position:center; background-attachment:fixed; position:relative; border:1px solid var(--line-dark); }
 .cap-px{ overflow:hidden; background-attachment:scroll; }
-.cap-px-img{ position:absolute; left:0; right:0; top:-12%; height:124%; background-size:cover; background-position:center; will-change:transform; }
+.cap-px-img{ position:absolute; left:0; right:0; top:-18%; height:136%; background-size:cover; background-position:center; will-change:transform; }
 .cap-row:nth-child(even) .cap-media{ order:2; }
 .cap-num{ font-family:var(--mono); font-size:0.8rem; letter-spacing:0.22em; color:var(--signal); display:inline-block; padding-bottom:18px; margin-bottom:22px; border-bottom:2px solid var(--steel-2); }
 .cap-kicker{ font-family:var(--mono); font-size:0.74rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--spark); margin-bottom:14px; }
@@ -427,8 +427,9 @@ footer.site-footer .wrap{ max-width:none; padding:0 48px; }
         const box = img.parentElement.getBoundingClientRect();
         const center = box.top + box.height / 2;
         const progress = (center - vh / 2) / (vh / 2 + box.height / 2); // ~ -1..1
-        const max = box.height * 0.12; // matches the 12% top/bottom overflow
-        img.style.transform = `translateY(${(-Math.max(-1, Math.min(1, progress)) * max).toFixed(1)}px)`;
+        const max = box.height * 0.18; // matches the 18% top/bottom overflow
+        // +progress so the image drifts the same direction as the site's fixed-parallax boxes
+        img.style.transform = `translateY(${(Math.max(-1, Math.min(1, progress)) * max).toFixed(1)}px)`;
       });
       ticking = false;
     };
