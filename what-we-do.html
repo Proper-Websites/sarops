@@ -105,9 +105,6 @@ nav.primary .nav-donate::after{ display:none; }
 .cap-row{ display:grid; grid-template-columns:1fr 1fr; gap:72px; align-items:center; padding:96px 0; border-bottom:1px solid var(--line-dark); }
 .cap-row:last-child{ border-bottom:none; }
 .cap-media{ aspect-ratio:4/3; width:100%; background-size:cover; background-position:center; background-attachment:fixed; position:relative; border:1px solid var(--line-dark); }
-/* Per-box parallax: image is centered/contained in its own box, then drifts on scroll */
-.cap-px{ overflow:hidden; background-attachment:scroll; }
-.cap-px-img{ position:absolute; left:0; right:0; top:-22%; height:144%; background-size:cover; background-position:center; will-change:transform; }
 .cap-row:nth-child(even) .cap-media{ order:2; }
 .cap-num{ font-family:var(--mono); font-size:0.8rem; letter-spacing:0.22em; color:var(--signal); display:inline-block; padding-bottom:18px; margin-bottom:22px; border-bottom:2px solid var(--steel-2); }
 .cap-kicker{ font-family:var(--mono); font-size:0.74rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--spark); margin-bottom:14px; }
