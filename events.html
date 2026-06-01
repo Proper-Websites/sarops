@@ -151,16 +151,17 @@ nav.primary .nav-donate::after{ display:none; }
 .past-head{ display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:end; margin-bottom:44px; padding-bottom:32px; border-bottom:1px solid var(--line-dark); }
 .past-head .h-display{ font-size:clamp(2.2rem,4.2vw,3.4rem); margin-top:16px; max-width:520px; }
 .past-head p{ color:var(--copy); max-width:380px; justify-self:end; }
-.past-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
-.past-card{ position:relative; aspect-ratio:4/5; overflow:hidden; background:var(--steel-3); border:1px solid var(--line-dark); }
-.past-card-img{ position:absolute; inset:0; background-size:cover; background-position:center; transition:transform .6s ease; }
-.past-card:hover .past-card-img{ transform:scale(1.06); }
-.past-card::after{ content:""; position:absolute; inset:0; background:linear-gradient(180deg, rgba(15,25,36,0) 30%, rgba(15,25,36,0.35) 58%, rgba(15,25,36,0.9) 100%); pointer-events:none; }
-.past-body{ position:absolute; left:0; right:0; bottom:0; padding:24px; z-index:2; }
-.past-tag{ display:inline-flex; align-items:center; gap:8px; font-family:var(--mono); font-size:0.62rem; letter-spacing:0.16em; text-transform:uppercase; color:var(--spark); margin-bottom:10px; }
+.past-grid{ display:grid; grid-template-columns:1fr 1fr; gap:32px; }
+.past-card{ display:flex; flex-direction:column; background:var(--navy-2); border:1px solid var(--line-dark); overflow:hidden; transition:border-color .25s ease, transform .25s ease; }
+.past-card:hover{ border-color:var(--signal); transform:translateY(-4px); }
+.past-card-img{ aspect-ratio:16/10; background-size:cover; background-position:center; transition:transform .6s ease; }
+.past-card:hover .past-card-img{ transform:scale(1.04); }
+.past-body{ padding:32px 34px 36px; }
+.past-tag{ display:inline-flex; align-items:center; gap:8px; font-family:var(--mono); font-size:0.66rem; letter-spacing:0.16em; text-transform:uppercase; color:var(--spark); margin-bottom:14px; }
 .past-tag::before{ content:""; width:6px; height:6px; background:var(--signal); border-radius:50%; flex:none; }
-.past-title{ font-family:var(--display); font-size:1.35rem; font-weight:700; text-transform:uppercase; line-height:1; letter-spacing:0.01em; color:var(--white); margin-bottom:8px; }
-.past-meta{ font-family:var(--mono); font-size:0.68rem; letter-spacing:0.08em; color:var(--copy); }
+.past-title{ font-family:var(--display); font-size:1.9rem; font-weight:700; text-transform:uppercase; line-height:1; letter-spacing:0.01em; color:var(--white); margin-bottom:12px; }
+.past-meta{ font-family:var(--mono); font-size:0.7rem; letter-spacing:0.08em; color:var(--copy); margin-bottom:16px; }
+.past-desc{ color:var(--copy); font-size:1.02rem; line-height:1.7; }
 
 /* CTA */
 .cta-band{ background-color:var(--navy-3); background-image:linear-gradient(180deg, rgba(15,25,36,0.74) 0%, rgba(15,25,36,0.6) 50%, rgba(15,25,36,0.76) 100%), url('Cliffside%20Instructions.jpeg'); background-size:cover, cover; background-position:center, center; background-attachment:scroll, fixed; padding:120px 0; border-top:1px solid var(--line-dark); }
@@ -460,6 +461,7 @@ footer.site-footer .wrap{ max-width:none; padding:0 48px; }
           <span class="past-tag">Technical Course</span>
           <h3 class="past-title">Swift Water Rescue Clinic</h3>
           <div class="past-meta">[ Month 2025 ] &middot; [ Location ]</div>
+          <p class="past-desc">A full day on moving water, drilling rope systems, throw-bag rescues, and live-victim recoveries in the current. The kind of hands-on repetition that turns training into instinct when a real call comes in.</p>
         </div>
       </div>
 
@@ -469,42 +471,7 @@ footer.site-footer .wrap{ max-width:none; padding:0 48px; }
           <span class="past-tag">Technical Course</span>
           <h3 class="past-title">Cliffside Rope Rescue</h3>
           <div class="past-meta">[ Month 2025 ] &middot; [ Location ]</div>
-        </div>
-      </div>
-
-      <div class="past-card">
-        <div class="past-card-img" style="background-image:url('Petzl%20Group%20Photo.jpg');"></div>
-        <div class="past-body">
-          <span class="past-tag">Partner Training</span>
-          <h3 class="past-title">Petzl Technical Workshop</h3>
-          <div class="past-meta">[ Month 2025 ] &middot; [ Location ]</div>
-        </div>
-      </div>
-
-      <div class="past-card">
-        <div class="past-card-img" style="background-image:url('Community%20and%20Agency%20Support.jpeg');"></div>
-        <div class="past-body">
-          <span class="past-tag">Community Event</span>
-          <h3 class="past-title">Community Preparedness Day</h3>
-          <div class="past-meta">[ Month 2025 ] &middot; [ Location ]</div>
-        </div>
-      </div>
-
-      <div class="past-card">
-        <div class="past-card-img" style="background-image:url('Rope%20Course.png');"></div>
-        <div class="past-body">
-          <span class="past-tag">Field Course</span>
-          <h3 class="past-title">Land &amp; Rope Field Course</h3>
-          <div class="past-meta">[ Month 2025 ] &middot; [ Location ]</div>
-        </div>
-      </div>
-
-      <div class="past-card">
-        <div class="past-card-img" style="background-image:url('Helicopter.jpg');"></div>
-        <div class="past-body">
-          <span class="past-tag">Joint Exercise</span>
-          <h3 class="past-title">Air Operations Training</h3>
-          <div class="past-meta">[ Month 2025 ] &middot; [ Location ]</div>
+          <p class="past-desc">High-angle rope work on real terrain, rigging anchors, running lowers and raises, and packaging a patient for a vertical haul. Steep, exposed, and exactly the environment our team has to be ready for.</p>
         </div>
       </div>
 
