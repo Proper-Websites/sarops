@@ -1,0 +1,514 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Shop &middot; SAR OPS</title>
+<meta name="description" content="Official SAR OPS gear and apparel. Every purchase puts fuel in the trucks and equipment in the field. Wear it, carry it, back the mission." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --navy:#1E2D3D; --navy-2:#162232; --navy-3:#0F1924;
+  --steel:#3E5F78; --steel-2:#557690; --steel-3:#2F4A5E;
+  --white:#FFFFFF; --line-dark:rgba(255,255,255,0.14); --line-dark-2:rgba(255,255,255,0.08);
+  --ink:#1E2D3D; --wrap:1440px;
+  --display:"Barlow Condensed", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+  --body:"Inter", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+  --mono:"JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --signal:#C73A2B; --signal-2:#DA483A; --spark:#E8B339; --spark-2:#F4C758;
+  --copy:#FFFFFF; --copy-dark:#1E2D3D; --panel:#2F4A5E;
+}
+*{ box-sizing:border-box; margin:0; padding:0; }
+html{ scroll-behavior:smooth; }
+body{ font-family:var(--body); font-size:16px; line-height:1.6; color:var(--white); background:var(--navy); -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility; }
+img{ max-width:100%; display:block; }
+a{ color:inherit; text-decoration:none; }
+button{ font:inherit; cursor:pointer; border:none; background:none; color:inherit; }
+.wrap{ width:100%; max-width:var(--wrap); margin:0 auto; padding:0 44px; }
+.eyebrow{ font-family:var(--mono); font-size:0.72rem; letter-spacing:0.18em; text-transform:uppercase; font-weight:500; color:var(--white); display:inline-flex; align-items:center; gap:12px; }
+.eyebrow::before{ content:""; width:26px; height:2px; background:var(--signal); }
+.eyebrow.plain::before{ display:none; }
+.h-display{ font-family:var(--display); font-weight:700; text-transform:uppercase; line-height:0.94; letter-spacing:-0.005em; }
+
+/* TACTICAL BAR */
+.tactical-bar{ position:relative; background:var(--steel-2); border-bottom:1px solid rgba(0,0,0,0.22); z-index:55; color:var(--white); }
+.tac-inner{ display:flex; align-items:center; justify-content:center; gap:22px; min-height:38px; padding:10px 0 8px; position:relative; }
+.tac-group{ position:relative; display:inline-flex; align-items:center; gap:22px; padding:6px 22px; }
+.tac-tag{ font-family:var(--mono); font-size:0.7rem; letter-spacing:0.24em; text-transform:uppercase; color:var(--white); font-weight:600; display:inline-flex; align-items:center; gap:10px; white-space:nowrap; }
+.tac-primary{ font-weight:700; letter-spacing:0.3em; }
+.tac-dot{ width:7px; height:7px; background:var(--signal); border-radius:50%; box-shadow:0 0 0 3px rgba(199,58,43,0.28); flex:none; }
+.tac-divider{ font-family:var(--mono); font-size:0.85rem; color:rgba(255,255,255,0.8); font-weight:700; line-height:1; }
+
+/* HEADER */
+.site-header{ position:absolute; top:56px; left:0; right:0; z-index:50; background:transparent; color:var(--white); }
+.header-inner{ display:flex; align-items:center; justify-content:space-between; height:82px; }
+.brand{ display:flex; align-items:center; gap:16px; }
+.brand-mark{ width:74px; height:74px; display:flex; align-items:center; justify-content:center; flex:none; }
+.brand-mark img{ width:100%; height:100%; object-fit:contain; display:block; }
+nav.primary{ display:flex; align-items:center; gap:30px; }
+nav.primary a{ font-family:var(--body); font-size:0.78rem; letter-spacing:0.16em; text-transform:uppercase; font-weight:500; color:var(--white); transition:color .2s ease; position:relative; padding:6px 0; }
+nav.primary a:not(.nav-donate)::after{ content:""; position:absolute; left:0; right:0; bottom:0; height:2px; background:var(--signal); transform:scaleX(0); transform-origin:left; transition:transform .25s ease; }
+nav.primary a:not(.nav-donate):hover::after, nav.primary a.active:not(.nav-donate)::after{ transform:scaleX(1); }
+nav.primary .nav-donate{ border:2px solid var(--signal-2); padding:11px 22px; color:var(--white); transition:background .2s ease, border-color .2s ease, color .2s ease; }
+nav.primary .nav-donate:hover{ background:var(--signal); border-color:var(--signal); color:var(--white); }
+nav.primary .nav-donate::after{ display:none; }
+.menu-btn{ display:none; width:48px; height:48px; align-items:center; justify-content:center; color:var(--white); }
+.menu-btn svg{ width:28px; height:28px; }
+.mobile-nav{ display:none; position:fixed; inset:0; background:var(--navy); z-index:60; padding:96px 32px 40px; flex-direction:column; gap:4px; }
+.mobile-nav.open{ display:flex; }
+.mobile-nav a{ font-family:var(--display); font-size:2.2rem; font-weight:600; letter-spacing:0.03em; text-transform:uppercase; color:var(--white); padding:14px 0; border-bottom:1px solid var(--line-dark); }
+.mobile-close{ position:absolute; top:20px; right:24px; width:48px; height:48px; color:var(--white); display:flex; align-items:center; justify-content:center; }
+.mobile-close svg{ width:28px; height:28px; }
+
+/* BUTTONS */
+.btn{ display:inline-flex; align-items:center; gap:14px; padding:18px 28px; font-family:var(--body); font-size:0.76rem; letter-spacing:0.22em; text-transform:uppercase; font-weight:600; border:1px solid currentColor; transition:background .22s ease, color .22s ease, border-color .22s ease, gap .22s ease; }
+.btn:hover{ gap:22px; }
+.btn .arrow{ display:inline-block; font-size:1rem; line-height:1; }
+.btn-signal{ background:var(--signal); color:var(--white); border-color:var(--signal); }
+.btn-signal:hover{ background:var(--signal-2); border-color:var(--signal-2); }
+.btn-ghost{ color:var(--white); border-color:var(--signal-2); border-width:2px; }
+.btn-ghost:hover{ border-color:var(--signal); background:var(--signal); color:var(--white); }
+.btn-sm{ padding:12px 18px; font-size:0.68rem; letter-spacing:0.16em; }
+
+/* PAGE HERO */
+.page-hero{ position:relative; background-color:var(--navy); background-image:url('Hero/Hero 1.jpeg'); background-size:cover; background-position:center 30%; background-attachment:fixed; border-top:2px solid var(--signal); border-bottom:2px solid var(--signal); min-height:60vh; display:flex; overflow:hidden; }
+.page-hero-video{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:0; }
+.page-hero::after{ content:""; position:absolute; inset:0; background:
+  linear-gradient(180deg, rgba(15,25,36,0.6) 0px, rgba(15,25,36,0) 280px),
+  linear-gradient(0deg, rgba(15,25,36,0.95) 0%, rgba(15,25,36,0.66) 42%, rgba(15,25,36,0.3) 74%, rgba(15,25,36,0.16) 100%);
+  pointer-events:none; z-index:0; }
+.page-hero .wrap{ position:relative; z-index:1; display:flex; flex-direction:column; justify-content:flex-end; padding-top:210px; padding-bottom:60px; width:100%; }
+.page-hero h1{ font-family:var(--display); font-weight:700; text-transform:uppercase; line-height:0.9; letter-spacing:-0.005em; font-size:clamp(2.9rem, 7.4vw, 6.2rem); margin:22px 0 0; max-width:15ch; text-shadow:0 2px 24px rgba(0,0,0,0.4); }
+.page-hero h1 .accent{ display:inline-block; border-bottom:5px solid var(--signal); padding-bottom:6px; }
+.page-hero-lede{ font-size:1.08rem; line-height:1.65; color:var(--copy); max-width:600px; margin-top:26px; text-shadow:0 1px 16px rgba(0,0,0,0.5); }
+.page-hero-meta{ display:flex; gap:30px; flex-wrap:wrap; margin-top:34px; padding-top:24px; border-top:1px solid var(--line-dark); font-family:var(--mono); font-size:0.72rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--white); }
+.page-hero-meta .pm{ display:inline-flex; align-items:center; gap:10px; }
+.page-hero-meta .pm-dot{ width:8px; height:8px; background:var(--signal); border-radius:50%; }
+
+/* SHOP */
+.shop{ background:var(--navy); padding:110px 0; }
+.shop-head{ display:flex; align-items:flex-end; justify-content:space-between; gap:32px; flex-wrap:wrap; margin-bottom:24px; }
+.shop-head .h-display{ font-size:clamp(2.2rem,4.2vw,3.4rem); margin-top:14px; }
+.shop-note{ display:flex; align-items:center; gap:12px; font-family:var(--mono); font-size:0.66rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--spark); border:1px dashed rgba(232,179,57,0.5); padding:12px 16px; max-width:360px; line-height:1.5; }
+.shop-filters{ display:flex; flex-wrap:wrap; gap:10px; margin:28px 0 8px; }
+.chip{ font-family:var(--mono); font-size:0.68rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--copy); border:1px solid var(--line-dark); padding:10px 16px; transition:border-color .2s ease, color .2s ease, background .2s ease; }
+.chip:hover{ border-color:var(--signal); color:var(--white); }
+.chip.is-active{ background:var(--signal); border-color:var(--signal); color:var(--white); }
+
+.shop-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:24px; }
+.prod-card{ display:flex; flex-direction:column; background:var(--navy-2); border:1px solid var(--line-dark); text-decoration:none; color:inherit; overflow:hidden; position:relative; transition:border-color .25s ease, transform .25s ease, box-shadow .25s ease; }
+.prod-card:hover{ border-color:var(--signal); transform:translateY(-5px); }
+.prod-thumb{ position:relative; aspect-ratio:1/1; overflow:hidden; background:var(--steel-3); }
+.prod-thumb::before{ content:""; position:absolute; inset:0; background:center/38% no-repeat url('Logo.png'); opacity:0.26; }
+.prod-thumb::after{ content:""; position:absolute; inset:0; background:linear-gradient(180deg, rgba(15,25,36,0.35) 0%, rgba(15,25,36,0) 40%, rgba(15,25,36,0) 62%, rgba(15,25,36,0.5) 100%); pointer-events:none; }
+.prod-img{ position:absolute; inset:0; background-size:cover; background-position:center; transition:transform .6s ease; }
+.prod-card:hover .prod-img{ transform:scale(1.06); }
+.prod-tag{ position:absolute; top:16px; right:14px; z-index:2; font-family:var(--mono); font-size:0.55rem; letter-spacing:0.16em; text-transform:uppercase; padding:6px 9px; background:rgba(15,25,36,0.82); border:1px solid var(--line-dark); color:var(--white); }
+.prod-tag.t-apparel{ border-color:var(--steel-2); color:#cfe0ec; }
+.prod-tag.t-accessory{ border-color:var(--spark); color:var(--spark); }
+.prod-tag.t-emblem{ border-color:var(--signal-2); color:var(--signal-2); }
+.prod-badge{ position:absolute; top:14px; left:14px; z-index:2; font-family:var(--mono); font-size:0.55rem; letter-spacing:0.16em; text-transform:uppercase; padding:6px 9px; background:var(--signal); color:var(--white); }
+.ph-tag{ position:absolute; bottom:12px; left:50%; transform:translateX(-50%); z-index:2; font-family:var(--mono); font-size:0.52rem; letter-spacing:0.16em; text-transform:uppercase; color:var(--copy); background:rgba(15,25,36,0.66); border:1px dashed var(--line-dark); padding:5px 9px; }
+.prod-body{ padding:24px 24px 0; display:flex; flex-direction:column; gap:12px; flex:1; }
+.prod-title{ font-family:var(--display); font-size:1.5rem; font-weight:700; text-transform:uppercase; color:var(--white); line-height:1; }
+.prod-meta{ display:flex; flex-direction:column; gap:8px; font-family:var(--mono); font-size:0.68rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--copy); }
+.prod-meta span{ display:inline-flex; align-items:center; gap:9px; }
+.prod-meta span::before{ content:""; width:5px; height:5px; background:var(--steel-2); flex:none; }
+.prod-foot{ margin-top:auto; display:flex; align-items:center; justify-content:space-between; gap:16px; padding:20px 24px; border-top:1px solid var(--line-dark); }
+.prod-price{ font-family:var(--display); font-size:1.6rem; font-weight:700; text-transform:uppercase; color:var(--white); letter-spacing:0.02em; white-space:nowrap; line-height:1; }
+
+/* PROCEEDS BAND */
+.proceeds{ background:var(--panel); padding:110px 0; border-top:2px solid var(--signal); }
+.proceeds .wrap{ display:grid; grid-template-columns:1.1fr 1fr; gap:72px; align-items:center; }
+.proceeds .h-display{ font-size:clamp(2.2rem,4vw,3.2rem); margin:14px 0 22px; max-width:480px; }
+.proceeds p{ color:var(--copy); font-size:1.04rem; line-height:1.7; max-width:480px; margin-bottom:26px; }
+.proceeds-list{ list-style:none; display:flex; flex-direction:column; border-top:1px solid var(--line-dark); }
+.proceeds-list li{ display:flex; align-items:center; gap:18px; padding:20px 0; border-bottom:1px solid var(--line-dark); font-family:var(--display); font-size:1.2rem; font-weight:600; text-transform:uppercase; letter-spacing:0.02em; color:var(--white); }
+.proceeds-list li .n{ font-family:var(--mono); font-size:0.72rem; letter-spacing:0.18em; color:var(--signal); font-weight:500; }
+
+/* CTA */
+.cta-band{ background-color:var(--navy-3); background-image:linear-gradient(180deg, rgba(15,25,36,0.74) 0%, rgba(15,25,36,0.6) 50%, rgba(15,25,36,0.76) 100%), url('Cliffside%20Instructions.jpeg'); background-size:cover, cover; background-position:center, center; background-attachment:scroll, fixed; padding:120px 0; border-top:1px solid var(--line-dark); }
+@media (max-width:1024px){ .cta-band{ background-attachment:scroll, scroll; } }
+.cta-band .wrap{ text-align:center; }
+.cta-band .h-display{ font-size:clamp(2.2rem,4.6vw,3.8rem); max-width:720px; margin:0 auto; line-height:0.98; text-shadow:0 1px 18px rgba(0,0,0,0.5); }
+.cta-band p{ color:var(--copy); font-size:1.06rem; margin:24px auto 32px; max-width:540px; text-shadow:0 1px 16px rgba(0,0,0,0.5); }
+.cta-actions{ display:flex; gap:14px; flex-wrap:wrap; justify-content:center; }
+
+/* FOOTER */
+footer.site-footer{ background:var(--navy-3); color:var(--copy); padding:64px 0 28px; border-top:1px solid var(--line-dark); position:relative; overflow:hidden; }
+footer.site-footer .wrap{ max-width:none; padding:0 48px; }
+.footer-top{ display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:56px; margin-bottom:24px; padding-bottom:240px; border-bottom:1px solid var(--line-dark); align-items:start; }
+.footer-brand .brand{ position:absolute; top:32px; left:48px; width:380px; display:block; pointer-events:none; }
+.footer-brand .brand-mark{ width:100%; height:380px; display:block; }
+.footer-brand .footer-mark img{ object-fit:cover; object-position:18% 38%; width:100%; height:100%; mix-blend-mode:screen; }
+.footer-col h4{ font-family:var(--mono); font-size:0.68rem; letter-spacing:0.22em; text-transform:uppercase; font-weight:500; color:var(--copy); margin-bottom:22px; }
+.footer-col ul{ list-style:none; display:flex; flex-direction:column; gap:12px; }
+.footer-col ul a{ font-family:var(--display); font-size:1.05rem; font-weight:500; text-transform:uppercase; letter-spacing:0.03em; color:var(--white); transition:color .2s ease; }
+.footer-col ul a:hover{ color:var(--signal-2); }
+.footer-col .info-line{ font-size:0.94rem; color:var(--copy); line-height:1.7; }
+.footer-col .info-line strong{ font-family:var(--display); text-transform:uppercase; letter-spacing:0.02em; color:var(--white); font-weight:600; }
+.footer-bottom{ display:flex; justify-content:space-between; align-items:center; gap:18px; flex-wrap:wrap; font-family:var(--mono); font-size:0.72rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--copy); }
+.footer-bottom a{ color:var(--white); }
+.footer-bottom a:hover{ color:var(--signal-2); }
+
+/* RESPONSIVE */
+@media (max-width:1080px){
+  .page-hero{ background-attachment:scroll; }
+  .proceeds .wrap{ grid-template-columns:1fr; gap:40px; }
+  .footer-top{ grid-template-columns:1fr 1fr; gap:36px; }
+  .footer-brand{ grid-column:1 / -1; }
+  .shop-grid{ grid-template-columns:1fr 1fr; gap:20px; }
+}
+@media (max-width:720px){
+  .wrap{ padding:0 22px; }
+  nav.primary{ display:none; }
+  .menu-btn{ display:flex; }
+  .tac-group{ gap:12px; padding:5px 14px; }
+  .tac-tag{ font-size:0.6rem; letter-spacing:0.18em; }
+  .page-hero{ background-position:60% center; }
+  .page-hero .wrap{ padding-top:150px; padding-bottom:44px; }
+  .page-hero h1{ font-size:clamp(2.8rem,12vw,4.4rem); }
+  .shop{ padding:72px 0; }
+  .shop-grid{ grid-template-columns:1fr; gap:20px; }
+  .proceeds{ padding:72px 0; }
+  .cta-band{ padding:80px 0; background-position:62% center, 62% center; }
+  .cta-actions{ flex-direction:row; }
+  .cta-actions .btn{ flex:1 1 0; min-width:0; justify-content:center; padding:16px 12px; letter-spacing:0.1em; }
+  .footer-top{ grid-template-columns:1fr; gap:36px; text-align:center; padding-bottom:48px; }
+  .footer-col ul{ align-items:center; }
+  .footer-bottom{ justify-content:center; text-align:center; }
+}
+</style>
+</head>
+<body>
+
+<!-- TACTICAL BAR -->
+<div class="tactical-bar">
+  <div class="wrap tac-inner">
+    <div class="tac-group">
+      <span class="tac-tag tac-primary"><span class="tac-dot"></span>SAR OPS</span>
+      <span class="tac-divider">//</span>
+      <span class="tac-tag">Search &amp; Rescue &middot; Ground Unit</span>
+    </div>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a href="index.html" class="brand" aria-label="SAR OPS home">
+      <span class="brand-mark" aria-hidden="true"><img src="Logo.png" alt="" /></span>
+    </a>
+    <nav class="primary" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="what-we-do.html">What We Do</a>
+      <a href="sponsors.html">Sponsors</a>
+      <a href="shop.html" class="active" aria-current="page">Shop</a>
+      <a href="events.html">Events/Classes</a>
+      <a href="contact.html">Contact</a>
+      <a href="donate.html" class="nav-donate">Donate</a>
+    </nav>
+    <button class="menu-btn" id="menuBtn" aria-label="Open menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="21" y2="17"/></svg>
+    </button>
+  </div>
+</header>
+
+<div class="mobile-nav" id="mobileNav" aria-hidden="true">
+  <button class="mobile-close" id="mobileClose" aria-label="Close menu">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><line x1="5" y1="5" x2="19" y2="19"/><line x1="19" y1="5" x2="5" y2="19"/></svg>
+  </button>
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="what-we-do.html">What We Do</a>
+  <a href="sponsors.html">Sponsors</a>
+  <a href="shop.html">Shop</a>
+  <a href="events.html">Events/Classes</a>
+  <a href="contact.html">Contact</a>
+  <a href="donate.html">Donate</a>
+</div>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <video class="page-hero-video" id="heroVideo" autoplay muted loop playsinline poster="Hero/Hero 1.jpeg" aria-hidden="true">
+    <source src="Contact Hero.mp4" type="video/mp4" />
+  </video>
+  <div class="wrap">
+    <div class="eyebrow">Official Gear</div>
+    <h1>Wear it. Carry it. Back the <span class="accent">mission</span></h1>
+    <p class="page-hero-lede">Every shirt, hat, and patch puts fuel in the trucks and equipment in the field. Carry the colors of a team that shows up when it matters, and help fund the next rescue.</p>
+    <div class="page-hero-meta">
+      <span class="pm"><span class="pm-dot"></span>Proceeds Fund Rescues</span>
+      <span class="pm"><span class="pm-dot"></span>501(c)(3) Nonprofit</span>
+    </div>
+  </div>
+</section>
+
+<!-- SHOP -->
+<section class="shop">
+  <div class="wrap">
+    <div class="shop-head">
+      <div>
+        <div class="eyebrow">The Store</div>
+        <h2 class="h-display">Gear that backs the mission</h2>
+      </div>
+      <div class="shop-note">Sample products &amp; prices &middot; connect to your store &amp; add product photos before launch</div>
+    </div>
+
+    <div class="shop-filters" aria-hidden="true">
+      <span class="chip is-active">All</span>
+      <span class="chip">Apparel</span>
+      <span class="chip">Accessories</span>
+      <span class="chip">Patches &amp; Emblems</span>
+    </div>
+
+    <div class="shop-grid">
+
+      <a href="#" class="prod-card">
+        <div class="prod-thumb">
+          <div class="prod-img"></div>
+          <span class="prod-badge">Best Seller</span>
+          <span class="prod-tag t-apparel">Apparel</span>
+          <span class="ph-tag">Product Photo</span>
+        </div>
+        <div class="prod-body">
+          <h3 class="prod-title">Field Tee</h3>
+          <div class="prod-meta"><span>Unisex &middot; S&ndash;3XL</span><span>Cotton Blend</span></div>
+        </div>
+        <div class="prod-foot">
+          <span class="prod-price">$28</span>
+          <span class="btn btn-signal btn-sm">Add To Cart <span class="arrow">&rarr;</span></span>
+        </div>
+      </a>
+
+      <a href="#" class="prod-card">
+        <div class="prod-thumb">
+          <div class="prod-img"></div>
+          <span class="prod-tag t-apparel">Apparel</span>
+          <span class="ph-tag">Product Photo</span>
+        </div>
+        <div class="prod-body">
+          <h3 class="prod-title">Mission Hoodie</h3>
+          <div class="prod-meta"><span>Heavyweight Fleece</span><span>Embroidered Mark</span></div>
+        </div>
+        <div class="prod-foot">
+          <span class="prod-price">$58</span>
+          <span class="btn btn-signal btn-sm">Add To Cart <span class="arrow">&rarr;</span></span>
+        </div>
+      </a>
+
+      <a href="#" class="prod-card">
+        <div class="prod-thumb">
+          <div class="prod-img"></div>
+          <span class="prod-tag t-accessory">Accessory</span>
+          <span class="ph-tag">Product Photo</span>
+        </div>
+        <div class="prod-body">
+          <h3 class="prod-title">Trucker Hat</h3>
+          <div class="prod-meta"><span>Structured &middot; Snapback</span><span>One Size</span></div>
+        </div>
+        <div class="prod-foot">
+          <span class="prod-price">$32</span>
+          <span class="btn btn-signal btn-sm">Add To Cart <span class="arrow">&rarr;</span></span>
+        </div>
+      </a>
+
+      <a href="#" class="prod-card">
+        <div class="prod-thumb">
+          <div class="prod-img"></div>
+          <span class="prod-tag t-emblem">Emblem</span>
+          <span class="ph-tag">Product Photo</span>
+        </div>
+        <div class="prod-body">
+          <h3 class="prod-title">Embroidered Patch</h3>
+          <div class="prod-meta"><span>Hook &amp; Loop Backing</span><span>3.5 Inch</span></div>
+        </div>
+        <div class="prod-foot">
+          <span class="prod-price">$12</span>
+          <span class="btn btn-signal btn-sm">Add To Cart <span class="arrow">&rarr;</span></span>
+        </div>
+      </a>
+
+      <a href="#" class="prod-card">
+        <div class="prod-thumb">
+          <div class="prod-img"></div>
+          <span class="prod-tag t-emblem">Emblem</span>
+          <span class="ph-tag">Product Photo</span>
+        </div>
+        <div class="prod-body">
+          <h3 class="prod-title">Sticker Pack</h3>
+          <div class="prod-meta"><span>Weatherproof Vinyl</span><span>Set Of Five</span></div>
+        </div>
+        <div class="prod-foot">
+          <span class="prod-price">$8</span>
+          <span class="btn btn-signal btn-sm">Add To Cart <span class="arrow">&rarr;</span></span>
+        </div>
+      </a>
+
+      <a href="#" class="prod-card">
+        <div class="prod-thumb">
+          <div class="prod-img"></div>
+          <span class="prod-tag t-accessory">Accessory</span>
+          <span class="ph-tag">Product Photo</span>
+        </div>
+        <div class="prod-body">
+          <h3 class="prod-title">Insulated Bottle</h3>
+          <div class="prod-meta"><span>32 oz &middot; Stainless</span><span>Double Wall</span></div>
+        </div>
+        <div class="prod-foot">
+          <span class="prod-price">$34</span>
+          <span class="btn btn-signal btn-sm">Add To Cart <span class="arrow">&rarr;</span></span>
+        </div>
+      </a>
+
+      <a href="#" class="prod-card">
+        <div class="prod-thumb">
+          <div class="prod-img"></div>
+          <span class="prod-tag t-apparel">Apparel</span>
+          <span class="ph-tag">Product Photo</span>
+        </div>
+        <div class="prod-body">
+          <h3 class="prod-title">Field Beanie</h3>
+          <div class="prod-meta"><span>Cuffed Knit</span><span>One Size</span></div>
+        </div>
+        <div class="prod-foot">
+          <span class="prod-price">$26</span>
+          <span class="btn btn-signal btn-sm">Add To Cart <span class="arrow">&rarr;</span></span>
+        </div>
+      </a>
+
+      <a href="#" class="prod-card">
+        <div class="prod-thumb">
+          <div class="prod-img"></div>
+          <span class="prod-badge">Limited</span>
+          <span class="prod-tag t-emblem">Emblem</span>
+          <span class="ph-tag">Product Photo</span>
+        </div>
+        <div class="prod-body">
+          <h3 class="prod-title">Challenge Coin</h3>
+          <div class="prod-meta"><span>Die-Struck Metal</span><span>Collector Edition</span></div>
+        </div>
+        <div class="prod-foot">
+          <span class="prod-price">$18</span>
+          <span class="btn btn-signal btn-sm">Add To Cart <span class="arrow">&rarr;</span></span>
+        </div>
+      </a>
+
+      <a href="#" class="prod-card">
+        <div class="prod-thumb">
+          <div class="prod-img"></div>
+          <span class="prod-tag t-accessory">Accessory</span>
+          <span class="ph-tag">Product Photo</span>
+        </div>
+        <div class="prod-body">
+          <h3 class="prod-title">Canvas Tote</h3>
+          <div class="prod-meta"><span>Heavy Duty Canvas</span><span>Screen Printed</span></div>
+        </div>
+        <div class="prod-foot">
+          <span class="prod-price">$24</span>
+          <span class="btn btn-signal btn-sm">Add To Cart <span class="arrow">&rarr;</span></span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- PROCEEDS BAND -->
+<section class="proceeds">
+  <div class="wrap">
+    <div>
+      <div class="eyebrow">Where The Money Goes</div>
+      <h2 class="h-display">Every order funds the next call</h2>
+      <p>SAR OPS runs entirely on volunteers and the support of the community. When you buy a shirt or a patch, the proceeds go straight into the gear, fuel, and training that keep a trained team ready at the trailhead.</p>
+      <a href="donate.html" class="btn btn-signal">Or Donate Directly <span class="arrow">&rarr;</span></a>
+    </div>
+    <ul class="proceeds-list">
+      <li><span class="n">01</span> Fuel &amp; vehicle upkeep</li>
+      <li><span class="n">02</span> Ropes, radios &amp; rescue tools</li>
+      <li><span class="n">03</span> Medical &amp; field supplies</li>
+      <li><span class="n">04</span> Training &amp; certifications</li>
+    </ul>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-band">
+  <div class="wrap">
+    <div class="eyebrow">Outfit Your Crew</div>
+    <h2 class="h-display">Bulk &amp; custom orders for teams and sponsors</h2>
+    <p>Need gear for a group, an event, or a sponsorship package? Reach out and we will put together a custom order that supports the mission.</p>
+    <div class="cta-actions">
+      <a href="contact.html" class="btn btn-signal">Get In Touch <span class="arrow">&rarr;</span></a>
+      <a href="sponsors.html" class="btn btn-ghost">Become A Sponsor <span class="arrow">&rarr;</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="index.html" class="brand">
+          <span class="brand-mark footer-mark" aria-hidden="true"><img src="HQ FRONT.png" alt="" /></span>
+        </a>
+      </div>
+      <div class="footer-col">
+        <h4>Site</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="what-we-do.html">What We Do</a></li>
+          <li><a href="sponsors.html">Sponsors</a></li>
+          <li><a href="shop.html">Shop</a></li>
+          <li><a href="events.html">Events/Classes</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="donate.html">Donate</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <div class="info-line"><strong>Commander@SAROPS.org</strong></div>
+        <div class="info-line" style="margin-top:16px;">Conejo Valley, CA 91307</div>
+        <div class="info-line">Bullhead City, AZ 86422</div>
+      </div>
+      <div class="footer-col">
+        <h4>Status</h4>
+        <div class="info-line"><strong>501(c)(3) Nonprofit</strong></div>
+        <div class="info-line">100% Volunteer Powered</div>
+        <div class="info-line">Operational 24 / 7 &middot; 365</div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>&copy; 2026 SAR OPS &middot; All rights reserved.</div>
+      <div>Website by <a href="#">Proper Websites</a></div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const menuBtn = document.getElementById('menuBtn');
+  const mobileNav = document.getElementById('mobileNav');
+  const mobileClose = document.getElementById('mobileClose');
+  if (menuBtn && mobileNav){ menuBtn.addEventListener('click', () => mobileNav.classList.add('open')); }
+  if (mobileClose && mobileNav){ mobileClose.addEventListener('click', () => mobileNav.classList.remove('open')); }
+  if (mobileNav){ mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileNav.classList.remove('open'))); }
+
+  // Hero video: loop only the first 20 seconds
+  const heroVideo = document.getElementById('heroVideo');
+  if (heroVideo){
+    const LOOP_END = 20;
+    heroVideo.addEventListener('timeupdate', () => {
+      if (heroVideo.currentTime >= LOOP_END){ heroVideo.currentTime = 0; }
+    });
+  }
+</script>
+
+</body>
+</html>

@@ -146,6 +146,22 @@ nav.primary .nav-donate::after{ display:none; }
 .host-list li{ display:flex; align-items:center; gap:18px; padding:20px 0; border-bottom:1px solid var(--line-dark); font-family:var(--display); font-size:1.2rem; font-weight:600; text-transform:uppercase; letter-spacing:0.02em; color:var(--white); }
 .host-list li .n{ font-family:var(--mono); font-size:0.72rem; letter-spacing:0.18em; color:var(--signal); font-weight:500; }
 
+/* PAST EVENTS */
+.past{ background:var(--navy-2); padding:110px 0; border-top:2px solid var(--signal); border-bottom:1px solid var(--line-dark); }
+.past-head{ display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:end; margin-bottom:44px; padding-bottom:32px; border-bottom:1px solid var(--line-dark); }
+.past-head .h-display{ font-size:clamp(2.2rem,4.2vw,3.4rem); margin-top:16px; max-width:520px; }
+.past-head p{ color:var(--copy); max-width:380px; justify-self:end; }
+.past-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+.past-card{ position:relative; aspect-ratio:4/5; overflow:hidden; background:var(--steel-3); border:1px solid var(--line-dark); }
+.past-card-img{ position:absolute; inset:0; background-size:cover; background-position:center; transition:transform .6s ease; }
+.past-card:hover .past-card-img{ transform:scale(1.06); }
+.past-card::after{ content:""; position:absolute; inset:0; background:linear-gradient(180deg, rgba(15,25,36,0) 30%, rgba(15,25,36,0.35) 58%, rgba(15,25,36,0.9) 100%); pointer-events:none; }
+.past-body{ position:absolute; left:0; right:0; bottom:0; padding:24px; z-index:2; }
+.past-tag{ display:inline-flex; align-items:center; gap:8px; font-family:var(--mono); font-size:0.62rem; letter-spacing:0.16em; text-transform:uppercase; color:var(--spark); margin-bottom:10px; }
+.past-tag::before{ content:""; width:6px; height:6px; background:var(--signal); border-radius:50%; flex:none; }
+.past-title{ font-family:var(--display); font-size:1.35rem; font-weight:700; text-transform:uppercase; line-height:1; letter-spacing:0.01em; color:var(--white); margin-bottom:8px; }
+.past-meta{ font-family:var(--mono); font-size:0.68rem; letter-spacing:0.08em; color:var(--copy); }
+
 /* CTA */
 .cta-band{ background-color:var(--navy-3); background-image:linear-gradient(180deg, rgba(15,25,36,0.74) 0%, rgba(15,25,36,0.6) 50%, rgba(15,25,36,0.76) 100%), url('Cliffside%20Instructions.jpeg'); background-size:cover, cover; background-position:center, center; background-attachment:scroll, fixed; padding:120px 0; border-top:1px solid var(--line-dark); }
 @media (max-width:1024px){ .cta-band{ background-attachment:scroll, scroll; } }
@@ -180,6 +196,9 @@ footer.site-footer .wrap{ max-width:none; padding:0 48px; }
   .cat, .cat:not(:first-child){ padding:30px 0; border-right:none; }
   .cat:last-child{ border-bottom:none; }
   .host .wrap{ grid-template-columns:1fr; gap:40px; }
+  .past-head{ grid-template-columns:1fr; gap:20px; }
+  .past-head p{ justify-self:start; }
+  .past-grid{ grid-template-columns:1fr 1fr; gap:20px; }
   .footer-top{ grid-template-columns:1fr 1fr; gap:36px; }
   .footer-brand{ grid-column:1 / -1; }
   .sched-grid{ grid-template-columns:1fr 1fr; gap:20px; }
@@ -196,6 +215,8 @@ footer.site-footer .wrap{ max-width:none; padding:0 48px; }
   .cats{ padding:72px 0; }
   .sched{ padding:72px 0; }
   .sched-grid{ grid-template-columns:1fr; gap:20px; }
+  .past{ padding:72px 0; }
+  .past-grid{ grid-template-columns:1fr; gap:20px; }
   .host{ padding:72px 0; }
   .cta-band{ padding:80px 0; background-position:62% center, 62% center; }
   .cta-actions{ flex-direction:row; }
@@ -230,6 +251,7 @@ footer.site-footer .wrap{ max-width:none; padding:0 48px; }
       <a href="about.html">About</a>
       <a href="what-we-do.html">What We Do</a>
       <a href="sponsors.html">Sponsors</a>
+      <a href="shop.html">Shop</a>
       <a href="events.html" class="active" aria-current="page">Events/Classes</a>
       <a href="contact.html">Contact</a>
       <a href="donate.html" class="nav-donate">Donate</a>
@@ -248,6 +270,7 @@ footer.site-footer .wrap{ max-width:none; padding:0 48px; }
   <a href="about.html">About</a>
   <a href="what-we-do.html">What We Do</a>
   <a href="sponsors.html">Sponsors</a>
+  <a href="shop.html">Shop</a>
   <a href="events.html">Events/Classes</a>
   <a href="contact.html">Contact</a>
   <a href="donate.html">Donate</a>
@@ -468,6 +491,7 @@ footer.site-footer .wrap{ max-width:none; padding:0 48px; }
           <li><a href="about.html">About</a></li>
           <li><a href="what-we-do.html">What We Do</a></li>
           <li><a href="sponsors.html">Sponsors</a></li>
+          <li><a href="shop.html">Shop</a></li>
           <li><a href="events.html">Events/Classes</a></li>
           <li><a href="contact.html">Contact</a></li>
           <li><a href="donate.html">Donate</a></li>
