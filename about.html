@@ -163,9 +163,10 @@ nav.primary .nav-donate::after{ display:none; }
 /* ===== CTA BAND ===== */
 .cta-band{ background-color:var(--navy-3); background-image:linear-gradient(90deg, rgba(15,25,36,0.82) 0%, rgba(15,25,36,0.55) 45%, rgba(15,25,36,0.3) 100%), url('Cliffside.jpg'); background-size:cover, cover; background-position:center, center; background-attachment:scroll, fixed; padding:120px 0; border-top:2px solid var(--signal); position:relative; }
 @media (max-width:1024px){ .cta-band{ background-attachment:scroll, scroll; } }
-.cta-band .h-display{ font-size:clamp(2.2rem,4.6vw,3.8rem); max-width:760px; line-height:0.98; text-shadow:0 1px 18px rgba(0,0,0,0.5); }
-.cta-band p{ color:var(--copy); font-size:1.06rem; margin:24px 0 32px; max-width:520px; text-shadow:0 1px 16px rgba(0,0,0,0.5); }
-.cta-actions{ display:flex; gap:14px; flex-wrap:wrap; }
+.cta-band .wrap{ text-align:center; }
+.cta-band .h-display{ font-size:clamp(2.2rem,4.6vw,3.8rem); max-width:760px; margin:0 auto; line-height:0.98; text-shadow:0 1px 18px rgba(0,0,0,0.5); }
+.cta-band p{ color:var(--copy); font-size:1.06rem; margin:24px auto 32px; max-width:520px; text-shadow:0 1px 16px rgba(0,0,0,0.5); }
+.cta-actions{ display:flex; gap:14px; flex-wrap:wrap; justify-content:center; }
 
 /* ===== FOOTER ===== */
 footer.site-footer{ background:var(--navy-3); color:var(--copy); padding:64px 0 28px; border-top:1px solid var(--line-dark); position:relative; overflow:hidden; }
@@ -414,7 +415,7 @@ footer.site-footer .wrap{ max-width:none; padding:0 48px; }
 
     <div class="operator-grid">
       <div class="operator">
-        <div class="ph" style="background-image:url('Team/Sheldon.jpeg'); background-size:cover; background-position:center;">
+        <div class="ph" style="background-image:url('Sheldon%20Photo.JPG'); background-size:cover; background-position:center 20%;">
           <span class="ph-cnr-tr"></span>
           <span class="ph-cnr-bl"></span>
         </div>
@@ -460,7 +461,7 @@ footer.site-footer .wrap{ max-width:none; padding:0 48px; }
 <section class="cta-band">
   <div class="wrap">
     <div class="eyebrow">Join the Mission</div>
-    <h2 class="h-display">Relentless in training. Relentless in response. Relentless in rescue</h2>
+    <h2 class="h-display">Relentless in response.<br>Relentless in rescue</h2>
     <p>Whether you want to serve as a volunteer, partner as an agency, or fund the gear that goes into the field, there is a place for you on this team.</p>
     <div class="cta-actions">
       <a href="contact.html" class="btn btn-signal">Join The Team <span class="arrow">&rarr;</span></a>
