@@ -3,3 +3,6 @@ _render_tmp.html
 _r.html
 _sc*.html
 _slidecheck.html
+
+# Large local videos — host externally, not on GitHub (>100MB limit)
+assets/video/*.mp4

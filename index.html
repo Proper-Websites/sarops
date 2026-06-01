@@ -2463,21 +2463,5 @@ footer.site-footer .wrap{
 
 </script>
 
-<script>
-  /* Large-screen scaling: the design is built at 1440px. On wider viewports,
-     scale the whole page UP by viewport/1440 so it fills the screen and keeps
-     its proportions (never scales down, so smaller screens are untouched and
-     it never causes horizontal overflow). */
-  (function(){
-    var BASE = 1440;
-    function fit(){
-      var w = window.innerWidth;
-      document.body.style.zoom = w > BASE ? (w / BASE) : '';
-    }
-    fit();
-    window.addEventListener('resize', fit);
-  })();
-</script>
-
 </body>
 </html>
