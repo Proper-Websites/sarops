@@ -101,10 +101,9 @@ nav.primary .nav-donate::after{ display:none; }
 .wall-head{ text-align:center; margin-bottom:56px; }
 .wall-head .eyebrow{ justify-content:center; }
 .wall-head .h-display{ font-size:clamp(2rem,3.6vw,3rem); margin-top:14px; }
-.wall-grid{ display:grid; grid-template-columns:repeat(4,1fr); border-top:1px solid var(--line-dark); border-left:1px solid var(--line-dark); }
-.wall-cell{ border-right:1px solid var(--line-dark); border-bottom:1px solid var(--line-dark); min-height:180px; display:flex; align-items:center; justify-content:center; padding:40px; transition:background .25s ease; }
-.wall-cell:hover{ background:var(--navy-2); }
-.wall-cell img{ max-height:72px; max-width:100%; width:auto; opacity:0.95; transition:opacity .25s ease, transform .25s ease; }
+.wall-grid{ display:flex; flex-wrap:wrap; justify-content:center; gap:24px; }
+.wall-cell{ flex:1 1 240px; max-width:300px; min-height:150px; display:flex; align-items:center; justify-content:center; padding:30px 40px; }
+.wall-cell img{ max-height:66px; max-width:100%; width:auto; opacity:0.95; transition:opacity .25s ease, transform .25s ease; }
 .wall-cell:hover img{ opacity:1; transform:translateY(-2px); }
 
 /* IMPACT */
@@ -176,7 +175,7 @@ footer.site-footer .wrap{ max-width:none; padding:0 48px; }
 @media (max-width:1080px){
   .page-hero{ background-attachment:scroll; }
   .why-grid{ grid-template-columns:1fr; gap:36px; }
-  .wall-grid{ grid-template-columns:1fr 1fr; }
+  .wall-cell{ flex:1 1 200px; max-width:260px; }
   .impact-head{ grid-template-columns:1fr; gap:20px; }
   .impact-head p{ justify-self:start; }
   .tier-grid{ grid-template-columns:1fr 1fr; }
@@ -196,8 +195,9 @@ footer.site-footer .wrap{ max-width:none; padding:0 48px; }
   .page-hero h1{ font-size:clamp(2.8rem,12vw,4.4rem); }
   .why{ padding:72px 0; }
   .wall{ padding:72px 0; }
-  .wall-grid{ grid-template-columns:1fr 1fr; }
-  .wall-cell{ min-height:130px; padding:26px; }
+  .wall-grid{ gap:16px; }
+  .wall-cell{ flex:1 1 140px; max-width:200px; min-height:120px; padding:24px; }
+  .wall-cell img{ max-height:54px; }
   .impact{ padding:72px 0; }
   .impact-grid{ grid-template-columns:1fr; }
   .impact-item, .impact-item:nth-child(odd), .impact-item:nth-child(even){ padding:30px 0; border-right:none; }
@@ -286,7 +286,8 @@ footer.site-footer .wrap{ max-width:none; padding:0 48px; }
       <div class="wall-cell"><img src="assets/sponsors/motorola.png" alt="Motorola" loading="lazy" /></div>
       <div class="wall-cell"><img src="assets/sponsors/petzl.png" alt="Petzl" loading="lazy" /></div>
       <div class="wall-cell"><img src="assets/sponsors/rock-exotica.png" alt="Rock Exotica" loading="lazy" /></div>
-      <div class="wall-cell"><img src="assets/sponsors/wrap-shop.png" alt="Wrap Shop" loading="lazy" /></div>
+      <div class="wall-cell"><img src="assets/sponsors/h3r.png" alt="H3R Performance" loading="lazy" /></div>
+      <div class="wall-cell"><img src="assets/sponsors/wrap-shop.png" alt="The Wrap Shop" loading="lazy" /></div>
     </div>
   </div>
 </section>

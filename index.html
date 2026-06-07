@@ -601,30 +601,30 @@ h1.hero-title .accent{
   color: var(--copy);
 }
 .partners-grid{
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 0;
-  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 18px;
 }
 .partner{
-  padding: 18px 36px;
-  border-left: 1px solid var(--line-dark);
+  flex: 1 1 200px;
+  max-width: 240px;
+  padding: 18px 28px;
+  min-height: 96px;
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 96px;
 }
-.partner:first-child{ border-left: none; padding-left: 0; }
 .partner img{
-  max-height: 60px;
+  max-height: 54px;
   width: auto;
   max-width: 100%;
   opacity: 0.95;
   transition: opacity 0.25s ease, transform 0.25s ease;
 }
-.partner img:hover{
+.partner:hover img{
   opacity: 1;
-  transform: translateY(-1px);
+  transform: translateY(-2px);
 }
 
 /* ============ TRAINED TO RESPOND (about — dark blue) ============ */
@@ -1629,9 +1629,6 @@ footer.site-footer .wrap{
   .hero .wrap{ min-height: 86vh; }
   .services .wrap{ padding-right: calc(26% + 22px); }
   .hero-text{ padding: 130px 0 56px; }
-  .partners-grid{ grid-template-columns: 1fr 1fr; }
-  .partner:nth-child(3){ border-left: none; padding-left: 0; }
-  .partner:nth-child(1), .partner:nth-child(2){ border-bottom: 1px solid var(--line-dark); padding-bottom: 24px; margin-bottom: 24px; }
   .about-photo{ position: relative; top: auto; left: auto; bottom: auto; width: auto; height: 480px; z-index: 1; }
   .about-text{ width: auto; margin-left: 0; padding: 56px 44px; }
   .about-diagram{ display: none; }
@@ -1688,12 +1685,9 @@ footer.site-footer .wrap{
   .partners{ padding: 32px 0 36px; }
   .partners-head{ padding-top: 20px; margin-bottom: 22px; }
   .partners-meta{ display: none; }
-  .partners-grid{ grid-template-columns: 1fr 1fr; gap: 0; }
-  .partner{ padding: 22px 14px; min-height: 78px; }
-  .partner:nth-child(odd){ border-left: none; padding-left: 4px; }
-  .partner:nth-child(even){ border-left: 1px solid var(--line-dark); }
-  .partner:nth-child(1), .partner:nth-child(2){ border-bottom: 1px solid var(--line-dark); padding-bottom: 22px; margin-bottom: 0; }
-  .partner img{ max-height: 44px; }
+  .partners-grid{ gap: 12px; }
+  .partner{ flex: 1 1 130px; max-width: 160px; padding: 16px 16px; min-height: 84px; }
+  .partner img{ max-height: 40px; }
   .about-text{ padding: 48px 22px; }
   .about-photo{ height: 380px; }
   .about-pillars{ grid-template-columns: 1fr; column-gap: 0; max-width: 420px; }
@@ -1993,7 +1987,8 @@ footer.site-footer .wrap{
       <div class="partner"><img src="assets/sponsors/motorola.png" alt="Motorola" loading="lazy" /></div>
       <div class="partner"><img src="assets/sponsors/petzl.png" alt="Petzl" loading="lazy" /></div>
       <div class="partner"><img src="assets/sponsors/rock-exotica.png" alt="Rock Exotica" loading="lazy" /></div>
-      <div class="partner"><img src="assets/sponsors/wrap-shop.png" alt="Wrap Shop" loading="lazy" /></div>
+      <div class="partner"><img src="assets/sponsors/h3r.png" alt="H3R Performance" loading="lazy" /></div>
+      <div class="partner"><img src="assets/sponsors/wrap-shop.png" alt="The Wrap Shop" loading="lazy" /></div>
     </div>
   </div>
 </section>
