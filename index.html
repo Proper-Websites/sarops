@@ -412,8 +412,7 @@ nav.primary .nav-donate::after{ display: none; }
 .hero-slide{
   position:absolute; inset:0;
   background-size:cover; background-position:center;
-  background-attachment:fixed;
-  opacity:0; animation:heroFade 24s infinite; will-change:opacity;
+  opacity:0; animation:heroFade 24s infinite;
 }
 .hero-slide:nth-child(1){ animation-delay:0s; }
 .hero-slide:nth-child(2){ animation-delay:6s; }
@@ -467,14 +466,14 @@ nav.primary .nav-donate::after{ display: none; }
 }
 .hero-text{
   width: 100%;
-  max-width: 760px;
+  max-width: 920px;
   padding: 150px 0 56px;
   display: flex;
   flex-direction: column;
 }
 .hero-text-inner{
   display:flex; flex-direction:column; gap: 32px;
-  max-width: 760px;
+  max-width: 920px;
   margin: auto 0;
   transform: translateY(-4%);
 }
@@ -495,7 +494,7 @@ h1.hero-title .accent{
   font-size: 1.08rem;
   line-height: 1.65;
   color: var(--copy);
-  max-width: 560px;
+  max-width: 860px;
   text-shadow: 0 1px 16px rgba(0,0,0,0.45);
 }
 .hero-ctas{ display:flex; gap: 14px; flex-wrap: wrap; }
@@ -589,8 +588,8 @@ h1.hero-title .accent{
   justify-content: space-between;
   gap: 24px;
   border-top: 1px solid var(--line-dark);
-  padding-top: 22px;
-  margin-bottom: 32px;
+  padding-top: 20px;
+  margin-bottom: 12px;
   text-shadow: 0 1px 10px rgba(0,0,0,0.65), 0 0 2px rgba(0,0,0,0.5);
 }
 .partners-meta{
@@ -602,14 +601,14 @@ h1.hero-title .accent{
 }
 .partners-grid{
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   justify-content: center;
-  gap: 18px;
+  gap: 12px;
 }
 .partner{
-  flex: 1 1 200px;
-  max-width: 240px;
-  padding: 18px 28px;
+  flex: 1 1 0;
+  min-width: 0;
+  padding: 18px 12px;
   min-height: 96px;
   display: flex;
   align-items: center;
@@ -622,6 +621,7 @@ h1.hero-title .accent{
   opacity: 0.95;
   transition: opacity 0.25s ease, transform 0.25s ease;
 }
+.partner img[src*="jiu-jitsu-medic"]{ max-height: 132px; max-width: 150px; }
 .partner:hover img{
   opacity: 1;
   transform: translateY(-2px);
@@ -846,7 +846,7 @@ h1.hero-title .accent{
   background-size: cover, cover;
   background-position: center, center;
   background-repeat: no-repeat, no-repeat;
-  background-attachment: scroll, fixed;
+  background-attachment: scroll, scroll;
   color: var(--white);
   padding: 0;
   border-top: 3px solid var(--signal);
@@ -1064,7 +1064,7 @@ h1.hero-title .accent{
   background-size: cover, cover;
   background-position: center, center;
   background-repeat: no-repeat, no-repeat;
-  background-attachment: scroll, fixed;
+  background-attachment: scroll, scroll;
   color: var(--white);
   padding: 100px 0;
   position: relative;
@@ -1685,9 +1685,9 @@ footer.site-footer .wrap{
   .partners{ padding: 32px 0 36px; }
   .partners-head{ padding-top: 20px; margin-bottom: 22px; }
   .partners-meta{ display: none; }
-  .partners-grid{ gap: 12px; }
-  .partner{ flex: 1 1 130px; max-width: 160px; padding: 16px 16px; min-height: 84px; }
-  .partner img{ max-height: 40px; }
+  .partners-grid{ gap: 8px; }
+  .partner{ flex: 1 1 0; min-width: 0; padding: 12px 6px; min-height: 64px; }
+  .partner img{ max-height: 30px; }
   .about-text{ padding: 48px 22px; }
   .about-photo{ height: 380px; }
   .about-pillars{ grid-template-columns: 1fr; column-gap: 0; max-width: 420px; }
@@ -1886,7 +1886,7 @@ footer.site-footer .wrap{
     <div class="tac-group">
       <span class="tac-tag tac-primary"><span class="tac-dot"></span>SAR OPS</span>
       <span class="tac-divider">//</span>
-      <span class="tac-tag">Search &amp; Rescue &middot; Ground Unit</span>
+      <span class="tac-tag">Search &amp; Rescue &middot; Urban, Wilderness, Swift Water</span>
     </div>
   </div>
 </div>
@@ -1955,7 +1955,7 @@ footer.site-footer .wrap{
           In <span class="accent">Rescue</span>
         </h1>
         <p class="hero-lede">
-          We are a non-profit volunteer wilderness search and rescue team specializing in high and low-angle rescues, rope rescues, and mountain/vertical terrain operations. Ready when others need us most.
+          SAR OPS is a non-profit volunteer search and rescue organization specializing in wilderness, urban, technical, and disaster-response operations. Our team is trained in rope rescue, high-angle and low-angle rescue, swiftwater rescue, wilderness search, remote patient care, and complex terrain operations. We stand ready to assist agencies and communities when lives are at risk and every minute matters.
         </p>
         <div class="hero-ctas">
           <a href="#" class="btn btn-signal">What We Do <span class="arrow">&rarr;</span></a>
@@ -1966,9 +1966,12 @@ footer.site-footer .wrap{
       <div class="hero-foot">
         <span class="hero-status"><span class="hv-dot"></span>Mission Ready · 24/7</span>
         <div class="hero-certs">
+          <img src="assets/certifications/rescue-3.png" alt="Rescue 3 Accredited" title="Rescue 3 Accredited" loading="lazy" />
           <img src="assets/certifications/nasar.png" alt="NASAR Certified" title="NASAR Certified" loading="lazy" />
           <img src="assets/certifications/nfpa.png" alt="NFPA Compliant" title="NFPA Compliant" loading="lazy" />
           <img src="assets/certifications/rope-rescue.png" alt="Rope Rescue Technician" title="Rope Rescue Technician" loading="lazy" />
+          <img src="assets/certifications/sar-academy.png" alt="SAR Academy · NASAR" title="SAR Academy · NASAR" loading="lazy" />
+          <img src="assets/certifications/first-responder.png" alt="Emergency First Responder" title="Emergency First Responder" loading="lazy" />
           <img src="assets/certifications/fema.png" alt="FEMA Affiliated" title="FEMA Affiliated" loading="lazy" />
           <img src="assets/certifications/dhs.png" alt="DHS Affiliated" title="DHS Affiliated" loading="lazy" />
         </div>
@@ -1988,7 +1991,11 @@ footer.site-footer .wrap{
       <div class="partner"><img src="assets/sponsors/petzl.png" alt="Petzl" loading="lazy" /></div>
       <div class="partner"><img src="assets/sponsors/rock-exotica.png" alt="Rock Exotica" loading="lazy" /></div>
       <div class="partner"><img src="assets/sponsors/h3r.png" alt="H3R Performance" loading="lazy" /></div>
+      <div class="partner"><img src="assets/sponsors/sterling.png" alt="Sterling" loading="lazy" /></div>
+      <div class="partner"><img src="assets/sponsors/copquest.png" alt="CopQuest" loading="lazy" /></div>
       <div class="partner"><img src="assets/sponsors/wrap-shop.png" alt="The Wrap Shop" loading="lazy" /></div>
+      <div class="partner"><img src="assets/sponsors/lapg.png" alt="LA Police Gear" loading="lazy" /></div>
+      <div class="partner"><img src="assets/sponsors/jiu-jitsu-medic.png" alt="Jiu Jitsu Medic" loading="lazy" /></div>
     </div>
   </div>
 </section>
@@ -2354,7 +2361,7 @@ footer.site-footer .wrap{
         </div>
 
         <div class="submit-row">
-          <p class="form-note">For active emergencies, dial 911 first. SAR OPS deploys at the request of public agencies.</p>
+          <p class="form-note">For emergencies, call 911. SAR OPS deploys at the request of public agencies.</p>
           <button type="submit" class="btn btn-dark">Send Message <span class="arrow">&rarr;</span></button>
         </div>
       </form>
