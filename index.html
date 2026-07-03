@@ -62,7 +62,7 @@ body{
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
-img{ max-width:100%; display:block; }
+img{ max-width:100%; display:block; -webkit-user-drag:none; user-select:none; }
 a{ color:inherit; text-decoration:none; }
 button{ font:inherit; cursor:pointer; border:none; background:none; color:inherit; }
 
@@ -188,13 +188,13 @@ button{ font:inherit; cursor:pointer; border:none; background:none; color:inheri
   align-items: center;
   justify-content: center;
   gap: 22px;
-  min-height: 38px;
-  padding: 10px 0 8px;
+  min-height: 46px;
+  padding: 13px 0 11px;
   position: relative;
 }
 .tac-tag{
   font-family: var(--mono);
-  font-size: 0.7rem;
+  font-size: 0.8rem;
   letter-spacing: 0.24em;
   text-transform: uppercase;
   color: var(--white);
@@ -222,7 +222,7 @@ button{ font:inherit; cursor:pointer; border:none; background:none; color:inheri
 
 /* ============ HEADER ============ */
 .site-header{
-  position: absolute; top:56px; left:0; right:0; z-index:50;
+  position: absolute; top:70px; left:0; right:0; z-index:50;
   background: transparent;
   color: var(--white);
 }
@@ -415,11 +415,10 @@ nav.primary .nav-donate::after{ display: none; }
   opacity:0; animation:heroFade 24s infinite;
 }
 .hero-slide:nth-child(1){ animation-delay:0s; }
-.hero-slide:nth-child(2){ animation-delay:6s; }
-.hero-slide:nth-child(3){ animation-delay:12s; }
-.hero-slide:nth-child(4){ animation-delay:18s; }
+.hero-slide:nth-child(2){ animation-delay:8s; }
+.hero-slide:nth-child(3){ animation-delay:16s; }
 @keyframes heroFade{
-  0%{opacity:0;} 5%{opacity:1;} 25%{opacity:1;} 30%{opacity:0;} 100%{opacity:0;}
+  0%{opacity:0;} 4%{opacity:1;} 33%{opacity:1;} 42%{opacity:0;} 100%{opacity:0;}
 }
 @media (prefers-reduced-motion: reduce){
   .hero-slide{ animation:none; }
@@ -589,7 +588,7 @@ h1.hero-title .accent{
   gap: 24px;
   border-top: 1px solid var(--line-dark);
   padding-top: 20px;
-  margin-bottom: 12px;
+  margin-bottom: 0;
   text-shadow: 0 1px 10px rgba(0,0,0,0.65), 0 0 2px rgba(0,0,0,0.5);
 }
 .partners-meta{
@@ -602,26 +601,39 @@ h1.hero-title .accent{
 .partners-grid{
   display: flex;
   flex-wrap: nowrap;
-  justify-content: center;
-  gap: 12px;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
 }
 .partner{
-  flex: 1 1 0;
+  flex: 0 1 auto;
   min-width: 0;
-  padding: 18px 12px;
+  padding: 8px 0;
   min-height: 96px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 .partner img{
-  max-height: 54px;
+  max-height: 50px;
   width: auto;
-  max-width: 100%;
+  max-width: none;
   opacity: 0.95;
   transition: opacity 0.25s ease, transform 0.25s ease;
 }
-.partner img[src*="jiu-jitsu-medic"]{ max-height: 132px; max-width: 150px; }
+/* Per-logo optical balancing on the homepage band: very wide wordmarks get a
+   shorter height, compact/square marks get a taller one, so every logo reads
+   at roughly the same visual weight across the row. */
+.partner img[src*="motorola"]{ max-height: 40px; }
+.partner img[src*="rock-exotica"]{ max-height: 40px; }
+.partner img[src*="copquest"]{ max-height: 44px; }
+.partner img[src*="lapg"]{ max-height: 44px; }
+.partner img[src*="h3r"]{ max-height: 48px; }
+.partner img[src*="petzl"]{ max-height: 54px; }
+.partner img[src*="wrap-shop"]{ max-height: 54px; }
+.partner img[src*="sterling"]{ max-height: 56px; }
+.partner img[src*="jiu-jitsu-medic"]{ max-height: 74px; }
+.partner img[src*="CMC"]{ max-height: 80px; max-width: 180px; }
 .partner:hover img{
   opacity: 1;
   transform: translateY(-2px);
@@ -707,6 +719,7 @@ h1.hero-title .accent{
   padding: 20px 0;
   border-bottom: 1px solid var(--line-dark);
 }
+.donate-pillar{ justify-content:flex-start; }
 .pillar-num{
   font-family: var(--mono);
   font-size: 0.72rem;
@@ -735,17 +748,17 @@ h1.hero-title .accent{
   position: relative;
   z-index: 1;
   display: grid;
-  grid-template-columns: minmax(0, 0.75fr) minmax(0, 2fr);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
   gap: 24px;
   align-items: stretch;
 }
 .services-logo{
-  background: url('assets/logos/logo-transparent.png') left center / contain no-repeat;
+  background: url('assets/logos/logo-transparent.png') center center / contain no-repeat;
   width: 100%;
-  min-height: 100%;
+  height: 100%;
+  min-height: 500px;
   align-self: stretch;
   margin-left: -44px;
-  /* Sharpen + brighten the restored original so it pops on the navy band */
   filter: brightness(1.08) contrast(1.06) saturate(1.18);
 }
 .services-body{ min-width: 0; display: flex; flex-direction: column; justify-content: center; }
@@ -762,14 +775,13 @@ h1.hero-title .accent{
 .svc-list{ display:flex; flex-direction:column; }
 .svc-row{
   display: grid;
-  grid-template-columns: 72px 1.7fr 2fr auto;
+  grid-template-columns: 72px 1.7fr 2fr;
   gap: 28px;
   align-items: center;
   padding: 24px 20px;
   border-bottom: 1px solid var(--line-dark);
   transition: background .25s ease;
   position: relative;
-  text-decoration: none;
   color: inherit;
 }
 .svc-row:last-child{ border-bottom: none; }
@@ -1052,28 +1064,18 @@ h1.hero-title .accent{
 
 /* ============ DONATE CTA BAND (steel-blue accent moment) ============ */
 .donate-band{
-  background-color: var(--steel);
-  background-image:
-    linear-gradient(90deg,
-      rgba(52, 80, 103, 0.93) 0%,
-      rgba(52, 80, 103, 0.90) 38%,
-      rgba(52, 80, 103, 0.86) 70%,
-      rgba(52, 80, 103, 0.84) 100%
-    ),
-    url('assets/images/banner.jpg');
-  background-size: cover, cover;
-  background-position: center, center;
-  background-repeat: no-repeat, no-repeat;
-  background-attachment: scroll, scroll;
+  background-color: var(--steel-3);
+  background-image: linear-gradient(90deg, rgba(47,74,94,0.88) 0%, rgba(47,74,94,0.72) 55%, rgba(47,74,94,0.5) 100%), url('assets/images/banner.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
   color: var(--white);
   padding: 100px 0;
   position: relative;
   overflow: hidden;
   border-top: 2px solid var(--signal);
 }
-@media (max-width: 1024px){
-  .donate-band{ background-attachment: scroll, scroll; }
-}
+@media (max-width:1024px){ .donate-band{ background-attachment: scroll; } }
 .donate-grid{
   display: grid;
   grid-template-columns: 2.2fr 1fr;
@@ -1457,6 +1459,10 @@ h1.hero-title .accent{
   color: var(--white);
   letter-spacing: 0.02em;
 }
+.emergency{ margin-top:34px; display:flex; gap:16px; align-items:flex-start; border:1px solid var(--signal); border-left-width:4px; padding:20px 22px; }
+.emergency .x{ font-family:var(--display); font-size:1.6rem; font-weight:700; color:var(--signal-2); line-height:1; flex:none; }
+.emergency p{ font-size:0.92rem; color:var(--copy); margin:0; max-width:none; line-height:1.55; }
+.emergency strong{ color:var(--white); }
 
 form.contact-form{
   background: var(--steel-3);
@@ -1525,7 +1531,7 @@ form.contact-form .form-note{
 footer.site-footer{
   background: var(--navy-3);
   color: var(--copy);
-  padding: 64px 0 28px;
+  padding: 96px 0 48px;
   border-top: 2px solid var(--signal);
   position: relative;
   overflow: hidden;
@@ -1548,7 +1554,7 @@ footer.site-footer .wrap{
 .footer-top{
   display: grid;
   grid-template-columns: 2fr 1fr 1fr 1fr;
-  gap: 56px;
+  gap: 80px;
   margin-bottom: 24px;
   padding-bottom: 240px;
   border-bottom: 1px solid var(--line-dark);
@@ -1577,17 +1583,17 @@ footer.site-footer .wrap{
 }
 .footer-col h4{
   font-family: var(--mono);
-  font-size: 0.68rem;
+  font-size: 0.85rem;
   letter-spacing: 0.22em;
   text-transform: uppercase;
   font-weight: 500;
   color: var(--copy);
-  margin-bottom: 22px;
+  margin-bottom: 30px;
 }
-.footer-col ul{ list-style:none; display:flex; flex-direction:column; gap: 12px; }
+.footer-col ul{ list-style:none; display:flex; flex-direction:column; gap: 18px; }
 .footer-col ul a{
   font-family: var(--display);
-  font-size: 1.05rem;
+  font-size: 1.35rem;
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.03em;
@@ -1595,8 +1601,10 @@ footer.site-footer .wrap{
   transition: color .2s ease;
 }
 .footer-col ul a:hover{ color: var(--signal-2); }
+.footer-col ul a.nav-donate{ border:2px solid var(--signal-2); padding:14px 30px; color:var(--white); transition:background .2s ease, border-color .2s ease; margin-top:4px; display:inline-block; }
+.footer-col ul a.nav-donate:hover{ background:var(--signal); border-color:var(--signal); color:var(--white); }
 .footer-col .info-line{
-  font-size: 0.94rem;
+  font-size: 1.15rem;
   color: var(--copy);
   line-height: 1.7;
 }
@@ -1609,18 +1617,26 @@ footer.site-footer .wrap{
 }
 .footer-bottom{
   display: flex;
+  flex-direction: column;
+  gap: 0;
+  border-top: 1px solid var(--line-dark);
+  padding-top: 22px;
+}
+.footer-bottom-row{
+  display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 18px;
   flex-wrap: wrap;
   font-family: var(--mono);
-  font-size: 0.72rem;
+  font-size: 0.85rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--copy);
 }
 .footer-bottom a{ color: var(--white); }
 .footer-bottom a:hover{ color: var(--signal-2); }
+.footer-legal{ font-family:var(--mono); font-size:1rem; letter-spacing:0.06em; text-transform:none; color:rgba(255,255,255,0.65); text-align:center; padding-bottom:18px; margin-bottom:18px; border-bottom:1px solid var(--line-dark); width:100%; }
 
 /* ============ RESPONSIVE ============ */
 @media (max-width: 1080px){
@@ -1686,8 +1702,8 @@ footer.site-footer .wrap{
   .partners-head{ padding-top: 20px; margin-bottom: 22px; }
   .partners-meta{ display: none; }
   .partners-grid{ gap: 8px; }
-  .partner{ flex: 1 1 0; min-width: 0; padding: 12px 6px; min-height: 64px; }
-  .partner img{ max-height: 30px; }
+  .partner{ flex: 1 1 0; min-width: 0; padding: 12px 4px; min-height: 64px; }
+  .partners-grid .partner img{ max-height: 28px; max-width: 100%; }
   .about-text{ padding: 48px 22px; }
   .about-photo{ height: 380px; }
   .about-pillars{ grid-template-columns: 1fr; column-gap: 0; max-width: 420px; }
@@ -1733,32 +1749,34 @@ footer.site-footer .wrap{
 .events-home{ background:var(--navy-3); color:var(--white); padding:120px 0; border-bottom:1px solid var(--line-dark); }
 .eh-head{ display:flex; align-items:flex-end; justify-content:space-between; gap:40px; flex-wrap:wrap; margin-bottom:10px; }
 .eh-head .h-display{ font-size:clamp(2.2rem,4.4vw,3.6rem); margin-top:16px; max-width:560px; color:var(--white); }
-.eh-head > p{ color:var(--copy); max-width:380px; font-size:1rem; }
+.eh-head > p{ color:var(--copy); max-width:580px; font-size:1rem; }
 .eh-note{ display:inline-flex; align-items:center; gap:10px; font-family:var(--mono); font-size:0.64rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--spark); border:1px dashed rgba(232,179,57,0.5); padding:11px 15px; max-width:360px; line-height:1.5; margin:24px 0 0; }
 .eh-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:36px; align-items:stretch; }
 .eh-card{ display:flex; flex-direction:column; background:var(--navy-2); border:1px solid var(--line-dark); padding:0 30px 30px; text-decoration:none; color:inherit; position:relative; overflow:hidden; transition:border-color .25s ease, background .25s ease; }
 .eh-card::before{ content:""; position:absolute; left:0; right:0; top:0; height:3px; background:var(--signal); transform:scaleX(0); transform-origin:left; transition:transform .3s ease; }
 .eh-card:hover{ border-color:var(--steel-2); background:#1C2B3B; }
 .eh-card:hover::before{ transform:scaleX(1); }
-.eh-thumb{ position:relative; margin:0 -30px 26px; height:260px; overflow:hidden; border-bottom:2px solid var(--signal); }
+.eh-thumb{ position:relative; margin:0 -30px 26px; height:360px; overflow:hidden; border-bottom:2px solid var(--signal); }
 .eh-thumb-img{ position:absolute; inset:0; z-index:1; width:100%; height:100%; object-fit:cover; filter:grayscale(0.3) contrast(1.1) brightness(0.95); transition:transform .45s ease, filter .3s ease; }
 .eh-card:hover .eh-thumb-img{ transform:scale(1.045); filter:grayscale(0.1) contrast(1.1) brightness(1.02); }
 .eh-thumb::after{ content:""; position:absolute; inset:0; z-index:2; background:linear-gradient(180deg, rgba(15,25,36,0) 0%, rgba(15,25,36,0) 50%, rgba(15,25,36,0.45) 100%); }
-.eh-thumb .eh-date{ position:absolute; left:14px; bottom:14px; z-index:3; background:rgba(15,25,36,0.55); }
+.eh-thumb .eh-date{ display:none; }
 .eh-thumb .eh-tag{ position:absolute; top:14px; right:14px; z-index:3; background:rgba(15,25,36,0.55); }
 .eh-card-top{ display:flex; align-items:flex-start; justify-content:space-between; gap:16px; margin-bottom:26px; }
 .eh-date{ display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; border:1px dashed rgba(232,179,57,0.45); padding:10px 14px; flex:none; }
 .eh-day{ font-family:var(--display); font-size:1.7rem; font-weight:700; color:var(--spark); line-height:0.9; }
 .eh-mon{ font-family:var(--mono); font-size:0.56rem; letter-spacing:0.16em; text-transform:uppercase; color:var(--copy); margin-top:5px; }
 .eh-tag{ display:inline-block; font-family:var(--mono); font-size:0.6rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--white); border:1px solid var(--line-dark); padding:6px 11px; }
-.eh-tag.t-course{ border-color:var(--steel-2); color:var(--steel-2); }
+.eh-tag.t-course{ border-color:rgba(255,255,255,0.5); color:var(--white); }
 .eh-tag.t-community{ border-color:var(--spark); color:var(--spark); }
 .eh-title{ font-family:var(--display); font-size:clamp(1.55rem,2vw,1.9rem); font-weight:700; text-transform:uppercase; color:var(--white); line-height:1.02; margin-bottom:18px; }
-.eh-meta{ display:flex; flex-direction:column; gap:10px; font-family:var(--mono); font-size:0.68rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--copy); }
+.eh-desc{ font-size:0.82rem; color:var(--copy); line-height:1.6; opacity:0.78; margin:0 0 16px; }
+.eh-meta{ display:flex; flex-direction:column; gap:10px; font-family:var(--mono); font-size:0.68rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--copy); margin-bottom:20px; }
 .eh-meta span{ display:inline-flex; align-items:center; gap:10px; }
 .eh-meta span::before{ content:""; width:5px; height:5px; background:var(--steel-2); flex:none; }
 .eh-card-foot{ margin-top:auto; padding-top:26px; display:flex; align-items:center; justify-content:space-between; gap:16px; border-top:1px solid var(--line-dark); }
-.eh-price{ font-family:var(--display); font-size:1.6rem; font-weight:700; text-transform:uppercase; color:var(--white); letter-spacing:0.02em; white-space:nowrap; }
+.eh-price{ font-family:var(--display); font-size:1.6rem; font-weight:700; text-transform:uppercase; color:var(--white); letter-spacing:0.02em; white-space:nowrap; display:flex; flex-direction:column; line-height:1.1; }
+.eh-price small{ font-family:var(--mono); font-size:0.6rem; letter-spacing:0.14em; font-weight:400; color:var(--copy); opacity:0.55; text-transform:uppercase; margin-top:10px; }
 .eh-price.free{ color:var(--spark); }
 .eh-btn-sm{ padding:12px 18px; font-size:0.66rem; letter-spacing:0.14em; }
 .eh-foot{ display:flex; align-items:center; justify-content:space-between; gap:20px; flex-wrap:wrap; margin-top:40px; }
@@ -1878,7 +1896,7 @@ footer.site-footer .wrap{
 
 </style>
 </head>
-<body>
+<body oncontextmenu="return false;" ondragstart="return false;">
 
 <!-- ============ TACTICAL BAR ============ -->
 <div class="tactical-bar" aria-hidden="false">
@@ -1941,8 +1959,7 @@ footer.site-footer .wrap{
   <div class="hero-slideshow" aria-hidden="true">
     <div class="hero-slide" style="background-image:url('assets/hero/hero-1.jpeg');"></div>
     <div class="hero-slide" style="background-image:url('assets/hero/hero-2.jpeg');"></div>
-    <div class="hero-slide" style="background-image:url('assets/hero/hero-3.jpeg');"></div>
-    <div class="hero-slide" style="background-image:url('assets/hero/hero-4.jpeg');"></div>
+    <div class="hero-slide" style="background-image:url('assets/Vehicle Deployment.jpg');"></div>
   </div>
 <!-- ============ HERO ============ -->
 <section class="hero">
@@ -1988,14 +2005,15 @@ footer.site-footer .wrap{
     </div>
     <div class="partners-grid">
       <div class="partner"><img src="assets/sponsors/motorola.png" alt="Motorola" loading="lazy" /></div>
+      <div class="partner"><img src="assets/sponsors/h3r.png" alt="H3R Performance" loading="lazy" /></div>
       <div class="partner"><img src="assets/sponsors/petzl.png" alt="Petzl" loading="lazy" /></div>
       <div class="partner"><img src="assets/sponsors/rock-exotica.png" alt="Rock Exotica" loading="lazy" /></div>
-      <div class="partner"><img src="assets/sponsors/h3r.png" alt="H3R Performance" loading="lazy" /></div>
       <div class="partner"><img src="assets/sponsors/sterling.png" alt="Sterling" loading="lazy" /></div>
       <div class="partner"><img src="assets/sponsors/copquest.png" alt="CopQuest" loading="lazy" /></div>
       <div class="partner"><img src="assets/sponsors/wrap-shop.png" alt="The Wrap Shop" loading="lazy" /></div>
       <div class="partner"><img src="assets/sponsors/lapg.png" alt="LA Police Gear" loading="lazy" /></div>
       <div class="partner"><img src="assets/sponsors/jiu-jitsu-medic.png" alt="Jiu Jitsu Medic" loading="lazy" /></div>
+      <div class="partner"><img src="assets/CMC Pro Logo.png" alt="CMC Pro" loading="lazy" /></div>
     </div>
   </div>
 </section>
@@ -2013,42 +2031,41 @@ footer.site-footer .wrap{
       </div>
 
       <div class="svc-list">
-      <a href="#" class="svc-row">
+      <div class="svc-row">
         <div class="svc-icon"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"><circle cx="13" cy="13" r="8"/><line x1="19" y1="19" x2="27" y2="27"/><line x1="13" y1="9" x2="13" y2="11"/><line x1="13" y1="15" x2="13" y2="17"/><line x1="9" y1="13" x2="11" y2="13"/><line x1="15" y1="13" x2="17" y2="13"/></svg></div>
         <div class="svc-name">Ground Search &amp; Rescue</div>
-        <div class="svc-desc">Coordinated ground operations for missing persons in urban and rural environments: lost hikers, elderly with dementia, missing children.</div>
-        <div class="svc-arrow">&rarr;</div>
-      </a>
-      <a href="#" class="svc-row">
+        <div class="svc-desc">Coordinated search operations for missing and overdue persons in urban, rural, and wilderness environments, including lost hikers, vulnerable adults, missing children, and disaster-related searches.</div>
+      </div>
+      <div class="svc-row">
         <div class="svc-icon"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"><path d="M 11 5 L 11 23 A 5 5 0 0 0 21 23 L 21 13"/><line x1="21" y1="5" x2="21" y2="11"/><line x1="18" y1="13" x2="24" y2="13"/><circle cx="11" cy="5" r="1.5"/></svg></div>
         <div class="svc-name">Technical Rope Rescue</div>
-        <div class="svc-desc">Vertical, precision-driven rescue from cliffs, ravines, bridges, and other technical environments where traditional methods will not work.</div>
-        <div class="svc-arrow">&rarr;</div>
-      </a>
-      <a href="#" class="svc-row">
+        <div class="svc-desc">Specialized rope rescue operations utilizing high-angle, low-angle, and technical access systems in vertical, remote, industrial, and difficult-to-access environments.</div>
+      </div>
+      <div class="svc-row">
         <div class="svc-icon"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="miter" stroke-linecap="square"><path d="M 3 26 L 11 13 L 16 20 L 21 11 L 29 26 Z"/><path d="M 9 17 L 11 13 L 13 16" fill="currentColor" fill-opacity="0.3"/></svg></div>
         <div class="svc-name">Wilderness Search &amp; Rescue</div>
-        <div class="svc-desc">Advanced survival, tracking, and terrain navigation for individuals lost in forests, deserts, mountains, and remote backcountry.</div>
-        <div class="svc-arrow">&rarr;</div>
-      </a>
-      <a href="#" class="svc-row">
+        <div class="svc-desc">Search, navigation, patient access, and remote-area rescue operations in mountains, deserts, forests, and other wilderness environments.</div>
+      </div>
+      <div class="svc-row">
         <div class="svc-icon"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"><path d="M 3 11 C 7 7, 11 15, 15 11 S 23 7, 29 11"/><path d="M 3 18 C 7 14, 11 22, 15 18 S 23 14, 29 18"/><path d="M 3 25 C 7 21, 11 29, 15 25 S 23 21, 29 25"/></svg></div>
         <div class="svc-name">Swift Water Rescue</div>
-        <div class="svc-desc">Specialized response in moving water (flood events, river incidents, and water-adjacent terrain) by certified swift water technicians.</div>
-        <div class="svc-arrow">&rarr;</div>
-      </a>
-      <a href="#" class="svc-row">
+        <div class="svc-desc">Rescue and recovery operations in moving water environments, including flood incidents, river emergencies, low-water crossings, and water-adjacent terrain.</div>
+      </div>
+      <div class="svc-row">
         <div class="svc-icon"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="miter" stroke-linecap="square"><path d="M 16 3 L 27 7 L 27 17 C 27 22, 22 26, 16 29 C 10 26, 5 22, 5 17 L 5 7 Z"/><polyline points="10,16 14,20 22,12"/></svg></div>
         <div class="svc-name">Training &amp; Certification</div>
-        <div class="svc-desc">Internal and community-based training that meets or exceeds national standards, because preparedness saves lives.</div>
-        <div class="svc-arrow">&rarr;</div>
-      </a>
-      <a href="#" class="svc-row">
+        <div class="svc-desc">Ongoing professional development, technical rescue training, and emergency preparedness programs designed to build capable responders and resilient communities.</div>
+      </div>
+      <div class="svc-row">
         <div class="svc-icon"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"><circle cx="11" cy="11" r="4"/><circle cx="21" cy="11" r="4"/><path d="M 3 27 C 3 21, 7 18, 11 18 C 14 18, 16 19.5, 16 22 C 16 19.5, 18 18, 21 18 C 25 18, 29 21, 29 27"/></svg></div>
         <div class="svc-name">Community &amp; Agency Support</div>
-        <div class="svc-desc">Partnerships with communities, schools, and agencies to strengthen emergency preparedness across the region we serve.</div>
-        <div class="svc-arrow">&rarr;</div>
-      </a>
+        <div class="svc-desc">Supporting public safety agencies, emergency managers, schools, and community organizations through training, preparedness initiatives, and operational collaboration.</div>
+      </div>
+      <div class="svc-row">
+        <div class="svc-icon"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="miter"><path d="M 16 4 L 29 27 L 3 27 Z"/><line x1="16" y1="13" x2="16" y2="20"/><line x1="16" y1="23" x2="16" y2="24"/></svg></div>
+        <div class="svc-name">Disaster Response &amp; Emergency Support</div>
+        <div class="svc-desc">Supporting communities and partner agencies during disasters through emergency operations, damage assessment, logistical support, communications, and field response capabilities.</div>
+      </div>
       </div>
     </div>
   </div>
@@ -2081,16 +2098,15 @@ footer.site-footer .wrap{
     <div class="donate-grid">
       <div class="donate-copy">
         <div class="eyebrow on-steel">Support the Mission</div>
-        <h2 class="h-display">Fund every truck, rope, and <span class="accent">rescue</span></h2>
+        <h2 class="h-display">Help us find the lost. <span class="accent">Reach the unreachable.</span></h2>
         <p>
-          SAR OPS is a fully independent, 501(c)(3) volunteer Search and Rescue organization.
-          Every truck, radio, rope system, GPS beacon, and rescue tool we deploy into the field is funded entirely through donations.
+          Every donation directly supports the training, equipment, and readiness required to safely locate missing persons, conduct technical rescues, and assist communities during emergencies and disasters.
         </p>
         <div class="donate-amounts" id="donateAmounts">
           <div class="donate-amounts-label">Choose an amount</div>
           <div class="amount-chips" role="group" aria-label="Donation amount">
             <button type="button" class="amount-chip" data-amt="50" data-fund="Field supplies and consumables">$50</button>
-            <button type="button" class="amount-chip selected" data-amt="100" data-fund="Fuel and mission logistics">$100</button>
+            <button type="button" class="amount-chip selected" data-amt="100" data-fund="Fuel and mission logistics">$75</button>
             <button type="button" class="amount-chip" data-amt="500" data-fund="Rope systems and rigging hardware">$500</button>
             <button type="button" class="amount-chip" data-amt="1000" data-fund="Radios, beacons, and field tech">$1,000</button>
             <button type="button" class="amount-chip" data-amt="custom" data-fund="Give any amount that fits">Custom</button>
@@ -2101,14 +2117,14 @@ footer.site-footer .wrap{
           </div>
         </div>
         <div class="donate-actions">
-          <a href="#" class="btn btn-signal" id="donateNowBtn"><span class="btn-label">Donate $100</span> <span class="arrow">&rarr;</span></a>
+          <a href="#" class="btn btn-signal" id="donateNowBtn"><span class="btn-label">Donate $75</span> <span class="arrow">&rarr;</span></a>
         </div>
       </div>
 
       <div class="donate-stat">
         <div class="donate-stat-row">
           <span class="donate-stat-num">100<span style="opacity:.7">%</span></span>
-          <span class="donate-stat-label">Donor Funded</span>
+          <span class="donate-stat-label">Supported By Donations &amp; Sponsors</span>
         </div>
         <div class="donate-stat-row">
           <span class="donate-stat-num">501(c)(3)</span>
@@ -2125,53 +2141,54 @@ footer.site-footer .wrap{
     <div class="eh-head">
       <div>
         <div class="eyebrow on-dark">Events &amp; Classes</div>
-        <h2 class="h-display">Train with us</h2>
+        <h2 class="h-display">Train for the unexpected</h2>
       </div>
-      <p>Public courses, community preparedness days, and hands-on technical training, taught by certified operators. Preparedness saves lives.</p>
+      <p>SAR OPS offers public safety, wilderness, and technical rescue training designed to build confidence, competence, and preparedness. Whether you're an outdoor enthusiast, first responder, or aspiring rescue technician, our courses provide real-world skills that matter when seconds count.</p>
     </div>
-
-    <div class="eh-note">Sample schedule &middot; replace dates, prices &amp; registration with live data before launch</div>
 
     <div class="eh-grid">
 
       <a href="events.html" class="eh-card">
         <div class="eh-thumb">
-          <img class="eh-thumb-img" src="assets/images/contact-top.jpg" alt="" loading="lazy" />
+          <div class="eh-thumb-img" style="background:url('assets/Intro Image.png') top/cover no-repeat;width:100%;height:100%;"></div>
           <div class="eh-date"><span class="eh-day">[ 00 ]</span><span class="eh-mon">[ MON ]</span></div>
-          <span class="eh-tag t-course">Public Course</span>
+
         </div>
-        <h3 class="eh-title">Wilderness First Aid</h3>
-        <div class="eh-meta"><span>16-Hour Certification</span><span>[ Location ]</span><span>[ Time ]</span></div>
+        <h3 class="eh-title">Intro to Rappelling</h3>
+        <p class="eh-desc">Learn fundamental rope skills, equipment use, safety systems, and controlled descents under the supervision of SAR OPS instructors.</p>
+        <div class="eh-meta"><span>Beginner Friendly</span><span>Hands-On</span><span>3-Hour Course</span><span>All Equipment Included</span></div>
         <div class="eh-card-foot">
-          <span class="eh-price">$[ ___ ]</span>
+          <span class="eh-price">$75<small>Donation</small></span>
           <span class="btn btn-signal eh-btn-sm">Register <span class="arrow">&rarr;</span></span>
         </div>
       </a>
 
       <a href="events.html" class="eh-card">
         <div class="eh-thumb">
-          <img class="eh-thumb-img" src="assets/images/team-field.jpg" alt="" loading="lazy" />
+          <div class="eh-thumb-img" style="background:url('assets/images/Advanced.png') center/cover no-repeat;width:100%;height:100%;"></div>
           <div class="eh-date"><span class="eh-day">[ 00 ]</span><span class="eh-mon">[ MON ]</span></div>
-          <span class="eh-tag t-community">Community Event</span>
+
         </div>
-        <h3 class="eh-title">Community Preparedness Day</h3>
-        <div class="eh-meta"><span>Open To All Ages</span><span>[ Location ]</span><span>[ Time ]</span></div>
+        <h3 class="eh-title">Advanced Rappelling &amp; Ascent Systems</h3>
+        <p class="eh-desc">Expand your rope skills with multi-stage rappels, rope transitions, ascending systems, edge management, and advanced movement techniques.</p>
+        <div class="eh-meta"><span>Intermediate</span><span>Prior Experience Required</span><span>All Equipment Included</span></div>
         <div class="eh-card-foot">
-          <span class="eh-price free">Free</span>
-          <span class="btn btn-ghost eh-btn-sm">RSVP <span class="arrow">&rarr;</span></span>
+          <span class="eh-price">$150<small>Donation</small></span>
+          <span class="btn btn-signal eh-btn-sm">Register <span class="arrow">&rarr;</span></span>
         </div>
       </a>
 
       <a href="events.html" class="eh-card">
         <div class="eh-thumb">
-          <img class="eh-thumb-img" src="assets/images/training-field.jpg" alt="" loading="lazy" />
+          <div class="eh-thumb-img" style="background:url('assets/images/Rope Rescue.jpg') center/cover no-repeat;width:100%;height:100%;"></div>
           <div class="eh-date"><span class="eh-day">[ 00 ]</span><span class="eh-mon">[ MON ]</span></div>
-          <span class="eh-tag t-course">Public Course</span>
+
         </div>
-        <h3 class="eh-title">Intro To Technical Rope</h3>
-        <div class="eh-meta"><span>Hands-On &middot; Beginner</span><span>[ Location ]</span><span>[ Time ]</span></div>
+        <h3 class="eh-title">Technical Rope Rescue Fundamentals</h3>
+        <p class="eh-desc">Introduction to rescue systems, anchors, hauling, lowering, patient packaging, and team-based rope rescue operations.</p>
+        <div class="eh-meta"><span>Rescue Focused</span><span>Team-Based</span><span>All Equipment Included</span></div>
         <div class="eh-card-foot">
-          <span class="eh-price">$[ ___ ]</span>
+          <span class="eh-price">$175<small>Donation</small></span>
           <span class="btn btn-signal eh-btn-sm">Register <span class="arrow">&rarr;</span></span>
         </div>
       </a>
@@ -2190,50 +2207,40 @@ footer.site-footer .wrap{
     <div class="standard-head">
       <div>
         <div class="eyebrow on-dark">Credentials</div>
-        <h2 class="h-display">The standard others train for</h2>
+        <h2 class="h-display">Trained. Qualified. Ready.</h2>
       </div>
     </div>
 
     <div class="cert-list">
           <div class="cert-row">
             <span class="cert-row-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"><path d="M 12 2 L 21 6 L 21 13 C 21 17, 17 20, 12 22 C 7 20, 3 17, 3 13 L 3 6 Z"/><circle cx="12" cy="12" r="3"/><line x1="12" y1="8" x2="12" y2="9"/><line x1="12" y1="15" x2="12" y2="16"/></svg></span>
-            <span class="cert-row-abbr">NASAR</span>
-            <span class="cert-row-name">National Association for Search &amp; Rescue</span>
-          </div>
-          <div class="cert-row">
-            <span class="cert-row-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="miter" stroke-linecap="square"><path d="M 12 2 C 14 7, 18 8, 17 13 C 19 12, 20 14, 20 16 C 20 20, 16.5 22, 12 22 C 7.5 22, 4 20, 4 16 C 4 13, 6 11, 8 11 C 6 7, 8 4, 12 2 Z"/></svg></span>
-            <span class="cert-row-abbr">NFPA</span>
-            <span class="cert-row-name">Compliant Operations · Standards 1006 / 1670</span>
-          </div>
-          <div class="cert-row">
-            <span class="cert-row-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"><circle cx="12" cy="12" r="9"/><path d="M 12 3 L 13.7 8.5 L 19.5 8.5 L 14.9 11.9 L 16.6 17.4 L 12 14 L 7.4 17.4 L 9.1 11.9 L 4.5 8.5 L 10.3 8.5 Z"/></svg></span>
-            <span class="cert-row-abbr">FEMA</span>
-            <span class="cert-row-name">Federal Emergency Management Agency</span>
-          </div>
-          <div class="cert-row">
-            <span class="cert-row-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"><path d="M 12 2 L 20 5 L 20 13 C 20 18, 16 21, 12 22 C 8 21, 4 18, 4 13 L 4 5 Z"/><path d="M 12 8 L 13 11 L 16 11 L 13.5 13 L 14.5 16 L 12 14 L 9.5 16 L 10.5 13 L 8 11 L 11 11 Z"/></svg></span>
-            <span class="cert-row-abbr">DHS</span>
-            <span class="cert-row-name">U.S. Department of Homeland Security</span>
+            <span class="cert-row-abbr">Search &amp; Rescue</span>
+            <span class="cert-row-name">NASAR &middot; SARTECH</span>
           </div>
           <div class="cert-row">
             <span class="cert-row-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"><path d="M 8 3 L 8 17 A 4 4 0 0 0 16 17 L 16 10"/><line x1="16" y1="3" x2="16" y2="8"/><line x1="14" y1="10" x2="18" y2="10"/><circle cx="8" cy="3" r="1.2"/></svg></span>
-            <span class="cert-row-abbr">RRO/RRT</span>
-            <span class="cert-row-name">Rope Rescue Operations &amp; Technician</span>
-          </div>
-          <div class="cert-row">
-            <span class="cert-row-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5" fill="currentColor"/><line x1="12" y1="1" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="23"/><line x1="1" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="23" y2="12"/></svg></span>
-            <span class="cert-row-abbr">SARTECH</span>
-            <span class="cert-row-name">Search &amp; Rescue Technician · NASAR</span>
+            <span class="cert-row-abbr">Technical Rescue</span>
+            <span class="cert-row-name">RRO &middot; RRT &middot; NFPA-Based Training / NFPA 1006 Technical Rescuer Professional Qualifications / NFPA 1670 Technical Rescue Operations &amp; Training Standards</span>
           </div>
           <div class="cert-row">
             <span class="cert-row-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"><rect x="3" y="3" width="18" height="18"/><line x1="12" y1="7" x2="12" y2="17"/><line x1="7" y1="12" x2="17" y2="12"/></svg></span>
-            <span class="cert-row-abbr">WFR</span>
-            <span class="cert-row-name">Wilderness First Responder</span>
+            <span class="cert-row-abbr">Wilderness Medicine</span>
+            <span class="cert-row-name">WFR &middot; CPR &middot; First Aid</span>
+          </div>
+          <div class="cert-row">
+            <span class="cert-row-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"><path d="M 12 3 L 20 6 L 20 13 C 20 17.5 16.5 21 12 22 C 7.5 21 4 17.5 4 13 L 4 6 Z"/><line x1="12" y1="9" x2="12" y2="15"/><line x1="9" y1="12" x2="15" y2="12"/></svg></span>
+            <span class="cert-row-abbr">Emergency Management</span>
+            <span class="cert-row-name">ICS &middot; NIMS &middot; FEMA</span>
           </div>
           <div class="cert-row">
             <span class="cert-row-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"><path d="M 2 8 C 5 5, 8 11, 12 8 S 19 5, 22 8"/><path d="M 2 14 C 5 11, 8 17, 12 14 S 19 11, 22 14"/><path d="M 2 20 C 5 17, 8 23, 12 20 S 19 17, 22 20"/></svg></span>
-            <span class="cert-row-abbr">SWR</span>
-            <span class="cert-row-name">Swift Water Rescue Technician</span>
+            <span class="cert-row-abbr">Water Rescue</span>
+            <span class="cert-row-name">Swiftwater Rescue Technician</span>
+          </div>
+          <div class="cert-row">
+            <span class="cert-row-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5" fill="currentColor"/><line x1="12" y1="1" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="23"/><line x1="1" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="23" y2="12"/></svg></span>
+            <span class="cert-row-abbr">Professional Development</span>
+            <span class="cert-row-name">Ongoing skills maintenance and continuing education</span>
           </div>
     </div>
   </div>
@@ -2241,7 +2248,7 @@ footer.site-footer .wrap{
 
 <!-- ============ TRAINED TO RESPOND (about) ============ -->
 <section class="about" id="about">
-  <img class="about-diagram" src="assets/images/diagram.png" alt="" aria-hidden="true" />
+  <img class="about-diagram" src="assets/images/diagram.png" alt="" aria-hidden="true" loading="lazy" />
   <div class="about-photo ph" aria-hidden="true" style="background-image:url('assets/images/what-we-do.jpg'); background-size:cover; background-position:center top;">
     <span class="ph-cnr-tr"></span>
     <span class="ph-cnr-bl"></span>
@@ -2251,17 +2258,19 @@ footer.site-footer .wrap{
     <div class="eyebrow on-dark">Our Mission</div>
     <h2 class="h-display">Trained to <span class="accent">respond</span>, built to rescue</h2>
     <p>
-      SAR OPS was built on a foundation of service, courage, and community. Our <strong>100% volunteer team</strong> is certified in technical rope rescue, swift water rescue, wilderness first response, EMS response, and urban SAR.
+      SAR OPS was built on a foundation of service, professionalism, and community. Our volunteer responders train in technical rescue, wilderness operations, emergency medical care, swiftwater rescue, search operations, and incident management to safely operate in challenging environments.
     </p>
     <p>
-      Every call we answer is a life that matters, and we respond with urgency, empathy, and elite training.
+      Every mission represents a person, a family, and a community in need. We respond with professionalism, compassion, and a commitment to excellence.
     </p>
 
     <div class="about-pillars">
       <div class="pillar"><span class="pillar-text">Rapid Deployment</span></div>
-      <div class="pillar"><span class="pillar-text">NFPA-Compliant Operations</span></div>
       <div class="pillar"><span class="pillar-text">Volunteer-Powered Rescue</span></div>
-      <div class="pillar"><span class="pillar-text">Cutting-Edge Techniques</span></div>
+      <div class="pillar"><span class="pillar-text">Standards-Based Training</span></div>
+      <div class="pillar"><span class="pillar-text">Technical Rescue Expertise</span></div>
+      <div class="pillar" style="grid-column:1;"><span class="pillar-text">Incident Management Training</span></div>
+      <div class="pillar donate-pillar"><a href="donate.html" class="nav-donate btn" style="border:2px solid var(--signal-2);padding:11px 22px;color:var(--white);">Donate <span class="arrow">&rarr;</span></a></div>
     </div>
   </div>
 </section>
@@ -2272,25 +2281,25 @@ footer.site-footer .wrap{
     <div class="loc-grid">
       <div>
         <div class="eyebrow on-dark">Operational Footprint</div>
-        <h3 class="loc-h">Two states, one standing team, always ready</h3>
+        <h3 class="loc-h">Positioned to respond</h3>
       </div>
       <div class="loc-card">
         <svg class="loc-card-map" viewBox="-2 -2 104 204" aria-hidden="true">
           <path d="M 5 5 L 38 5 L 38 60 L 95 145 L 95 188 L 62 195 L 50 175 L 40 165 L 28 155 L 15 130 L 10 90 L 5 55 Z"/>
           <circle cx="51" cy="156" r="6.5"/>
         </svg>
-        <span class="loc-card-meta">Base 01 · West Range</span>
+        <span class="loc-card-meta">Base 01</span>
         <span class="loc-card-name">Conejo Valley</span>
-        <span class="loc-card-region">California · 91307</span>
+        <span class="loc-card-region">Southern California Operations</span>
       </div>
       <div class="loc-card">
         <svg class="loc-card-map" viewBox="-2 -2 104 114" aria-hidden="true">
           <path d="M 0 0 L 100 0 L 100 105 L 15 105 L 3 90 L 0 50 L 4 20 Z"/>
           <circle cx="3" cy="36" r="6.5"/>
         </svg>
-        <span class="loc-card-meta">Base 02 · East Range</span>
+        <span class="loc-card-meta">Base 02</span>
         <span class="loc-card-name">Bullhead City</span>
-        <span class="loc-card-region">Arizona · 86422</span>
+        <span class="loc-card-region">Arizona Operations</span>
       </div>
     </div>
   </div>
@@ -2298,14 +2307,14 @@ footer.site-footer .wrap{
 
 <!-- ============ CONTACT ============ -->
 <section class="contact" id="contact">
-  <img class="contact-diagram" src="assets/images/diagram.png" alt="" aria-hidden="true" />
+  <img class="contact-diagram" src="assets/images/diagram.png" alt="" aria-hidden="true" loading="lazy" />
   <div class="wrap">
     <div class="contact-grid">
       <div class="contact-text">
         <div class="eyebrow on-dark">Get In Touch</div>
-        <h2 class="h-display">Need our team, or want to join it?</h2>
+        <h2 class="h-display">Need assistance or want to serve?</h2>
         <p>
-          Whether you&rsquo;re an agency requesting assistance, a community partner exploring training, or a prospective volunteer looking to serve, reach out below.
+          Whether you&rsquo;re an agency requesting support, a community partner exploring training opportunities, or a prospective volunteer looking to serve, we&rsquo;d be glad to hear from you.
         </p>
 
         <div class="contact-info">
@@ -2314,13 +2323,18 @@ footer.site-footer .wrap{
             <span class="value">Commander@SAROPS.org</span>
           </div>
           <div class="row">
-            <span class="label">Bases</span>
-            <span class="value">California · Arizona</span>
+            <span class="label">Operational Area</span>
+            <span class="value">California + Arizona</span>
           </div>
           <div class="row">
             <span class="label">Status</span>
-            <span class="value">24/7 · Mission Ready</span>
+            <span class="value">Volunteer Response Team</span>
           </div>
+        </div>
+
+        <div class="emergency">
+          <span class="x" aria-hidden="true">!</span>
+          <p><strong>For active emergencies, dial 911 first.</strong> SAR OPS deploys at the request of public safety agencies. This form is not monitored for live emergencies.</p>
         </div>
       </div>
 
@@ -2345,10 +2359,12 @@ footer.site-footer .wrap{
             <label for="cf-reason">Reason for Contact</label>
             <select id="cf-reason" name="reason">
               <option>General Inquiry</option>
-              <option>Agency Request</option>
-              <option>Volunteer Interest</option>
-              <option>Sponsorship</option>
-              <option>Training</option>
+              <option>Volunteer Opportunities</option>
+              <option>Training &amp; Classes</option>
+              <option>Community Partnership</option>
+              <option>Agency Coordination</option>
+              <option>Donations &amp; Sponsorships</option>
+              <option>Media Inquiry</option>
             </select>
           </div>
         </div>
@@ -2376,7 +2392,7 @@ footer.site-footer .wrap{
       <div class="footer-brand">
         <a href="#" class="brand">
           <span class="brand-mark footer-mark" aria-hidden="true">
-            <img src="assets/images/hq-front.png" alt="" />
+            <img src="assets/images/hq-front.png" alt="" loading="lazy" />
           </span>
         </a>
       </div>
@@ -2391,15 +2407,15 @@ footer.site-footer .wrap{
           <li><a href="shop.html">Shop</a></li>
           <li><a href="about.html">About</a></li>
           <li><a href="contact.html">Contact</a></li>
-          <li><a href="donate.html">Donate</a></li>
+          <li><a href="donate.html" class="nav-donate">Donate</a></li>
         </ul>
       </div>
 
       <div class="footer-col">
         <h4>Contact</h4>
         <div class="info-line"><strong>Commander@SAROPS.org</strong></div>
-        <div class="info-line" style="margin-top:16px;">Conejo Valley, CA 91307</div>
-        <div class="info-line">Bullhead City, AZ 86422</div>
+        <div class="info-line" style="margin-top:16px;">Conejo Valley, CA</div>
+        <div class="info-line">Bullhead City, AZ</div>
       </div>
 
       <div class="footer-col">
@@ -2407,17 +2423,22 @@ footer.site-footer .wrap{
         <div class="info-line"><strong>501(c)(3) Nonprofit</strong></div>
         <div class="info-line">100% Volunteer Powered</div>
         <div class="info-line">Operational 24 / 7 · 365</div>
+        <div class="info-line">ICS / NIMS</div>
       </div>
     </div>
 
     <div class="footer-bottom">
-      <div>&copy; 2026 SAR OPS · All rights reserved.</div>
-      <div>Website by <a href="#">Proper Websites</a></div>
+      <div class="footer-legal">SAR OPS is a registered 501(c)(3) nonprofit organization. Donations may be tax-deductible as permitted by law.</div>
+      <div class="footer-bottom-row">
+        <div>&copy; <span id="copyright-year"></span> SAR OPS · All rights reserved.</div>
+        <div>Website by <a href="#">Proper Websites</a></div>
+      </div>
     </div>
   </div>
 </footer>
 
 <script>
+  document.getElementById('copyright-year').textContent = new Date().getFullYear();
   const menuBtn = document.getElementById('menuBtn');
   const mobileNav = document.getElementById('mobileNav');
   const mobileClose = document.getElementById('mobileClose');

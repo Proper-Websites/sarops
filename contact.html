@@ -25,7 +25,7 @@
 *{ box-sizing:border-box; margin:0; padding:0; }
 html{ scroll-behavior:smooth; }
 body{ font-family:var(--body); font-size:16px; line-height:1.6; color:var(--white); background:var(--navy); -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility; }
-img{ max-width:100%; display:block; }
+img{ max-width:100%; display:block; -webkit-user-drag:none; user-select:none; }
 a{ color:inherit; text-decoration:none; }
 button{ font:inherit; cursor:pointer; border:none; background:none; color:inherit; }
 .wrap{ width:100%; max-width:var(--wrap); margin:0 auto; padding:0 44px; }
@@ -57,6 +57,8 @@ nav.primary a:not(.nav-donate):hover::after, nav.primary a.active:not(.nav-donat
 nav.primary .nav-donate{ border:2px solid var(--signal-2); padding:11px 22px; color:var(--white); transition:background .2s ease, border-color .2s ease, color .2s ease; }
 nav.primary .nav-donate:hover{ background:var(--signal); border-color:var(--signal); color:var(--white); }
 nav.primary .nav-donate::after{ display:none; }
+.footer-col ul a.nav-donate{ border:2px solid var(--signal-2); padding:14px 30px; color:var(--white); transition:background .2s ease, border-color .2s ease; margin-top:4px; display:inline-block; }
+.footer-col ul a.nav-donate:hover{ background:var(--signal); border-color:var(--signal); color:var(--white); }
 .menu-btn{ display:none; width:48px; height:48px; align-items:center; justify-content:center; color:var(--white); }
 .menu-btn svg{ width:28px; height:28px; }
 .mobile-nav{ display:none; position:fixed; inset:0; background:var(--navy); z-index:60; padding:96px 32px 40px; flex-direction:column; gap:4px; }
@@ -77,7 +79,7 @@ nav.primary .nav-donate::after{ display:none; }
 .btn-dark:hover{ background:var(--steel); border-color:var(--steel); }
 
 /* PAGE HERO */
-.page-hero{ position:relative; background-color:var(--navy); background-image:url('assets/images/about-hero-crop.jpg'); background-size:cover; background-position:center center; background-attachment:fixed; border-top:2px solid var(--signal); border-bottom:2px solid var(--signal); min-height:54vh; display:flex; }
+.page-hero{ position:relative; background-color:var(--navy); background-image:url('assets/images/Contact.jpg'); background-size:cover; background-position:center; background-attachment:fixed; border-top:2px solid var(--signal); border-bottom:2px solid var(--signal); min-height:54vh; display:flex; }
 .page-hero::after{ content:""; position:absolute; inset:0; background:
   linear-gradient(180deg, rgba(15,25,36,0.62) 0px, rgba(15,25,36,0) 280px),
   linear-gradient(0deg, rgba(15,25,36,0.95) 0%, rgba(15,25,36,0.66) 44%, rgba(15,25,36,0.3) 76%, rgba(15,25,36,0.16) 100%);
@@ -113,6 +115,14 @@ form.contact-form textarea{ min-height:150px; resize:vertical; }
 form.contact-form .submit-row{ display:flex; justify-content:space-between; align-items:center; gap:18px; margin-top:12px; flex-wrap:wrap; }
 form.contact-form .form-note{ font-family:var(--mono); font-size:0.72rem; color:var(--copy); max-width:280px; line-height:1.5; text-transform:uppercase; letter-spacing:0.05em; }
 
+/* HELP WITH */
+.help-with{ margin-top:44px; padding-top:36px; border-top:1px solid var(--line-dark); }
+.help-with-label{ font-family:var(--mono); font-size:0.62rem; letter-spacing:0.22em; text-transform:uppercase; color:rgba(255,255,255,0.45); margin-bottom:22px; }
+.help-item{ padding:20px 0; border-bottom:1px solid var(--line-dark); }
+.help-item:first-of-type{ border-top:1px solid var(--line-dark); }
+.help-item-name{ font-family:var(--display); font-size:1.1rem; font-weight:700; text-transform:uppercase; color:var(--white); letter-spacing:0.03em; margin-bottom:6px; }
+.help-item-desc{ font-size:0.88rem; color:var(--copy); line-height:1.6; opacity:0.7; }
+
 /* BASES */
 .bases{ background:var(--navy-2); padding:110px 0; border-top:1px solid var(--line-dark); border-bottom:2px solid var(--signal); }
 .bases-head{ display:flex; align-items:flex-end; justify-content:space-between; gap:32px; flex-wrap:wrap; margin-bottom:48px; }
@@ -137,21 +147,23 @@ form.contact-form .form-note{ font-family:var(--mono); font-size:0.72rem; color:
 .join .h-display .accent{ color:var(--signal-2); }
 
 /* FOOTER */
-footer.site-footer{ background:var(--navy-3); color:var(--copy); padding:64px 0 28px; border-top:2px solid var(--signal); position:relative; overflow:hidden; }
+footer.site-footer{ background:var(--navy-3); color:var(--copy); padding:96px 0 48px; border-top:2px solid var(--signal); position:relative; overflow:hidden; }
 footer.site-footer .wrap{ max-width:none; padding:0 48px; }
-.footer-top{ display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:56px; margin-bottom:24px; padding-bottom:240px; border-bottom:1px solid var(--line-dark); align-items:start; }
+.footer-top{ display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:80px; margin-bottom:24px; padding-bottom:240px; border-bottom:1px solid var(--line-dark); align-items:start; }
 .footer-brand .brand{ position:absolute; top:32px; left:48px; width:380px; display:block; pointer-events:none; }
 .footer-brand .brand-mark{ width:100%; height:380px; display:block; }
 .footer-brand .footer-mark img{ object-fit:cover; object-position:18% 38%; width:100%; height:100%; mix-blend-mode:screen; }
-.footer-col h4{ font-family:var(--mono); font-size:0.68rem; letter-spacing:0.22em; text-transform:uppercase; font-weight:500; color:var(--copy); margin-bottom:22px; }
-.footer-col ul{ list-style:none; display:flex; flex-direction:column; gap:12px; }
-.footer-col ul a{ font-family:var(--display); font-size:1.05rem; font-weight:500; text-transform:uppercase; letter-spacing:0.03em; color:var(--white); transition:color .2s ease; }
+.footer-col h4{ font-family:var(--mono); font-size:0.85rem; letter-spacing:0.22em; text-transform:uppercase; font-weight:500; color:var(--copy); margin-bottom:30px; }
+.footer-col ul{ list-style:none; display:flex; flex-direction:column; gap:18px; }
+.footer-col ul a{ font-family:var(--display); font-size:1.35rem; font-weight:500; text-transform:uppercase; letter-spacing:0.03em; color:var(--white); transition:color .2s ease; }
 .footer-col ul a:hover{ color:var(--signal-2); }
-.footer-col .info-line{ font-size:0.94rem; color:var(--copy); line-height:1.7; }
+.footer-col .info-line{ font-size:1.15rem; color:var(--copy); line-height:1.7; }
 .footer-col .info-line strong{ font-family:var(--display); text-transform:uppercase; letter-spacing:0.02em; color:var(--white); font-weight:600; }
-.footer-bottom{ display:flex; justify-content:space-between; align-items:center; gap:18px; flex-wrap:wrap; font-family:var(--mono); font-size:0.72rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--copy); }
+.footer-bottom{ display:flex; flex-direction:column; gap:0; border-top:1px solid var(--line-dark); padding-top:22px; }
+.footer-bottom-row{ display:flex; justify-content:space-between; align-items:center; gap:18px; flex-wrap:wrap; font-family:var(--mono); font-size:0.85rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--copy); }
 .footer-bottom a{ color:var(--white); }
 .footer-bottom a:hover{ color:var(--signal-2); }
+.footer-legal{ font-family:var(--mono); font-size:1rem; letter-spacing:0.06em; text-transform:none; color:rgba(255,255,255,0.65); text-align:center; padding-bottom:18px; margin-bottom:18px; border-bottom:1px solid var(--line-dark); width:100%; }
 
 /* RESPONSIVE */
 @media (max-width:1080px){
@@ -181,11 +193,11 @@ footer.site-footer .wrap{ max-width:none; padding:0 48px; }
   .join .wrap{ flex-direction:column; align-items:center; }
   .footer-top{ grid-template-columns:1fr; gap:36px; text-align:center; padding-bottom:48px; }
   .footer-col ul{ align-items:center; }
-  .footer-bottom{ justify-content:center; text-align:center; }
+  .footer-bottom-row{ justify-content:center; text-align:center; }
 }
 </style>
 </head>
-<body>
+<body oncontextmenu="return false;" ondragstart="return false;">
 
 <!-- TACTICAL BAR -->
 <div class="tactical-bar">
@@ -193,7 +205,7 @@ footer.site-footer .wrap{ max-width:none; padding:0 48px; }
     <div class="tac-group">
       <span class="tac-tag tac-primary"><span class="tac-dot"></span>SAR OPS</span>
       <span class="tac-divider">//</span>
-      <span class="tac-tag">Search &amp; Rescue &middot; Ground Unit</span>
+      <span class="tac-tag">Search &amp; Rescue &middot; Urban, Wilderness, Swift Water</span>
     </div>
   </div>
 </div>
@@ -236,8 +248,8 @@ footer.site-footer .wrap{ max-width:none; padding:0 48px; }
 <section class="page-hero">
   <div class="wrap">
     <div class="eyebrow">Get In Touch</div>
-    <h1>Message <span class="accent">us</span></h1>
-    <p class="page-hero-lede">Whether you are an agency requesting assistance, a community partner exploring training, a prospective volunteer, or a sponsor, reach out and our team will respond.</p>
+    <h1>Reach <span class="accent">the team</span></h1>
+    <p class="page-hero-lede">Whether you&rsquo;re an agency requesting support, a community partner exploring training opportunities, or a prospective volunteer looking to serve, we&rsquo;d be glad to hear from you.</p>
   </div>
 </section>
 
@@ -247,18 +259,38 @@ footer.site-footer .wrap{ max-width:none; padding:0 48px; }
     <div class="contact-grid">
       <div class="contact-text">
         <div class="eyebrow">Reach Command</div>
-        <h2 class="h-display">We answer every message</h2>
-        <p>Tell us who you are and how we can help. For agency requests, include the nature of the incident and your contact on scene.</p>
+        <h2 class="h-display">Need assistance or want to serve?</h2>
+        <p>Tell us who you are and how we can help. Every inquiry is reviewed by a member of our command staff.</p>
 
         <div class="contact-info">
           <div class="row"><span class="label">Email</span><span class="value">Commander@SAROPS.org</span></div>
-          <div class="row"><span class="label">Bases</span><span class="value">California &middot; Arizona</span></div>
-          <div class="row"><span class="label">Status</span><span class="value">24/7 &middot; Mission Ready</span></div>
+          <div class="row"><span class="label">Operational Area</span><span class="value">California + Arizona</span></div>
+          <div class="row"><span class="label">Status</span><span class="value">Volunteer Response Team</span></div>
         </div>
 
         <div class="emergency">
           <span class="x" aria-hidden="true">!</span>
           <p><strong>For active emergencies, dial 911 first.</strong> SAR OPS deploys at the request of public safety agencies. This form is not monitored for live emergencies.</p>
+        </div>
+
+        <div class="help-with">
+          <div class="help-with-label">What can we help with?</div>
+          <div class="help-item">
+            <div class="help-item-name">Agency Coordination</div>
+            <div class="help-item-desc">Joint training exercises, mutual aid discussions, operational capability briefings.</div>
+          </div>
+          <div class="help-item">
+            <div class="help-item-name">Volunteer Opportunities</div>
+            <div class="help-item-desc">Learn about current openings, training requirements, and onboarding.</div>
+          </div>
+          <div class="help-item">
+            <div class="help-item-name">Training &amp; Classes</div>
+            <div class="help-item-desc">Public courses, rope rescue training, wilderness preparedness, and custom instruction.</div>
+          </div>
+          <div class="help-item">
+            <div class="help-item-name">Sponsorship &amp; Partnerships</div>
+            <div class="help-item-desc">Support SAR OPS through sponsorships, donations, equipment partnerships, or community collaboration.</div>
+          </div>
         </div>
       </div>
 
@@ -282,10 +314,12 @@ footer.site-footer .wrap{ max-width:none; padding:0 48px; }
             <label for="cf-reason">Reason for Contact</label>
             <select id="cf-reason" name="reason">
               <option>General Inquiry</option>
-              <option>Agency Request</option>
-              <option>Volunteer Interest</option>
-              <option>Sponsorship</option>
+              <option>Volunteer Opportunities</option>
               <option>Training &amp; Classes</option>
+              <option>Community Partnership</option>
+              <option>Agency Coordination</option>
+              <option>Donations &amp; Sponsorships</option>
+              <option>Media Inquiry</option>
             </select>
           </div>
         </div>
@@ -310,7 +344,7 @@ footer.site-footer .wrap{ max-width:none; padding:0 48px; }
     <div class="bases-head">
       <div>
         <div class="eyebrow">Operational Footprint</div>
-        <h2 class="h-display">Two states. One standing team</h2>
+        <h2 class="h-display">Positioned to respond</h2>
       </div>
       <p>SAR OPS maintains bases across California and Arizona, ready to deploy across the regions we serve.</p>
     </div>
@@ -321,9 +355,9 @@ footer.site-footer .wrap{ max-width:none; padding:0 48px; }
           <circle cx="51" cy="156" r="6.5"/>
         </svg>
         <div>
-          <div class="base-meta">Base 01 &middot; West Range</div>
+          <div class="base-meta">Base 01</div>
           <div class="base-name">Conejo Valley</div>
-          <div class="base-region">California &middot; 91307</div>
+          <div class="base-region">Southern California Operations</div>
         </div>
       </div>
       <div class="base">
@@ -332,9 +366,9 @@ footer.site-footer .wrap{ max-width:none; padding:0 48px; }
           <circle cx="3" cy="36" r="6.5"/>
         </svg>
         <div>
-          <div class="base-meta">Base 02 &middot; East Range</div>
+          <div class="base-meta">Base 02</div>
           <div class="base-name">Bullhead City</div>
-          <div class="base-region">Arizona &middot; 86422</div>
+          <div class="base-region">Arizona Operations</div>
         </div>
       </div>
     </div>
@@ -367,30 +401,35 @@ footer.site-footer .wrap{ max-width:none; padding:0 48px; }
           <li><a href="shop.html">Shop</a></li>
           <li><a href="about.html">About</a></li>
           <li><a href="contact.html">Contact</a></li>
-          <li><a href="donate.html">Donate</a></li>
+          <li><a href="donate.html" class="nav-donate">Donate</a></li>
         </ul>
       </div>
       <div class="footer-col">
         <h4>Contact</h4>
         <div class="info-line"><strong>Commander@SAROPS.org</strong></div>
-        <div class="info-line" style="margin-top:16px;">Conejo Valley, CA 91307</div>
-        <div class="info-line">Bullhead City, AZ 86422</div>
+        <div class="info-line" style="margin-top:16px;">Conejo Valley, CA</div>
+        <div class="info-line">Bullhead City, AZ</div>
       </div>
       <div class="footer-col">
         <h4>Status</h4>
         <div class="info-line"><strong>501(c)(3) Nonprofit</strong></div>
         <div class="info-line">100% Volunteer Powered</div>
         <div class="info-line">Operational 24 / 7 &middot; 365</div>
+        <div class="info-line">ICS / NIMS</div>
       </div>
     </div>
     <div class="footer-bottom">
-      <div>&copy; 2026 SAR OPS &middot; All rights reserved.</div>
-      <div>Website by <a href="#">Proper Websites</a></div>
+      <div class="footer-legal">SAR OPS is a registered 501(c)(3) nonprofit organization. Donations may be tax-deductible as permitted by law.</div>
+      <div class="footer-bottom-row">
+        <div>&copy; <span id="copyright-year"></span> SAR OPS &middot; All rights reserved.</div>
+        <div>Website by <a href="#">Proper Websites</a></div>
+      </div>
     </div>
   </div>
 </footer>
 
 <script>
+  document.getElementById('copyright-year').textContent = new Date().getFullYear();
   const menuBtn = document.getElementById('menuBtn');
   const mobileNav = document.getElementById('mobileNav');
   const mobileClose = document.getElementById('mobileClose');

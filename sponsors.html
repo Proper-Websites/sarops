@@ -25,7 +25,7 @@
 *{ box-sizing:border-box; margin:0; padding:0; }
 html{ scroll-behavior:smooth; }
 body{ font-family:var(--body); font-size:16px; line-height:1.6; color:var(--white); background:var(--navy); -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility; }
-img{ max-width:100%; display:block; }
+img{ max-width:100%; display:block; -webkit-user-drag:none; user-select:none; }
 a{ color:inherit; text-decoration:none; }
 button{ font:inherit; cursor:pointer; border:none; background:none; color:inherit; }
 .wrap{ width:100%; max-width:var(--wrap); margin:0 auto; padding:0 44px; }
@@ -57,6 +57,8 @@ nav.primary a:not(.nav-donate):hover::after, nav.primary a.active:not(.nav-donat
 nav.primary .nav-donate{ border:2px solid var(--signal-2); padding:11px 22px; color:var(--white); transition:background .2s ease, border-color .2s ease, color .2s ease; }
 nav.primary .nav-donate:hover{ background:var(--signal); border-color:var(--signal); color:var(--white); }
 nav.primary .nav-donate::after{ display:none; }
+.footer-col ul a.nav-donate{ border:2px solid var(--signal-2); padding:14px 30px; color:var(--white); transition:background .2s ease, border-color .2s ease; margin-top:4px; display:inline-block; }
+.footer-col ul a.nav-donate:hover{ background:var(--signal); border-color:var(--signal); color:var(--white); }
 .menu-btn{ display:none; width:48px; height:48px; align-items:center; justify-content:center; color:var(--white); }
 .menu-btn svg{ width:28px; height:28px; }
 .mobile-nav{ display:none; position:fixed; inset:0; background:var(--navy); z-index:60; padding:96px 32px 40px; flex-direction:column; gap:4px; }
@@ -81,9 +83,10 @@ nav.primary .nav-donate::after{ display:none; }
   linear-gradient(0deg, rgba(15,25,36,0.94) 0%, rgba(15,25,36,0.62) 42%, rgba(15,25,36,0.28) 74%, rgba(15,25,36,0.14) 100%);
   pointer-events:none; z-index:0; }
 .page-hero .wrap{ position:relative; z-index:1; display:flex; flex-direction:column; justify-content:flex-end; padding-top:210px; padding-bottom:60px; width:100%; }
-.page-hero h1{ font-family:var(--display); font-weight:700; text-transform:uppercase; line-height:0.9; letter-spacing:-0.005em; font-size:clamp(2.9rem, 7.4vw, 6.2rem); margin:22px 0 0; max-width:15ch; text-shadow:0 2px 24px rgba(0,0,0,0.4); }
+.page-hero h1{ font-family:var(--display); font-weight:700; text-transform:uppercase; line-height:0.9; letter-spacing:-0.005em; font-size:clamp(2.6rem, 6.4vw, 5.4rem); margin:22px 0 0; max-width:15ch; text-shadow:0 2px 24px rgba(0,0,0,0.4); }
 .page-hero h1 .accent{ display:inline-block; border-bottom:5px solid var(--signal); padding-bottom:6px; }
 .page-hero-lede{ font-size:1.08rem; line-height:1.65; color:var(--copy); max-width:620px; margin-top:26px; text-shadow:0 1px 16px rgba(0,0,0,0.5); }
+.page-hero-note{ font-size:0.92rem; line-height:1.6; color:rgba(255,255,255,0.66); max-width:620px; margin-top:18px; text-shadow:0 1px 16px rgba(0,0,0,0.5); }
 .page-hero-meta{ display:flex; gap:30px; flex-wrap:wrap; margin-top:34px; padding-top:24px; border-top:1px solid var(--line-dark); font-family:var(--mono); font-size:0.72rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--white); }
 .page-hero-meta .pm{ display:inline-flex; align-items:center; gap:10px; }
 .page-hero-meta .pm-dot{ width:8px; height:8px; background:var(--signal); border-radius:50%; }
@@ -92,8 +95,8 @@ nav.primary .nav-donate::after{ display:none; }
 .why{ background:var(--navy-2); padding:120px 0; border-bottom:1px solid var(--line-dark); }
 .why-grid{ display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:start; }
 .why-grid .h-display{ font-size:clamp(2.2rem,4.2vw,3.4rem); max-width:460px; }
-.why-statement{ font-family:var(--display); font-weight:600; text-transform:uppercase; font-size:clamp(1.4rem,2.2vw,1.9rem); line-height:1.12; color:var(--white); margin-bottom:26px; letter-spacing:-0.005em; }
-.why-statement .muted{ color:var(--steel-2); }
+.why-statement{ font-family:var(--display); font-weight:800; text-transform:uppercase; font-size:clamp(2.37rem,4vw,3.37rem); line-height:1.12; color:var(--white); margin-bottom:30px; letter-spacing:-0.005em; padding-left:24px; border-left:5px solid var(--signal); }
+.why-statement .muted{ color:#A9BED0; }
 .why-grid p{ color:var(--copy); font-size:1.04rem; line-height:1.7; max-width:520px; }
 
 /* SPONSOR WALL */
@@ -101,10 +104,20 @@ nav.primary .nav-donate::after{ display:none; }
 .wall-head{ text-align:center; margin-bottom:56px; }
 .wall-head .eyebrow{ justify-content:center; }
 .wall-head .h-display{ font-size:clamp(2rem,3.6vw,3rem); margin-top:14px; }
-.wall-grid{ display:flex; flex-wrap:wrap; justify-content:center; gap:24px; }
-.wall-cell{ flex:1 1 240px; max-width:300px; min-height:150px; display:flex; align-items:center; justify-content:center; padding:30px 40px; }
-.wall-cell img{ max-height:66px; max-width:100%; width:auto; opacity:0.95; transition:opacity .25s ease, transform .25s ease; }
+.wall-grid{ display:grid; grid-template-columns:repeat(3,1fr); border-top:1px solid var(--line-dark); border-left:1px solid var(--line-dark); border-radius:0; overflow:hidden; }
+.wall-cell{ min-height:150px; display:flex; align-items:center; justify-content:center; padding:30px 16px; border-right:1px solid var(--line-dark); border-bottom:1px solid var(--line-dark); }
+.wall-cell img{ max-height:54px; max-width:172px; width:auto; opacity:0.95; transition:opacity .25s ease, transform .25s ease; }
+.wall-cell img[src*="CMC"]{ max-height:90px; max-width:220px; }
 .wall-cell:hover img{ opacity:1; transform:translateY(-2px); }
+/* Per-logo optical balancing: wide wordmarks reined in, compact marks bumped up
+   so every logo reads at roughly the same visual size. */
+.wall-cell img[src*="motorola"]{ max-height:42px; max-width:188px; }
+.wall-cell img[src*="rock-exotica"]{ max-height:48px; max-width:196px; }
+.wall-cell img[src*="copquest"]{ max-height:60px; max-width:210px; }
+.wall-cell img[src*="petzl"]{ max-height:58px; }
+.wall-cell img[src*="sterling"]{ max-height:68px; }
+.wall-cell img[src*="wrap-shop"]{ max-height:74px; }
+.wall-cell img[src*="lapg"]{ max-height:50px; max-width:182px; }
 
 /* IMPACT */
 .impact{ background:var(--navy-3); padding:120px 0; border-top:1px solid var(--line-dark); border-bottom:1px solid var(--line-dark); }
@@ -120,13 +133,81 @@ nav.primary .nav-donate::after{ display:none; }
 .impact-name{ font-family:var(--display); font-size:clamp(1.6rem,2.4vw,2.1rem); font-weight:700; text-transform:uppercase; color:var(--white); line-height:1; }
 .impact-desc{ color:var(--copy); font-size:1rem; line-height:1.6; max-width:420px; }
 
+/* READINESS PARTNERS — vertical cards (portrait photos sit tall, no bad crop) */
+.rp{ padding:120px 0; }
+.rp-head{ max-width:720px; }
+.rp-head .h-display{ font-size:clamp(2.2rem,4.2vw,3.4rem); margin-top:16px; }
+.rp-head p{ color:var(--copy); margin-top:18px; max-width:600px; line-height:1.65; }
+.rp-list{ display:flex; flex-wrap:wrap; justify-content:center; gap:18px; margin-top:56px; }
+.rp-card{ flex:0 1 calc((100% - 36px)/3); display:flex; flex-direction:column; background:var(--navy-2); border:1px solid var(--line-dark); overflow:hidden; }
+.rp-photo{ width:100%; overflow:hidden; border-bottom:1px solid var(--line-dark); }
+.rp-photo img{ width:100%; height:auto; object-fit:unset; display:block; }
+.rp-photo:has(img[src*="Petzl"]){ height:660px; }
+.rp-photo:has(img[src*="Petzl"]) img{ height:100%; object-fit:cover; object-position:center top; }
+.rp-photo img[src*="Petzl Sponsor"]{ height:100%; object-fit:cover; object-position:center top; }
+.rp-photo:has(img[src*="motorola-photo"]),.rp-photo:has(img[src*="h3r-photo"]){ height:660px; }
+.rp-photo:has(img[src*="motorola-photo"]) img,.rp-photo:has(img[src*="h3r-photo"]) img{ height:100%; object-fit:cover; object-position:center bottom; }
+.rp-photo.placeholder{ display:flex; align-items:center; justify-content:center; background:rgba(255,255,255,0.03); border-bottom:1px dashed rgba(255,255,255,0.22); }
+.rp-photo.placeholder span{ font-family:var(--mono); font-size:0.62rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--steel-2); text-align:center; line-height:1.7; padding:18px; }
+.rp-body{ padding:24px 26px 30px; display:flex; flex-direction:column; gap:10px; }
+.rp-logo{ height:38px; display:flex; align-items:center; margin-bottom:4px; }
+.rp-logo img{ max-height:38px; max-width:150px; width:auto; }
+.rp-role{ font-family:var(--mono); font-size:0.68rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--signal); }
+.rp-name{ font-family:var(--display); font-weight:800; text-transform:uppercase; font-size:1.5rem; line-height:1.02; color:var(--white); }
+.rp-desc{ color:var(--copy); line-height:1.6; font-size:0.95rem; }
+
+/* HORIZONTAL VARIANT for last two rp-cards */
+.rp-card--horiz{ flex:0 1 calc((100% - 18px)/2); flex-direction:column; }
+.rp-card--horiz .rp-photo{ width:100%; flex:none; border-bottom:1px solid var(--line-dark); order:1; aspect-ratio:4/3; }
+.rp-card--horiz .rp-photo img{ width:100%; height:100%; object-fit:cover; object-position:center; display:block; }
+.rp-card--horiz .rp-photo:has(img[src*="Sterling"]){ background:var(--navy-3); }
+.rp-card--horiz .rp-photo:has(img[src*="Sterling"]) img{ object-fit:contain; }
+.rp-card--horiz .rp-body{ flex:1; order:2; }
+@media (max-width:1080px){
+  .rp-card--horiz{ flex:0 1 100%; }
+}
+@media (max-width:720px){
+  .rp-card--horiz .rp-photo{ height:180px; }
+}
+
+/* COMMUNITY PARTNERS */
+.cp{ padding:110px 0; background:var(--navy-3); border-top:1px solid var(--line-dark); border-bottom:1px solid var(--line-dark); }
+.cp-head{ max-width:720px; margin:0 auto 48px; text-align:center; }
+.cp-head .eyebrow{ justify-content:center; }
+.cp-head .h-display{ font-size:clamp(2.2rem,4.2vw,3.4rem); margin-top:16px; text-wrap:balance; }
+.cp-head p{ color:var(--copy); margin:14px auto 0; max-width:580px; line-height:1.65; }
+.cp-grid{ display:flex; flex-wrap:wrap; justify-content:center; gap:18px; }
+.cp-item{ flex:0 1 calc((100% - 18px)/2); background:var(--navy-2); border:1px solid var(--line-dark); padding:0 0 30px; display:flex; flex-direction:column; align-items:center; text-align:center; gap:16px; overflow:hidden; }
+.cp-photo{ width:100%; aspect-ratio:3/2; overflow:hidden; border-bottom:1px solid var(--line-dark); margin-bottom:10px; }
+.cp-photo img{ width:100%; height:100%; object-fit:cover; object-position:center; display:block; }
+.cp-photo.placeholder{ aspect-ratio:3/2; position:relative; border-bottom:1px dashed var(--line-dark); background:var(--steel-3); overflow:hidden; }
+.cp-photo.placeholder::before{ content:""; position:absolute; inset:0; background:center/38% no-repeat url('assets/logos/logo.png'); opacity:0.26; }
+.cp-photo.placeholder span{ display:none; }
+.cp-logo{ height:120px; display:flex; align-items:center; justify-content:center; padding:0 26px; width:100%; }
+.cp-logo img{ max-height:54px; max-width:160px; width:auto; }
+.cp-logo img[src*="jiu-jitsu-medic"]{ max-height:120px; max-width:170px; }
+.cp-logo img[src*="CMC"]{ max-height:90px; max-width:200px; }
+.cp-name{ font-family:var(--display); font-weight:700; text-transform:uppercase; font-size:1.7rem; color:var(--white); line-height:1.05; }
+.cp-line{ color:var(--copy); font-size:0.96rem; line-height:1.55; padding:0 26px; }
+
+/* SPONSORSHIP TIERS */
+.tiers{ padding:110px 0; }
+.tiers-head{ max-width:720px; margin-bottom:48px; }
+.tiers-head .h-display{ font-size:clamp(2.2rem,4.2vw,3.4rem); margin-top:16px; }
+.tiers-head p{ color:var(--copy); margin-top:14px; max-width:560px; line-height:1.65; }
+.tier-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:16px; }
+.tier{ background:var(--navy-2); border:1px solid var(--line-dark); border-radius:0; padding:34px 26px; display:flex; flex-direction:column; gap:12px; }
+.tier-mark{ font-family:var(--mono); font-size:0.72rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--signal); }
+.tier-name{ font-family:var(--display); font-weight:700; text-transform:uppercase; font-size:1.35rem; color:var(--white); line-height:1.05; }
+.tier-desc{ color:var(--copy); font-size:0.96rem; line-height:1.55; }
+
 /* TIERS */
 .tiers{ background:var(--panel); padding:120px 0; }
 .tiers-head{ display:flex; align-items:flex-end; justify-content:space-between; gap:32px; flex-wrap:wrap; margin-bottom:8px; padding-bottom:32px; border-bottom:1px solid var(--line-dark); }
 .tiers-head .h-display{ font-size:clamp(2.2rem,4vw,3.2rem); margin-top:14px; max-width:520px; }
 .tiers-head .ph-note{ font-family:var(--mono); font-size:0.66rem; letter-spacing:0.16em; text-transform:uppercase; color:var(--spark); max-width:280px; line-height:1.6; }
 .tier-grid{ display:grid; grid-template-columns:repeat(4,1fr); border-top:1px solid var(--line-dark); }
-.tier{ display:flex; flex-direction:column; gap:24px; padding:40px 30px; border-bottom:1px solid var(--line-dark); border-right:1px solid var(--line-dark); min-height:340px; transition:background .25s ease, padding-top .25s ease; position:relative; }
+.tier{ display:flex; flex-direction:column; align-items:center; text-align:center; gap:12px; padding:30px 28px; border-bottom:1px solid var(--line-dark); border-right:1px solid var(--line-dark); min-height:0; transition:background .25s ease, padding-top .25s ease; position:relative; }
 .tier:first-child{ border-left:1px solid var(--line-dark); }
 .tier:hover{ background:rgba(0,0,0,0.18); padding-top:34px; }
 .tier-meta{ font-family:var(--mono); font-size:0.64rem; letter-spacing:0.24em; text-transform:uppercase; color:var(--copy); }
@@ -155,31 +236,36 @@ nav.primary .nav-donate::after{ display:none; }
 .cta-actions{ display:flex; gap:14px; flex-wrap:wrap; justify-content:center; }
 
 /* FOOTER */
-footer.site-footer{ background:var(--navy-3); color:var(--copy); padding:64px 0 28px; border-top:2px solid var(--signal); position:relative; overflow:hidden; }
+footer.site-footer{ background:var(--navy-3); color:var(--copy); padding:96px 0 48px; border-top:2px solid var(--signal); position:relative; overflow:hidden; }
 footer.site-footer .wrap{ max-width:none; padding:0 48px; }
-.footer-top{ display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:56px; margin-bottom:24px; padding-bottom:240px; border-bottom:1px solid var(--line-dark); align-items:start; }
+.footer-top{ display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:80px; margin-bottom:24px; padding-bottom:240px; border-bottom:1px solid var(--line-dark); align-items:start; }
 .footer-brand .brand{ position:absolute; top:32px; left:48px; width:380px; display:block; pointer-events:none; }
 .footer-brand .brand-mark{ width:100%; height:380px; display:block; }
 .footer-brand .footer-mark img{ object-fit:cover; object-position:18% 38%; width:100%; height:100%; mix-blend-mode:screen; }
-.footer-col h4{ font-family:var(--mono); font-size:0.68rem; letter-spacing:0.22em; text-transform:uppercase; font-weight:500; color:var(--copy); margin-bottom:22px; }
-.footer-col ul{ list-style:none; display:flex; flex-direction:column; gap:12px; }
-.footer-col ul a{ font-family:var(--display); font-size:1.05rem; font-weight:500; text-transform:uppercase; letter-spacing:0.03em; color:var(--white); transition:color .2s ease; }
+.footer-col h4{ font-family:var(--mono); font-size:0.85rem; letter-spacing:0.22em; text-transform:uppercase; font-weight:500; color:var(--copy); margin-bottom:30px; }
+.footer-col ul{ list-style:none; display:flex; flex-direction:column; gap:18px; }
+.footer-col ul a{ font-family:var(--display); font-size:1.35rem; font-weight:500; text-transform:uppercase; letter-spacing:0.03em; color:var(--white); transition:color .2s ease; }
 .footer-col ul a:hover{ color:var(--signal-2); }
-.footer-col .info-line{ font-size:0.94rem; color:var(--copy); line-height:1.7; }
+.footer-col .info-line{ font-size:1.15rem; color:var(--copy); line-height:1.7; }
 .footer-col .info-line strong{ font-family:var(--display); text-transform:uppercase; letter-spacing:0.02em; color:var(--white); font-weight:600; }
-.footer-bottom{ display:flex; justify-content:space-between; align-items:center; gap:18px; flex-wrap:wrap; font-family:var(--mono); font-size:0.72rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--copy); }
+.footer-bottom{ display:flex; flex-direction:column; gap:0; border-top:1px solid var(--line-dark); padding-top:22px; }
+.footer-bottom-row{ display:flex; justify-content:space-between; align-items:center; gap:18px; flex-wrap:wrap; font-family:var(--mono); font-size:0.85rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--copy); }
 .footer-bottom a{ color:var(--white); }
 .footer-bottom a:hover{ color:var(--signal-2); }
+.footer-legal{ font-family:var(--mono); font-size:1rem; letter-spacing:0.06em; text-transform:none; color:rgba(255,255,255,0.65); text-align:center; padding-bottom:18px; margin-bottom:18px; border-bottom:1px solid var(--line-dark); width:100%; }
 
 /* RESPONSIVE */
 @media (max-width:1080px){
   .page-hero{ background-attachment:scroll; }
   .why-grid{ grid-template-columns:1fr; gap:36px; }
-  .wall-cell{ flex:1 1 200px; max-width:260px; }
+  .wall-grid{ grid-template-columns:repeat(2,1fr); }
+  .wall-cell{ padding:30px 10px; }
   .impact-head{ grid-template-columns:1fr; gap:20px; }
   .impact-head p{ justify-self:start; }
   .tier-grid{ grid-template-columns:1fr 1fr; }
   .tier:nth-child(2){ border-right:none; }
+  .rp-card{ flex:0 1 calc((100% - 18px)/2); }
+  .cp-item{ flex:0 1 calc((100% - 18px)/2); }
   .who .wrap{ grid-template-columns:1fr; gap:36px; }
   .footer-top{ grid-template-columns:1fr 1fr; gap:36px; }
   .footer-brand{ grid-column:1 / -1; }
@@ -195,13 +281,17 @@ footer.site-footer .wrap{ max-width:none; padding:0 48px; }
   .page-hero h1{ font-size:clamp(2.8rem,12vw,4.4rem); }
   .why{ padding:72px 0; }
   .wall{ padding:72px 0; }
-  .wall-grid{ gap:16px; }
-  .wall-cell{ flex:1 1 140px; max-width:200px; min-height:120px; padding:24px; }
-  .wall-cell img{ max-height:54px; }
+  .wall-grid{ grid-template-columns:1fr; }
+  .wall-cell{ min-height:84px; padding:18px 8px; }
+  .wall-cell img{ max-height:40px; }
   .impact{ padding:72px 0; }
   .impact-grid{ grid-template-columns:1fr; }
   .impact-item, .impact-item:nth-child(odd), .impact-item:nth-child(even){ padding:30px 0; border-right:none; }
   .impact-item:nth-last-child(2){ border-bottom:1px solid var(--line-dark); }
+  .rp{ padding:72px 0; }
+  .rp-card{ flex:0 1 100%; }
+  .cp{ padding:72px 0; }
+  .cp-item{ flex:0 1 100%; }
   .tiers{ padding:72px 0; }
   .tier-grid{ grid-template-columns:1fr; }
   .tier{ border-right:none; border-left:1px solid var(--line-dark); min-height:0; }
@@ -211,11 +301,11 @@ footer.site-footer .wrap{ max-width:none; padding:0 48px; }
   .cta-actions .btn{ flex:1 1 0; min-width:0; justify-content:center; padding:16px 12px; letter-spacing:0.1em; }
   .footer-top{ grid-template-columns:1fr; gap:36px; text-align:center; padding-bottom:48px; }
   .footer-col ul{ align-items:center; }
-  .footer-bottom{ justify-content:center; text-align:center; }
+  .footer-bottom-row{ justify-content:center; text-align:center; }
 }
 </style>
 </head>
-<body>
+<body oncontextmenu="return false;" ondragstart="return false;">
 
 <!-- TACTICAL BAR -->
 <div class="tactical-bar">
@@ -223,7 +313,7 @@ footer.site-footer .wrap{ max-width:none; padding:0 48px; }
     <div class="tac-group">
       <span class="tac-tag tac-primary"><span class="tac-dot"></span>SAR OPS</span>
       <span class="tac-divider">//</span>
-      <span class="tac-tag">Search &amp; Rescue &middot; Ground Unit</span>
+      <span class="tac-tag">Search &amp; Rescue &middot; Urban, Wilderness, Swift Water</span>
     </div>
   </div>
 </div>
@@ -268,6 +358,7 @@ footer.site-footer .wrap{ max-width:none; padding:0 48px; }
     <div class="eyebrow">Sponsors &amp; Partners</div>
     <h1>Ready because<br>of <span class="accent">you</span></h1>
     <p class="page-hero-lede">Search and rescue depends on readiness. The brands and businesses behind SAR OPS keep our gear operational, our volunteers trained, and our team ready to deploy.</p>
+    <p class="page-hero-note">SAR OPS is a registered 501(c)(3) nonprofit organization. Contributions may be tax-deductible as allowed by law.</p>
     <div class="page-hero-meta">
       <span class="pm"><span class="pm-dot"></span>Equipment &amp; Gear Partners</span>
       <span class="pm"><span class="pm-dot"></span>501(c)(3) Tax-Deductible</span>
@@ -284,10 +375,14 @@ footer.site-footer .wrap{ max-width:none; padding:0 48px; }
     </div>
     <div class="wall-grid">
       <div class="wall-cell"><img src="assets/sponsors/motorola.png" alt="Motorola" loading="lazy" /></div>
-      <div class="wall-cell"><img src="assets/sponsors/petzl.png" alt="Petzl" loading="lazy" /></div>
-      <div class="wall-cell"><img src="assets/sponsors/rock-exotica.png" alt="Rock Exotica" loading="lazy" /></div>
-      <div class="wall-cell"><img src="assets/sponsors/h3r.png" alt="H3R Performance" loading="lazy" /></div>
-      <div class="wall-cell"><img src="assets/sponsors/wrap-shop.png" alt="The Wrap Shop" loading="lazy" /></div>
+      <a class="wall-cell" href="https://www.petzl.com/US/en" target="_blank" rel="noopener"><img src="assets/sponsors/petzl.png" alt="Petzl" loading="lazy" /></a>
+      <a class="wall-cell" href="https://www.rockexotica.com/" target="_blank" rel="noopener"><img src="assets/sponsors/rock-exotica.png" alt="Rock Exotica" loading="lazy" /></a>
+      <a class="wall-cell" href="https://www.h3rperformance.com/" target="_blank" rel="noopener"><img src="assets/sponsors/h3r.png" alt="H3R Performance" loading="lazy" /></a>
+      <a class="wall-cell" href="https://sterlingrope.com/" target="_blank" rel="noopener"><img src="assets/sponsors/sterling.png" alt="Sterling" loading="lazy" /></a>
+      <a class="wall-cell" href="https://www.copquest.com/" target="_blank" rel="noopener"><img src="assets/sponsors/copquest.png" alt="CopQuest" loading="lazy" /></a>
+      <a class="wall-cell" href="https://thewrapshop.com/" target="_blank" rel="noopener"><img src="assets/sponsors/wrap-shop.png" alt="The Wrap Shop" loading="lazy" /></a>
+      <a class="wall-cell" href="https://lapolicegear.com/" target="_blank" rel="noopener"><img src="assets/sponsors/lapg.png" alt="LA Police Gear" loading="lazy" /></a>
+      <a class="wall-cell" href="https://www.cmcpro.com/" target="_blank" rel="noopener"><img src="assets/CMC Pro Logo.png" alt="CMC Pro" loading="lazy" /></a>
     </div>
   </div>
 </section>
@@ -302,7 +397,7 @@ footer.site-footer .wrap{ max-width:none; padding:0 48px; }
       </div>
       <div>
         <p class="why-statement">Equipment must be operational. Volunteers must be trained. <span class="muted">Response capabilities must already be in place.</span></p>
-        <p>Sponsorship is what makes that readiness possible. Every contribution goes directly toward keeping our team mission ready, so that when an emergency happens, we are already prepared to respond.</p>
+        <p>Sponsorship makes that readiness possible. Every contribution directly supports the equipment, training, and operational capability required to respond before an emergency ever occurs.</p>
       </div>
     </div>
   </div>
@@ -320,24 +415,156 @@ footer.site-footer .wrap{ max-width:none; padding:0 48px; }
     </div>
     <div class="impact-grid">
       <div class="impact-item">
-        <span class="impact-num">01</span>
         <h3 class="impact-name">Equipment Maintenance &amp; Upgrades</h3>
         <p class="impact-desc">Ropes, hardware, radios, and rescue systems inspected, replaced, and upgraded to standard.</p>
       </div>
       <div class="impact-item">
-        <span class="impact-num">02</span>
         <h3 class="impact-name">Volunteer Training &amp; Safety Gear</h3>
         <p class="impact-desc">Certification courses, personal protective equipment, and the gear that keeps operators safe.</p>
       </div>
       <div class="impact-item">
-        <span class="impact-num">03</span>
         <h3 class="impact-name">Mission Readiness &amp; Logistics</h3>
         <p class="impact-desc">Fuel, vehicle upkeep, and the operational logistics that get a team to the scene fast.</p>
       </div>
       <div class="impact-item">
-        <span class="impact-num">04</span>
         <h3 class="impact-name">Community Outreach &amp; Preparedness</h3>
         <p class="impact-desc">Public education, preparedness events, and joint exercises that strengthen the whole region.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- READINESS PARTNERS -->
+<section class="rp">
+  <div class="wrap">
+    <div class="rp-head">
+      <div class="eyebrow">Partners In Readiness</div>
+      <h2 class="h-display">This is where the magic happens</h2>
+      <p>The operational manufacturers behind our gear, communications, and rigging. Their support keeps SAR OPS equipped to the standard every rescue demands.</p>
+    </div>
+    <div class="rp-list">
+
+      <a class="rp-card" href="https://www.petzl.com/US/en" target="_blank" rel="noopener">
+        <div class="rp-photo"><img src="assets/Petzl.jpg" alt="SAR OPS using Petzl gear" loading="lazy" /></div>
+        <div class="rp-body">
+          <div class="rp-logo"><img src="assets/sponsors/petzl.png" alt="Petzl" loading="lazy" /></div>
+          <div class="rp-role">Technical Rescue Equipment Partner</div>
+          <h3 class="rp-name">Petzl</h3>
+          <p class="rp-desc">Donated rescue equipment and ongoing affiliate support, outfitting our team with the technical gear that vertical rescue depends on.</p>
+        </div>
+      </a>
+
+      <div class="rp-card">
+        <div class="rp-photo"><img src="assets/images/motorola-photo.jpg" alt="Command vehicle, APX radio, communications setup" loading="lazy" /></div>
+        <div class="rp-body">
+          <div class="rp-logo"><img src="assets/sponsors/motorola.png" alt="Motorola Solutions" loading="lazy" /></div>
+          <div class="rp-role">Communications Partner</div>
+          <h3 class="rp-name">Motorola Solutions</h3>
+          <p class="rp-desc">Programming support, dealer access, camera integration support, and mission-critical communications assistance that keeps our team connected in the field.</p>
+        </div>
+      </div>
+
+      <a class="rp-card" href="https://www.h3rperformance.com/" target="_blank" rel="noopener">
+        <div class="rp-photo"><img src="assets/images/h3r-photo.jpg" alt="H3R clean-agent extinguisher mounted in SAR OPS vehicle" loading="lazy" /></div>
+        <div class="rp-body">
+          <div class="rp-logo"><img src="assets/sponsors/h3r.png" alt="H3R Performance" loading="lazy" /></div>
+          <div class="rp-role">Vehicle Fire Suppression Partner</div>
+          <h3 class="rp-name">H3R Performance</h3>
+          <p class="rp-desc">Clean-agent fire extinguishers mounted across our response fleet, protecting crews and apparatus on every callout.</p>
+        </div>
+      </a>
+
+      <a class="rp-card rp-card--horiz" href="https://www.rockexotica.com/" target="_blank" rel="noopener">
+        <div class="rp-photo"><img src="assets/images/rock-exotica-photo-horiz.jpg" alt="Rock Exotica hardware in use" loading="lazy" /></div>
+        <div class="rp-body">
+          <div class="rp-logo"><img src="assets/sponsors/rock-exotica.png" alt="Rock Exotica" loading="lazy" /></div>
+          <div class="rp-role">Technical Hardware Partner</div>
+          <h3 class="rp-name">Rock Exotica</h3>
+          <p class="rp-desc">Discounted support pricing for rescue hardware and rigging equipment, keeping our rope systems built on hardware trusted at the edge.</p>
+        </div>
+      </a>
+
+      <a class="rp-card rp-card--horiz" href="https://sterlingrope.com/" target="_blank" rel="noopener">
+        <div class="rp-photo"><img src="assets/Sterling Photo.jpg" alt="Sterling rescue ropes in the field" loading="lazy" /></div>
+        <div class="rp-body">
+          <div class="rp-logo"><img src="assets/sponsors/sterling.png" alt="Sterling" loading="lazy" /></div>
+          <div class="rp-role">Rope Systems Partner</div>
+          <h3 class="rp-name">Sterling</h3>
+          <p class="rp-desc">Discounted access to rescue ropes and technical equipment, the lifeline at the core of every technical rope evolution we run.</p>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- COMMUNITY PARTNERS -->
+<section class="cp">
+  <div class="wrap">
+    <div class="cp-head">
+      <div class="eyebrow">Community Partners</div>
+      <h2 class="h-display">The businesses standing behind us</h2>
+      <p>Beyond our operational manufacturers, these community supporters keep our fleet, our identity, and our people field ready.</p>
+    </div>
+    <div class="cp-grid">
+      <a class="cp-item" href="https://thewrapshop.com/" target="_blank" rel="noopener">
+        <div class="cp-photo"><img src="assets/images/wrap-shop-car.jpg" alt="The Wrap Shop vehicle wrap" loading="lazy" /></div>
+        <div class="cp-logo"><img src="assets/sponsors/wrap-shop.png" alt="The Wrap Shop" loading="lazy" /></div>
+        <p class="cp-line">Vehicle graphics and fleet identification.</p>
+      </a>
+      <a class="cp-item" href="https://lapolicegear.com/" target="_blank" rel="noopener">
+        <div class="cp-photo"><img src="assets/LAPG Photo.jpg" alt="LA Police Gear gear" loading="lazy" /></div>
+        <div class="cp-logo"><img src="assets/sponsors/lapg.png" alt="LA Police Gear" loading="lazy" /></div>
+        <p class="cp-line">Uniforms and field equipment.</p>
+      </a>
+      <a class="cp-item" href="https://www.copquest.com/" target="_blank" rel="noopener">
+        <div class="cp-photo"><img src="assets/Cop Quest Sponsor Image.jpg" alt="CopQuest name tapes" loading="lazy" /></div>
+        <div class="cp-logo"><img src="assets/sponsors/copquest.png" alt="CopQuest" loading="lazy" /></div>
+        <p class="cp-line">Name tapes and identification systems.</p>
+      </a>
+      <a class="cp-item" href="https://jiujitsumedic.com/" target="_blank" rel="noopener">
+        <div class="cp-photo"><img src="assets/images/jiu-jitsu-medic-photo.jpg" alt="Jiu Jitsu Medic kit" loading="lazy" /></div>
+        <div class="cp-logo"><img src="assets/sponsors/jiu-jitsu-medic.png" alt="Jiu Jitsu Medic" loading="lazy" /></div>
+        <p class="cp-line">Medical kits and IFAKs.</p>
+      </a>
+      <div class="cp-item">
+        <div class="cp-photo"><img src="assets/images/la-real-estate-charger.jpg" alt="SAR OPS Fleet Acquisition Support" loading="lazy" /></div>
+        <div class="cp-logo"><h3 class="cp-name">LA Real Estate</h3></div>
+        <p class="cp-line">SAR OPS Fleet Acquisition Support.</p>
+      </div>
+      <a class="cp-item" href="https://www.cmcpro.com/" target="_blank" rel="noopener">
+        <div class="cp-photo placeholder"><span>Photo coming soon</span></div>
+        <div class="cp-logo"><img src="assets/CMC Pro Logo.png" alt="CMC Pro" loading="lazy" /></div>
+        <p class="cp-line">Outstanding rescue gear and technical support.</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- SPONSORSHIP TIERS -->
+<section class="tiers">
+  <div class="wrap">
+    <div class="tiers-head">
+      <div class="eyebrow">Sponsorship Opportunities</div>
+      <h2 class="h-display">Ways to partner with SAR OPS</h2>
+      <p>Every level of support keeps our team mission ready. Find the partnership that fits your organization.</p>
+    </div>
+    <div class="tier-grid">
+      <div class="tier">
+        <h3 class="tier-name">Community Partner</h3>
+        <p class="tier-desc">Recognition on website.</p>
+      </div>
+      <div class="tier">
+        <h3 class="tier-name">Supporting Partner</h3>
+        <p class="tier-desc">Website and social media recognition.</p>
+      </div>
+      <div class="tier">
+        <h3 class="tier-name">Operational Partner</h3>
+        <p class="tier-desc">Website, social media, and event recognition.</p>
+      </div>
+      <div class="tier">
+        <h3 class="tier-name">Mission Partner</h3>
+        <p class="tier-desc">Custom partnership opportunities.</p>
       </div>
     </div>
   </div>
@@ -347,7 +574,7 @@ footer.site-footer .wrap{ max-width:none; padding:0 48px; }
 <section class="cta-band">
   <div class="wrap">
     <h2 class="h-display">Your support keeps SAR OPS ready when lives depend on it</h2>
-    <p>If you would like to learn more about sponsorship opportunities or supporting our mission, reach out and our team will follow up with the details.</p>
+    <p>Whether you're interested in sponsorship, equipment donations, financial support, or community partnership opportunities, we'd be honored to discuss how you can help strengthen SAR OPS readiness.</p>
     <div class="cta-actions">
       <a href="donate.html" class="btn btn-signal">Make A Donation <span class="arrow">&rarr;</span></a>
     </div>
@@ -373,30 +600,35 @@ footer.site-footer .wrap{ max-width:none; padding:0 48px; }
           <li><a href="shop.html">Shop</a></li>
           <li><a href="about.html">About</a></li>
           <li><a href="contact.html">Contact</a></li>
-          <li><a href="donate.html">Donate</a></li>
+          <li><a href="donate.html" class="nav-donate">Donate</a></li>
         </ul>
       </div>
       <div class="footer-col">
         <h4>Contact</h4>
         <div class="info-line"><strong>Commander@SAROPS.org</strong></div>
-        <div class="info-line" style="margin-top:16px;">Conejo Valley, CA 91307</div>
-        <div class="info-line">Bullhead City, AZ 86422</div>
+        <div class="info-line" style="margin-top:16px;">Conejo Valley, CA</div>
+        <div class="info-line">Bullhead City, AZ</div>
       </div>
       <div class="footer-col">
         <h4>Status</h4>
         <div class="info-line"><strong>501(c)(3) Nonprofit</strong></div>
         <div class="info-line">100% Volunteer Powered</div>
         <div class="info-line">Operational 24 / 7 &middot; 365</div>
+        <div class="info-line">ICS / NIMS</div>
       </div>
     </div>
     <div class="footer-bottom">
-      <div>&copy; 2026 SAR OPS &middot; All rights reserved.</div>
-      <div>Website by <a href="#">Proper Websites</a></div>
+      <div class="footer-legal">SAR OPS is a registered 501(c)(3) nonprofit organization. Donations may be tax-deductible as permitted by law.</div>
+      <div class="footer-bottom-row">
+        <div>&copy; <span id="copyright-year"></span> SAR OPS &middot; All rights reserved.</div>
+        <div>Website by <a href="#">Proper Websites</a></div>
+      </div>
     </div>
   </div>
 </footer>
 
 <script>
+  document.getElementById('copyright-year').textContent = new Date().getFullYear();
   const menuBtn = document.getElementById('menuBtn');
   const mobileNav = document.getElementById('mobileNav');
   const mobileClose = document.getElementById('mobileClose');

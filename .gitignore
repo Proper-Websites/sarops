@@ -6,3 +6,4 @@ _slidecheck.html
 
 # Large local videos — host externally, not on GitHub (>100MB limit)
 assets/video/*.mp4
+sarops-videos-backup/

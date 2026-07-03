@@ -105,7 +105,7 @@ nav.primary .nav-donate::after{ display:none; }
 .caps{ background:var(--navy); }
 .cap-row{ display:grid; grid-template-columns:1fr 1fr; gap:72px; align-items:center; padding:96px 0; border-bottom:1px solid var(--line-dark); }
 .cap-row:last-child{ border-bottom:none; }
-.cap-media{ aspect-ratio:4/3; width:100%; background-size:cover; background-position:center; background-attachment:fixed; position:relative; border:1px solid var(--line-dark); }
+.cap-media{ aspect-ratio:4/3; width:100%; background-size:cover; background-position:center; background-attachment:fixed; position:relative; }
 .cap-row:nth-child(even) .cap-media{ order:2; }
 .cap-num{ font-family:var(--mono); font-size:0.8rem; letter-spacing:0.22em; color:var(--signal); display:inline-block; padding-bottom:18px; margin-bottom:22px; border-bottom:2px solid var(--steel-2); }
 .cap-kicker{ font-family:var(--mono); font-size:0.74rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--spark); margin-bottom:14px; }
@@ -130,12 +130,12 @@ nav.primary .nav-donate::after{ display:none; }
 .tl-desc{ color:var(--copy); font-size:1rem; line-height:1.6; max-width:480px; }
 
 /* CTA */
-.cta-band{ background-color:var(--navy-3); background-image:linear-gradient(90deg, rgba(15,25,36,0.85) 0%, rgba(15,25,36,0.55) 48%, rgba(15,25,36,0.3) 100%), url('assets/images/banner-cliff.png'); background-size:cover, cover; background-position:center, center; background-attachment:scroll, fixed; padding:120px 0; border-top:1px solid var(--line-dark); }
+.cta-band{ background-color:var(--navy-3); background-image:linear-gradient(90deg, rgba(15,25,36,0.85) 0%, rgba(15,25,36,0.55) 48%, rgba(15,25,36,0.3) 100%), url('assets/Banner.JPG'); background-size:cover, cover; background-position:center, center; background-attachment:scroll, fixed; padding:120px 0; border-top:1px solid var(--line-dark); }
 @media (max-width:1024px){ .cta-band{ background-attachment:scroll, scroll; } }
-.cta-band .wrap{ text-align:center; }
-.cta-band .h-display{ font-size:clamp(2.2rem,4.6vw,3.8rem); max-width:720px; margin:0 auto; line-height:0.98; text-shadow:0 1px 18px rgba(0,0,0,0.5); }
-.cta-band p{ color:var(--copy); font-size:1.06rem; margin:24px auto 32px; max-width:520px; text-shadow:0 1px 16px rgba(0,0,0,0.5); }
-.cta-actions{ display:flex; gap:14px; flex-wrap:wrap; justify-content:center; }
+.cta-band .wrap{ text-align:left; }
+.cta-band .h-display{ font-size:clamp(2.2rem,4.6vw,3.8rem); max-width:720px; margin:0; line-height:0.98; text-shadow:0 1px 18px rgba(0,0,0,0.5); }
+.cta-band p{ color:var(--copy); font-size:1.06rem; margin:24px 0 32px; max-width:520px; text-shadow:0 1px 16px rgba(0,0,0,0.5); }
+.cta-actions{ display:flex; gap:14px; flex-wrap:wrap; justify-content:flex-start; }
 
 /* FOOTER */
 footer.site-footer{ background:var(--navy-3); color:var(--copy); padding:64px 0 28px; border-top:2px solid var(--signal); position:relative; overflow:hidden; }
@@ -253,7 +253,7 @@ footer.site-footer .wrap{ max-width:none; padding:0 48px; }
 <section class="cap-intro">
   <div class="wrap">
     <span class="cap-intro-label">Capabilities</span>
-    <p>When someone goes missing, the terrain does not wait. <span class="muted">Neither do we.</span></p>
+    <p>When someone goes missing, the terrain does not wait.<br><span class="muted">Neither do we.</span></p>
   </div>
 </section>
 
@@ -262,7 +262,7 @@ footer.site-footer .wrap{ max-width:none; padding:0 48px; }
   <div class="wrap">
 
     <div class="cap-row">
-      <div class="cap-media" style="background-image:url('assets/hero/hero-3.jpeg'); background-size:150%; background-position:right center;"></div>
+      <div class="cap-media" style="background-image:url('assets/Ground Search and Rescue.jpeg'); background-size:cover; background-position:center 25%; background-attachment:scroll; border:none;"></div>
       <div class="cap-body">
         <div class="cap-kicker">Every second counts. Every life matters.</div>
         <h2 class="cap-name">Ground Search &amp; Rescue</h2>
@@ -276,7 +276,7 @@ footer.site-footer .wrap{ max-width:none; padding:0 48px; }
     </div>
 
     <div class="cap-row">
-      <div class="cap-media" style="background-image:url('assets/images/cliff-rescue.jpg'); background-size:130%; background-position:left 38%; background-attachment:fixed;"></div>
+      <div class="cap-media" style="background-image:url('assets/Technical Rope Rescue.jpg'); background-size:cover; background-position:left center; background-attachment:scroll;"></div>
       <div class="cap-body">
         <div class="cap-kicker">Vertical rescue. Precision-driven. Life-saving.</div>
         <h2 class="cap-name">Technical Rope Rescue</h2>
@@ -304,7 +304,7 @@ footer.site-footer .wrap{ max-width:none; padding:0 48px; }
     </div>
 
     <div class="cap-row">
-      <div class="cap-media" style="background-image:url('assets/images/swift-water-rescue.jpg'); background-size:150%; background-position:left center; background-attachment:fixed;"></div>
+      <div class="cap-media" style="background-image:url('assets/Swift Water.png'); background-size:contain; background-position:center center; background-attachment:scroll; background-repeat:no-repeat;"></div>
       <div class="cap-body">
         <div class="cap-kicker">Moving water. No hesitation.</div>
         <h2 class="cap-name">Swift Water Rescue</h2>
@@ -318,7 +318,7 @@ footer.site-footer .wrap{ max-width:none; padding:0 48px; }
     </div>
 
     <div class="cap-row">
-      <div class="cap-media" style="background-image:url('assets/images/training-certifications.jpg'); background-size:200%; background-position:right center; background-attachment:fixed;"></div>
+      <div class="cap-media" style="background-image:url('assets/Certification.png'); background-size:contain; background-position:center; background-attachment:scroll; background-repeat:no-repeat; aspect-ratio:unset; height:600px;"></div>
       <div class="cap-body">
         <div class="cap-kicker">Preparedness saves lives. Train with us.</div>
         <h2 class="cap-name">Training &amp; Certification</h2>
@@ -332,7 +332,7 @@ footer.site-footer .wrap{ max-width:none; padding:0 48px; }
     </div>
 
     <div class="cap-row">
-      <div class="cap-media" style="background-image:url('assets/images/community-agency-support.jpeg'); background-size:200%; background-position:left center;"></div>
+      <div class="cap-media" style="background-image:url('assets/Community & Agency Support.JPG'); background-size:cover; background-position:center 15%; background-attachment:scroll;"></div>
       <div class="cap-body">
         <div class="cap-kicker">Stronger together.</div>
         <h2 class="cap-name">Community &amp; Agency Support</h2>
@@ -352,7 +352,7 @@ footer.site-footer .wrap{ max-width:none; padding:0 48px; }
 <section class="cta-band">
   <div class="wrap">
     <div class="eyebrow">Request The Team</div>
-    <h2 class="h-display">Need our capabilities in the field?</h2>
+    <h2 class="h-display">Need our capabilities<br>in the field?</h2>
     <p>SAR OPS deploys at the request of public agencies. Reach out to coordinate response, mutual aid, or joint training with our team.</p>
     <div class="cta-actions">
       <a href="contact.html" class="btn btn-signal">Contact Command <span class="arrow">&rarr;</span></a>
