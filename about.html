@@ -169,6 +169,7 @@ nav.primary .nav-donate::after{ display:none; }
 .operator{ display:flex; flex-direction:column; gap:18px; }
 /* Members without photos yet: name and role only, no placeholder image */
 .operator--text{ justify-content:center; }
+.operator .ph.ph-logo{ background:var(--navy-2) url('assets/logos/logo-transparent.png') center/58% no-repeat; }
 /* 7 cards in a 2-col grid: center the odd one out (Lara, 5th) alone on her
    row so the two text-only members pair up in the last row. */
 .operator:nth-child(5){ grid-column:1/-1; width:calc(50% - 16px); margin:0 auto; }
@@ -567,7 +568,11 @@ footer.site-footer .wrap{ max-width:none; padding:0 48px; }
 
         </div>
       </div>
-      <div class="operator operator--text">
+      <div class="operator">
+        <div class="ph ph-logo">
+          <span class="ph-cnr-tr"></span>
+          <span class="ph-cnr-bl"></span>
+        </div>
         <div class="operator-role">
           <div class="role-stack">
             <span class="role-name">Gianluca Salvatore</span>
@@ -575,7 +580,11 @@ footer.site-footer .wrap{ max-width:none; padding:0 48px; }
           </div>
         </div>
       </div>
-      <div class="operator operator--text">
+      <div class="operator">
+        <div class="ph ph-logo">
+          <span class="ph-cnr-tr"></span>
+          <span class="ph-cnr-bl"></span>
+        </div>
         <div class="operator-role">
           <div class="role-stack">
             <span class="role-name">Jeni Kaynan</span>
