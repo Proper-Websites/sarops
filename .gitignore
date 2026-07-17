@@ -10,3 +10,6 @@ sarops-videos-backup/
 
 # Payment credentials — never commit
 authnet-credentials.php
+
+# Gallery source originals — site uses optimized copies in assets/in-action/
+assets/In Action/

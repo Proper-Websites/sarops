@@ -163,10 +163,10 @@ nav.primary .nav-donate::after{ display:none; }
 .past-head{ display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:end; margin-bottom:44px; padding-bottom:32px; border-bottom:1px solid var(--line-dark); }
 .past-head .h-display{ font-size:clamp(2.2rem,4.2vw,3.4rem); margin-top:16px; max-width:520px; }
 .past-head p{ color:var(--copy); max-width:380px; justify-self:end; }
-.past-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:4px; }
-.past-card{ overflow:hidden; position:relative; }
-.past-card-img{ aspect-ratio:4/3; background-size:cover; background-position:center; transition:transform .6s ease; }
-.past-card:hover .past-card-img{ transform:scale(1.04); }
+.past-masonry{ columns:3; column-gap:14px; }
+.past-masonry img{ width:100%; height:auto; display:block; margin-bottom:14px; border:1px solid var(--line-dark); break-inside:avoid; }
+@media (max-width:1080px){ .past-masonry{ columns:2; } }
+@media (max-width:600px){ .past-masonry{ columns:1; } }
 
 /* CTA */
 .cta-band{ background-color:var(--navy-3); background-image:linear-gradient(180deg, rgba(15,25,36,0.74) 0%, rgba(15,25,36,0.6) 50%, rgba(15,25,36,0.76) 100%), url('assets/images/cliffside-instructions.jpeg'); background-size:cover, cover; background-position:center, center; background-attachment:scroll, fixed; padding:120px 0; border-top:1px solid var(--line-dark); }
@@ -661,13 +661,14 @@ footer.site-footer .wrap{ max-width:none; padding:0 48px; }
       </div>
       <p>A look back at recent courses, exercises, and community days. This is the work behind the readiness.</p>
     </div>
-    <div class="past-grid">
-      <div class="past-card"><div class="past-card-img" style="background:var(--steel-3) url('assets/logos/logo-transparent.png') center/55% no-repeat;"></div></div>
-      <div class="past-card"><div class="past-card-img" style="background:var(--steel-3) url('assets/logos/logo-transparent.png') center/55% no-repeat;"></div></div>
-      <div class="past-card"><div class="past-card-img" style="background:var(--steel-3) url('assets/logos/logo-transparent.png') center/55% no-repeat;"></div></div>
-      <div class="past-card"><div class="past-card-img" style="background:var(--steel-3) url('assets/logos/logo-transparent.png') center/55% no-repeat;"></div></div>
-      <div class="past-card"><div class="past-card-img" style="background:var(--steel-3) url('assets/logos/logo-transparent.png') center/55% no-repeat;"></div></div>
-      <div class="past-card"><div class="past-card-img" style="background:var(--steel-3) url('assets/logos/logo-transparent.png') center/55% no-repeat;"></div></div>
+    <div class="past-masonry">
+      <img src="assets/in-action/action-1.jpg" alt="SAR OPS training in action" loading="lazy" />
+      <img src="assets/in-action/action-2.jpg" alt="SAR OPS training in action" loading="lazy" />
+      <img src="assets/in-action/action-3.jpg" alt="SAR OPS training in action" loading="lazy" />
+      <img src="assets/in-action/action-5.jpg" alt="SAR OPS training in action" loading="lazy" />
+      <img src="assets/in-action/action-6.jpg" alt="SAR OPS training in action" loading="lazy" />
+      <img src="assets/in-action/action-7.jpg" alt="SAR OPS training in action" loading="lazy" />
+      <img src="assets/in-action/action-8.jpg" alt="SAR OPS training in action" loading="lazy" />
     </div>
   </div>
 </section>

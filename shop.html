@@ -77,8 +77,7 @@ nav.primary .nav-donate::after{ display:none; }
 .btn-ghost:hover{ border-color:var(--signal); background:var(--signal); color:var(--white); }
 
 /* PAGE HERO */
-.page-hero{ position:relative; background-color:var(--navy); background-size:cover; background-position:center 30%; background-attachment:fixed; border-top:2px solid var(--signal); border-bottom:2px solid var(--signal); min-height:60vh; display:flex; overflow:hidden; }
-.page-hero::before{ content:""; position:absolute; inset:0; background:center/28% no-repeat url('assets/logos/logo.png'); opacity:0.08; pointer-events:none; z-index:0; }
+.page-hero{ position:relative; background-color:var(--navy); background-image:url('assets/hero/shop-hero.jpeg'); background-size:cover; background-position:center top; background-attachment:scroll; border-top:2px solid var(--signal); border-bottom:2px solid var(--signal); min-height:clamp(700px, 125vh, 1350px); display:flex; overflow:hidden; }
 .page-hero::after{ content:""; position:absolute; inset:0; background:
   linear-gradient(180deg, rgba(15,25,36,0.6) 0px, rgba(15,25,36,0) 280px),
   linear-gradient(0deg, rgba(15,25,36,0.95) 0%, rgba(15,25,36,0.66) 42%, rgba(15,25,36,0.3) 74%, rgba(15,25,36,0.16) 100%);
