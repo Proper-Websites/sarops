@@ -75,7 +75,7 @@ button{ font:inherit; cursor:pointer; border:none; background:none; color:inheri
 
 .eyebrow{
   font-family: var(--mono);
-  font-size: 0.72rem;
+  font-size: 0.83rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   font-weight: 500;
@@ -140,7 +140,7 @@ button{ font:inherit; cursor:pointer; border:none; background:none; color:inheri
   position: absolute;
   bottom: 22px; left: 50px;
   font-family: var(--mono);
-  font-size: 0.6rem;
+  font-size: 0.69rem;
   letter-spacing: 0.22em;
   color: var(--copy);
   text-transform: uppercase;
@@ -152,7 +152,7 @@ button{ font:inherit; cursor:pointer; border:none; background:none; color:inheri
   position: absolute;
   top: 22px; right: 50px;
   font-family: var(--mono);
-  font-size: 0.6rem;
+  font-size: 0.69rem;
   letter-spacing: 0.22em;
   color: var(--copy);
   text-transform: uppercase;
@@ -194,7 +194,7 @@ button{ font:inherit; cursor:pointer; border:none; background:none; color:inheri
 }
 .tac-tag{
   font-family: var(--mono);
-  font-size: 0.8rem;
+  font-size: 0.92rem;
   letter-spacing: 0.24em;
   text-transform: uppercase;
   color: var(--white);
@@ -214,7 +214,7 @@ button{ font:inherit; cursor:pointer; border:none; background:none; color:inheri
 }
 .tac-divider{
   font-family: var(--mono);
-  font-size: 0.85rem;
+  font-size: 0.98rem;
   color: rgba(255,255,255,0.8);
   font-weight: 700;
   line-height: 1;
@@ -249,7 +249,7 @@ button{ font:inherit; cursor:pointer; border:none; background:none; color:inheri
 }
 .brand-tag{
   font-family: var(--mono);
-  font-size: 0.6rem;
+  font-size: 0.69rem;
   letter-spacing: 0.22em;
   font-weight: 500;
   color: var(--copy);
@@ -259,7 +259,7 @@ button{ font:inherit; cursor:pointer; border:none; background:none; color:inheri
 nav.primary{ display:flex; align-items:center; gap:38px; }
 nav.primary a{
   font-family: var(--body);
-  font-size: 0.94rem;
+  font-size: 1.08rem;
   letter-spacing: 0.16em;
   text-transform: uppercase;
   font-weight: 500;
@@ -332,7 +332,7 @@ nav.primary .nav-donate::after{ display: none; }
   display: inline-flex; align-items:center; gap: 14px;
   padding: 18px 28px;
   font-family: var(--body);
-  font-size: 0.76rem;
+  font-size: 0.87rem;
   letter-spacing: 0.22em;
   text-transform: uppercase;
   font-weight: 600;
@@ -340,7 +340,7 @@ nav.primary .nav-donate::after{ display: none; }
   transition: background .22s ease, color .22s ease, border-color .22s ease, gap .22s ease;
 }
 .btn:hover{ gap: 22px; }
-.btn .arrow{ display:inline-block; font-size: 1rem; line-height: 1; }
+.btn .arrow{ display:inline-block; font-size: 1.15rem; line-height: 1; }
 .btn-solid{
   background: var(--steel);
   color: var(--white);
@@ -412,13 +412,15 @@ nav.primary .nav-donate::after{ display: none; }
 .hero-slide{
   position:absolute; inset:0;
   background-size:cover; background-position:center;
-  opacity:0; animation:heroFade 24s infinite;
+  background-attachment:fixed;
+  opacity:0; animation:heroFade 32s infinite;
 }
 .hero-slide:nth-child(1){ animation-delay:0s; }
 .hero-slide:nth-child(2){ animation-delay:8s; }
 .hero-slide:nth-child(3){ animation-delay:16s; }
+.hero-slide:nth-child(4){ animation-delay:24s; }
 @keyframes heroFade{
-  0%{opacity:0;} 4%{opacity:1;} 33%{opacity:1;} 42%{opacity:0;} 100%{opacity:0;}
+  0%{opacity:0;} 3%{opacity:1;} 25%{opacity:1;} 32%{opacity:0;} 100%{opacity:0;}
 }
 @media (prefers-reduced-motion: reduce){
   .hero-slide{ animation:none; }
@@ -457,15 +459,17 @@ nav.primary .nav-donate::after{ display: none; }
   overflow: hidden;
   min-height: 80vh;
 }
+/* Full-bleed like the header: the certs/status row spans the whole hero;
+   the headline copy stays capped by .hero-text-inner's own 920px. */
 .hero .wrap{
   position: relative; z-index: 1;
   min-height: 80vh;
   display: flex;
   align-items: stretch;
+  max-width: none;
 }
 .hero-text{
   width: 100%;
-  max-width: 920px;
   padding: 150px 0 56px;
   display: flex;
   flex-direction: column;
@@ -476,7 +480,7 @@ nav.primary .nav-donate::after{ display: none; }
   margin: auto 0;
   transform: translateY(-4%);
 }
-.hero .eyebrow{ color: var(--white); font-size: 0.74rem; }
+.hero .eyebrow{ color: var(--white); font-size: 0.85rem; }
 h1.hero-title{
   font-family: var(--display);
   font-weight: 700;
@@ -490,7 +494,7 @@ h1.hero-title .accent{
   display: inline-block;
 }
 .hero-lede{
-  font-size: 1.08rem;
+  font-size: 1.24rem;
   line-height: 1.65;
   color: var(--copy);
   max-width: 860px;
@@ -511,7 +515,7 @@ h1.hero-title .accent{
   display: inline-flex;
   align-items: center; gap: 12px;
   font-family: var(--mono);
-  font-size: 0.82rem;
+  font-size: 0.94rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--white);
@@ -522,8 +526,8 @@ h1.hero-title .accent{
 .hero-certs{
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 18px;
+  justify-content: flex-start;
+  gap: 32px;
   flex: 1 1 auto;
   min-width: 0;
   flex-wrap: wrap;
@@ -580,7 +584,7 @@ h1.hero-title .accent{
   pointer-events: none;
   z-index: 0;
 }
-.partners .wrap{ position: relative; z-index: 1; }
+.partners .wrap{ position: relative; z-index: 1; max-width: none; }
 .partners-head{
   display: flex;
   align-items: center;
@@ -593,7 +597,7 @@ h1.hero-title .accent{
 }
 .partners-meta{
   font-family: var(--mono);
-  font-size: 0.66rem;
+  font-size: 0.76rem;
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--copy);
@@ -617,13 +621,16 @@ h1.hero-title .accent{
 .partner img{
   max-height: 50px;
   width: auto;
-  max-width: none;
+  /* must stay shrinkable: with 10 logos the row runs out of room below
+     ~1300px and fixed-size images overlap each other instead of compressing */
+  max-width: 100%;
   opacity: 0.95;
   transition: opacity 0.25s ease, transform 0.25s ease;
 }
 /* Per-logo optical balancing on the homepage band: very wide wordmarks get a
    shorter height, compact/square marks get a taller one, so every logo reads
    at roughly the same visual weight across the row. */
+.partner img[src*="whelen-color"]{ max-height: 38px; }
 .partner img[src*="motorola"]{ max-height: 40px; }
 .partner img[src*="rock-exotica"]{ max-height: 40px; }
 .partner img[src*="copquest"]{ max-height: 44px; }
@@ -700,7 +707,7 @@ h1.hero-title .accent{
 }
 .about-text p{
   color: var(--copy);
-  font-size: 1.04rem;
+  font-size: 1.2rem;
   margin-bottom: 18px;
   max-width: 600px;
 }
@@ -722,7 +729,7 @@ h1.hero-title .accent{
 .donate-pillar{ justify-content:flex-start; }
 .pillar-num{
   font-family: var(--mono);
-  font-size: 0.72rem;
+  font-size: 0.83rem;
   letter-spacing: 0.22em;
   color: var(--copy);
   font-weight: 500;
@@ -775,7 +782,7 @@ h1.hero-title .accent{
 .svc-list{ display:flex; flex-direction:column; }
 .svc-row{
   display: grid;
-  grid-template-columns: 72px 1.7fr 2fr;
+  grid-template-columns: 56px 1.3fr 2.2fr;
   gap: 28px;
   align-items: center;
   padding: 24px 20px;
@@ -797,7 +804,7 @@ h1.hero-title .accent{
 .svc-row:hover::before{ width: 3px; }
 .svc-num{
   font-family: var(--mono);
-  font-size: 0.74rem;
+  font-size: 0.85rem;
   letter-spacing: 0.22em;
   color: var(--signal);
   font-weight: 500;
@@ -819,25 +826,26 @@ h1.hero-title .accent{
 }
 .svc-name{
   font-family: var(--display);
-  font-size: clamp(1.7rem, 2.8vw, 2.3rem);
+  font-size: clamp(1.4rem, 2vw, 1.85rem);
   font-weight: 700;
   text-transform: uppercase;
-  line-height: 1;
+  line-height: 1.08;
   color: var(--white);
+  text-wrap: balance;
 }
 .svc-desc{
-  color: var(--white);
-  font-weight: 600;
-  font-size: 0.98rem;
-  line-height: 1.55;
-  max-width: 540px;
+  color: rgba(255,255,255,0.82);
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.6;
+  max-width: 560px;
 }
 .svc-arrow{
   width: 48px; height: 48px;
   display: flex; align-items: center; justify-content: center;
   border: 1px solid rgba(255,255,255,0.4);
   color: var(--white);
-  font-size: 1.05rem;
+  font-size: 1.21rem;
   transition: border-color .2s ease, color .2s ease, background .2s ease;
 }
 .svc-row:hover .svc-arrow{
@@ -904,7 +912,7 @@ h1.hero-title .accent{
 }
 .cert-row-num{
   font-family: var(--mono);
-  font-size: 0.7rem;
+  font-size: 0.8rem;
   letter-spacing: 0.22em;
   color: var(--signal);
 }
@@ -929,7 +937,7 @@ h1.hero-title .accent{
   color: var(--white);
 }
 .cert-row-name{
-  font-size: 0.96rem;
+  font-size: 1.1rem;
   color: var(--copy);
   line-height: 1.45;
 }
@@ -959,7 +967,7 @@ h1.hero-title .accent{
 }
 .operate-head p{
   color: var(--copy);
-  font-size: 1rem;
+  font-size: 1.15rem;
   max-width: 400px;
   justify-self: end;
 }
@@ -981,7 +989,7 @@ h1.hero-title .accent{
 .op-step:last-child{ border-right: none; padding-right: 0; }
 .op-step-num{
   font-family: var(--mono);
-  font-size: 0.7rem;
+  font-size: 0.8rem;
   letter-spacing: 0.22em;
   color: var(--copy);
   font-weight: 500;
@@ -999,7 +1007,7 @@ h1.hero-title .accent{
 }
 .op-step-desc{
   color: var(--copy);
-  font-size: 0.95rem;
+  font-size: 1.09rem;
   line-height: 1.55;
   max-width: 280px;
 }
@@ -1025,7 +1033,7 @@ h1.hero-title .accent{
   max-width: 640px;
 }
 .op-head p{
-  font-size: 1rem;
+  font-size: 1.15rem;
   color: var(--copy);
   max-width: 380px;
 }
@@ -1040,8 +1048,8 @@ h1.hero-title .accent{
   gap: 18px;
 }
 .operator .ph{ aspect-ratio: 3 / 4; }
-.operator .ph .ph-label{ bottom: 14px; left: 42px; font-size: 0.6rem; }
-.operator .ph .ph-name{ top: 14px; right: 42px; font-size: 0.6rem; }
+.operator .ph .ph-label{ bottom: 14px; left: 42px; font-size: 0.69rem; }
+.operator .ph .ph-name{ top: 14px; right: 42px; font-size: 0.69rem; }
 .operator-role{
   display: flex; justify-content: space-between; align-items: baseline;
   padding-top: 14px;
@@ -1051,13 +1059,13 @@ h1.hero-title .accent{
   font-family: var(--display);
   font-weight: 700;
   text-transform: uppercase;
-  font-size: 1.05rem;
+  font-size: 1.21rem;
   color: var(--white);
   letter-spacing: 0.03em;
 }
 .operator-role .role-num{
   font-family: var(--mono);
-  font-size: 0.66rem;
+  font-size: 0.76rem;
   letter-spacing: 0.22em;
   color: var(--copy);
 }
@@ -1100,7 +1108,7 @@ h1.hero-title .accent{
 }
 .donate-copy p{
   color: var(--white);
-  font-size: 1.13rem;
+  font-size: 1.3rem;
   margin: 26px 0 0;
   max-width: 580px;
 }
@@ -1111,14 +1119,14 @@ h1.hero-title .accent{
   gap: 16px;
   flex-wrap: wrap;
 }
-.donate-actions .btn{ padding: 22px 38px; font-size: 0.84rem; }
+.donate-actions .btn{ padding: 22px 38px; font-size: 0.97rem; }
 .donate-stat{
   border-left: 1px solid rgba(255,255,255,0.25);
   padding-left: 64px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  gap: 28px;
+  justify-content: center;
+  gap: 96px;
   text-shadow: 0 1px 16px rgba(15,25,36,0.6);
 }
 .donate-stat-row{
@@ -1136,7 +1144,7 @@ h1.hero-title .accent{
 }
 .donate-stat-label{
   font-family: var(--mono);
-  font-size: 0.76rem;
+  font-size: 0.87rem;
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--copy);
@@ -1146,7 +1154,7 @@ h1.hero-title .accent{
 .donate-amounts{ margin-top: 32px; }
 .donate-amounts-label{
   font-family: var(--mono);
-  font-size: 0.72rem;
+  font-size: 0.83rem;
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--copy);
@@ -1226,7 +1234,7 @@ h1.hero-title .accent{
 }
 .give-head p{
   color: var(--copy);
-  font-size: 1rem;
+  font-size: 1.15rem;
   max-width: 380px;
 }
 .give-tiers{
@@ -1256,7 +1264,7 @@ h1.hero-title .accent{
 }
 .give-tier-meta{
   font-family: var(--mono);
-  font-size: 0.64rem;
+  font-size: 0.74rem;
   letter-spacing: 0.24em;
   text-transform: uppercase;
   color: var(--copy);
@@ -1271,7 +1279,7 @@ h1.hero-title .accent{
 }
 .give-tier-label{
   font-family: var(--mono);
-  font-size: 0.66rem;
+  font-size: 0.76rem;
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--copy);
@@ -1287,7 +1295,7 @@ h1.hero-title .accent{
   background: var(--signal);
   color: var(--white);
   font-family: var(--mono);
-  font-size: 0.6rem;
+  font-size: 0.69rem;
   letter-spacing: 0.22em;
   text-transform: uppercase;
   padding: 5px 12px;
@@ -1303,7 +1311,7 @@ h1.hero-title .accent{
 }
 .give-foot-note{
   font-family: var(--mono);
-  font-size: 0.72rem;
+  font-size: 0.83rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--copy);
@@ -1341,7 +1349,7 @@ h1.hero-title .accent{
 }
 .loc-card-meta{
   font-family: var(--mono);
-  font-size: 0.66rem;
+  font-size: 0.76rem;
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--copy);
@@ -1357,7 +1365,7 @@ h1.hero-title .accent{
 }
 .loc-card-region{
   font-family: var(--mono);
-  font-size: 0.78rem;
+  font-size: 0.9rem;
   letter-spacing: 0.18em;
   color: var(--copy);
   text-transform: uppercase;
@@ -1427,7 +1435,7 @@ h1.hero-title .accent{
 }
 .contact-text p{
   color: var(--copy);
-  font-size: 1.02rem;
+  font-size: 1.17rem;
   margin-bottom: 24px;
   max-width: 480px;
 }
@@ -1445,7 +1453,7 @@ h1.hero-title .accent{
 .contact-info .row:last-child{ border-bottom: none; }
 .contact-info .label{
   font-family: var(--mono);
-  font-size: 0.66rem;
+  font-size: 0.76rem;
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--copy);
@@ -1453,7 +1461,7 @@ h1.hero-title .accent{
 }
 .contact-info .value{
   font-family: var(--display);
-  font-size: 1.1rem;
+  font-size: 1.26rem;
   text-transform: uppercase;
   font-weight: 600;
   color: var(--white);
@@ -1461,7 +1469,7 @@ h1.hero-title .accent{
 }
 .emergency{ margin-top:34px; display:flex; gap:16px; align-items:flex-start; border:1px solid var(--signal); border-left-width:4px; padding:20px 22px; }
 .emergency .x{ font-family:var(--display); font-size:1.6rem; font-weight:700; color:var(--signal-2); line-height:1; flex:none; }
-.emergency p{ font-size:0.92rem; color:var(--copy); margin:0; max-width:none; line-height:1.55; }
+.emergency p{ font-size:1.06rem; color:var(--copy); margin:0; max-width:none; line-height:1.55; }
 .emergency strong{ color:var(--white); }
 
 form.contact-form{
@@ -1478,7 +1486,7 @@ form.contact-form .form-row{
 form.contact-form label{
   display:block;
   font-family: var(--mono);
-  font-size: 0.66rem;
+  font-size: 0.76rem;
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--copy);
@@ -1519,7 +1527,7 @@ form.contact-form .submit-row{
 }
 form.contact-form .form-note{
   font-family: var(--mono);
-  font-size: 0.72rem;
+  font-size: 0.83rem;
   color: var(--copy);
   max-width: 280px;
   line-height: 1.5;
@@ -1575,15 +1583,15 @@ footer.site-footer .wrap{
 .footer-brand .footer-mark img{ object-fit: cover; object-position: 18% 38%; width: 100%; height: 100%; mix-blend-mode: screen; }
 .footer-brand .brand-text{ display: flex; flex-direction: column; gap: 6px; }
 .footer-brand .brand-name{ color: var(--white); font-size: 1.85rem; }
-.footer-brand .brand-tag{ font-size: 0.66rem; }
+.footer-brand .brand-tag{ font-size: 0.76rem; }
 .footer-brand p{
-  font-size: 0.94rem;
+  font-size: 1.08rem;
   color: var(--copy);
   line-height: 1.65;
 }
 .footer-col h4{
   font-family: var(--mono);
-  font-size: 0.85rem;
+  font-size: 0.98rem;
   letter-spacing: 0.22em;
   text-transform: uppercase;
   font-weight: 500;
@@ -1629,14 +1637,14 @@ footer.site-footer .wrap{
   gap: 18px;
   flex-wrap: wrap;
   font-family: var(--mono);
-  font-size: 0.85rem;
+  font-size: 0.98rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--copy);
 }
 .footer-bottom a{ color: var(--white); }
 .footer-bottom a:hover{ color: var(--signal-2); }
-.footer-legal{ font-family:var(--mono); font-size:1rem; letter-spacing:0.06em; text-transform:none; color:rgba(255,255,255,0.65); text-align:center; padding-bottom:18px; margin-bottom:18px; border-bottom:1px solid var(--line-dark); width:100%; }
+.footer-legal{ font-family:var(--mono); font-size:1.15rem; letter-spacing:0.06em; text-transform:none; color:rgba(255,255,255,0.65); text-align:center; padding-bottom:18px; margin-bottom:18px; border-bottom:1px solid var(--line-dark); width:100%; }
 
 /* ============ RESPONSIVE ============ */
 @media (max-width: 1080px){
@@ -1653,7 +1661,7 @@ footer.site-footer .wrap{
   .cert-list{ grid-template-columns: 1fr; column-gap: 0; }
   .cert-row:nth-child(2){ border-top: none; }
   .cert-row:nth-last-child(2){ border-bottom: none; }
-  .svc-row{ grid-template-columns: 64px 1fr auto; gap: 20px; }
+  .svc-row{ grid-template-columns: 56px 1fr auto; gap: 20px; }
   .svc-desc{ grid-column: 2 / 4; }
   .operate-head{ grid-template-columns: 1fr; gap: 24px; }
   .operate-head p{ justify-self: start; }
@@ -1670,7 +1678,7 @@ footer.site-footer .wrap{
   .loc-card{ border-left: none; padding-left: 0; border-top: 1px solid var(--line-dark); padding-top: 24px; }
   .loc-card-map{ height: 140px; margin-bottom: 24px; }
   .contact-grid{ grid-template-columns: 1fr; gap: 56px; }
-  .footer-top{ grid-template-columns: 1fr 1fr; gap: 36px; }
+  .footer-top{ grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 36px; }
   .footer-brand{ grid-column: 1 / -1; }
 }
 @media (max-width: 720px){
@@ -1685,25 +1693,26 @@ footer.site-footer .wrap{
   .tac-divider{ font-size: 0.72rem; }
   .tac-group{ gap: 12px; padding: 5px 14px; }
   .services::after{ display: none; }
-  .services .wrap{ padding-right: 22px; }
+  .services .wrap{ padding-right: 22px; grid-template-columns: 1fr; }
+  .services-logo{ display: none; }
   .hero-stack::after{
     background:
       linear-gradient(180deg, rgba(15,25,36,0.6) 0px, rgba(15,25,36,0) 200px),
       linear-gradient(180deg, rgba(15,25,36,0.5) 0%, rgba(15,25,36,0.5) 70%, rgba(15,25,36,0.58) 100%);
   }
-  .hero-text{ padding: 120px 0 48px; gap: 40px; }
+  .hero-text{ padding: 185px 0 48px; gap: 40px; }
   h1.hero-title{ font-size: clamp(3.6rem, 15vw, 5.8rem); }
   .hero-foot{ flex-direction: column; align-items: flex-start; gap: 18px; padding-top: 22px; }
-  .hero-certs{ gap: 14px; justify-content: space-between; width: 100%; }
-  .hero-certs img{ height: 32px; }
+  .hero-certs{ gap: 10px; justify-content: space-between; width: 100%; }
+  .hero-certs img{ height: 29px; }
   .hero-ctas, .donate-actions{ flex-direction: row; }
-  .hero-ctas .btn, .donate-actions .btn{ flex: 1 1 0; min-width: 0; justify-content:center; padding: 16px 12px; letter-spacing: 0.1em; }
+  .hero-ctas .btn, .donate-actions .btn{ flex: 1 1 0; min-width: 0; justify-content:center; padding: 16px 10px; letter-spacing: 0.08em; font-size: 0.8rem; white-space: nowrap; }
   .partners{ padding: 32px 0 36px; }
   .partners-head{ padding-top: 20px; margin-bottom: 22px; }
   .partners-meta{ display: none; }
-  .partners-grid{ gap: 8px; }
-  .partner{ flex: 1 1 0; min-width: 0; padding: 12px 4px; min-height: 64px; }
-  .partners-grid .partner img{ max-height: 28px; max-width: 100%; }
+  .partners-grid{ gap: 0 12px; flex-wrap: wrap; justify-content: center; }
+  .partner{ flex: 0 1 22%; min-width: 0; padding: 8px 4px; min-height: 52px; }
+  .partners-grid .partner img{ max-height: 30px; max-width: 100%; }
   .about-text{ padding: 48px 22px; }
   .about-photo{ height: 380px; }
   .about-pillars{ grid-template-columns: 1fr; column-gap: 0; max-width: 420px; }
@@ -1738,7 +1747,7 @@ footer.site-footer .wrap{
   .contact{ padding: 80px 0; }
   form.contact-form{ padding: 28px; }
   form.contact-form .form-row{ grid-template-columns: 1fr; }
-  .footer-top{ grid-template-columns: 1fr; gap: 36px; text-align: center; padding-bottom: 48px; margin-bottom: 48px; }
+  .footer-top{ grid-template-columns: minmax(0,1fr); gap: 36px; text-align: center; padding-bottom: 48px; margin-bottom: 48px; }
   .footer-brand{ align-items: center; }
   .footer-col ul{ align-items: center; }
   .footer-bottom{ justify-content: center; text-align: center; }
@@ -1749,8 +1758,8 @@ footer.site-footer .wrap{
 .events-home{ background:var(--navy-3); color:var(--white); padding:120px 0; border-bottom:1px solid var(--line-dark); }
 .eh-head{ display:flex; align-items:flex-end; justify-content:space-between; gap:40px; flex-wrap:wrap; margin-bottom:10px; }
 .eh-head .h-display{ font-size:clamp(2.2rem,4.4vw,3.6rem); margin-top:16px; max-width:560px; color:var(--white); }
-.eh-head > p{ color:var(--copy); max-width:580px; font-size:1rem; }
-.eh-note{ display:inline-flex; align-items:center; gap:10px; font-family:var(--mono); font-size:0.64rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--spark); border:1px dashed rgba(232,179,57,0.5); padding:11px 15px; max-width:360px; line-height:1.5; margin:24px 0 0; }
+.eh-head > p{ color:var(--copy); max-width:580px; font-size:1.15rem; }
+.eh-note{ display:inline-flex; align-items:center; gap:10px; font-family:var(--mono); font-size:0.74rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--spark); border:1px dashed rgba(232,179,57,0.5); padding:11px 15px; max-width:360px; line-height:1.5; margin:24px 0 0; }
 .eh-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:36px; align-items:stretch; }
 .eh-card{ display:flex; flex-direction:column; background:var(--navy-2); border:1px solid var(--line-dark); padding:0 30px 30px; text-decoration:none; color:inherit; position:relative; overflow:hidden; transition:border-color .25s ease, background .25s ease; }
 .eh-card::before{ content:""; position:absolute; left:0; right:0; top:0; height:3px; background:var(--signal); transform:scaleX(0); transform-origin:left; transition:transform .3s ease; }
@@ -1765,20 +1774,19 @@ footer.site-footer .wrap{
 .eh-card-top{ display:flex; align-items:flex-start; justify-content:space-between; gap:16px; margin-bottom:26px; }
 .eh-date{ display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; border:1px dashed rgba(232,179,57,0.45); padding:10px 14px; flex:none; }
 .eh-day{ font-family:var(--display); font-size:1.7rem; font-weight:700; color:var(--spark); line-height:0.9; }
-.eh-mon{ font-family:var(--mono); font-size:0.56rem; letter-spacing:0.16em; text-transform:uppercase; color:var(--copy); margin-top:5px; }
-.eh-tag{ display:inline-block; font-family:var(--mono); font-size:0.6rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--white); border:1px solid var(--line-dark); padding:6px 11px; }
+.eh-mon{ font-family:var(--mono); font-size:0.64rem; letter-spacing:0.16em; text-transform:uppercase; color:var(--copy); margin-top:5px; }
+.eh-tag{ display:inline-block; font-family:var(--mono); font-size:0.69rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--white); border:1px solid var(--line-dark); padding:6px 11px; }
 .eh-tag.t-course{ border-color:rgba(255,255,255,0.5); color:var(--white); }
 .eh-tag.t-community{ border-color:var(--spark); color:var(--spark); }
 .eh-title{ font-family:var(--display); font-size:clamp(1.55rem,2vw,1.9rem); font-weight:700; text-transform:uppercase; color:var(--white); line-height:1.02; margin-bottom:18px; }
-.eh-desc{ font-size:0.82rem; color:var(--copy); line-height:1.6; opacity:0.78; margin:0 0 16px; }
-.eh-meta{ display:flex; flex-direction:column; gap:10px; font-family:var(--mono); font-size:0.68rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--copy); margin-bottom:20px; }
+.eh-desc{ font-size:1.1rem; color:var(--copy); line-height:1.6; opacity:0.85; margin:0 0 16px; }
+.eh-meta{ display:flex; flex-direction:column; gap:10px; font-family:var(--mono); font-size:0.9rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--copy); margin-bottom:20px; }
 .eh-meta span{ display:inline-flex; align-items:center; gap:10px; }
 .eh-meta span::before{ content:""; width:5px; height:5px; background:var(--steel-2); flex:none; }
 .eh-card-foot{ margin-top:auto; padding-top:26px; display:flex; align-items:center; justify-content:space-between; gap:16px; border-top:1px solid var(--line-dark); }
 .eh-price{ font-family:var(--display); font-size:1.6rem; font-weight:700; text-transform:uppercase; color:var(--white); letter-spacing:0.02em; white-space:nowrap; display:flex; flex-direction:column; line-height:1.1; }
-.eh-price small{ font-family:var(--mono); font-size:0.6rem; letter-spacing:0.14em; font-weight:400; color:var(--copy); opacity:0.55; text-transform:uppercase; margin-top:10px; }
+.eh-price small{ font-family:var(--mono); font-size:0.75rem; letter-spacing:0.14em; font-weight:400; color:var(--copy); opacity:0.55; text-transform:uppercase; margin-top:10px; }
 .eh-price.free{ color:var(--spark); }
-.eh-btn-sm{ padding:12px 18px; font-size:0.66rem; letter-spacing:0.14em; }
 .eh-foot{ display:flex; align-items:center; justify-content:space-between; gap:20px; flex-wrap:wrap; margin-top:40px; }
 @media (max-width:980px){
   .eh-grid{ grid-template-columns:1fr; gap:16px; }
@@ -1808,6 +1816,7 @@ footer.site-footer .wrap{
   border-top: 2px solid var(--signal);
   border-bottom: 1px solid var(--line-dark);
 }
+@media (max-width:1024px){ .train{ background-attachment: scroll, scroll; } }
 @media (max-width: 1024px){ .train{ background-attachment: scroll, scroll; } }
 .train .wrap{ position: relative; z-index: 2; }
 .train-head{
@@ -1828,7 +1837,7 @@ footer.site-footer .wrap{
 .train-head .h-display .accent{ color: var(--signal); }
 .train-head p{
   color: var(--copy);
-  font-size: 1rem;
+  font-size: 1.15rem;
   max-width: 400px;
   justify-self: end;
   text-shadow: 0 1px 14px rgba(0,0,0,0.6);
@@ -1851,7 +1860,7 @@ footer.site-footer .wrap{
 .train-item:nth-child(n+4){ border-bottom: none; }
 .train-num{
   font-family: var(--mono);
-  font-size: 0.74rem;
+  font-size: 0.85rem;
   letter-spacing: 0.2em;
   color: var(--signal);
   font-weight: 500;
@@ -1871,7 +1880,7 @@ footer.site-footer .wrap{
 }
 .train-desc{
   color: var(--copy);
-  font-size: 0.96rem;
+  font-size: 1.1rem;
   line-height: 1.55;
   max-width: 300px;
   text-shadow: 0 1px 12px rgba(0,0,0,0.6);
@@ -1894,6 +1903,34 @@ footer.site-footer .wrap{
   .train-item:last-child{ border-bottom: none !important; }
 }
 
+/* Desktop renders at 80% — same true layout shrink as Chrome's 80% zoom
+   (real reflow via CSS zoom, not a transform). vh hero heights are compensated
+   (divided by 0.8) because zoom doesn't scale the viewport, so heroes keep the
+   same on-screen height as the approved zoomed look. Tablet/mobile untouched. */
+@media (min-width:1081px){
+  body{ zoom:0.8; }
+  .hero, .hero .wrap{ min-height:100vh; }   /* was 80vh */
+}
+
+/* Phone: tactical bar content is wider than small screens; keep only the primary tag */
+@media (max-width: 540px){
+  .tac-divider, .tac-tag:not(.tac-primary){ display: none; }
+}
+
+/* Mobile menu brand logo */
+.mobile-nav-brand{ display:block; width:96px; margin-bottom:18px; }
+.mobile-nav-brand img{ width:100%; height:auto; display:block; }
+
+/* Phone: donate band stats sit over the pale road area; use a stronger vertical overlay */
+@media (max-width: 720px){
+  .donate-band{ background-image: linear-gradient(180deg, rgba(30,45,61,0.92) 0%, rgba(30,45,61,0.8) 100%), url('assets/images/banner.jpg'); }
+}
+
+/* Phone: footer brand art back in flow, centered above the nav (desktop floats it absolute) */
+@media (max-width: 720px){
+  .footer-brand .brand{ position:static; width:100%; max-width:300px; margin:0 auto; }
+  .footer-brand .brand-mark{ height:340px; }
+}
 </style>
 </head>
 <body oncontextmenu="return false;" ondragstart="return false;">
@@ -1945,6 +1982,7 @@ footer.site-footer .wrap{
       <line x1="19" y1="5" x2="5" y2="19"/>
     </svg>
   </button>
+  <a href="#" class="mobile-nav-brand"><img src="assets/logos/logo.png" alt="SAR OPS" /></a>
   <a href="what-we-do.html">What We Do</a>
   <a href="sponsors.html">Sponsors</a>
   <a href="events.html">Events/Classes</a>
@@ -1960,6 +1998,7 @@ footer.site-footer .wrap{
     <div class="hero-slide" style="background-image:url('assets/hero/hero-1.jpeg');"></div>
     <div class="hero-slide" style="background-image:url('assets/hero/hero-2.jpeg');"></div>
     <div class="hero-slide" style="background-image:url('assets/Vehicle Deployment.jpg');"></div>
+    <div class="hero-slide" style="background-image:url('assets/hero/brief.jpeg');"></div>
   </div>
 <!-- ============ HERO ============ -->
 <section class="hero">
@@ -2005,6 +2044,7 @@ footer.site-footer .wrap{
     </div>
     <div class="partners-grid">
       <div class="partner"><img src="assets/sponsors/motorola.png" alt="Motorola" loading="lazy" /></div>
+      <div class="partner"><img src="assets/sponsors/whelen-color.png" alt="Whelen Engineering" loading="lazy" /></div>
       <div class="partner"><img src="assets/sponsors/h3r.png" alt="H3R Performance" loading="lazy" /></div>
       <div class="partner"><img src="assets/sponsors/petzl.png" alt="Petzl" loading="lazy" /></div>
       <div class="partner"><img src="assets/sponsors/rock-exotica.png" alt="Rock Exotica" loading="lazy" /></div>
@@ -2106,7 +2146,7 @@ footer.site-footer .wrap{
           <div class="donate-amounts-label">Choose an amount</div>
           <div class="amount-chips" role="group" aria-label="Donation amount">
             <button type="button" class="amount-chip" data-amt="50" data-fund="Field supplies and consumables">$50</button>
-            <button type="button" class="amount-chip selected" data-amt="100" data-fund="Fuel and mission logistics">$75</button>
+            <button type="button" class="amount-chip selected" data-amt="75" data-fund="Fuel and mission logistics">$75</button>
             <button type="button" class="amount-chip" data-amt="500" data-fund="Rope systems and rigging hardware">$500</button>
             <button type="button" class="amount-chip" data-amt="1000" data-fund="Radios, beacons, and field tech">$1,000</button>
             <button type="button" class="amount-chip" data-amt="custom" data-fund="Give any amount that fits">Custom</button>
@@ -2159,7 +2199,6 @@ footer.site-footer .wrap{
         <div class="eh-meta"><span>Beginner Friendly</span><span>Hands-On</span><span>3-Hour Course</span><span>All Equipment Included</span></div>
         <div class="eh-card-foot">
           <span class="eh-price">$75<small>Donation</small></span>
-          <span class="btn btn-signal eh-btn-sm">Register <span class="arrow">&rarr;</span></span>
         </div>
       </a>
 
@@ -2174,7 +2213,6 @@ footer.site-footer .wrap{
         <div class="eh-meta"><span>Intermediate</span><span>Prior Experience Required</span><span>All Equipment Included</span></div>
         <div class="eh-card-foot">
           <span class="eh-price">$150<small>Donation</small></span>
-          <span class="btn btn-signal eh-btn-sm">Register <span class="arrow">&rarr;</span></span>
         </div>
       </a>
 
@@ -2189,7 +2227,6 @@ footer.site-footer .wrap{
         <div class="eh-meta"><span>Rescue Focused</span><span>Team-Based</span><span>All Equipment Included</span></div>
         <div class="eh-card-foot">
           <span class="eh-price">$175<small>Donation</small></span>
-          <span class="btn btn-signal eh-btn-sm">Register <span class="arrow">&rarr;</span></span>
         </div>
       </a>
 
@@ -2482,6 +2519,22 @@ footer.site-footer .wrap{
       }
     }));
     if (customInput) customInput.addEventListener('input', syncCustom);
+
+    // hand off to Authorize.net's hosted payment page via donate-checkout.php
+    if (donateBtn) donateBtn.addEventListener('click', e => {
+      e.preventDefault();
+      const sel = amtWrap.querySelector('.amount-chip.selected');
+      let amt = sel ? sel.dataset.amt : '75';
+      if (amt === 'custom'){
+        amt = parseFloat(customInput.value);
+        if (!(amt >= 1)){ customInput.focus(); return; }
+      }
+      const f = document.createElement('form');
+      f.method = 'POST'; f.action = 'donate-checkout.php';
+      const i = document.createElement('input');
+      i.type = 'hidden'; i.name = 'amount'; i.value = amt;
+      f.appendChild(i); document.body.appendChild(f); f.submit();
+    });
   }
 
 </script>

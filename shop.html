@@ -29,7 +29,7 @@ img{ max-width:100%; display:block; -webkit-user-drag:none; user-select:none; }
 a{ color:inherit; text-decoration:none; }
 button{ font:inherit; cursor:pointer; border:none; background:none; color:inherit; }
 .wrap{ width:100%; max-width:var(--wrap); margin:0 auto; padding:0 44px; }
-.eyebrow{ font-family:var(--mono); font-size:0.72rem; letter-spacing:0.18em; text-transform:uppercase; font-weight:500; color:var(--white); display:inline-flex; align-items:center; gap:12px; }
+.eyebrow{ font-family:var(--mono); font-size:0.83rem; letter-spacing:0.18em; text-transform:uppercase; font-weight:500; color:var(--white); display:inline-flex; align-items:center; gap:12px; }
 .eyebrow::before{ content:""; width:26px; height:2px; background:var(--signal); }
 .eyebrow.plain::before{ display:none; }
 .h-display{ font-family:var(--display); font-weight:700; text-transform:uppercase; line-height:0.94; letter-spacing:-0.005em; }
@@ -68,14 +68,13 @@ nav.primary .nav-donate::after{ display:none; }
 .mobile-close svg{ width:28px; height:28px; }
 
 /* BUTTONS */
-.btn{ display:inline-flex; align-items:center; gap:14px; padding:18px 28px; font-family:var(--body); font-size:0.76rem; letter-spacing:0.22em; text-transform:uppercase; font-weight:600; border:1px solid currentColor; transition:background .22s ease, color .22s ease, border-color .22s ease, gap .22s ease; }
+.btn{ display:inline-flex; align-items:center; gap:14px; padding:18px 28px; font-family:var(--body); font-size:0.87rem; letter-spacing:0.22em; text-transform:uppercase; font-weight:600; border:1px solid currentColor; transition:background .22s ease, color .22s ease, border-color .22s ease, gap .22s ease; }
 .btn:hover{ gap:22px; }
-.btn .arrow{ display:inline-block; font-size:1rem; line-height:1; }
+.btn .arrow{ display:inline-block; font-size:1.15rem; line-height:1; }
 .btn-signal{ background:var(--signal); color:var(--white); border-color:var(--signal); }
 .btn-signal:hover{ background:var(--signal-2); border-color:var(--signal-2); }
 .btn-ghost{ color:var(--white); border-color:var(--signal-2); border-width:2px; }
 .btn-ghost:hover{ border-color:var(--signal); background:var(--signal); color:var(--white); }
-.btn-sm{ padding:12px 18px; font-size:0.68rem; letter-spacing:0.16em; }
 
 /* PAGE HERO */
 .page-hero{ position:relative; background-color:var(--navy); background-size:cover; background-position:center 30%; background-attachment:fixed; border-top:2px solid var(--signal); border-bottom:2px solid var(--signal); min-height:60vh; display:flex; overflow:hidden; }
@@ -87,8 +86,8 @@ nav.primary .nav-donate::after{ display:none; }
 .page-hero .wrap{ position:relative; z-index:1; display:flex; flex-direction:column; justify-content:flex-end; padding-top:210px; padding-bottom:60px; width:100%; }
 .page-hero h1{ font-family:var(--display); font-weight:700; text-transform:uppercase; line-height:0.9; letter-spacing:-0.005em; font-size:clamp(2.9rem, 7.4vw, 6.2rem); margin:22px 0 0; max-width:15ch; text-shadow:0 2px 24px rgba(0,0,0,0.4); }
 .page-hero h1 .accent{ display:inline-block; border-bottom:5px solid var(--signal); padding-bottom:6px; }
-.page-hero-lede{ font-size:1.08rem; line-height:1.65; color:var(--copy); max-width:600px; margin-top:26px; text-shadow:0 1px 16px rgba(0,0,0,0.5); }
-.page-hero-meta{ display:flex; gap:30px; flex-wrap:wrap; margin-top:34px; padding-top:24px; border-top:1px solid var(--line-dark); font-family:var(--mono); font-size:0.72rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--white); }
+.page-hero-lede{ font-size:1.24rem; line-height:1.65; color:var(--copy); max-width:600px; margin-top:26px; text-shadow:0 1px 16px rgba(0,0,0,0.5); }
+.page-hero-meta{ display:flex; gap:30px; flex-wrap:wrap; margin-top:40px; padding-top:40px; border-top:1px solid var(--line-dark); font-family:var(--mono); font-size:0.83rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--white); }
 .page-hero-meta .pm{ display:inline-flex; align-items:center; gap:10px; }
 .page-hero-meta .pm-dot{ width:8px; height:8px; background:var(--signal); border-radius:50%; }
 
@@ -96,72 +95,71 @@ nav.primary .nav-donate::after{ display:none; }
 .store-why{ background:var(--navy-2); padding:60px 0; border-bottom:1px solid var(--line-dark); }
 .nonprofit-band{ background:var(--navy-3); padding:56px 0; border-bottom:1px solid var(--line-dark); }
 .nonprofit-inner{ display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:start; }
-.nonprofit-legal{ font-family:var(--mono); font-size:0.72rem; letter-spacing:0.14em; text-transform:uppercase; color:rgba(255,255,255,0.5); margin-top:18px; }
-.nonprofit-label{ font-family:var(--mono); font-size:0.62rem; letter-spacing:0.18em; text-transform:uppercase; color:rgba(255,255,255,0.45); margin-bottom:16px; }
+.nonprofit-legal{ font-family:var(--mono); font-size:0.83rem; letter-spacing:0.14em; text-transform:uppercase; color:rgba(255,255,255,0.5); margin-top:18px; }
+.nonprofit-label{ font-family:var(--mono); font-size:0.71rem; letter-spacing:0.18em; text-transform:uppercase; color:rgba(255,255,255,0.45); margin-bottom:16px; }
 .nonprofit-list{ list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:10px; }
-.nonprofit-list li{ font-size:0.9rem; color:var(--copy); padding-left:16px; position:relative; opacity:0.82; }
+.nonprofit-list li{ font-size:1.03rem; color:var(--copy); padding-left:16px; position:relative; opacity:0.82; }
 .nonprofit-list li::before{ content:""; position:absolute; left:0; top:0.55em; width:5px; height:5px; background:var(--signal); }
 .store-why-inner{ max-width:640px; }
 .store-why-heading{ font-size:clamp(1.8rem,3vw,2.6rem); margin:16px 0 20px; }
-.store-why-body{ font-size:1rem; line-height:1.7; color:var(--copy); opacity:0.78; }
-.store-why-coda{ font-family:var(--mono); font-size:0.72rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--signal); margin-top:20px; }
+.store-why-body{ font-size:1.15rem; line-height:1.7; color:var(--copy); opacity:0.78; }
+.store-why-coda{ font-family:var(--mono); font-size:0.83rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--signal); margin-top:20px; }
 
 .shop{ background:var(--navy); padding:110px 0; }
 .shop-head{ display:flex; align-items:flex-end; justify-content:space-between; gap:32px; flex-wrap:wrap; margin-bottom:24px; }
 .shop-head .h-display{ font-size:clamp(2.2rem,4.2vw,3.4rem); margin-top:14px; }
-.shop-note{ display:flex; align-items:center; gap:12px; font-family:var(--mono); font-size:0.66rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--spark); border:1px dashed rgba(232,179,57,0.5); padding:12px 16px; max-width:360px; line-height:1.5; }
+.shop-note{ display:flex; align-items:center; gap:12px; font-family:var(--mono); font-size:0.76rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--spark); border:1px dashed rgba(232,179,57,0.5); padding:12px 16px; max-width:360px; line-height:1.5; }
 .shop-filters{ display:flex; flex-wrap:wrap; gap:10px; margin:28px 0 8px; }
-.chip{ font-family:var(--mono); font-size:0.68rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--copy); border:1px solid var(--line-dark); padding:10px 16px; transition:border-color .2s ease, color .2s ease, background .2s ease; }
+.chip{ font-family:var(--mono); font-size:0.78rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--copy); border:1px solid var(--line-dark); padding:10px 16px; transition:border-color .2s ease, color .2s ease, background .2s ease; }
 .chip:hover{ border-color:var(--signal); color:var(--white); }
 .chip.is-active{ background:var(--signal); border-color:var(--signal); color:var(--white); }
 
 .shop-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:24px; }
-.prod-card{ display:flex; flex-direction:column; background:var(--navy-2); border:1px solid var(--line-dark); text-decoration:none; color:inherit; overflow:hidden; position:relative; transition:border-color .25s ease, transform .25s ease, box-shadow .25s ease; }
-.prod-card:hover{ border-color:var(--signal); transform:translateY(-5px); }
+/* Products are display-only for now: no checkout, no CTA, cards not clickable.
+   Restore the <a> wrappers + hover states when the store goes live. */
+.prod-card{ display:flex; flex-direction:column; background:var(--navy-2); border:1px solid var(--line-dark); text-decoration:none; color:inherit; overflow:hidden; position:relative; }
 .prod-thumb{ position:relative; aspect-ratio:1/1; overflow:hidden; background:var(--steel-3); }
 .prod-thumb.cs{ aspect-ratio:3/2; }
 .prod-thumb::before{ content:""; position:absolute; inset:0; background:center/38% no-repeat url('assets/logos/logo.png'); opacity:0.26; }
 .prod-thumb::after{ content:""; position:absolute; inset:0; background:linear-gradient(180deg, rgba(15,25,36,0.35) 0%, rgba(15,25,36,0) 40%, rgba(15,25,36,0) 62%, rgba(15,25,36,0.5) 100%); pointer-events:none; }
-.prod-img{ position:absolute; inset:0; background-size:cover; background-position:center; transition:transform .6s ease; }
-.prod-card:hover .prod-img{ transform:scale(1.06); }
-.prod-tag{ position:absolute; top:16px; right:14px; z-index:2; font-family:var(--mono); font-size:0.55rem; letter-spacing:0.16em; text-transform:uppercase; padding:6px 9px; background:rgba(15,25,36,0.82); border:1px solid var(--line-dark); color:var(--white); }
+.prod-img{ position:absolute; inset:0; background-size:cover; background-position:center; }
+.prod-tag{ position:absolute; top:16px; right:14px; z-index:2; font-family:var(--mono); font-size:0.63rem; letter-spacing:0.16em; text-transform:uppercase; padding:6px 9px; background:rgba(15,25,36,0.82); border:1px solid var(--line-dark); color:var(--white); }
 .prod-tag.t-apparel{ border-color:var(--steel-2); color:#cfe0ec; }
 .prod-tag.t-accessory{ border-color:var(--spark); color:var(--spark); }
 .prod-tag.t-emblem{ border-color:var(--signal-2); color:var(--signal-2); }
 .prod-tag.t-equipment{ border-color:#7ecfa0; color:#7ecfa0; }
-.prod-badge{ position:absolute; top:14px; left:14px; z-index:2; font-family:var(--mono); font-size:0.55rem; letter-spacing:0.16em; text-transform:uppercase; padding:6px 9px; background:var(--signal); color:var(--white); }
-.ph-tag{ position:absolute; bottom:12px; left:50%; transform:translateX(-50%); z-index:2; font-family:var(--mono); font-size:0.52rem; letter-spacing:0.16em; text-transform:uppercase; color:var(--copy); background:rgba(15,25,36,0.66); border:1px dashed var(--line-dark); padding:5px 9px; }
+.prod-badge{ position:absolute; top:14px; left:14px; z-index:2; font-family:var(--mono); font-size:0.63rem; letter-spacing:0.16em; text-transform:uppercase; padding:6px 9px; background:var(--signal); color:var(--white); }
+.ph-tag{ position:absolute; bottom:12px; left:50%; transform:translateX(-50%); z-index:2; font-family:var(--mono); font-size:0.6rem; letter-spacing:0.16em; text-transform:uppercase; color:var(--copy); background:rgba(15,25,36,0.66); border:1px dashed var(--line-dark); padding:5px 9px; }
 .prod-body{ padding:24px 24px 20px; display:flex; flex-direction:column; gap:12px; flex:1; }
 .prod-title{ font-family:var(--display); font-size:1.5rem; font-weight:700; text-transform:uppercase; color:var(--white); line-height:1; }
-.prod-meta{ display:flex; flex-direction:column; gap:8px; font-family:var(--mono); font-size:0.68rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--copy); }
+.prod-meta{ display:flex; flex-direction:column; gap:8px; font-family:var(--mono); font-size:0.78rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--copy); }
 .prod-meta span{ display:inline-flex; align-items:center; gap:9px; }
 .prod-meta span::before{ content:""; width:5px; height:5px; background:var(--steel-2); flex:none; }
 .prod-foot{ margin-top:auto; display:flex; align-items:center; justify-content:space-between; gap:16px; padding:20px 24px; border-top:1px solid var(--line-dark); }
 .prod-price{ font-family:var(--display); font-size:1.6rem; font-weight:700; text-transform:uppercase; color:var(--white); letter-spacing:0.02em; white-space:nowrap; line-height:1; }
 .prod-price-wrap{ display:flex; flex-direction:column; gap:4px; }
-.prod-donation-label{ font-family:var(--mono); font-size:0.58rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--white); opacity:0.55; }
-.btn-coming-soon{ background:transparent; color:rgba(255,255,255,0.35); border-color:rgba(255,255,255,0.18); cursor:default; pointer-events:none; letter-spacing:0.18em; }
+.prod-donation-label{ font-family:var(--mono); font-size:0.67rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--white); opacity:0.55; }
 .shop-section-break{ margin:64px 0 40px; padding-top:64px; border-top:1px solid var(--line-dark); }
 .shop-section-break .eyebrow{ margin-bottom:14px; }
 .shop-section-break h3{ font-family:var(--display); font-size:clamp(1.8rem,3vw,2.6rem); font-weight:700; text-transform:uppercase; line-height:1; color:var(--white); margin-bottom:12px; }
 .shop-section-break h4{ font-family:var(--display); font-size:clamp(1.8rem,3vw,2.6rem); font-weight:700; text-transform:uppercase; color:var(--white); margin-bottom:12px; line-height:1; }
-.shop-section-break p{ font-family:var(--mono); font-size:0.72rem; letter-spacing:0.1em; text-transform:uppercase; color:rgba(255,255,255,0.45); line-height:1.9; }
+.shop-section-break p{ font-family:var(--mono); font-size:0.83rem; letter-spacing:0.1em; text-transform:uppercase; color:rgba(255,255,255,0.45); line-height:1.9; }
 
 /* PROCEEDS BAND */
 .proceeds{ background:var(--panel); padding:110px 0; border-top:2px solid var(--signal); }
 .proceeds .wrap{ display:grid; grid-template-columns:1.1fr 1fr; gap:72px; align-items:center; }
 .proceeds .h-display{ font-size:clamp(2.2rem,4vw,3.2rem); margin:14px 0 22px; max-width:480px; }
-.proceeds p{ color:var(--copy); font-size:1.04rem; line-height:1.7; max-width:480px; margin-bottom:26px; }
+.proceeds p{ color:var(--copy); font-size:1.2rem; line-height:1.7; max-width:480px; margin-bottom:26px; }
 .proceeds-list{ list-style:none; display:flex; flex-direction:column; border-top:1px solid var(--line-dark); }
 .proceeds-list li{ display:flex; align-items:center; gap:18px; padding:20px 0; border-bottom:1px solid var(--line-dark); font-family:var(--display); font-size:1.2rem; font-weight:600; text-transform:uppercase; letter-spacing:0.02em; color:var(--white); }
-.proceeds-list li .n{ font-family:var(--mono); font-size:0.72rem; letter-spacing:0.18em; color:var(--signal); font-weight:500; }
+.proceeds-list li .n{ font-family:var(--mono); font-size:0.83rem; letter-spacing:0.18em; color:var(--signal); font-weight:500; }
 
 /* CTA */
 .cta-band{ background-color:var(--navy-3); background-image:linear-gradient(180deg, rgba(15,25,36,0.74) 0%, rgba(15,25,36,0.6) 50%, rgba(15,25,36,0.76) 100%), url('assets/images/cliffside-instructions.jpeg'); background-size:cover, cover; background-position:center, center; background-attachment:scroll, fixed; padding:120px 0; border-top:1px solid var(--line-dark); }
 @media (max-width:1024px){ .cta-band{ background-attachment:scroll, scroll; } }
 .cta-band .wrap{ text-align:center; }
 .cta-band .h-display{ font-size:clamp(2.2rem,4.6vw,3.8rem); max-width:720px; margin:0 auto; line-height:0.98; text-shadow:0 1px 18px rgba(0,0,0,0.5); }
-.cta-band p{ color:var(--copy); font-size:1.06rem; margin:24px auto 32px; max-width:540px; text-shadow:0 1px 16px rgba(0,0,0,0.5); }
+.cta-band p{ color:var(--copy); font-size:1.22rem; margin:24px auto 32px; max-width:540px; text-shadow:0 1px 16px rgba(0,0,0,0.5); }
 .cta-actions{ display:flex; gap:14px; flex-wrap:wrap; justify-content:center; }
 
 /* FOOTER */
@@ -171,23 +169,23 @@ footer.site-footer .wrap{ max-width:none; padding:0 48px; }
 .footer-brand .brand{ position:absolute; top:32px; left:48px; width:560px; display:block; pointer-events:none; }
 .footer-brand .brand-mark{ width:100%; height:560px; display:block; }
 .footer-brand .footer-mark img{ object-fit:cover; object-position:18% 38%; width:100%; height:100%; mix-blend-mode:screen; }
-.footer-col h4{ font-family:var(--mono); font-size:0.85rem; letter-spacing:0.22em; text-transform:uppercase; font-weight:500; color:var(--copy); margin-bottom:30px; }
+.footer-col h4{ font-family:var(--mono); font-size:0.98rem; letter-spacing:0.22em; text-transform:uppercase; font-weight:500; color:var(--copy); margin-bottom:30px; }
 .footer-col ul{ list-style:none; display:flex; flex-direction:column; gap:18px; }
 .footer-col ul a{ font-family:var(--display); font-size:1.35rem; font-weight:500; text-transform:uppercase; letter-spacing:0.03em; color:var(--white); transition:color .2s ease; }
 .footer-col ul a:hover{ color:var(--signal-2); }
 .footer-col .info-line{ font-size:1.15rem; color:var(--copy); line-height:1.7; }
 .footer-col .info-line strong{ font-family:var(--display); text-transform:uppercase; letter-spacing:0.02em; color:var(--white); font-weight:600; }
 .footer-bottom{ display:flex; flex-direction:column; gap:0; border-top:1px solid var(--line-dark); padding-top:22px; }
-.footer-bottom-row{ display:flex; justify-content:space-between; align-items:center; gap:18px; flex-wrap:wrap; font-family:var(--mono); font-size:0.85rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--copy); }
+.footer-bottom-row{ display:flex; justify-content:space-between; align-items:center; gap:18px; flex-wrap:wrap; font-family:var(--mono); font-size:0.98rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--copy); }
 .footer-bottom a{ color:var(--white); }
 .footer-bottom a:hover{ color:var(--signal-2); }
-.footer-legal{ font-family:var(--mono); font-size:1rem; letter-spacing:0.06em; text-transform:none; color:rgba(255,255,255,0.65); text-align:center; padding-bottom:18px; margin-bottom:18px; border-bottom:1px solid var(--line-dark); width:100%; }
+.footer-legal{ font-family:var(--mono); font-size:1.15rem; letter-spacing:0.06em; text-transform:none; color:rgba(255,255,255,0.65); text-align:center; padding-bottom:18px; margin-bottom:18px; border-bottom:1px solid var(--line-dark); width:100%; }
 
 /* RESPONSIVE */
 @media (max-width:1080px){
   .page-hero{ background-attachment:scroll; }
   .proceeds .wrap{ grid-template-columns:1fr; gap:40px; }
-  .footer-top{ grid-template-columns:1fr 1fr; gap:36px; }
+  .footer-top{ grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:36px; }
   .footer-brand{ grid-column:1 / -1; }
   .shop-grid{ grid-template-columns:1fr 1fr; gap:20px; }
 }
@@ -205,10 +203,34 @@ footer.site-footer .wrap{ max-width:none; padding:0 48px; }
   .proceeds{ padding:72px 0; }
   .cta-band{ padding:80px 0; background-position:62% center, 62% center; }
   .cta-actions{ flex-direction:row; }
-  .cta-actions .btn{ flex:1 1 0; min-width:0; justify-content:center; padding:16px 12px; letter-spacing:0.1em; }
-  .footer-top{ grid-template-columns:1fr; gap:36px; text-align:center; padding-bottom:48px; }
+  .cta-actions .btn{ flex:1 1 0; min-width:0; justify-content:center; padding:16px 10px; letter-spacing:0.08em; font-size:0.8rem; white-space:nowrap; }
+  .nonprofit-inner{ grid-template-columns:1fr; gap:32px; }
+  .footer-top{ grid-template-columns:minmax(0,1fr); gap:36px; text-align:center; padding-bottom:48px; }
   .footer-col ul{ align-items:center; }
   .footer-bottom-row{ justify-content:center; text-align:center; }
+}
+/* Desktop renders at 80% — same true layout shrink as Chrome's 80% zoom
+   (real reflow via CSS zoom, not a transform). vh hero heights are compensated
+   (divided by 0.8) because zoom doesn't scale the viewport, so heroes keep the
+   same on-screen height as the approved zoomed look. Tablet/mobile untouched. */
+@media (min-width:1081px){
+  body{ zoom:0.8; }
+  .page-hero{ min-height:75vh; }            /* was 60vh */
+}
+
+/* Phone: tactical bar content is wider than small screens; keep only the primary tag */
+@media (max-width: 540px){
+  .tac-divider, .tac-tag:not(.tac-primary){ display: none; }
+}
+
+/* Mobile menu brand logo */
+.mobile-nav-brand{ display:block; width:96px; margin-bottom:18px; }
+.mobile-nav-brand img{ width:100%; height:auto; display:block; }
+
+/* Phone: footer brand art back in flow, centered above the nav (desktop floats it absolute) */
+@media (max-width: 720px){
+  .footer-brand .brand{ position:static; width:100%; max-width:300px; margin:0 auto; }
+  .footer-brand .brand-mark{ height:340px; }
 }
 </style>
 </head>
@@ -250,6 +272,7 @@ footer.site-footer .wrap{ max-width:none; padding:0 48px; }
   <button class="mobile-close" id="mobileClose" aria-label="Close menu">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><line x1="5" y1="5" x2="19" y2="19"/><line x1="19" y1="5" x2="5" y2="19"/></svg>
   </button>
+  <a href="index.html" class="mobile-nav-brand"><img src="assets/logos/logo.png" alt="SAR OPS" /></a>
   <a href="what-we-do.html">What We Do</a>
   <a href="sponsors.html">Sponsors</a>
   <a href="events.html">Events/Classes</a>
@@ -328,7 +351,7 @@ footer.site-footer .wrap{ max-width:none; padding:0 48px; }
 
     <div class="shop-grid">
 
-      <a href="javascript:void(0)" class="prod-card">
+      <div class="prod-card">
         <div class="prod-thumb cs">
           <div class="prod-img" style="background-image:url('assets/Coming Soon.png'); background-size:cover; background-position:center;"></div>
           <span class="prod-badge">Best Seller</span>
@@ -340,11 +363,10 @@ footer.site-footer .wrap{ max-width:none; padding:0 48px; }
         </div>
         <div class="prod-foot">
           <div class="prod-price-wrap"><span class="prod-price">$35</span><span class="prod-donation-label">Donation</span></div>
-          <span class="btn btn-sm btn-coming-soon">Coming Soon</span>
         </div>
-      </a>
+      </div>
 
-      <a href="javascript:void(0)" class="prod-card">
+      <div class="prod-card">
         <div class="prod-thumb cs">
           <div class="prod-img" style="background-image:url('assets/Coming Soon.png'); background-size:cover; background-position:center;"></div>
           <span class="prod-tag t-apparel">Apparel</span>
@@ -355,11 +377,10 @@ footer.site-footer .wrap{ max-width:none; padding:0 48px; }
         </div>
         <div class="prod-foot">
           <div class="prod-price-wrap"><span class="prod-price">$72</span><span class="prod-donation-label">Donation</span></div>
-          <span class="btn btn-sm btn-coming-soon">Coming Soon</span>
         </div>
-      </a>
+      </div>
 
-      <a href="javascript:void(0)" class="prod-card">
+      <div class="prod-card">
         <div class="prod-thumb cs">
           <div class="prod-img" style="background-image:url('assets/Coming Soon.png'); background-size:cover; background-position:center;"></div>
           <span class="prod-tag t-emblem">Emblem</span>
@@ -370,11 +391,10 @@ footer.site-footer .wrap{ max-width:none; padding:0 48px; }
         </div>
         <div class="prod-foot">
           <div class="prod-price-wrap"><span class="prod-price">$18</span><span class="prod-donation-label">Donation</span></div>
-          <span class="btn btn-sm btn-coming-soon">Coming Soon</span>
         </div>
-      </a>
+      </div>
 
-      <a href="javascript:void(0)" class="prod-card">
+      <div class="prod-card">
         <div class="prod-thumb cs">
           <div class="prod-img" style="background-image:url('assets/Coming Soon.png'); background-size:cover; background-position:center;"></div>
           <span class="prod-tag t-emblem">Emblem</span>
@@ -385,11 +405,10 @@ footer.site-footer .wrap{ max-width:none; padding:0 48px; }
         </div>
         <div class="prod-foot">
           <div class="prod-price-wrap"><span class="prod-price">$12</span><span class="prod-donation-label">Donation</span></div>
-          <span class="btn btn-sm btn-coming-soon">Coming Soon</span>
         </div>
-      </a>
+      </div>
 
-      <a href="javascript:void(0)" class="prod-card">
+      <div class="prod-card">
         <div class="prod-thumb cs">
           <div class="prod-img" style="background-image:url('assets/Coming Soon.png'); background-size:cover; background-position:center;"></div>
           <span class="prod-tag t-accessory">Accessory</span>
@@ -400,9 +419,8 @@ footer.site-footer .wrap{ max-width:none; padding:0 48px; }
         </div>
         <div class="prod-foot">
           <div class="prod-price-wrap"><span class="prod-price">$10</span><span class="prod-donation-label">Donation</span></div>
-          <span class="btn btn-sm btn-coming-soon">Coming Soon</span>
         </div>
-      </a>
+      </div>
 
     </div>
 
@@ -414,7 +432,7 @@ footer.site-footer .wrap{ max-width:none; padding:0 48px; }
 
     <div class="shop-grid">
 
-      <a href="javascript:void(0)" class="prod-card">
+      <div class="prod-card">
         <div class="prod-thumb">
           <div class="prod-img" style="background-image:url('assets/Sar Ops Challenge Coin.png'); background-size:contain; background-repeat:no-repeat; background-position:center;"></div>
           <span class="prod-tag t-emblem">Challenge Coin</span>
@@ -425,11 +443,10 @@ footer.site-footer .wrap{ max-width:none; padding:0 48px; }
         </div>
         <div class="prod-foot">
           <div class="prod-price-wrap"><span class="prod-price">$69</span><span class="prod-donation-label">Donation</span></div>
-          <span class="btn btn-sm btn-coming-soon">Coming Soon</span>
         </div>
-      </a>
+      </div>
 
-      <a href="javascript:void(0)" class="prod-card">
+      <div class="prod-card">
         <div class="prod-thumb">
           <div class="prod-img" style="background-image:url('assets/Second Run.png'); background-size:contain; background-repeat:no-repeat; background-position:center;"></div>
           <span class="prod-tag t-emblem">Challenge Coin</span>
@@ -441,11 +458,10 @@ footer.site-footer .wrap{ max-width:none; padding:0 48px; }
         </div>
         <div class="prod-foot">
           <div class="prod-price-wrap"><span class="prod-price">$69</span><span class="prod-donation-label">Donation</span></div>
-          <span class="btn btn-sm btn-coming-soon">Coming Soon</span>
         </div>
-      </a>
+      </div>
 
-      <a href="javascript:void(0)" class="prod-card">
+      <div class="prod-card">
         <div class="prod-thumb">
           <div class="prod-img" style="background-image:url('assets/Third Run.png'); background-size:contain; background-repeat:no-repeat; background-position:center;"></div>
           <span class="prod-tag t-emblem">Challenge Coin</span>
@@ -456,11 +472,10 @@ footer.site-footer .wrap{ max-width:none; padding:0 48px; }
         </div>
         <div class="prod-foot">
           <div class="prod-price-wrap"><span class="prod-price">$69</span><span class="prod-donation-label">Donation</span></div>
-          <span class="btn btn-sm btn-coming-soon">Coming Soon</span>
         </div>
-      </a>
+      </div>
 
-      <a href="javascript:void(0)" class="prod-card">
+      <div class="prod-card">
         <div class="prod-thumb">
           <div class="prod-img" style="background-image:url('assets/Fourth Run.png'); background-size:contain; background-repeat:no-repeat; background-position:center;"></div>
           <span class="prod-tag t-emblem">Challenge Coin</span>
@@ -471,9 +486,8 @@ footer.site-footer .wrap{ max-width:none; padding:0 48px; }
         </div>
         <div class="prod-foot">
           <div class="prod-price-wrap"><span class="prod-price">$69</span><span class="prod-donation-label">Donation</span></div>
-          <span class="btn btn-sm btn-coming-soon">Coming Soon</span>
         </div>
-      </a>
+      </div>
 
     </div>
 
@@ -486,7 +500,7 @@ footer.site-footer .wrap{ max-width:none; padding:0 48px; }
 
     <div class="shop-grid">
 
-      <a href="javascript:void(0)" class="prod-card">
+      <div class="prod-card">
         <div class="prod-thumb cs">
           <div class="prod-img" style="background-image:url('assets/Coming Soon.png'); background-size:cover; background-position:center;"></div>
           <span class="prod-badge">Patented</span>
@@ -497,12 +511,11 @@ footer.site-footer .wrap{ max-width:none; padding:0 48px; }
           <div class="prod-meta"><span>Rope Management</span><span>Patented Design</span><span>Technical Rope Operations</span></div>
         </div>
         <div class="prod-foot">
-          <div class="prod-price-wrap"><span class="prod-price" style="font-size:1rem;opacity:0.4;"></span></div>
-          <span class="btn btn-sm btn-coming-soon">Coming Soon</span>
+          <div class="prod-price-wrap"><span class="prod-price" style="font-size:1.15rem;opacity:0.4;"></span></div>
         </div>
-      </a>
+      </div>
 
-      <a href="javascript:void(0)" class="prod-card">
+      <div class="prod-card">
         <div class="prod-thumb cs">
           <div class="prod-img" style="background-image:url('assets/Coming Soon.png'); background-size:cover; background-position:center;"></div>
           <span class="prod-badge">Patented</span>
@@ -513,10 +526,9 @@ footer.site-footer .wrap{ max-width:none; padding:0 48px; }
           <div class="prod-meta"><span>Edge Protection</span><span>Patented Design</span><span>Technical Rope Operations</span></div>
         </div>
         <div class="prod-foot">
-          <div class="prod-price-wrap"><span class="prod-price" style="font-size:1rem;opacity:0.4;"></span></div>
-          <span class="btn btn-sm btn-coming-soon">Coming Soon</span>
+          <div class="prod-price-wrap"><span class="prod-price" style="font-size:1.15rem;opacity:0.4;"></span></div>
         </div>
-      </a>
+      </div>
 
     </div>
 

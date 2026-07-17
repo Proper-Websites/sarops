@@ -29,7 +29,7 @@ img{ max-width:100%; display:block; -webkit-user-drag:none; user-select:none; }
 a{ color:inherit; text-decoration:none; }
 button{ font:inherit; cursor:pointer; border:none; background:none; color:inherit; }
 .wrap{ width:100%; max-width:var(--wrap); margin:0 auto; padding:0 44px; }
-.eyebrow{ font-family:var(--mono); font-size:0.72rem; letter-spacing:0.18em; text-transform:uppercase; font-weight:500; color:var(--white); display:inline-flex; align-items:center; gap:12px; }
+.eyebrow{ font-family:var(--mono); font-size:0.83rem; letter-spacing:0.18em; text-transform:uppercase; font-weight:500; color:var(--white); display:inline-flex; align-items:center; gap:12px; }
 .eyebrow::before{ content:""; width:26px; height:2px; background:var(--signal); }
 .eyebrow.plain::before{ display:none; }
 .h-display{ font-family:var(--display); font-weight:700; text-transform:uppercase; line-height:0.94; letter-spacing:-0.005em; }
@@ -68,9 +68,9 @@ nav.primary .nav-donate::after{ display:none; }
 .mobile-close svg{ width:28px; height:28px; }
 
 /* BUTTONS */
-.btn{ display:inline-flex; align-items:center; gap:14px; padding:18px 28px; font-family:var(--body); font-size:0.76rem; letter-spacing:0.22em; text-transform:uppercase; font-weight:600; border:1px solid currentColor; transition:background .22s ease, color .22s ease, border-color .22s ease, gap .22s ease; }
+.btn{ display:inline-flex; align-items:center; gap:14px; padding:18px 28px; font-family:var(--body); font-size:0.87rem; letter-spacing:0.22em; text-transform:uppercase; font-weight:600; border:1px solid currentColor; transition:background .22s ease, color .22s ease, border-color .22s ease, gap .22s ease; }
 .btn:hover{ gap:22px; }
-.btn .arrow{ display:inline-block; font-size:1rem; line-height:1; }
+.btn .arrow{ display:inline-block; font-size:1.15rem; line-height:1; }
 .btn-signal{ background:var(--signal); color:var(--white); border-color:var(--signal); }
 .btn-signal:hover{ background:var(--signal-2); border-color:var(--signal-2); }
 .btn-ghost{ color:var(--white); border-color:var(--signal-2); border-width:2px; }
@@ -85,8 +85,8 @@ nav.primary .nav-donate::after{ display:none; }
 .page-hero .wrap{ position:relative; z-index:1; display:flex; flex-direction:column; justify-content:flex-end; padding-top:210px; padding-bottom:60px; width:100%; }
 .page-hero h1{ font-family:var(--display); font-weight:700; text-transform:uppercase; line-height:0.9; letter-spacing:-0.005em; font-size:clamp(2.9rem, 7.4vw, 6.2rem); margin:22px 0 0; max-width:15ch; text-shadow:0 2px 24px rgba(0,0,0,0.4); }
 .page-hero h1 .accent{ display:inline-block; border-bottom:5px solid var(--signal); padding-bottom:6px; }
-.page-hero-lede{ font-size:1.08rem; line-height:1.65; color:var(--copy); max-width:600px; margin-top:26px; text-shadow:0 1px 16px rgba(0,0,0,0.5); }
-.page-hero-meta{ display:flex; gap:30px; flex-wrap:wrap; margin-top:34px; padding-top:24px; border-top:1px solid var(--line-dark); font-family:var(--mono); font-size:0.72rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--white); }
+.page-hero-lede{ font-size:1.24rem; line-height:1.65; color:var(--copy); max-width:600px; margin-top:26px; text-shadow:0 1px 16px rgba(0,0,0,0.5); }
+.page-hero-meta{ display:flex; gap:30px; flex-wrap:wrap; margin-top:40px; padding-top:40px; border-top:1px solid var(--line-dark); font-family:var(--mono); font-size:0.83rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--white); }
 .page-hero-meta .pm{ display:inline-flex; align-items:center; gap:10px; }
 .page-hero-meta .pm-dot{ width:8px; height:8px; background:var(--signal); border-radius:50%; }
 
@@ -94,48 +94,51 @@ nav.primary .nav-donate::after{ display:none; }
 .whygive{ background:var(--navy-2); padding:120px 0; border-bottom:1px solid var(--line-dark); }
 .whygive-grid{ display:grid; grid-template-columns:1.4fr 1fr; gap:80px; align-items:center; }
 .whygive .h-display{ font-size:clamp(2.2rem,4.2vw,3.4rem); margin:18px 0 26px; max-width:560px; }
-.whygive p{ color:var(--copy); font-size:1.06rem; line-height:1.7; max-width:560px; margin-bottom:18px; }
+.whygive p{ color:var(--copy); font-size:1.22rem; line-height:1.7; max-width:560px; margin-bottom:18px; }
 .whygive p strong{ color:var(--white); font-weight:700; }
 .whygive-stats{ display:flex; flex-direction:column; gap:0; border-top:1px solid var(--line-dark); }
 .wg-stat{ padding:26px 0; border-bottom:1px solid var(--line-dark); }
 .wg-stat-num{ font-family:var(--display); font-size:clamp(2.4rem,4vw,3.4rem); font-weight:700; color:var(--white); line-height:0.9; }
 .wg-stat-num span{ color:var(--signal-2); }
-.wg-stat-label{ font-family:var(--mono); font-size:0.7rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--copy); margin-top:12px; }
+.wg-stat-label{ font-family:var(--mono); font-size:0.8rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--copy); margin-top:12px; }
 
 /* LOADOUT */
 .loadout{ background:var(--navy); padding:120px 0; }
 .loadout-head{ display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:end; margin-bottom:48px; padding-bottom:32px; border-bottom:1px solid var(--line-dark); }
 .loadout-head .h-display{ font-size:clamp(2.2rem,4.2vw,3.4rem); margin-top:16px; max-width:440px; }
 .loadout-head p{ color:var(--copy); max-width:420px; justify-self:end; }
-.loadout-grid{ display:grid; grid-template-columns:repeat(4,1fr); border-top:1px solid var(--line-dark); border-left:1px solid var(--line-dark); }
-.lo{ border-right:1px solid var(--line-dark); border-bottom:1px solid var(--line-dark); display:flex; flex-direction:column; justify-content:space-between; transition:background .25s ease; overflow:hidden; }
+.loadout-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:24px; }
+.lo{ border:1px solid var(--line-dark); display:flex; flex-direction:column; justify-content:space-between; transition:background .25s ease; overflow:hidden; }
 .lo:hover{ background:var(--navy-2); }
 .lo-photo{ width:100%; aspect-ratio:4/3; background:var(--steel-3); overflow:hidden; position:relative; flex:none; }
 .lo-photo img{ width:100%; height:100%; object-fit:cover; display:block; opacity:0.85; transition:opacity .25s ease; }
 .lo:hover .lo-photo img{ opacity:1; }
-.lo-photo-ph{ width:100%; height:100%; display:flex; align-items:center; justify-content:center; background:var(--steel-3); position:relative; }
-.lo-photo-ph::before{ content:""; position:absolute; top:12px; left:12px; width:18px; height:18px; border:1px solid rgba(255,255,255,0.25); border-right:none; border-bottom:none; }
-.lo-photo-ph::after{ content:""; position:absolute; bottom:12px; right:12px; width:18px; height:18px; border:1px solid rgba(255,255,255,0.25); border-left:none; border-top:none; }
-.lo-photo-ph span{ font-family:var(--mono); font-size:0.58rem; letter-spacing:0.18em; text-transform:uppercase; color:rgba(255,255,255,0.3); text-align:center; line-height:1.6; padding:0 16px; }
 .lo-body{ padding:24px 28px; display:flex; flex-direction:column; gap:10px; }
-.lo-num{ font-family:var(--mono); font-size:0.66rem; letter-spacing:0.2em; color:var(--signal); }
+.lo-num{ font-family:var(--mono); font-size:0.76rem; letter-spacing:0.2em; color:var(--signal); }
 .lo-name{ font-family:var(--display); font-size:1.5rem; font-weight:700; text-transform:uppercase; color:var(--white); line-height:1; }
 
 /* TIERS */
 .give{ background:var(--navy-3); padding:120px 0; border-top:1px solid var(--line-dark); border-bottom:1px solid var(--line-dark); }
 .give-head{ display:flex; align-items:flex-end; justify-content:space-between; gap:32px; flex-wrap:wrap; margin-bottom:8px; padding-bottom:32px; border-bottom:1px solid var(--line-dark); }
 .give-head .h-display{ font-size:clamp(2.2rem,4vw,3.2rem); margin-top:14px; max-width:520px; }
-.give-head .note{ font-family:var(--mono); font-size:0.66rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--spark); max-width:260px; line-height:1.6; }
+.give-head .note{ font-family:var(--mono); font-size:0.76rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--spark); max-width:260px; line-height:1.6; }
 .give-tiers{ display:grid; grid-template-columns:repeat(5,1fr); border-top:1px solid var(--line-dark); }
 .give-tier{ display:flex; flex-direction:column; justify-content:space-between; align-items:flex-start; gap:0; padding:40px 32px 36px; border-bottom:1px solid var(--line-dark); border-right:1px solid var(--line-dark); min-height:200px; text-decoration:none; color:inherit; transition:background .25s ease; position:relative; }
 .give-tier:first-child{ border-left:1px solid var(--line-dark); }
 .give-tier:hover{ background:var(--navy-2); }
 .give-tier-amt{ font-family:var(--display); font-size:clamp(2.4rem,3.4vw,3.2rem); font-weight:700; color:var(--white); line-height:0.94; margin-bottom:auto; padding-top:18px; }
-.give-tier-label{ font-family:var(--body); font-size:0.82rem; letter-spacing:0; text-transform:none; color:var(--copy); line-height:1.5; margin-top:20px; }
+.give-tier-label{ font-family:var(--body); font-size:0.94rem; letter-spacing:0; text-transform:none; color:var(--copy); line-height:1.5; margin-top:20px; }
 .give-tier-feat{ background:var(--navy-2); }
-.give-tier-flag{ position:absolute; top:0; left:0; background:var(--signal); color:var(--white); font-family:var(--mono); font-size:0.58rem; letter-spacing:0.2em; text-transform:uppercase; padding:5px 12px; font-weight:600; }
+.give-tier-flag{ position:absolute; top:0; left:0; background:var(--signal); color:var(--white); font-family:var(--mono); font-size:0.67rem; letter-spacing:0.2em; text-transform:uppercase; padding:5px 12px; font-weight:600; }
+.give-thanks{ display:none; margin-bottom:36px; border:1px solid var(--signal); border-left-width:4px; padding:18px 22px; font-size:1.13rem; color:var(--white); }
+.give-thanks.show{ display:block; }
+.give-custom{ display:none; align-items:center; gap:14px; margin-top:28px; }
+.give-custom.show{ display:flex; }
+.give-custom .cur{ font-family:var(--display); font-size:1.4rem; font-weight:700; color:var(--white); }
+.give-custom input{ font:inherit; width:200px; background:var(--navy-3); border:1px solid rgba(255,255,255,0.18); padding:14px 16px; color:var(--white); outline:none; }
+.give-custom input:focus{ border-color:var(--signal); }
 .give-foot{ margin-top:36px; display:flex; justify-content:space-between; align-items:center; gap:24px; flex-wrap:wrap; }
-.give-foot-note{ font-family:var(--mono); font-size:0.72rem; letter-spacing:0.16em; text-transform:uppercase; color:var(--copy); }
+.give-foot-note{ font-family:var(--mono); font-size:0.83rem; letter-spacing:0.16em; text-transform:uppercase; color:var(--copy); }
 .give-foot-note strong{ color:var(--white); font-weight:600; }
 
 /* IMPACT */
@@ -143,10 +146,10 @@ nav.primary .nav-donate::after{ display:none; }
 .impact-inner{ display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:center; }
 .impact-left .eyebrow{ margin-bottom:14px; }
 .impact-left .h-display{ font-size:clamp(1.8rem,3.2vw,2.6rem); margin-top:10px; max-width:420px; }
-.impact-sub{ font-family:var(--mono); font-size:0.72rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--copy); margin-top:16px; }
+.impact-sub{ font-family:var(--mono); font-size:0.83rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--copy); margin-top:16px; }
 .impact-list{ list-style:none; display:flex; flex-direction:column; border-top:1px solid var(--line-dark); margin-top:32px; }
-.impact-list li{ display:flex; align-items:center; gap:16px; padding:16px 0; border-bottom:1px solid var(--line-dark); font-size:1rem; color:var(--white); font-weight:500; }
-.impact-list li::before{ content:"✓"; font-family:var(--mono); font-size:0.9rem; color:var(--signal); font-weight:700; flex:none; }
+.impact-list li{ display:flex; align-items:center; gap:16px; padding:16px 0; border-bottom:1px solid var(--line-dark); font-size:1.15rem; color:var(--white); font-weight:500; }
+.impact-list li::before{ content:"✓"; font-family:var(--mono); font-size:1.03rem; color:var(--signal); font-weight:700; flex:none; }
 
 /* OTHER WAYS */
 .other{ background:var(--panel); padding:110px 0; }
@@ -157,17 +160,17 @@ nav.primary .nav-donate::after{ display:none; }
 .ow:first-child{ padding-left:0; }
 .ow:not(:first-child){ padding-left:28px; }
 .ow:last-child{ border-right:none; }
-.ow-num{ font-family:var(--mono); font-size:0.66rem; letter-spacing:0.2em; color:var(--signal); }
+.ow-num{ font-family:var(--mono); font-size:0.76rem; letter-spacing:0.2em; color:var(--signal); }
 .ow-name{ font-family:var(--display); font-size:1.5rem; font-weight:700; text-transform:uppercase; color:var(--white); line-height:1; }
-.ow-desc{ color:var(--copy); font-size:0.95rem; line-height:1.55; }
-.ow-link{ margin-top:auto; font-family:var(--mono); font-size:0.68rem; letter-spacing:0.16em; text-transform:uppercase; color:var(--spark); display:inline-flex; align-items:center; gap:8px; }
+.ow-desc{ color:var(--copy); font-size:1.09rem; line-height:1.55; }
+.ow-link{ margin-top:auto; font-family:var(--mono); font-size:0.78rem; letter-spacing:0.16em; text-transform:uppercase; color:var(--spark); display:inline-flex; align-items:center; gap:8px; }
 
 /* CTA */
 .cta-band{ background-color:var(--navy-3); background-image:linear-gradient(90deg, rgba(15,25,36,0.85) 0%, rgba(15,25,36,0.55) 48%, rgba(15,25,36,0.3) 100%), url('assets/images/cliffside.jpg'); background-size:cover, cover; background-position:center, center; background-attachment:scroll, fixed; padding:120px 0; border-top:2px solid var(--signal); }
 @media (max-width:1024px){ .cta-band{ background-attachment:scroll, scroll; } }
 .cta-band .wrap{ text-align:center; }
 .cta-band .h-display{ font-size:clamp(2.2rem,4.6vw,3.8rem); max-width:740px; margin:0 auto; line-height:0.98; text-shadow:0 1px 18px rgba(0,0,0,0.5); }
-.cta-band p{ color:var(--copy); font-size:1.06rem; margin:24px auto 32px; max-width:560px; text-shadow:0 1px 16px rgba(0,0,0,0.5); }
+.cta-band p{ color:var(--copy); font-size:1.22rem; margin:24px auto 32px; max-width:560px; text-shadow:0 1px 16px rgba(0,0,0,0.5); }
 .cta-actions{ display:flex; gap:14px; flex-wrap:wrap; justify-content:center; }
 
 /* FOOTER */
@@ -177,17 +180,17 @@ footer.site-footer .wrap{ max-width:none; padding:0 48px; }
 .footer-brand .brand{ position:absolute; top:32px; left:48px; width:380px; display:block; pointer-events:none; }
 .footer-brand .brand-mark{ width:100%; height:380px; display:block; }
 .footer-brand .footer-mark img{ object-fit:cover; object-position:18% 38%; width:100%; height:100%; mix-blend-mode:screen; }
-.footer-col h4{ font-family:var(--mono); font-size:0.85rem; letter-spacing:0.22em; text-transform:uppercase; font-weight:500; color:var(--copy); margin-bottom:30px; }
+.footer-col h4{ font-family:var(--mono); font-size:0.98rem; letter-spacing:0.22em; text-transform:uppercase; font-weight:500; color:var(--copy); margin-bottom:30px; }
 .footer-col ul{ list-style:none; display:flex; flex-direction:column; gap:18px; }
 .footer-col ul a{ font-family:var(--display); font-size:1.35rem; font-weight:500; text-transform:uppercase; letter-spacing:0.03em; color:var(--white); transition:color .2s ease; }
 .footer-col ul a:hover{ color:var(--signal-2); }
 .footer-col .info-line{ font-size:1.15rem; color:var(--copy); line-height:1.7; }
 .footer-col .info-line strong{ font-family:var(--display); text-transform:uppercase; letter-spacing:0.02em; color:var(--white); font-weight:600; }
 .footer-bottom{ display:flex; flex-direction:column; gap:0; border-top:1px solid var(--line-dark); padding-top:22px; }
-.footer-bottom-row{ display:flex; justify-content:space-between; align-items:center; gap:18px; flex-wrap:wrap; font-family:var(--mono); font-size:0.85rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--copy); }
+.footer-bottom-row{ display:flex; justify-content:space-between; align-items:center; gap:18px; flex-wrap:wrap; font-family:var(--mono); font-size:0.98rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--copy); }
 .footer-bottom a{ color:var(--white); }
 .footer-bottom a:hover{ color:var(--signal-2); }
-.footer-legal{ font-family:var(--mono); font-size:1rem; letter-spacing:0.06em; text-transform:none; color:rgba(255,255,255,0.65); text-align:center; padding-bottom:18px; margin-bottom:18px; border-bottom:1px solid var(--line-dark); width:100%; }
+.footer-legal{ font-family:var(--mono); font-size:1.15rem; letter-spacing:0.06em; text-transform:none; color:rgba(255,255,255,0.65); text-align:center; padding-bottom:18px; margin-bottom:18px; border-bottom:1px solid var(--line-dark); width:100%; }
 
 /* RESPONSIVE */
 @media (max-width:1080px){
@@ -201,7 +204,7 @@ footer.site-footer .wrap{ max-width:none; padding:0 48px; }
   .other-grid{ grid-template-columns:1fr 1fr; }
   .ow, .ow:not(:first-child){ padding-left:28px; padding-right:28px; }
   .ow:nth-child(2){ border-right:none; }
-  .footer-top{ grid-template-columns:1fr 1fr; gap:36px; }
+  .footer-top{ grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:36px; }
   .footer-brand{ grid-column:1 / -1; }
 }
 @media (max-width:720px){
@@ -215,22 +218,46 @@ footer.site-footer .wrap{ max-width:none; padding:0 48px; }
   .page-hero h1{ font-size:clamp(2.8rem,12vw,4.4rem); }
   .whygive{ padding:72px 0; }
   .loadout{ padding:72px 0; }
-  .loadout-grid{ grid-template-columns:1fr 1fr; }
-  .lo{ min-height:120px; padding:24px 18px; }
+  .loadout-grid{ grid-template-columns:1fr 1fr; gap:20px; }
   .give{ padding:72px 0; }
   .give-tiers{ grid-template-columns:1fr 1fr; }
   .give-tier{ border-right:none; border-left:1px solid var(--line-dark); min-height:0; }
   .give-tier:nth-child(even){ border-left:1px solid var(--line-dark); border-right:none; }
+  .give-tier:last-child{ grid-column:1 / -1; }
+  .impact-inner{ grid-template-columns:1fr; gap:40px; }
   .other{ padding:72px 0; }
   .other-grid{ grid-template-columns:1fr; }
   .ow, .ow:not(:first-child){ padding:28px 0; border-right:none; }
   .ow:nth-last-child(1){ border-bottom:none; }
   .cta-band{ padding:80px 0; background-position:62% center, 62% center; }
   .cta-actions{ flex-direction:row; }
-  .cta-actions .btn{ flex:1 1 0; min-width:0; justify-content:center; padding:16px 12px; letter-spacing:0.1em; }
-  .footer-top{ grid-template-columns:1fr; gap:36px; text-align:center; padding-bottom:48px; }
+  .cta-actions .btn{ flex:1 1 0; min-width:0; justify-content:center; padding:16px 10px; letter-spacing:0.08em; font-size:0.8rem; white-space:nowrap; }
+  .footer-top{ grid-template-columns:minmax(0,1fr); gap:36px; text-align:center; padding-bottom:48px; }
   .footer-col ul{ align-items:center; }
   .footer-bottom-row{ justify-content:center; text-align:center; }
+}
+/* Desktop renders at 80% — same true layout shrink as Chrome's 80% zoom
+   (real reflow via CSS zoom, not a transform). vh hero heights are compensated
+   (divided by 0.8) because zoom doesn't scale the viewport, so heroes keep the
+   same on-screen height as the approved zoomed look. Tablet/mobile untouched. */
+@media (min-width:1081px){
+  body{ zoom:0.8; }
+  .page-hero{ min-height:75vh; }            /* was 60vh */
+}
+
+/* Phone: tactical bar content is wider than small screens; keep only the primary tag */
+@media (max-width: 540px){
+  .tac-divider, .tac-tag:not(.tac-primary){ display: none; }
+}
+
+/* Mobile menu brand logo */
+.mobile-nav-brand{ display:block; width:96px; margin-bottom:18px; }
+.mobile-nav-brand img{ width:100%; height:auto; display:block; }
+
+/* Phone: footer brand art back in flow, centered above the nav (desktop floats it absolute) */
+@media (max-width: 720px){
+  .footer-brand .brand{ position:static; width:100%; max-width:300px; margin:0 auto; }
+  .footer-brand .brand-mark{ height:340px; }
 }
 </style>
 </head>
@@ -272,6 +299,7 @@ footer.site-footer .wrap{ max-width:none; padding:0 48px; }
   <button class="mobile-close" id="mobileClose" aria-label="Close menu">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><line x1="5" y1="5" x2="19" y2="19"/><line x1="19" y1="5" x2="5" y2="19"/></svg>
   </button>
+  <a href="index.html" class="mobile-nav-brand"><img src="assets/logos/logo.png" alt="SAR OPS" /></a>
   <a href="what-we-do.html">What We Do</a>
   <a href="sponsors.html">Sponsors</a>
   <a href="events.html">Events/Classes</a>
@@ -303,32 +331,38 @@ footer.site-footer .wrap{ max-width:none; padding:0 48px; }
         <h2 class="h-display">Give what you can</h2>
       </div>
     </div>
+    <div class="give-thanks" id="giveThanks">Thank you for supporting SAR OPS. Your donation was received, and a receipt is on its way to your email.</div>
     <div class="give-tiers">
-      <a href="#" class="give-tier">
+      <a href="#" class="give-tier" data-amt="50">
         <span class="give-tier-amt">$50</span>
         <span class="give-tier-label">Helps fuel a search vehicle</span>
       </a>
-      <a href="#" class="give-tier give-tier-feat">
+      <a href="#" class="give-tier give-tier-feat" data-amt="100">
         <span class="give-tier-flag">Most Common</span>
         <span class="give-tier-amt">$100</span>
         <span class="give-tier-label">Supports field medical supplies</span>
       </a>
-      <a href="#" class="give-tier">
+      <a href="#" class="give-tier" data-amt="500">
         <span class="give-tier-amt">$500</span>
         <span class="give-tier-label">Equips a rescuer for training</span>
       </a>
-      <a href="#" class="give-tier">
+      <a href="#" class="give-tier" data-amt="1000">
         <span class="give-tier-amt">$1,000</span>
         <span class="give-tier-label">Supports operational deployment</span>
       </a>
-      <a href="#" class="give-tier">
+      <a href="#" class="give-tier" data-amt="custom">
         <span class="give-tier-amt">Custom</span>
         <span class="give-tier-label">For all the needs too numerous to list</span>
       </a>
     </div>
+    <div class="give-custom" id="giveCustom">
+      <span class="cur">$</span>
+      <input type="number" min="1" step="1" inputmode="numeric" placeholder="Enter amount" id="giveCustomInput" aria-label="Custom donation amount" />
+      <button type="button" class="btn btn-signal" id="giveCustomGo">Give <span class="arrow">&rarr;</span></button>
+    </div>
     <div class="give-foot">
       <span class="give-foot-note"><strong>Tax-deductible</strong> &middot; SAR OPS is a registered 501(c)(3)</span>
-      <a href="#" class="btn btn-signal">Donate Now <span class="arrow">&rarr;</span></a>
+      <a href="#" class="btn btn-signal" id="giveFootDonate" data-amt="100">Donate Now <span class="arrow">&rarr;</span></a>
     </div>
   </div>
 </section>
@@ -395,36 +429,36 @@ footer.site-footer .wrap{ max-width:none; padding:0 48px; }
     </div>
     <div class="loadout-grid">
       <div class="lo">
-        <div class="lo-photo"><div class="lo-photo-ph"><span>Trucks &amp;<br>Vehicles</span></div></div>
+        <div class="lo-photo"><img src="assets/Gear/vehicles.jpeg" alt="Trucks &amp; Vehicles" loading="lazy" /></div>
         <div class="lo-body"><span class="lo-name">Trucks &amp; Vehicles</span></div>
       </div>
       <div class="lo">
-        <div class="lo-photo"><div class="lo-photo-ph"><span>Radios &amp;<br>Comms</span></div></div>
+        <div class="lo-photo"><img src="assets/Gear/radios-comms.jpeg" alt="Radios &amp; Comms" loading="lazy" /></div>
         <div class="lo-body"><span class="lo-name">Radios &amp; Comms</span></div>
       </div>
       <div class="lo">
-        <div class="lo-photo"><div class="lo-photo-ph"><span>Rope<br>Systems</span></div></div>
+        <div class="lo-photo"><img src="assets/Gear/rope-systems.jpeg" alt="Rope Systems" loading="lazy" /></div>
         <div class="lo-body"><span class="lo-name">Rope Systems</span></div>
       </div>
       <div class="lo">
-        <div class="lo-photo"><div class="lo-photo-ph"><span>GPS<br>Beacons</span></div></div>
-        <div class="lo-body"><span class="lo-name">GPS Beacons</span></div>
-      </div>
-      <div class="lo">
-        <div class="lo-photo"><div class="lo-photo-ph"><span>Rescue<br>Tools</span></div></div>
+        <div class="lo-photo"><img src="assets/Gear/rescue-tools.jpeg" alt="Rescue Tools" loading="lazy" /></div>
         <div class="lo-body"><span class="lo-name">Rescue Tools</span></div>
       </div>
       <div class="lo">
-        <div class="lo-photo"><div class="lo-photo-ph"><span>Fuel &amp;<br>Repairs</span></div></div>
-        <div class="lo-body"><span class="lo-name">Fuel &amp; Repairs</span></div>
-      </div>
-      <div class="lo">
-        <div class="lo-photo"><div class="lo-photo-ph"><span>Field<br>Gear</span></div></div>
+        <div class="lo-photo"><img src="assets/Gear/field-gear.jpeg" alt="Field Gear" loading="lazy" /></div>
         <div class="lo-body"><span class="lo-name">Field Gear</span></div>
       </div>
       <div class="lo">
-        <div class="lo-photo"><div class="lo-photo-ph"><span>Medical<br>Supplies</span></div></div>
+        <div class="lo-photo"><img src="assets/Gear/medical-supplies.jpeg" alt="Medical Supplies" loading="lazy" /></div>
         <div class="lo-body"><span class="lo-name">Medical Supplies</span></div>
+      </div>
+      <div class="lo">
+        <div class="lo-photo"><img src="assets/Gear/fuel-repairs.jpeg" alt="Fuel &amp; Repairs" loading="lazy" /></div>
+        <div class="lo-body"><span class="lo-name">Fuel &amp; Repairs</span></div>
+      </div>
+      <div class="lo">
+        <div class="lo-photo"><img src="assets/Gear/training.jpeg" alt="Training" loading="lazy" /></div>
+        <div class="lo-body"><span class="lo-name">Training</span></div>
       </div>
     </div>
   </div>
@@ -484,6 +518,35 @@ footer.site-footer .wrap{ max-width:none; padding:0 48px; }
   if (menuBtn && mobileNav){ menuBtn.addEventListener('click', () => mobileNav.classList.add('open')); }
   if (mobileClose && mobileNav){ mobileClose.addEventListener('click', () => mobileNav.classList.remove('open')); }
   if (mobileNav){ mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileNav.classList.remove('open'))); }
+
+  // donations → Authorize.net hosted payment page (via donate-checkout.php)
+  const goDonate = amt => {
+    const f = document.createElement('form');
+    f.method = 'POST'; f.action = 'donate-checkout.php';
+    const i = document.createElement('input');
+    i.type = 'hidden'; i.name = 'amount'; i.value = amt;
+    f.appendChild(i); document.body.appendChild(f); f.submit();
+  };
+  const giveCustom = document.getElementById('giveCustom');
+  const giveCustomInput = document.getElementById('giveCustomInput');
+  const giveCustomGo = document.getElementById('giveCustomGo');
+  document.querySelectorAll('.give-tier').forEach(tier => tier.addEventListener('click', e => {
+    e.preventDefault();
+    const amt = tier.dataset.amt;
+    if (amt === 'custom'){ giveCustom.classList.add('show'); giveCustomInput.focus(); return; }
+    goDonate(amt);
+  }));
+  if (giveCustomGo) giveCustomGo.addEventListener('click', () => {
+    const v = parseFloat(giveCustomInput.value);
+    if (v >= 1) goDonate(v); else giveCustomInput.focus();
+  });
+  if (giveCustomInput) giveCustomInput.addEventListener('keydown', e => { if (e.key === 'Enter'){ e.preventDefault(); giveCustomGo.click(); } });
+  const footDonate = document.getElementById('giveFootDonate');
+  if (footDonate) footDonate.addEventListener('click', e => { e.preventDefault(); goDonate(footDonate.dataset.amt); });
+  if (new URLSearchParams(location.search).has('thanks')){
+    const thanksBanner = document.getElementById('giveThanks');
+    if (thanksBanner){ thanksBanner.classList.add('show'); thanksBanner.scrollIntoView({ behavior:'smooth', block:'center' }); }
+  }
 </script>
 
 </body>

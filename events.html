@@ -29,7 +29,7 @@ img{ max-width:100%; display:block; -webkit-user-drag:none; user-select:none; }
 a{ color:inherit; text-decoration:none; }
 button{ font:inherit; cursor:pointer; border:none; background:none; color:inherit; }
 .wrap{ width:100%; max-width:var(--wrap); margin:0 auto; padding:0 44px; }
-.eyebrow{ font-family:var(--mono); font-size:0.72rem; letter-spacing:0.18em; text-transform:uppercase; font-weight:500; color:var(--white); display:inline-flex; align-items:center; gap:12px; }
+.eyebrow{ font-family:var(--mono); font-size:0.83rem; letter-spacing:0.18em; text-transform:uppercase; font-weight:500; color:var(--white); display:inline-flex; align-items:center; gap:12px; }
 .eyebrow::before{ content:""; width:26px; height:2px; background:var(--signal); }
 .eyebrow.plain::before{ display:none; }
 .h-display{ font-family:var(--display); font-weight:700; text-transform:uppercase; line-height:0.94; letter-spacing:-0.005em; }
@@ -68,14 +68,13 @@ nav.primary .nav-donate::after{ display:none; }
 .mobile-close svg{ width:28px; height:28px; }
 
 /* BUTTONS */
-.btn{ display:inline-flex; align-items:center; gap:14px; padding:18px 28px; font-family:var(--body); font-size:0.76rem; letter-spacing:0.22em; text-transform:uppercase; font-weight:600; border:1px solid currentColor; transition:background .22s ease, color .22s ease, border-color .22s ease, gap .22s ease; }
+.btn{ display:inline-flex; align-items:center; gap:14px; padding:18px 28px; font-family:var(--body); font-size:0.87rem; letter-spacing:0.22em; text-transform:uppercase; font-weight:600; border:1px solid currentColor; transition:background .22s ease, color .22s ease, border-color .22s ease, gap .22s ease; }
 .btn:hover{ gap:22px; }
-.btn .arrow{ display:inline-block; font-size:1rem; line-height:1; }
+.btn .arrow{ display:inline-block; font-size:1.15rem; line-height:1; }
 .btn-signal{ background:var(--signal); color:var(--white); border-color:var(--signal); }
 .btn-signal:hover{ background:var(--signal-2); border-color:var(--signal-2); }
 .btn-ghost{ color:var(--white); border-color:var(--signal-2); border-width:2px; }
 .btn-ghost:hover{ border-color:var(--signal); background:var(--signal); color:var(--white); }
-.btn-sm{ padding:12px 18px; font-size:0.68rem; letter-spacing:0.16em; }
 
 /* PAGE HERO */
 .page-hero{ position:relative; background-color:var(--navy); background-image:url('assets/images/training-field.jpg'); background-size:cover; background-position:center; background-attachment:fixed; border-top:2px solid var(--signal); border-bottom:2px solid var(--signal); min-height:60vh; display:flex; }
@@ -87,8 +86,8 @@ nav.primary .nav-donate::after{ display:none; }
 .page-hero .wrap{ position:relative; z-index:1; display:flex; flex-direction:column; justify-content:flex-end; padding-top:210px; padding-bottom:60px; width:100%; }
 .page-hero h1{ font-family:var(--display); font-weight:700; text-transform:uppercase; line-height:0.9; letter-spacing:-0.005em; font-size:clamp(2.9rem, 7.4vw, 6.2rem); margin:22px 0 0; max-width:15ch; text-shadow:0 2px 24px rgba(0,0,0,0.4); }
 .page-hero h1 .accent{ display:inline-block; border-bottom:5px solid var(--signal); padding-bottom:6px; }
-.page-hero-lede{ font-size:1.08rem; line-height:1.65; color:var(--copy); max-width:600px; margin-top:26px; text-shadow:0 1px 16px rgba(0,0,0,0.5); }
-.page-hero-meta{ display:flex; gap:30px; flex-wrap:wrap; margin-top:34px; padding-top:24px; border-top:1px solid var(--line-dark); font-family:var(--mono); font-size:0.72rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--white); }
+.page-hero-lede{ font-size:1.24rem; line-height:1.65; color:var(--copy); max-width:600px; margin-top:26px; text-shadow:0 1px 16px rgba(0,0,0,0.5); }
+.page-hero-meta{ display:flex; gap:30px; flex-wrap:wrap; margin-top:40px; padding-top:40px; border-top:1px solid var(--line-dark); font-family:var(--mono); font-size:0.83rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--white); }
 .page-hero-meta .pm{ display:inline-flex; align-items:center; gap:10px; }
 .page-hero-meta .pm-dot{ width:8px; height:8px; background:var(--signal); border-radius:50%; }
 
@@ -102,57 +101,60 @@ nav.primary .nav-donate::after{ display:none; }
 .cat-toggle{ width:100%; background:none; border:none; cursor:pointer; padding:36px 30px; display:flex; align-items:flex-start; justify-content:space-between; gap:16px; text-align:left; color:inherit; }
 .cat-toggle:hover .cat-name{ color:var(--signal); }
 .cat-name{ font-family:var(--display); font-size:clamp(1.3rem,1.8vw,1.6rem); font-weight:700; text-transform:uppercase; color:var(--white); line-height:1; letter-spacing:0.02em; transition:color .2s ease; }
-.cat-arrow{ font-size:1.1rem; color:var(--signal); flex:none; margin-top:4px; transition:transform .25s ease; }
+.cat-arrow{ font-size:1.26rem; color:var(--signal); flex:none; margin-top:4px; transition:transform .25s ease; }
 .cat.is-open .cat-arrow{ transform:rotate(180deg); }
 .cat-body{ overflow:hidden; max-height:0; transition:max-height .35s ease, padding .35s ease; padding:0 30px; }
 .cat.is-open .cat-body{ max-height:300px; padding:0 30px 36px; }
 .cat-list{ list-style:none; display:flex; flex-direction:column; gap:10px; margin:0; padding:0; }
-.cat-list li{ font-size:0.88rem; color:var(--copy); line-height:1.5; padding-left:14px; position:relative; opacity:0.8; }
+.cat-list li{ font-size:1.01rem; color:var(--copy); line-height:1.5; padding-left:14px; position:relative; opacity:0.8; }
 .cat-list li::before{ content:""; position:absolute; left:0; top:0.55em; width:5px; height:5px; background:var(--signal); }
 
 /* SCHEDULE */
 .sched{ background:var(--navy); padding:110px 0; }
 .sched-head{ display:flex; align-items:flex-end; justify-content:space-between; gap:32px; flex-wrap:wrap; margin-bottom:24px; }
 .sched-head .h-display{ font-size:clamp(2.2rem,4.2vw,3.4rem); margin-top:14px; }
-.sched-note{ display:flex; align-items:center; gap:12px; font-family:var(--mono); font-size:0.66rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--spark); border:1px dashed rgba(232,179,57,0.5); padding:12px 16px; max-width:340px; line-height:1.5; }
+.sched-note{ display:flex; align-items:center; gap:12px; font-family:var(--mono); font-size:0.76rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--spark); border:1px dashed rgba(232,179,57,0.5); padding:12px 16px; max-width:340px; line-height:1.5; }
 .sched-filters{ display:flex; flex-wrap:wrap; gap:10px; margin:28px 0 8px; }
-.chip{ font-family:var(--mono); font-size:0.68rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--copy); border:1px solid var(--line-dark); padding:10px 16px; transition:border-color .2s ease, color .2s ease, background .2s ease; }
+.chip{ font-family:var(--mono); font-size:0.78rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--copy); border:1px solid var(--line-dark); padding:10px 16px; cursor:pointer; transition:border-color .2s ease, color .2s ease, background .2s ease; }
 .chip:hover{ border-color:var(--signal); color:var(--white); }
 .chip.is-active{ background:var(--signal); border-color:var(--signal); color:var(--white); }
 
 .sched-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:24px; }
-.ev-card{ display:flex; flex-direction:column; background:var(--navy-2); border:1px solid var(--line-dark); text-decoration:none; color:inherit; overflow:hidden; position:relative; transition:border-color .25s ease, transform .25s ease, box-shadow .25s ease; }
-.ev-card:hover{ border-color:var(--signal); transform:translateY(-5px); }
+/* Cards are display-only for now (no registration flow) — restore the <a>
+   wrappers + hover states when events become bookable. */
+.ev-card{ display:flex; flex-direction:column; background:var(--navy-2); border:1px solid var(--line-dark); text-decoration:none; color:inherit; overflow:hidden; position:relative; }
 .ev-thumb{ position:relative; aspect-ratio:3/2; overflow:hidden; background:var(--steel-3); }
-.ev-thumb-img{ position:absolute; inset:0; background-size:cover; background-position:center; transition:transform .6s ease; }
-.ev-card:hover .ev-thumb-img{ transform:scale(1.06); }
+.ev-thumb-img{ position:absolute; inset:0; background-size:cover; background-position:center; }
 .ev-thumb::after{ content:""; position:absolute; inset:0; background:linear-gradient(180deg, rgba(15,25,36,0.45) 0%, rgba(15,25,36,0) 38%, rgba(15,25,36,0) 64%, rgba(15,25,36,0.55) 100%); pointer-events:none; }
+/* Only the first three classes have real photos — the rest carry a logo
+   placeholder tile. Hide those thumbs until real photography exists. */
+.sched-grid .ev-card:nth-child(n+4) .ev-thumb{ display:none; }
 .ev-date-badge{ display:none; }
 .ev-date-badge .d{ display:block; font-family:var(--display); font-size:1.5rem; font-weight:700; color:var(--spark); line-height:0.85; }
-.ev-date-badge .m{ display:block; font-family:var(--mono); font-size:0.52rem; letter-spacing:0.16em; text-transform:uppercase; color:var(--white); margin-top:4px; }
-.ev-cat{ position:absolute; top:16px; right:14px; z-index:2; font-family:var(--mono); font-size:0.55rem; letter-spacing:0.16em; text-transform:uppercase; padding:6px 9px; background:rgba(15,25,36,0.82); border:1px solid var(--line-dark); color:var(--white); }
+.ev-date-badge .m{ display:block; font-family:var(--mono); font-size:0.6rem; letter-spacing:0.16em; text-transform:uppercase; color:var(--white); margin-top:4px; }
+.ev-cat{ position:absolute; top:16px; right:14px; z-index:2; font-family:var(--mono); font-size:0.63rem; letter-spacing:0.16em; text-transform:uppercase; padding:6px 9px; background:rgba(15,25,36,0.82); border:1px solid var(--line-dark); color:var(--white); }
 .ev-cat.t-course{ border-color:var(--steel-2); color:#cfe0ec; }
 .ev-cat.t-community{ border-color:var(--spark); color:var(--spark); }
 .ev-cat.t-fundraiser{ border-color:var(--signal-2); color:var(--signal-2); }
 .ev-body{ padding:24px 24px 0; display:flex; flex-direction:column; gap:14px; flex:1; }
 .ev-title{ font-family:var(--display); font-size:1.5rem; font-weight:700; text-transform:uppercase; color:var(--white); line-height:1; }
-.ev-meta{ display:flex; flex-direction:column; gap:8px; font-family:var(--mono); font-size:0.68rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--copy); }
+.ev-meta{ display:flex; flex-direction:column; gap:8px; font-family:var(--mono); font-size:0.9rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--copy); }
 .ev-meta span{ display:inline-flex; align-items:center; gap:9px; }
 .ev-meta span::before{ content:""; width:5px; height:5px; background:var(--steel-2); flex:none; }
-.ev-desc{ font-size:0.82rem; color:var(--copy); line-height:1.6; opacity:0.78; margin:0; }
+.ev-desc{ font-size:1.1rem; color:var(--copy); line-height:1.6; opacity:0.85; margin:0; }
 .ev-foot{ margin-top:auto; display:flex; align-items:center; justify-content:space-between; gap:16px; padding:20px 24px; border-top:1px solid var(--line-dark); }
 .ev-price{ font-family:var(--display); font-size:1.6rem; font-weight:700; text-transform:uppercase; color:var(--white); letter-spacing:0.02em; white-space:nowrap; line-height:1; }
 .ev-price.free{ color:var(--spark); }
-.ev-price small{ display:block; font-family:var(--mono); font-size:0.52rem; letter-spacing:0.16em; color:var(--copy); font-weight:400; margin-top:10px; }
+.ev-price small{ display:block; font-family:var(--mono); font-size:0.75rem; letter-spacing:0.16em; color:var(--copy); font-weight:400; margin-top:10px; }
 
 /* HOST A CLASS */
 .host{ background:var(--panel); padding:110px 0; border-top:2px solid var(--signal); }
 .host .wrap{ display:grid; grid-template-columns:1.1fr 1fr; gap:72px; align-items:center; }
 .host .h-display{ font-size:clamp(2.2rem,4vw,3.2rem); margin:14px 0 22px; max-width:480px; }
-.host p{ color:var(--copy); font-size:1.04rem; line-height:1.7; max-width:480px; margin-bottom:26px; }
+.host p{ color:var(--copy); font-size:1.2rem; line-height:1.7; max-width:480px; margin-bottom:26px; }
 .host-list{ list-style:none; display:flex; flex-direction:column; border-top:1px solid var(--line-dark); }
 .host-list li{ display:flex; align-items:center; gap:18px; padding:20px 0; border-bottom:1px solid var(--line-dark); font-family:var(--display); font-size:1.2rem; font-weight:600; text-transform:uppercase; letter-spacing:0.02em; color:var(--white); }
-.host-list li .n{ font-family:var(--mono); font-size:0.72rem; letter-spacing:0.18em; color:var(--signal); font-weight:500; }
+.host-list li .n{ font-family:var(--mono); font-size:0.83rem; letter-spacing:0.18em; color:var(--signal); font-weight:500; }
 
 /* PAST EVENTS */
 .past{ background:var(--navy-2); padding:110px 0; border-top:2px solid var(--signal); border-bottom:1px solid var(--line-dark); }
@@ -169,7 +171,7 @@ nav.primary .nav-donate::after{ display:none; }
 @media (max-width:1024px){ .cta-band{ background-attachment:scroll, scroll; } }
 .cta-band .wrap{ text-align:center; }
 .cta-band .h-display{ font-size:clamp(2.2rem,4.6vw,3.8rem); max-width:720px; margin:0 auto; line-height:0.98; text-shadow:0 1px 18px rgba(0,0,0,0.5); }
-.cta-band p{ color:var(--copy); font-size:1.06rem; margin:24px auto 32px; max-width:540px; text-shadow:0 1px 16px rgba(0,0,0,0.5); }
+.cta-band p{ color:var(--copy); font-size:1.22rem; margin:24px auto 32px; max-width:540px; text-shadow:0 1px 16px rgba(0,0,0,0.5); }
 .cta-actions{ display:flex; gap:14px; flex-wrap:wrap; justify-content:center; }
 
 /* FOOTER */
@@ -179,17 +181,17 @@ footer.site-footer .wrap{ max-width:none; padding:0 48px; }
 .footer-brand .brand{ position:absolute; top:32px; left:48px; width:380px; display:block; pointer-events:none; }
 .footer-brand .brand-mark{ width:100%; height:380px; display:block; }
 .footer-brand .footer-mark img{ object-fit:cover; object-position:18% 38%; width:100%; height:100%; mix-blend-mode:screen; }
-.footer-col h4{ font-family:var(--mono); font-size:0.85rem; letter-spacing:0.22em; text-transform:uppercase; font-weight:500; color:var(--copy); margin-bottom:30px; }
+.footer-col h4{ font-family:var(--mono); font-size:0.98rem; letter-spacing:0.22em; text-transform:uppercase; font-weight:500; color:var(--copy); margin-bottom:30px; }
 .footer-col ul{ list-style:none; display:flex; flex-direction:column; gap:18px; }
 .footer-col ul a{ font-family:var(--display); font-size:1.35rem; font-weight:500; text-transform:uppercase; letter-spacing:0.03em; color:var(--white); transition:color .2s ease; }
 .footer-col ul a:hover{ color:var(--signal-2); }
 .footer-col .info-line{ font-size:1.15rem; color:var(--copy); line-height:1.7; }
 .footer-col .info-line strong{ font-family:var(--display); text-transform:uppercase; letter-spacing:0.02em; color:var(--white); font-weight:600; }
 .footer-bottom{ display:flex; flex-direction:column; gap:0; border-top:1px solid var(--line-dark); padding-top:22px; }
-.footer-bottom-row{ display:flex; justify-content:space-between; align-items:center; gap:18px; flex-wrap:wrap; font-family:var(--mono); font-size:0.85rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--copy); }
+.footer-bottom-row{ display:flex; justify-content:space-between; align-items:center; gap:18px; flex-wrap:wrap; font-family:var(--mono); font-size:0.98rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--copy); }
 .footer-bottom a{ color:var(--white); }
 .footer-bottom a:hover{ color:var(--signal-2); }
-.footer-legal{ font-family:var(--mono); font-size:1rem; letter-spacing:0.06em; text-transform:none; color:rgba(255,255,255,0.65); text-align:center; padding-bottom:18px; margin-bottom:18px; border-bottom:1px solid var(--line-dark); width:100%; }
+.footer-legal{ font-family:var(--mono); font-size:1.15rem; letter-spacing:0.06em; text-transform:none; color:rgba(255,255,255,0.65); text-align:center; padding-bottom:18px; margin-bottom:18px; border-bottom:1px solid var(--line-dark); width:100%; }
 
 /* RESPONSIVE */
 @media (max-width:1080px){
@@ -203,7 +205,7 @@ footer.site-footer .wrap{ max-width:none; padding:0 48px; }
   .past-head{ grid-template-columns:1fr; gap:20px; }
   .past-head p{ justify-self:start; }
   .past-grid{ grid-template-columns:1fr 1fr; gap:4px; }
-  .footer-top{ grid-template-columns:1fr 1fr; gap:36px; }
+  .footer-top{ grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:36px; }
   .footer-brand{ grid-column:1 / -1; }
   .sched-grid{ grid-template-columns:1fr 1fr; gap:20px; }
 }
@@ -224,10 +226,33 @@ footer.site-footer .wrap{ max-width:none; padding:0 48px; }
   .host{ padding:72px 0; }
   .cta-band{ padding:80px 0; background-position:62% center, 62% center; }
   .cta-actions{ flex-direction:row; }
-  .cta-actions .btn{ flex:1 1 0; min-width:0; justify-content:center; padding:16px 12px; letter-spacing:0.1em; }
-  .footer-top{ grid-template-columns:1fr; gap:36px; text-align:center; padding-bottom:48px; }
+  .cta-actions .btn{ flex:1 1 0; min-width:0; justify-content:center; padding:16px 10px; letter-spacing:0.08em; font-size:0.8rem; white-space:nowrap; }
+  .footer-top{ grid-template-columns:minmax(0,1fr); gap:36px; text-align:center; padding-bottom:48px; }
   .footer-col ul{ align-items:center; }
   .footer-bottom-row{ justify-content:center; text-align:center; }
+}
+/* Desktop renders at 80% — same true layout shrink as Chrome's 80% zoom
+   (real reflow via CSS zoom, not a transform). vh hero heights are compensated
+   (divided by 0.8) because zoom doesn't scale the viewport, so heroes keep the
+   same on-screen height as the approved zoomed look. Tablet/mobile untouched. */
+@media (min-width:1081px){
+  body{ zoom:0.8; }
+  .page-hero{ min-height:75vh; }            /* was 60vh */
+}
+
+/* Phone: tactical bar content is wider than small screens; keep only the primary tag */
+@media (max-width: 540px){
+  .tac-divider, .tac-tag:not(.tac-primary){ display: none; }
+}
+
+/* Mobile menu brand logo */
+.mobile-nav-brand{ display:block; width:96px; margin-bottom:18px; }
+.mobile-nav-brand img{ width:100%; height:auto; display:block; }
+
+/* Phone: footer brand art back in flow, centered above the nav (desktop floats it absolute) */
+@media (max-width: 720px){
+  .footer-brand .brand{ position:static; width:100%; max-width:300px; margin:0 auto; }
+  .footer-brand .brand-mark{ height:340px; }
 }
 </style>
 </head>
@@ -269,6 +294,7 @@ footer.site-footer .wrap{ max-width:none; padding:0 48px; }
   <button class="mobile-close" id="mobileClose" aria-label="Close menu">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><line x1="5" y1="5" x2="19" y2="19"/><line x1="19" y1="5" x2="5" y2="19"/></svg>
   </button>
+  <a href="index.html" class="mobile-nav-brand"><img src="assets/logos/logo.png" alt="SAR OPS" /></a>
   <a href="what-we-do.html">What We Do</a>
   <a href="sponsors.html">Sponsors</a>
   <a href="events.html">Events/Classes</a>
@@ -304,17 +330,18 @@ footer.site-footer .wrap{ max-width:none; padding:0 48px; }
       </div>
     </div>
 
-    <div class="sched-filters" aria-hidden="true">
-      <span class="chip is-active">All</span>
-      <span class="chip">Courses</span>
-      <span class="chip">Private Courses</span>
-      <span class="chip">Fundraisers</span>
-      <span class="chip">Raffles</span>
+    <div class="sched-filters">
+      <span class="chip is-active" data-filter="all">All</span>
+      <span class="chip" data-filter="rope">Rope Skills</span>
+      <span class="chip" data-filter="nav">Navigation</span>
+      <span class="chip" data-filter="medical">Medical</span>
+      <span class="chip" data-filter="field">Field Operations</span>
+      <span class="chip" data-filter="prep">Preparedness</span>
     </div>
 
     <div class="sched-grid">
 
-      <a href="#" class="ev-card">
+      <div class="ev-card" data-cat="rope">
         <div class="ev-thumb">
           <div class="ev-thumb-img" style="background:url('assets/Intro Image.png') top/cover no-repeat;"></div>
           <div class="ev-date-badge"><span class="d">[00]</span><span class="m">[MON]</span></div>
@@ -326,11 +353,10 @@ footer.site-footer .wrap{ max-width:none; padding:0 48px; }
         </div>
         <div class="ev-foot">
           <span class="ev-price">$75<small>Donation</small></span>
-          <span class="btn btn-signal btn-sm">Register <span class="arrow">&rarr;</span></span>
         </div>
-      </a>
+      </div>
 
-      <a href="#" class="ev-card">
+      <div class="ev-card" data-cat="rope">
         <div class="ev-thumb">
           <div class="ev-thumb-img" style="background:url('assets/images/Advanced.png') center/cover no-repeat;"></div>
           <div class="ev-date-badge"><span class="d">[00]</span><span class="m">[MON]</span></div>
@@ -342,11 +368,10 @@ footer.site-footer .wrap{ max-width:none; padding:0 48px; }
         </div>
         <div class="ev-foot">
           <span class="ev-price">$150<small>Donation</small></span>
-          <span class="btn btn-signal btn-sm">Register <span class="arrow">&rarr;</span></span>
         </div>
-      </a>
+      </div>
 
-      <a href="#" class="ev-card">
+      <div class="ev-card" data-cat="rope">
         <div class="ev-thumb">
           <div class="ev-thumb-img" style="background:url('assets/images/Rope Rescue.jpg') center/cover no-repeat;"></div>
           <div class="ev-date-badge"><span class="d">[00]</span><span class="m">[MON]</span></div>
@@ -358,11 +383,10 @@ footer.site-footer .wrap{ max-width:none; padding:0 48px; }
         </div>
         <div class="ev-foot">
           <span class="ev-price">$175<small>Donation</small></span>
-          <span class="btn btn-signal btn-sm">Register <span class="arrow">&rarr;</span></span>
         </div>
-      </a>
+      </div>
 
-      <a href="#" class="ev-card">
+      <div class="ev-card" data-cat="medical">
         <div class="ev-thumb">
           <div class="ev-thumb-img" style="background:var(--steel-3) url('assets/logos/logo-transparent.png') center/55% no-repeat;"></div>
           <div class="ev-date-badge"><span class="d">[00]</span><span class="m">[MON]</span></div>
@@ -373,11 +397,10 @@ footer.site-footer .wrap{ max-width:none; padding:0 48px; }
         </div>
         <div class="ev-foot">
           <span class="ev-price">$[ ___ ]<small>Donation</small></span>
-          <span class="btn btn-signal btn-sm">Register <span class="arrow">&rarr;</span></span>
         </div>
-      </a>
+      </div>
 
-      <a href="#" class="ev-card">
+      <div class="ev-card" data-cat="prep">
         <div class="ev-thumb">
           <div class="ev-thumb-img" style="background:var(--steel-3) url('assets/logos/logo-transparent.png') center/55% no-repeat;"></div>
           <div class="ev-date-badge"><span class="d">[00]</span><span class="m">[MON]</span></div>
@@ -388,11 +411,10 @@ footer.site-footer .wrap{ max-width:none; padding:0 48px; }
         </div>
         <div class="ev-foot">
           <span class="ev-price">$[ ___ ]<small>Donation</small></span>
-          <span class="btn btn-signal btn-sm">Register <span class="arrow">&rarr;</span></span>
         </div>
-      </a>
+      </div>
 
-      <a href="#" class="ev-card">
+      <div class="ev-card" data-cat="nav">
         <div class="ev-thumb">
           <div class="ev-thumb-img" style="background:var(--steel-3) url('assets/logos/logo-transparent.png') center/55% no-repeat;"></div>
           <div class="ev-date-badge"><span class="d">[00]</span><span class="m">[MON]</span></div>
@@ -403,11 +425,10 @@ footer.site-footer .wrap{ max-width:none; padding:0 48px; }
         </div>
         <div class="ev-foot">
           <span class="ev-price">$[ ___ ]<small>Donation</small></span>
-          <span class="btn btn-signal btn-sm">Register <span class="arrow">&rarr;</span></span>
         </div>
-      </a>
+      </div>
 
-      <a href="#" class="ev-card">
+      <div class="ev-card" data-cat="nav">
         <div class="ev-thumb">
           <div class="ev-thumb-img" style="background:var(--steel-3) url('assets/logos/logo-transparent.png') center/55% no-repeat;"></div>
           <div class="ev-date-badge"><span class="d">[00]</span><span class="m">[MON]</span></div>
@@ -418,11 +439,10 @@ footer.site-footer .wrap{ max-width:none; padding:0 48px; }
         </div>
         <div class="ev-foot">
           <span class="ev-price">$[ ___ ]<small>Donation</small></span>
-          <span class="btn btn-signal btn-sm">Register <span class="arrow">&rarr;</span></span>
         </div>
-      </a>
+      </div>
 
-      <a href="#" class="ev-card">
+      <div class="ev-card" data-cat="field">
         <div class="ev-thumb">
           <div class="ev-thumb-img" style="background:var(--steel-3) url('assets/logos/logo-transparent.png') center/55% no-repeat;"></div>
           <div class="ev-date-badge"><span class="d">[00]</span><span class="m">[MON]</span></div>
@@ -433,11 +453,10 @@ footer.site-footer .wrap{ max-width:none; padding:0 48px; }
         </div>
         <div class="ev-foot">
           <span class="ev-price">$[ ___ ]<small>Donation</small></span>
-          <span class="btn btn-signal btn-sm">Register <span class="arrow">&rarr;</span></span>
         </div>
-      </a>
+      </div>
 
-      <a href="#" class="ev-card">
+      <div class="ev-card" data-cat="field">
         <div class="ev-thumb">
           <div class="ev-thumb-img" style="background:var(--steel-3) url('assets/logos/logo-transparent.png') center/55% no-repeat;"></div>
           <div class="ev-date-badge"><span class="d">[00]</span><span class="m">[MON]</span></div>
@@ -448,11 +467,10 @@ footer.site-footer .wrap{ max-width:none; padding:0 48px; }
         </div>
         <div class="ev-foot">
           <span class="ev-price">$[ ___ ]<small>Donation</small></span>
-          <span class="btn btn-signal btn-sm">Register <span class="arrow">&rarr;</span></span>
         </div>
-      </a>
+      </div>
 
-      <a href="#" class="ev-card">
+      <div class="ev-card" data-cat="prep">
         <div class="ev-thumb">
           <div class="ev-thumb-img" style="background:var(--steel-3) url('assets/logos/logo-transparent.png') center/55% no-repeat;"></div>
           <div class="ev-date-badge"><span class="d">[00]</span><span class="m">[MON]</span></div>
@@ -463,11 +481,10 @@ footer.site-footer .wrap{ max-width:none; padding:0 48px; }
         </div>
         <div class="ev-foot">
           <span class="ev-price">$[ ___ ]<small>Donation</small></span>
-          <span class="btn btn-signal btn-sm">Register <span class="arrow">&rarr;</span></span>
         </div>
-      </a>
+      </div>
 
-      <a href="#" class="ev-card">
+      <div class="ev-card" data-cat="prep">
         <div class="ev-thumb">
           <div class="ev-thumb-img" style="background:var(--steel-3) url('assets/logos/logo-transparent.png') center/55% no-repeat;"></div>
           <div class="ev-date-badge"><span class="d">[00]</span><span class="m">[MON]</span></div>
@@ -478,11 +495,10 @@ footer.site-footer .wrap{ max-width:none; padding:0 48px; }
         </div>
         <div class="ev-foot">
           <span class="ev-price">$[ ___ ]<small>Donation</small></span>
-          <span class="btn btn-signal btn-sm">Register <span class="arrow">&rarr;</span></span>
         </div>
-      </a>
+      </div>
 
-      <a href="#" class="ev-card">
+      <div class="ev-card" data-cat="rope">
         <div class="ev-thumb">
           <div class="ev-thumb-img" style="background:var(--steel-3) url('assets/logos/logo-transparent.png') center/55% no-repeat;"></div>
           <div class="ev-date-badge"><span class="d">[00]</span><span class="m">[MON]</span></div>
@@ -493,11 +509,10 @@ footer.site-footer .wrap{ max-width:none; padding:0 48px; }
         </div>
         <div class="ev-foot">
           <span class="ev-price">$[ ___ ]<small>Donation</small></span>
-          <span class="btn btn-signal btn-sm">Register <span class="arrow">&rarr;</span></span>
         </div>
-      </a>
+      </div>
 
-      <a href="#" class="ev-card">
+      <div class="ev-card" data-cat="rope">
         <div class="ev-thumb">
           <div class="ev-thumb-img" style="background:var(--steel-3) url('assets/logos/logo-transparent.png') center/55% no-repeat;"></div>
           <div class="ev-date-badge"><span class="d">[00]</span><span class="m">[MON]</span></div>
@@ -508,11 +523,10 @@ footer.site-footer .wrap{ max-width:none; padding:0 48px; }
         </div>
         <div class="ev-foot">
           <span class="ev-price">$[ ___ ]<small>Donation</small></span>
-          <span class="btn btn-signal btn-sm">Register <span class="arrow">&rarr;</span></span>
         </div>
-      </a>
+      </div>
 
-      <a href="#" class="ev-card">
+      <div class="ev-card" data-cat="rope">
         <div class="ev-thumb">
           <div class="ev-thumb-img" style="background:var(--steel-3) url('assets/logos/logo-transparent.png') center/55% no-repeat;"></div>
           <div class="ev-date-badge"><span class="d">[00]</span><span class="m">[MON]</span></div>
@@ -523,11 +537,10 @@ footer.site-footer .wrap{ max-width:none; padding:0 48px; }
         </div>
         <div class="ev-foot">
           <span class="ev-price">$[ ___ ]<small>Donation</small></span>
-          <span class="btn btn-signal btn-sm">Register <span class="arrow">&rarr;</span></span>
         </div>
-      </a>
+      </div>
 
-      <a href="#" class="ev-card">
+      <div class="ev-card" data-cat="medical">
         <div class="ev-thumb">
           <div class="ev-thumb-img" style="background:var(--steel-3) url('assets/logos/logo-transparent.png') center/55% no-repeat;"></div>
           <div class="ev-date-badge"><span class="d">[00]</span><span class="m">[MON]</span></div>
@@ -538,11 +551,10 @@ footer.site-footer .wrap{ max-width:none; padding:0 48px; }
         </div>
         <div class="ev-foot">
           <span class="ev-price">$[ ___ ]<small>Donation</small></span>
-          <span class="btn btn-signal btn-sm">Register <span class="arrow">&rarr;</span></span>
         </div>
-      </a>
+      </div>
 
-      <a href="#" class="ev-card">
+      <div class="ev-card" data-cat="field">
         <div class="ev-thumb">
           <div class="ev-thumb-img" style="background:var(--steel-3) url('assets/logos/logo-transparent.png') center/55% no-repeat;"></div>
           <div class="ev-date-badge"><span class="d">[00]</span><span class="m">[MON]</span></div>
@@ -553,11 +565,10 @@ footer.site-footer .wrap{ max-width:none; padding:0 48px; }
         </div>
         <div class="ev-foot">
           <span class="ev-price">$[ ___ ]<small>Donation</small></span>
-          <span class="btn btn-signal btn-sm">Register <span class="arrow">&rarr;</span></span>
         </div>
-      </a>
+      </div>
 
-      <a href="#" class="ev-card">
+      <div class="ev-card" data-cat="nav">
         <div class="ev-thumb">
           <div class="ev-thumb-img" style="background:var(--steel-3) url('assets/logos/logo-transparent.png') center/55% no-repeat;"></div>
           <div class="ev-date-badge"><span class="d">[00]</span><span class="m">[MON]</span></div>
@@ -568,11 +579,10 @@ footer.site-footer .wrap{ max-width:none; padding:0 48px; }
         </div>
         <div class="ev-foot">
           <span class="ev-price">$[ ___ ]<small>Donation</small></span>
-          <span class="btn btn-signal btn-sm">Register <span class="arrow">&rarr;</span></span>
         </div>
-      </a>
+      </div>
 
-      <a href="#" class="ev-card">
+      <div class="ev-card" data-cat="field">
         <div class="ev-thumb">
           <div class="ev-thumb-img" style="background:var(--steel-3) url('assets/logos/logo-transparent.png') center/55% no-repeat;"></div>
           <div class="ev-date-badge"><span class="d">[00]</span><span class="m">[MON]</span></div>
@@ -583,9 +593,8 @@ footer.site-footer .wrap{ max-width:none; padding:0 48px; }
         </div>
         <div class="ev-foot">
           <span class="ev-price">$[ ___ ]<small>Donation</small></span>
-          <span class="btn btn-signal btn-sm">Register <span class="arrow">&rarr;</span></span>
         </div>
-      </a>
+      </div>
 
     </div>
   </div>
@@ -722,6 +731,14 @@ footer.site-footer .wrap{ max-width:none; padding:0 48px; }
     const cat = btn.closest('.cat');
     cat.classList.toggle('is-open');
   }
+  const filterChips = document.querySelectorAll('.sched-filters .chip');
+  const evCards = document.querySelectorAll('.sched-grid .ev-card');
+  filterChips.forEach(chip => chip.addEventListener('click', () => {
+    filterChips.forEach(c => c.classList.remove('is-active'));
+    chip.classList.add('is-active');
+    const f = chip.dataset.filter;
+    evCards.forEach(card => { card.style.display = (f === 'all' || card.dataset.cat === f) ? '' : 'none'; });
+  }));
   const menuBtn = document.getElementById('menuBtn');
   const mobileNav = document.getElementById('mobileNav');
   const mobileClose = document.getElementById('mobileClose');
