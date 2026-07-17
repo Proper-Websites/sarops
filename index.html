@@ -413,14 +413,15 @@ nav.primary .nav-donate::after{ display: none; }
   position:absolute; inset:0;
   background-size:cover; background-position:center;
   background-attachment:fixed;
-  opacity:0; animation:heroFade 32s infinite;
+  opacity:0; animation:heroFade 40s infinite;
 }
 .hero-slide:nth-child(1){ animation-delay:0s; }
 .hero-slide:nth-child(2){ animation-delay:8s; }
 .hero-slide:nth-child(3){ animation-delay:16s; }
 .hero-slide:nth-child(4){ animation-delay:24s; }
+.hero-slide:nth-child(5){ animation-delay:32s; }
 @keyframes heroFade{
-  0%{opacity:0;} 3%{opacity:1;} 25%{opacity:1;} 32%{opacity:0;} 100%{opacity:0;}
+  0%{opacity:0;} 2.4%{opacity:1;} 20%{opacity:1;} 25.6%{opacity:0;} 100%{opacity:0;}
 }
 @media (prefers-reduced-motion: reduce){
   .hero-slide{ animation:none; }
@@ -1999,6 +2000,7 @@ footer.site-footer .wrap{
     <div class="hero-slide" style="background-image:url('assets/hero/hero-2.jpeg');"></div>
     <div class="hero-slide" style="background-image:url('assets/Vehicle Deployment.jpg');"></div>
     <div class="hero-slide" style="background-image:url('assets/hero/brief.jpeg');"></div>
+    <div class="hero-slide" style="background-image:url('assets/hero/hero-image-4.jpg');"></div>
   </div>
 <!-- ============ HERO ============ -->
 <section class="hero">

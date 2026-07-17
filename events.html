@@ -129,6 +129,8 @@ nav.primary .nav-donate::after{ display:none; }
 /* Only the first three classes have real photos — the rest carry a logo
    placeholder tile. Hide those thumbs until real photography exists. */
 .sched-grid .ev-card:nth-child(n+4) .ev-thumb{ display:none; }
+/* Only the first three courses have dates/pricing locked; hide the rest until confirmed */
+.sched-grid .ev-card:nth-child(n+4){ display:none; }
 .ev-date-badge{ display:none; }
 .ev-date-badge .d{ display:block; font-family:var(--display); font-size:1.5rem; font-weight:700; color:var(--spark); line-height:0.85; }
 .ev-date-badge .m{ display:block; font-family:var(--mono); font-size:0.6rem; letter-spacing:0.16em; text-transform:uppercase; color:var(--white); margin-top:4px; }
@@ -328,15 +330,6 @@ footer.site-footer .wrap{ max-width:none; padding:0 48px; }
         <div class="eyebrow">Upcoming Schedule</div>
         <h2 class="h-display">Classes &amp; events</h2>
       </div>
-    </div>
-
-    <div class="sched-filters">
-      <span class="chip is-active" data-filter="all">All</span>
-      <span class="chip" data-filter="rope">Rope Skills</span>
-      <span class="chip" data-filter="nav">Navigation</span>
-      <span class="chip" data-filter="medical">Medical</span>
-      <span class="chip" data-filter="field">Field Operations</span>
-      <span class="chip" data-filter="prep">Preparedness</span>
     </div>
 
     <div class="sched-grid">
@@ -731,14 +724,6 @@ footer.site-footer .wrap{ max-width:none; padding:0 48px; }
     const cat = btn.closest('.cat');
     cat.classList.toggle('is-open');
   }
-  const filterChips = document.querySelectorAll('.sched-filters .chip');
-  const evCards = document.querySelectorAll('.sched-grid .ev-card');
-  filterChips.forEach(chip => chip.addEventListener('click', () => {
-    filterChips.forEach(c => c.classList.remove('is-active'));
-    chip.classList.add('is-active');
-    const f = chip.dataset.filter;
-    evCards.forEach(card => { card.style.display = (f === 'all' || card.dataset.cat === f) ? '' : 'none'; });
-  }));
   const menuBtn = document.getElementById('menuBtn');
   const mobileNav = document.getElementById('mobileNav');
   const mobileClose = document.getElementById('mobileClose');
