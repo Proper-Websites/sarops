@@ -77,7 +77,7 @@ nav.primary .nav-donate::after{ display:none; }
 .btn-ghost:hover{ border-color:var(--signal); background:var(--signal); color:var(--white); }
 
 /* PAGE HERO */
-.page-hero{ position:relative; background-color:var(--navy); background-image:url('assets/hero/shop-hero.jpeg'); background-size:cover; background-position:center top; background-attachment:scroll; border-top:2px solid var(--signal); border-bottom:2px solid var(--signal); min-height:clamp(700px, 125vh, 1350px); display:flex; overflow:hidden; }
+.page-hero{ position:relative; background-color:var(--navy); background-image:url('assets/hero/shop-hero.jpeg'); background-size:cover; background-position:center top; background-attachment:scroll; border-top:2px solid var(--signal); border-bottom:2px solid var(--signal); min-height:clamp(800px, 142vh, 1560px); display:flex; overflow:hidden; }
 .page-hero::after{ content:""; position:absolute; inset:0; background:
   linear-gradient(180deg, rgba(15,25,36,0.6) 0px, rgba(15,25,36,0) 280px),
   linear-gradient(0deg, rgba(15,25,36,0.95) 0%, rgba(15,25,36,0.66) 42%, rgba(15,25,36,0.3) 74%, rgba(15,25,36,0.16) 100%);
@@ -182,7 +182,7 @@ footer.site-footer .wrap{ max-width:none; padding:0 48px; }
 
 /* RESPONSIVE */
 @media (max-width:1080px){
-  .page-hero{ background-attachment:scroll; }
+  .page-hero{ background-attachment:scroll; min-height:clamp(560px, 85vh, 820px); }
   .proceeds .wrap{ grid-template-columns:1fr; gap:40px; }
   .footer-top{ grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:36px; }
   .footer-brand{ grid-column:1 / -1; }
