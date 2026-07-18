@@ -77,7 +77,7 @@ nav.primary .nav-donate::after{ display:none; }
 .btn-ghost:hover{ border-color:var(--signal); background:var(--signal); color:var(--white); }
 
 /* PAGE HERO */
-.page-hero{ position:relative; background-color:var(--navy); background-image:url('assets/Vehicle Deployment Image.jpg'); background-size:cover; background-position:center; background-attachment:scroll; border-top:2px solid var(--signal); border-bottom:2px solid var(--signal); aspect-ratio:4/3; min-height:clamp(560px, 60vh, 760px); display:flex; }
+.page-hero{ position:relative; background-color:var(--navy); background-image:url('assets/Vehicle Deployment Image.jpg'); background-size:cover; background-position:center bottom; background-attachment:scroll; border-top:2px solid var(--signal); border-bottom:2px solid var(--signal); min-height:clamp(560px, 60vh, 760px); display:flex; }
 .page-hero::after{ content:""; position:absolute; inset:0; background:
   linear-gradient(180deg, rgba(15,25,36,0.6) 0px, rgba(15,25,36,0) 280px),
   linear-gradient(0deg, rgba(15,25,36,0.95) 0%, rgba(15,25,36,0.64) 42%, rgba(15,25,36,0.28) 74%, rgba(15,25,36,0.14) 100%);
@@ -242,7 +242,7 @@ footer.site-footer .wrap{ max-width:none; padding:0 48px; }
    same on-screen height as the approved zoomed look. Tablet/mobile untouched. */
 @media (min-width:1081px){
   body{ zoom:0.8; }
-  .page-hero{ min-height:75vh; }            /* was 60vh */
+  .page-hero{ min-height:clamp(560px, 92.5vh, 880px); } /* was 74vh */
 }
 
 /* Phone: tactical bar content is wider than small screens; keep only the primary tag */
