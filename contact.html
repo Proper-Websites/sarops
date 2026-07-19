@@ -214,6 +214,11 @@ footer.site-footer .wrap{ max-width:none; padding:0 48px; }
 @media (min-width:1081px){
   body{ zoom:0.8; }
   .page-hero{ min-height:clamp(560px, 92.5vh, 880px); } /* was 74vh */
+  /* Hero copy sits as a low band across the bottom of the frame (headline left,
+     lede right) so the crew in the photos stays visible */
+  .page-hero .wrap{ max-width:none; display:grid; grid-template-columns:auto minmax(0,520px); justify-content:space-between; align-items:end; align-content:end; column-gap:64px; }
+  .page-hero .eyebrow{ grid-column:1/-1; }
+  .page-hero-lede{ font-size:1.08rem; margin-top:0; margin-bottom:6px; }
 }
 
 /* Phone: tactical bar content is wider than small screens; keep only the primary tag */
@@ -283,7 +288,7 @@ footer.site-footer .wrap{ max-width:none; padding:0 48px; }
 <!-- PAGE HERO -->
 <section class="page-hero">
   <div class="page-hero-slide" style="background-image:url('assets/hero/contact-1.jpeg'); background-position:center bottom;"></div>
-  <div class="page-hero-slide" style="background-image:url('assets/hero/contact-2-padded.jpeg'); background-position:center top;"></div>
+  <div class="page-hero-slide" style="background-image:url('assets/Contact Hero.jpeg'); background-position:center;"></div>
   <div class="wrap">
     <div class="eyebrow">Get In Touch</div>
     <h1>Reach <span class="accent">the team</span></h1>
