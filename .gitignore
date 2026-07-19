@@ -13,3 +13,6 @@ authnet-credentials.php
 
 # Gallery source originals — site uses optimized copies in assets/in-action/
 assets/In Action/
+
+# Exception: events hero video, re-encoded to 7.6MB (under GitHub's 100MB limit)
+!assets/video/training.mp4
