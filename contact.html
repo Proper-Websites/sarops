@@ -82,7 +82,7 @@ nav.primary .nav-donate::after{ display:none; }
    fading on a staggered delay (same slideshow technique as the homepage hero,
    but each slide keeps background-attachment:fixed so the parallax remains). */
 .page-hero{ position:relative; overflow:hidden; background-color:var(--navy); border-top:2px solid var(--signal); border-bottom:2px solid var(--signal); min-height:clamp(640px, 92vh, 1020px); display:flex; }
-.page-hero-slide{ position:absolute; inset:0; background-size:cover; background-position:center; background-attachment:scroll; opacity:0; animation:pageHeroFade 16s infinite; }
+.page-hero-slide{ position:absolute; inset:0; background-size:cover; background-position:center; background-attachment:fixed; opacity:0; animation:pageHeroFade 16s infinite; }
 .page-hero-slide:nth-child(1){ animation-delay:0s; }
 .page-hero-slide:nth-child(2){ animation-delay:8s; }
 @keyframes pageHeroFade{
