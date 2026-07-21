@@ -341,11 +341,13 @@ footer.site-footer .wrap{ max-width:none; padding:0 48px; }
 
 /* Phones: the hero photo stands alone below the nav; the title moves into a navy band under it */
 @media (max-width:720px){
-  .page-hero{ display:block; min-height:0; padding-top:120px; background:var(--navy); }
+  .page-hero{ display:block; min-height:0; background:var(--navy); }
   .page-hero::before{ content:""; display:block; position:static; inset:auto; z-index:auto; width:100%; aspect-ratio:4/3; background:url('assets/images/petzl.jpg') center/cover no-repeat; border-bottom:2px solid var(--signal); }
   .page-hero::after{ display:none; }
   .page-hero .wrap{ padding-top:40px; padding-bottom:52px; }
   .page-hero h1, .page-hero-lede, .page-hero-note{ text-shadow:none; }
+  .page-hero-meta .pm{ align-items:flex-start; }
+  .page-hero-meta .pm-dot{ margin-top:5px; }
 }
 </style>
 </head>
