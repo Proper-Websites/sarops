@@ -168,7 +168,7 @@ footer.site-footer .wrap{ max-width:none; padding:0 48px; }
 }
 @media (max-width:1080px){
   nav.primary{ display:none; }
-  .menu-btn{ display:flex; align-self:flex-start; margin:8px -10px 0 0; }
+  .menu-btn{ display:flex; margin-right:-10px; }
   .menu-btn svg{ width:36px; height:36px; }
 }
 @media (max-width:720px){
@@ -190,11 +190,13 @@ footer.site-footer .wrap{ max-width:none; padding:0 48px; }
   .footer-col ul{ align-items:center; }
   .footer-bottom{ justify-content:center; text-align:center; }
 }
-/* Phone: tactical bar stacks into two centered lines; divider dropped */
+/* Phone: tactical bar scales down so the full line always fits */
 @media (max-width: 540px){
-  .tac-group{ flex-direction: column; gap: 3px; padding: 4px 0; }
-  .tac-divider{ display: none; }
-  .tac-tag:not(.tac-primary){ display: block; font-size: 0.56rem; letter-spacing: 0.13em; white-space: normal; text-align: center; line-height: 1.6; }
+  .tac-group{ gap:7px; padding:4px 0; }
+  .tac-tag{ font-size:clamp(6.5px, 2.15vw, 11px); letter-spacing:0.04em; gap:5px; }
+  .tac-primary{ letter-spacing:0.12em; }
+  .tac-divider{ font-size:clamp(7px, 2.4vw, 12px); }
+  .tac-dot{ width:5px; height:5px; box-shadow:0 0 0 2px rgba(199,58,43,0.28); }
 }
 /* Desktop renders at 80% — same true layout shrink as Chrome's 80% zoom
    (real reflow via CSS zoom, not a transform). vh hero heights are compensated

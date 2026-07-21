@@ -1694,7 +1694,7 @@ footer.site-footer .wrap{
 }
 @media (max-width: 1080px){
   nav.primary{ display:none; }
-  .menu-btn{ display:flex; align-self:flex-start; margin:-20px -14px 0 0; }
+  .menu-btn{ display:flex; margin-right:-14px; }
   .menu-btn svg{ width:36px; height:36px; }
   .hero{ min-height: 86vh; }
   .hero-stack{ background-position: 65% center; background-attachment: scroll; }
@@ -1958,11 +1958,13 @@ footer.site-footer .wrap{
   .hero, .hero .wrap{ min-height:100vh; }   /* was 80vh */
 }
 
-/* Phone: tactical bar stacks into two centered lines; divider dropped */
+/* Phone: tactical bar scales down so the full line always fits */
 @media (max-width: 540px){
-  .tac-group{ flex-direction: column; gap: 3px; padding: 4px 0; }
-  .tac-divider{ display: none; }
-  .tac-tag:not(.tac-primary){ display: block; font-size: 0.56rem; letter-spacing: 0.13em; white-space: normal; text-align: center; line-height: 1.6; }
+  .tac-group{ gap:7px; padding:4px 0; }
+  .tac-tag{ font-size:clamp(6.5px, 2.15vw, 11px); letter-spacing:0.04em; gap:5px; }
+  .tac-primary{ letter-spacing:0.12em; }
+  .tac-divider{ font-size:clamp(7px, 2.4vw, 12px); }
+  .tac-dot{ width:5px; height:5px; box-shadow:0 0 0 2px rgba(199,58,43,0.28); }
 }
 
 /* Mobile menu brand logo */
