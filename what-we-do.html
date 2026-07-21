@@ -200,10 +200,27 @@ footer.site-footer .wrap{ max-width:none; padding:0 48px; }
 .mobile-nav-brand{ display:block; width:96px; margin-bottom:18px; }
 .mobile-nav-brand img{ width:100%; height:auto; display:block; }
 
-/* Phone: footer brand art back in flow, centered above the nav (desktop floats it absolute) */
+/* Phone: footer brand art sits as an L in the top-left corner; columns below in tidy left-aligned groups */
 @media (max-width: 720px){
-  .footer-brand .brand{ position:static; width:100%; max-width:300px; margin:0 auto; }
-  .footer-brand .brand-mark{ height:340px; }
+  footer.site-footer{ padding:36px 0 44px; }
+  footer.site-footer .wrap{ padding:0 22px; }
+  .footer-brand .brand{ position:static; display:block; width:252px; height:252px; margin:0 0 0 -20px; }
+  .footer-brand .brand-mark{ width:100%; height:100%; }
+  .footer-top{ grid-template-columns:minmax(0,1fr); gap:44px; text-align:left; padding-bottom:48px; margin-bottom:0; border-bottom:none; }
+  .footer-col h4{ margin-bottom:20px; }
+  .footer-col ul{ display:grid; grid-template-columns:1fr 1fr; gap:16px 20px; justify-items:start; align-items:start; }
+  .footer-bottom{ border-top:1px solid var(--line-dark); padding-top:24px; }
+  .footer-legal{ font-size:0.95rem; line-height:1.7; letter-spacing:0.04em; padding-bottom:20px; margin-bottom:20px; }
+  .footer-bottom-row{ flex-direction:column; gap:10px; justify-content:center; text-align:center; font-size:0.9rem; }
+}
+
+/* Phones: the hero photo stands alone below the nav; the title moves into a navy band under it */
+@media (max-width:720px){
+  .page-hero{ display:block; min-height:0; padding-top:120px; background:var(--navy); }
+  .page-hero::before{ content:""; display:block; position:static; inset:auto; z-index:auto; width:100%; aspect-ratio:4/3; background:url('assets/images/helicopter.jpg') center/cover no-repeat; border-bottom:2px solid var(--signal); }
+  .page-hero::after{ display:none; }
+  .page-hero .wrap{ padding-top:40px; padding-bottom:52px; }
+  .page-hero h1, .page-hero-lede{ text-shadow:none; }
 }
 </style>
 </head>
