@@ -1535,6 +1535,44 @@ form.contact-form .form-note{
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
+form.contact-form label .req{ color: var(--signal-2); letter-spacing: 0; margin-left: 2px; }
+form.contact-form .field-error label{ color: var(--signal-2); }
+form.contact-form .field-error input,
+form.contact-form .field-error select,
+form.contact-form .field-error textarea{
+  border-bottom: 2px solid var(--signal-2);
+}
+form.contact-form .form-fail{
+  display: none;
+  font-family: var(--mono);
+  font-size: 0.83rem;
+  color: var(--signal-2);
+  line-height: 1.5;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-top: 18px;
+}
+form.contact-form.send-failed .form-fail{ display: block; }
+form.contact-form .form-success{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 340px;
+}
+form.contact-form .form-success h3{
+  font-family: var(--display);
+  font-size: 2.2rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--white);
+  margin-bottom: 14px;
+}
+form.contact-form .form-success p{
+  color: rgba(255,255,255,0.8);
+  line-height: 1.6;
+  max-width: 44ch;
+}
 
 /* ============ FOOTER ============ */
 footer.site-footer{
@@ -2376,26 +2414,36 @@ footer.site-footer .wrap{
         </div>
       </div>
 
-      <form class="contact-form" onsubmit="event.preventDefault(); alert('Thank you, your message has been received. (Mockup only, no submission.)'); this.reset();">
+      <form class="contact-form" action="https://formspree.io/f/xvzeqrvj" method="POST" novalidate>
+        <input type="hidden" name="_subject" value="New inquiry from the SAROPS.org homepage" />
+        <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true" />
         <div class="form-row">
           <div>
-            <label for="cf-first">First Name</label>
+            <label for="cf-first">First Name <span class="req">*</span></label>
             <input id="cf-first" type="text" name="first" required />
           </div>
           <div>
-            <label for="cf-last">Last Name</label>
+            <label for="cf-last">Last Name <span class="req">*</span></label>
             <input id="cf-last" type="text" name="last" required />
           </div>
         </div>
 
         <div class="form-row">
           <div>
-            <label for="cf-email">Email</label>
+            <label for="cf-email">Email <span class="req">*</span></label>
             <input id="cf-email" type="email" name="email" required />
           </div>
           <div>
+            <label for="cf-phone">Phone <span class="req">*</span></label>
+            <input id="cf-phone" type="tel" name="phone" required />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="full">
             <label for="cf-reason">Reason for Contact</label>
             <select id="cf-reason" name="reason">
+              <option value=""></option>
               <option>General Inquiry</option>
               <option>Volunteer Opportunities</option>
               <option>Training &amp; Classes</option>
@@ -2409,7 +2457,7 @@ footer.site-footer .wrap{
 
         <div class="form-row">
           <div class="full">
-            <label for="cf-msg">Message</label>
+            <label for="cf-msg">Message <span class="req">*</span></label>
             <textarea id="cf-msg" name="message" required></textarea>
           </div>
         </div>
@@ -2418,6 +2466,7 @@ footer.site-footer .wrap{
           <p class="form-note">For emergencies, call 911. SAR OPS deploys at the request of public agencies.</p>
           <button type="submit" class="btn btn-dark">Send Message <span class="arrow">&rarr;</span></button>
         </div>
+        <p class="form-fail">Something went wrong and your message was not sent. Please try again, or email Commander@SAROPS.org.</p>
       </form>
     </div>
   </div>
@@ -2488,6 +2537,38 @@ footer.site-footer .wrap{
   }
   if (mobileNav){
     mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileNav.classList.remove('open')));
+  }
+
+  // contact form: inline validation + AJAX submit to Formspree (no redirect)
+  const contactForm = document.querySelector('form.contact-form');
+  if (contactForm){
+    const requiredFields = () => Array.from(contactForm.querySelectorAll('[required]'));
+    const mark = f => f.parentElement.classList.toggle('field-error', !f.checkValidity());
+    requiredFields().forEach(f => {
+      f.addEventListener('blur', () => mark(f));
+      f.addEventListener('input', () => { if (f.checkValidity()) f.parentElement.classList.remove('field-error'); });
+    });
+    contactForm.addEventListener('submit', async e => {
+      e.preventDefault();
+      contactForm.classList.remove('send-failed');
+      const fields = requiredFields();
+      fields.forEach(mark);
+      const firstBad = fields.find(f => !f.checkValidity());
+      if (firstBad){ firstBad.focus(); return; }
+      const btn = contactForm.querySelector('button[type="submit"]');
+      const btnHTML = btn.innerHTML;
+      btn.disabled = true;
+      btn.textContent = 'Sending...';
+      try {
+        const res = await fetch(contactForm.action, { method:'POST', body:new FormData(contactForm), headers:{ 'Accept':'application/json' } });
+        if (!res.ok) throw new Error('send failed');
+        contactForm.innerHTML = '<div class="form-success"><h3>Message received</h3><p>Thank you. A member of our command staff will review your inquiry and be in touch.</p></div>';
+      } catch (err){
+        contactForm.classList.add('send-failed');
+        btn.disabled = false;
+        btn.innerHTML = btnHTML;
+      }
+    });
   }
 
   // donate band: amount picker
