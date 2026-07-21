@@ -267,6 +267,7 @@ nav.primary a{
   transition: color .2s ease;
   position: relative;
   padding: 6px 0;
+  white-space: nowrap;
 }
 nav.primary a:not(.nav-donate)::after{
   content:"";
@@ -1686,7 +1687,15 @@ footer.site-footer .wrap{
 .footer-legal{ font-family:var(--mono); font-size:1.15rem; letter-spacing:0.06em; text-transform:none; color:rgba(255,255,255,0.65); text-align:center; padding-bottom:18px; margin-bottom:18px; border-bottom:1px solid var(--line-dark); width:100%; }
 
 /* ============ RESPONSIVE ============ */
+@media (max-width: 1360px){
+  nav.primary{ gap: 26px; }
+  nav.primary a{ font-size: 0.95rem; letter-spacing: 0.11em; }
+  nav.primary .nav-donate{ padding: 12px 22px; }
+}
 @media (max-width: 1080px){
+  nav.primary{ display:none; }
+  .menu-btn{ display:flex; align-self:flex-start; margin:-20px -14px 0 0; }
+  .menu-btn svg{ width:36px; height:36px; }
   .hero{ min-height: 86vh; }
   .hero-stack{ background-position: 65% center; background-attachment: scroll; }
   .hero .wrap{ min-height: 86vh; }
@@ -1722,8 +1731,6 @@ footer.site-footer .wrap{
 }
 @media (max-width: 720px){
   .wrap{ padding: 0 22px; }
-  nav.primary{ display:none; }
-  .menu-btn{ display:flex; }
   .hero{ min-height: 86vh; }
   .hero-stack{ background-position: 60% center; }
   .hero .wrap{ min-height: 86vh; }
@@ -1951,9 +1958,11 @@ footer.site-footer .wrap{
   .hero, .hero .wrap{ min-height:100vh; }   /* was 80vh */
 }
 
-/* Phone: tactical bar content is wider than small screens; keep only the primary tag */
+/* Phone: tactical bar stacks into two centered lines; divider dropped */
 @media (max-width: 540px){
-  .tac-divider, .tac-tag:not(.tac-primary){ display: none; }
+  .tac-group{ flex-direction: column; gap: 3px; padding: 4px 0; }
+  .tac-divider{ display: none; }
+  .tac-tag:not(.tac-primary){ display: block; font-size: 0.56rem; letter-spacing: 0.13em; white-space: normal; text-align: center; line-height: 1.6; }
 }
 
 /* Mobile menu brand logo */

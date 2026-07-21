@@ -51,7 +51,7 @@ button{ font:inherit; cursor:pointer; border:none; background:none; color:inheri
 .brand-mark{ width:74px; height:74px; display:flex; align-items:center; justify-content:center; flex:none; }
 .brand-mark img{ width:100%; height:100%; object-fit:contain; display:block; }
 nav.primary{ display:flex; align-items:center; gap:30px; }
-nav.primary a{ font-family:var(--body); font-size:0.78rem; letter-spacing:0.16em; text-transform:uppercase; font-weight:500; color:var(--white); transition:color .2s ease; position:relative; padding:6px 0; }
+nav.primary a{ font-family:var(--body); font-size:0.78rem; letter-spacing:0.16em; text-transform:uppercase; font-weight:500; color:var(--white); transition:color .2s ease; position:relative; padding:6px 0; white-space:nowrap; }
 nav.primary a:not(.nav-donate)::after{ content:""; position:absolute; left:0; right:0; bottom:0; height:2px; background:var(--signal); transform:scaleX(0); transform-origin:left; transition:transform .25s ease; }
 nav.primary a:not(.nav-donate):hover::after, nav.primary a.active:not(.nav-donate)::after{ transform:scaleX(1); }
 nav.primary .nav-donate{ border:2px solid var(--signal-2); padding:11px 22px; color:var(--white); transition:background .2s ease, border-color .2s ease, color .2s ease; }
@@ -274,10 +274,13 @@ footer.site-footer .wrap{ max-width:none; padding:0 48px; }
   .footer-top{ grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:36px; }
   .footer-brand{ grid-column:1 / -1; }
 }
+@media (max-width:1080px){
+  nav.primary{ display:none; }
+  .menu-btn{ display:flex; align-self:flex-start; margin:8px -10px 0 0; }
+  .menu-btn svg{ width:36px; height:36px; }
+}
 @media (max-width:720px){
   .wrap{ padding:0 22px; }
-  nav.primary{ display:none; }
-  .menu-btn{ display:flex; }
   .tac-group{ gap:12px; padding:5px 14px; }
   .tac-tag{ font-size:0.6rem; letter-spacing:0.18em; }
   .page-hero{ background-position:55% center; }
@@ -318,7 +321,9 @@ footer.site-footer .wrap{ max-width:none; padding:0 48px; }
 
 /* Phone: tactical bar content is wider than small screens; keep only the primary tag */
 @media (max-width: 540px){
-  .tac-divider, .tac-tag:not(.tac-primary){ display: none; }
+  .tac-group{ flex-direction: column; gap: 3px; padding: 4px 0; }
+  .tac-divider{ display: none; }
+  .tac-tag:not(.tac-primary){ display: block; font-size: 0.56rem; letter-spacing: 0.13em; white-space: normal; text-align: center; line-height: 1.6; }
 }
 
 /* Mobile menu brand logo */
