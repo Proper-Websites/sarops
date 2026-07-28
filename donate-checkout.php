@@ -32,7 +32,11 @@ $amount = number_format($amount, 2, '.', '');
 $sandbox = defined('AUTHNET_ENV') && AUTHNET_ENV === 'sandbox';
 $apiUrl  = $sandbox ? 'https://apitest.authorize.net/xml/v1/request.api' : 'https://api.authorize.net/xml/v1/request.api';
 $payUrl  = $sandbox ? 'https://test.authorize.net/payment/payment' : 'https://accept.authorize.net/payment/payment';
-$site    = 'https://sarops.properwebsites.com';
+// Send the donor back to whichever domain they donated from (whitelist only —
+// this value is embedded in the Authorize.net return links).
+$allowedHosts = ['sarops.org', 'www.sarops.org', 'sarops.properwebsites.com'];
+$reqHost = isset($_SERVER['HTTP_HOST']) ? strtolower($_SERVER['HTTP_HOST']) : '';
+$site    = in_array($reqHost, $allowedHosts, true) ? 'https://' . $reqHost : 'https://sarops.org';
 
 // Field order matters to Authorize.net's JSON API — keep it as-is.
 $request = ['getHostedPaymentPageRequest' => [
