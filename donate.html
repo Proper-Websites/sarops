@@ -126,6 +126,7 @@ nav.primary .nav-donate::after{ display:none; }
 .give-tier{ display:flex; flex-direction:column; justify-content:space-between; align-items:flex-start; gap:0; padding:40px 32px 36px; border-bottom:1px solid var(--line-dark); border-right:1px solid var(--line-dark); min-height:200px; text-decoration:none; color:inherit; transition:background .25s ease; position:relative; }
 .give-tier:first-child{ border-left:1px solid var(--line-dark); }
 .give-tier:hover{ background:var(--navy-2); }
+.give-tier.selected{ background:var(--navy-2); box-shadow:inset 0 0 0 2px var(--signal); }
 .give-tier-amt{ font-family:var(--display); font-size:clamp(2.4rem,3.4vw,3.2rem); font-weight:700; color:var(--white); line-height:0.94; margin-bottom:auto; padding-top:18px; }
 .give-tier-label{ font-family:var(--body); font-size:0.94rem; letter-spacing:0; text-transform:none; color:var(--copy); line-height:1.5; margin-top:20px; }
 .give-tier-feat{ background:var(--navy-2); }
@@ -372,7 +373,7 @@ footer.site-footer .wrap{ max-width:none; padding:0 48px; }
         <span class="give-tier-amt">$50</span>
         <span class="give-tier-label">Helps fuel a search vehicle</span>
       </a>
-      <a href="#" class="give-tier give-tier-feat" data-amt="100">
+      <a href="#" class="give-tier give-tier-feat selected" data-amt="100">
         <span class="give-tier-flag">Most Common</span>
         <span class="give-tier-amt">$100</span>
         <span class="give-tier-label">Supports field medical supplies</span>
@@ -393,11 +394,10 @@ footer.site-footer .wrap{ max-width:none; padding:0 48px; }
     <div class="give-custom" id="giveCustom">
       <span class="cur">$</span>
       <input type="number" min="1" step="1" inputmode="numeric" placeholder="Enter amount" id="giveCustomInput" aria-label="Custom donation amount" />
-      <button type="button" class="btn btn-signal" id="giveCustomGo">Give <span class="arrow">&rarr;</span></button>
     </div>
     <div class="give-foot">
       <span class="give-foot-note"><strong>Tax-deductible</strong> &middot; SAR OPS is a registered 501(c)(3)</span>
-      <a href="#" class="btn btn-signal" id="giveFootDonate" data-amt="100">Donate Now <span class="arrow">&rarr;</span></a>
+      <a href="#" class="btn btn-signal" id="giveFootDonate"><span class="btn-label">Donate $100</span> <span class="arrow">&rarr;</span></a>
     </div>
   </div>
 </section>
@@ -562,22 +562,44 @@ footer.site-footer .wrap{ max-width:none; padding:0 48px; }
     i.type = 'hidden'; i.name = 'amount'; i.value = amt;
     f.appendChild(i); document.body.appendChild(f); f.submit();
   };
+  // tiers select an amount; the Donate Now button below hands off to payment
   const giveCustom = document.getElementById('giveCustom');
   const giveCustomInput = document.getElementById('giveCustomInput');
-  const giveCustomGo = document.getElementById('giveCustomGo');
-  document.querySelectorAll('.give-tier').forEach(tier => tier.addEventListener('click', e => {
-    e.preventDefault();
-    const amt = tier.dataset.amt;
-    if (amt === 'custom'){ giveCustom.classList.add('show'); giveCustomInput.focus(); return; }
-    goDonate(amt);
-  }));
-  if (giveCustomGo) giveCustomGo.addEventListener('click', () => {
-    const v = parseFloat(giveCustomInput.value);
-    if (v >= 1) goDonate(v); else giveCustomInput.focus();
-  });
-  if (giveCustomInput) giveCustomInput.addEventListener('keydown', e => { if (e.key === 'Enter'){ e.preventDefault(); giveCustomGo.click(); } });
+  const giveTiers = document.querySelectorAll('.give-tier');
   const footDonate = document.getElementById('giveFootDonate');
-  if (footDonate) footDonate.addEventListener('click', e => { e.preventDefault(); goDonate(footDonate.dataset.amt); });
+  const footLabel = footDonate ? footDonate.querySelector('.btn-label') : null;
+  const fmt = n => '$' + Number(n).toLocaleString('en-US');
+  const setBtn = t => { if (footLabel) footLabel.textContent = t; };
+  const syncCustom = () => {
+    const v = parseInt(giveCustomInput.value, 10);
+    setBtn(v > 0 ? 'Donate ' + fmt(v) : 'Donate');
+  };
+  giveTiers.forEach(tier => tier.addEventListener('click', e => {
+    e.preventDefault();
+    giveTiers.forEach(t => t.classList.remove('selected'));
+    tier.classList.add('selected');
+    const amt = tier.dataset.amt;
+    if (amt === 'custom'){
+      giveCustom.classList.add('show');
+      giveCustomInput.focus();
+      syncCustom();
+    } else {
+      giveCustom.classList.remove('show');
+      setBtn('Donate ' + fmt(amt));
+    }
+  }));
+  if (giveCustomInput) giveCustomInput.addEventListener('input', syncCustom);
+  if (giveCustomInput) giveCustomInput.addEventListener('keydown', e => { if (e.key === 'Enter'){ e.preventDefault(); footDonate.click(); } });
+  if (footDonate) footDonate.addEventListener('click', e => {
+    e.preventDefault();
+    const sel = document.querySelector('.give-tier.selected');
+    let amt = sel ? sel.dataset.amt : '100';
+    if (amt === 'custom'){
+      amt = parseFloat(giveCustomInput.value);
+      if (!(amt >= 1)){ giveCustomInput.focus(); return; }
+    }
+    goDonate(amt);
+  });
   if (new URLSearchParams(location.search).has('thanks')){
     const thanksBanner = document.getElementById('giveThanks');
     if (thanksBanner){ thanksBanner.classList.add('show'); thanksBanner.scrollIntoView({ behavior:'smooth', block:'center' }); }
