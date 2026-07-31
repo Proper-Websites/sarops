@@ -9,7 +9,7 @@ function fail($code, $msg) {
   http_response_code($code);
   echo '<!doctype html><title>Donation | SAR OPS</title><body style="background:#1E2D3D;color:#fff;font-family:system-ui,sans-serif;display:flex;align-items:center;justify-content:center;min-height:100vh;margin:0;text-align:center;padding:24px">'
      . '<div><p style="font-size:1.1rem;max-width:460px;line-height:1.6">' . htmlspecialchars($msg) . '</p>'
-     . '<p style="margin-top:24px"><a href="donate.html" style="color:#DA483A;text-decoration:underline">Back to the donate page</a></p></div></body>';
+     . '<p style="margin-top:24px"><a href="/donate" style="color:#DA483A;text-decoration:underline">Back to the donate page</a></p></div></body>';
   exit;
 }
 
@@ -56,8 +56,8 @@ $request = ['getHostedPaymentPageRequest' => [
     ['settingName' => 'hostedPaymentReturnOptions',
      'settingValue' => json_encode([
        'showReceipt' => true,
-       'url' => $site . '/donate.html?thanks=1', 'urlText' => 'Back to SAR OPS',
-       'cancelUrl' => $site . '/donate.html',    'cancelUrlText' => 'Cancel',
+       'url' => $site . '/donate?thanks=1', 'urlText' => 'Back to SAR OPS',
+       'cancelUrl' => $site . '/donate',    'cancelUrlText' => 'Cancel',
      ])],
     ['settingName' => 'hostedPaymentBillingAddressOptions',
      'settingValue' => json_encode(['show' => true, 'required' => false])],

@@ -1,0 +1,21 @@
+RewriteEngine On
+
+# ---- Clean URLs ----
+
+# Serve the homepage at the bare domain, never /index.html
+RewriteCond %{THE_REQUEST} ^[A-Z]+\ /index\.html
+RewriteRule ^index\.html$ / [R=301,L]
+
+# /page.html -> /page (301, query strings carry over)
+RewriteCond %{THE_REQUEST} ^[A-Z]+\ /[^\s?]+\.html
+RewriteRule ^([^.]+)\.html$ /$1 [R=301,L]
+
+# /page/ -> /page (only when page.html exists; real folders unaffected)
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{DOCUMENT_ROOT}/$1.html -f
+RewriteRule ^(.+)/$ /$1 [R=301,L]
+
+# Serve page.html when /page is requested
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^(.+?)/?$ $1.html [L]
